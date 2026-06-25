@@ -5,16 +5,19 @@
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>MhfuLookup.App</RootNamespace>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
     <!-- Default app/EXE icon: the Question Mark monster icon. -->
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <!-- app.manifest is used only for unpackaged (Debug) builds; MSIX Release builds use Package.appxmanifest. -->
+    <ApplicationManifest Condition="'$(Configuration)' != 'Release' or '$(RuntimeIdentifier)' == ''">app.manifest</ApplicationManifest>
     <Platforms>x86;x64;ARM64</Platforms>
     <RuntimeIdentifiers>win-x64;win-x86;win-arm64</RuntimeIdentifiers>
     <UseWinUI>true</UseWinUI>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Unpackaged (no MSIX): run as a plain .exe. -->
-    <WindowsPackageType>None</WindowsPackageType>
+    <!-- Unpackaged for Debug (no RID required, fast dev iteration).
+         Release builds with a RID (e.g. -r win-x64) produce a signed MSIX. -->
+    <WindowsPackageType Condition="'$(Configuration)' == 'Release' and '$(RuntimeIdentifier)' != ''">MSIX</WindowsPackageType>
+    <WindowsPackageType Condition="'$(Configuration)' != 'Release' or '$(RuntimeIdentifier)' == ''">None</WindowsPackageType>
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
 
@@ -43,9 +46,9 @@
 
   <!-- Ship the database next to the app. -->
   <ItemGroup>
-    <None Include="..\..\data\mhfu.db" Link="mhfu.db">
+    <Content Include="..\..\data\mhfu.db" Link="mhfu.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
 
   <!-- Ship the gathering-extraction write-up so the About page can open it locally (offline). -->
@@ -133,6 +136,15 @@
     <Content Include="Assets\Misc\*.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <!-- MSIX package logo assets (generated from app.ico; update with proper artwork before Store submission). -->
+  <ItemGroup>
+    <Content Include="Assets\Square44x44Logo.png" />
+    <Content Include="Assets\Square150x150Logo.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.png" />
+    <Content Include="Assets\SplashScreen.png" />
   </ItemGroup>
 
 </Project>
