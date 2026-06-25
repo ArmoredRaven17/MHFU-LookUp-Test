@@ -1,0 +1,138 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>MhfuLookup.App</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- Default app/EXE icon: the Question Mark monster icon. -->
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <Platforms>x86;x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win-x64;win-x86;win-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Unpackaged (no MSIX): run as a plain .exe. -->
+    <WindowsPackageType>None</WindowsPackageType>
+    <EnableMsixTooling>true</EnableMsixTooling>
+  </PropertyGroup>
+
+  <!-- Release builds for a specific RID are fully self-contained and portable: the .NET runtime
+       AND the Windows App SDK are bundled, so the published folder runs on a clean Win10 1809+
+       machine with nothing pre-installed. Debug stays framework-dependent for fast dev iteration.
+       Publish with: dotnet publish ... -c Release -r win-x64  (see docs/deploying.md). -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' and '$(RuntimeIdentifier)' != ''">
+    <SelfContained>true</SelfContained>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <!-- No debug symbols in a release/distribution build (drops the .pdb files). -->
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AK.Toolkit.WinUI3.ScrollBarExtensions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1839" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MhfuLookup.Core\MhfuLookup.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Ship the database next to the app. -->
+  <ItemGroup>
+    <None Include="..\..\data\mhfu.db" Link="mhfu.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- Ship the gathering-extraction write-up so the About page can open it locally (offline). -->
+  <ItemGroup>
+    <Content Include="..\..\docs\gather-extraction.md" Link="docs\gather-extraction.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- In-game MHFU font (extracted from the ROM), used app-wide via ms-appx:///Assets/Fonts/mhfu_font.ttf#MHFU. -->
+  <ItemGroup>
+    <Content Include="Assets\Fonts\*.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Monster icons: PNG (ms-appx UI icons) + ICO (window/taskbar icon via AppWindow.SetIcon). -->
+  <ItemGroup>
+    <Content Include="Assets\Monsters\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Monsters\*.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Item icons (loaded via ms-appx:///Assets/Items/{icon}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Items\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Location/area icons (loaded via ms-appx:///Assets/Locations/{slug}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Locations\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Decoration/jewel tint icons (loaded via ms-appx:///Assets/Decorations/{color}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Decorations\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Crafting-material tint icons (loaded via ms-appx:///Assets/Materials/{type}_{color}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Materials\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Guild Card award icons (loaded via ms-appx:///Assets/Awards/{icon}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Awards\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Hunting Horn note icons (loaded via ms-appx:///Assets/Notes/Note.{color}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Notes\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Element/status value icons (loaded via ms-appx:///Assets/Elements/{Element}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Elements\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Weapon-type icons (white silhouettes; loaded via ms-appx:///Assets/WeaponTypes/{Type}.png). -->
+  <ItemGroup>
+    <Content Include="Assets\WeaponTypes\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!-- Misc UI artwork (e.g. ms-appx:///Assets/Misc/bookmark_on.png). -->
+  <ItemGroup>
+    <Content Include="Assets\Misc\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

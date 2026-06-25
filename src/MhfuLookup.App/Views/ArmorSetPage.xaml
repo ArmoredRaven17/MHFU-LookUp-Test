@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.ArmorSetPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:core="using:MhfuLookup.Core.Data"
+    xmlns:app="using:MhfuLookup.App"
+    xmlns:ctl="using:MhfuLookup.App.Controls"
+    xmlns:toolkit="using:AK.Toolkit.WinUI3"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="{StaticResource PanelBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Margin="8,8,8,0">
+                <TextBox x:Name="SearchBox"
+                         PlaceholderText="Search Armor Sets…" TextChanged="SearchBox_TextChanged" />
+                <TextBlock Text="Searches set, skill &amp; activated skill"
+                           Foreground="{StaticResource MutedTextBrush}" FontSize="10" TextWrapping="NoWrap"
+                           Margin="2,3,0,4" />
+            </StackPanel>
+            <ToggleSwitch x:Name="ClassSwitch" Grid.Row="1" Margin="8,0,8,4"
+                          OffContent="Blademaster" OnContent="Gunner"
+                          Toggled="Toggle_Toggled"
+                          IsOn="{x:Bind ViewModel.IsGunner, Mode=TwoWay}" />
+            <ToggleSwitch x:Name="GenderSwitch" Grid.Row="2" Margin="8,0,8,4"
+                          OffContent="Male" OnContent="Female"
+                          Toggled="Toggle_Toggled"
+                          IsOn="{x:Bind ViewModel.IsFemale, Mode=TwoWay}" />
+            <ListView x:Name="SetList" Grid.Row="3"
+                      SelectionMode="Single" SelectionChanged="SetList_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="core:ArmorSetSummary">
+                        <TextBlock Text="{x:Bind Name}" Foreground="{StaticResource TextBrush}" TextWrapping="Wrap" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate x:DataType="vm:ArmorRarityGroup">
+                                <TextBlock Text="{x:Bind Header}" FontWeight="Bold"
+                                           Foreground="{StaticResource HeaderBrush}" Margin="0,6,0,2" />
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ListView.GroupStyle>
+            </ListView>
+        </Grid>
+
+        <ScrollViewer Grid.Column="1" Background="{StaticResource TableBgBrush}" Padding="16" app:ScrollBarFix.KeepVerticalExpandedOwn="True">
+            <StackPanel>
+                <TextBlock Text="Select an armor set."
+                           Foreground="{StaticResource MutedTextBrush}"
+                           Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVisible}}" />
+
+                <StackPanel Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVis}}">
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <TextBlock Text="{x:Bind ViewModel.Selected.Name, Mode=OneWay}"
+                                   FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextBrush}"
+                                   VerticalAlignment="Center" />
+                        <ctl:BookmarkStar x:Name="ArmorStar" />
+                    </StackPanel>
+                    <TextBlock Text="{x:Bind ViewModel.Selected.Rank, Mode=OneWay}"
+                               Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,8" />
+
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Selected.Variants, Mode=OneWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:VariantView">
+                                <StackPanel Margin="0,8,0,16">
+                                    <TextBlock Text="{x:Bind ClassType}" FontSize="14" FontWeight="SemiBold"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               Visibility="{x:Bind ShowClassHeader, Converter={StaticResource BoolToVis}}" />
+
+                                    <!-- Piece stats -->
+                                    <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Auto" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" app:ScrollForwarder.BubbleVerticalWheel="True" app:ScrollBarFix.KeepHorizontalExpandedOwn="True" Padding="0,0,0,18">
+                                    <StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60" /><ColumnDefinition Width="160" />
+                                            <ColumnDefinition Width="74" /><ColumnDefinition Width="56" />
+                                            <ColumnDefinition Width="46" /><ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
+                                            <ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="Slot" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="1" Text="Name" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="2" Text="Def" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="3" Text="Slots" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="4" Text="Fire" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="5" Text="Watr" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="6" Text="Thndr" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="7" Text="Ice" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="8" Text="Drgn" Style="{StaticResource HeaderCell}" />
+                                    </Grid>
+                                    <ItemsControl ItemsSource="{x:Bind Pieces}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="vm:PieceStatRow">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="60" /><ColumnDefinition Width="160" />
+                                                        <ColumnDefinition Width="74" /><ColumnDefinition Width="56" />
+                                                        <ColumnDefinition Width="46" /><ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
+                                                        <ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0" Text="{x:Bind Slot}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="1" Text="{x:Bind Name}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="2" Text="{x:Bind Defense}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="3" Text="{x:Bind Slots}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="4" Text="{x:Bind Fire}" Foreground="{x:Bind Fire, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="5" Text="{x:Bind Water}" Foreground="{x:Bind Water, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="6" Text="{x:Bind Thunder}" Foreground="{x:Bind Thunder, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="7" Text="{x:Bind Ice}" Foreground="{x:Bind Ice, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="8" Text="{x:Bind Dragon}" Foreground="{x:Bind Dragon, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    </StackPanel>
+                                    </ScrollViewer>
+
+                                    <!-- Skill points -->
+                                    <TextBlock Text="Skill Points" Style="{StaticResource SectionTitle}"
+                                               Visibility="{x:Bind HasSkills, Converter={StaticResource BoolToVis}}" />
+                                    <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalScrollMode="Auto" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled"
+                                                  app:ScrollForwarder.BubbleVerticalWheel="True"
+                                                  app:ScrollBarFix.KeepHorizontalExpandedOwn="True"
+                                                  Padding="0,0,0,18"
+                                                  Visibility="{x:Bind HasSkills, Converter={StaticResource BoolToVis}}">
+                                    <StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="160" /><ColumnDefinition Width="56" /><ColumnDefinition Width="56" />
+                                            <ColumnDefinition Width="56" /><ColumnDefinition Width="56" /><ColumnDefinition Width="56" /><ColumnDefinition Width="56" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="Skill" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="1" Text="Head" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="2" Text="Chest" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="3" Text="Arms" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="4" Text="Waist" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="5" Text="Legs" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="6" Text="Total" Style="{StaticResource HeaderCell}" />
+                                    </Grid>
+                                    <ItemsControl ItemsSource="{x:Bind Skills}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="vm:SkillPointRow">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="160" /><ColumnDefinition Width="56" /><ColumnDefinition Width="56" />
+                                                        <ColumnDefinition Width="56" /><ColumnDefinition Width="56" /><ColumnDefinition Width="56" /><ColumnDefinition Width="56" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0" Text="{x:Bind Skill}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="1" Text="{x:Bind Head}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="2" Text="{x:Bind Chest}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="3" Text="{x:Bind Arms}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="4" Text="{x:Bind Waist}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="5" Text="{x:Bind Legs}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="6" Text="{x:Bind Total, Converter={StaticResource SignedInt}}"
+                                                               Foreground="{x:Bind Total, Converter={StaticResource SignBrush}}" FontWeight="SemiBold" FontSize="12" Padding="6,3" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    </StackPanel>
+                                    </ScrollViewer>
+
+                                    <!-- Activated skills -->
+                                    <TextBlock Text="Activated Skills" Style="{StaticResource SectionTitle}"
+                                               Visibility="{x:Bind HasActivated, Converter={StaticResource BoolToVis}}" />
+                                    <ItemsControl ItemsSource="{x:Bind Activated}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="vm:ActivatedSkill">
+                                                <TextBlock Text="{x:Bind Name}" Foreground="{x:Bind Color}" Padding="6,1" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+
+                                    <!-- Materials (per piece) -->
+                                    <TextBlock Text="Materials" Style="{StaticResource SectionTitle}"
+                                               Visibility="{x:Bind HasMaterials, Converter={StaticResource BoolToVis}}" />
+                                    <ItemsControl ItemsSource="{x:Bind Materials}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="vm:PieceMaterials">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="160" /><ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0" Text="{x:Bind Name}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="1" Text="{x:Bind Materials}" Style="{StaticResource BodyCell}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- Editable user notes -->
+                    <StackPanel Margin="0,12,0,0">
+                        <TextBlock Text="Notes" Style="{StaticResource SectionTitle}" />
+                        <TextBox x:Name="ArmorNotesBox" PlaceholderText="Add your own notes…"
+                                 AcceptsReturn="True" TextWrapping="Wrap" MinHeight="70" MaxHeight="200"
+                                 TextChanged="ArmorNotesBox_TextChanged" LostFocus="ArmorNotesBox_LostFocus" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

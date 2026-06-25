@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.GatheringPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:core="using:MhfuLookup.Core.Data"
+    xmlns:app="using:MhfuLookup.App"
+    xmlns:ctl="using:MhfuLookup.App.Controls"
+    Background="Transparent">
+
+    <Page.Resources>
+        <!-- One drop line: a rank sub-header (All Ranks view) or an item drop (name + rate). -->
+        <DataTemplate x:Key="GatherLineTemplate" x:DataType="vm:GatherLine">
+            <Grid>
+                <!-- Rank sub-header (only in the All Ranks view) -->
+                <TextBlock Text="{x:Bind Name}" FontSize="11" FontWeight="SemiBold" Margin="6,4,0,1"
+                           Foreground="{StaticResource HeaderBrush}"
+                           Visibility="{x:Bind IsHeader, Converter={StaticResource BoolToVis}}" />
+                <!-- Item drop -->
+                <Grid Visibility="{x:Bind IsDrop, Converter={StaticResource BoolToVis}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="190" /><ColumnDefinition Width="48" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{x:Bind Name}" Foreground="{StaticResource TextBrush}"
+                               FontSize="12" Padding="6,2,2,2" TextWrapping="Wrap" />
+                    <TextBlock Grid.Column="1" Text="{x:Bind Rate}" Foreground="{StaticResource MutedTextBrush}"
+                               FontSize="12" Padding="0,2,4,2" TextAlignment="Right" />
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Areas -->
+        <ListView Grid.Column="0" Background="{StaticResource PanelBgBrush}"
+                  ItemsSource="{x:Bind ViewModel.Areas}"
+                  SelectedItem="{x:Bind ViewModel.SelectedArea, Mode=TwoWay}"
+                  SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="core:NamedDoc">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Width="20" Height="20" Stretch="Uniform" VerticalAlignment="Center"
+                               Source="{x:Bind Title, Converter={StaticResource LocationIcon}}" />
+                        <TextBlock Grid.Column="1" Margin="8,0,0,0" Text="{x:Bind Title}" VerticalAlignment="Center" TextWrapping="Wrap"
+                                   Foreground="{x:Bind Title, Converter={StaticResource LocationBrush}}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Column="1" Background="{StaticResource TableBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Header: area name + bookmark, rank dropdown, search -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="8" Margin="8" VerticalAlignment="Center">
+                <TextBlock Text="{x:Bind ViewModel.SelectedAreaTitle, Mode=OneWay}" FontSize="16" FontWeight="Bold"
+                           Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                <ctl:BookmarkStar x:Name="GatherStar" VerticalAlignment="Center" />
+                <ComboBox Width="150" VerticalAlignment="Center"
+                          IsEnabled="{x:Bind ViewModel.HasMultipleRanks, Mode=OneWay}"
+                          ItemsSource="{x:Bind ViewModel.Ranks}"
+                          SelectedItem="{x:Bind ViewModel.SelectedRank, Mode=TwoWay}" />
+                <TextBox x:Name="SearchBox" Width="240" VerticalAlignment="Center"
+                         PlaceholderText="Search items in this area…" TextChanged="SearchBox_TextChanged" />
+            </StackPanel>
+
+            <!-- Column header -->
+            <Grid Grid.Row="1" Margin="8,0,16,2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110" /><ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="70" /><ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Zone" Style="{StaticResource HeaderCell}" />
+                <TextBlock Grid.Column="1" Text="Node" Style="{StaticResource HeaderCell}" />
+                <TextBlock Grid.Column="2" Text="Type" Style="{StaticResource HeaderCell}" />
+                <TextBlock Grid.Column="3" Text="{x:Bind ViewModel.SelectedRank, Mode=OneWay}" Style="{StaticResource HeaderCell}" />
+            </Grid>
+
+            <ScrollViewer Grid.Row="2" Padding="8,0,16,16" app:ScrollBarFix.KeepVerticalExpandedOwn="True"
+                          HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Visible">
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:GatherDisplayRow">
+                            <Grid BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="110" /><ColumnDefinition Width="44" />
+                                    <ColumnDefinition Width="70" /><ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{x:Bind Zone}" Style="{StaticResource BodyCell}" />
+                                <TextBlock Grid.Column="1" Text="{x:Bind Node}" Style="{StaticResource BodyCell}" />
+                                <TextBlock Grid.Column="2" Text="{x:Bind Type}" Style="{StaticResource BodyCell}" />
+                                <ItemsControl Grid.Column="3" ItemsSource="{x:Bind Lines}"
+                                              ItemTemplate="{StaticResource GatherLineTemplate}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

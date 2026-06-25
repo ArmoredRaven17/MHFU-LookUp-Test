@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.PeddlingGrannyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:app="using:MhfuLookup.App"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Rotating inventories -->
+        <ListView Grid.Column="0" Background="{StaticResource PanelBgBrush}"
+                  ItemsSource="{x:Bind ViewModel.Inventories}"
+                  SelectedItem="{x:Bind ViewModel.SelectedInventory, Mode=TwoWay}"
+                  SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <TextBlock Text="{x:Bind}" VerticalAlignment="Center" TextWrapping="Wrap"
+                               Foreground="{StaticResource TextBrush}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Wares in the selected inventory -->
+        <Grid Grid.Column="1" Background="{StaticResource TableBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="16,12,16,6">
+                <TextBlock Text="{x:Bind ViewModel.SelectedInventory, Mode=OneWay}"
+                           FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextBrush}" />
+                <TextBlock FontSize="12" Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap"
+                           Text="The Peddling Granny sells from a rotating stock — her inventory changes over time." />
+                <TextBlock FontSize="12" Foreground="{StaticResource PositiveBrush}" TextWrapping="Wrap"
+                           Text="Discount stock — these prices are reduced."
+                           Visibility="{x:Bind ViewModel.IsDiscount, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1" Padding="16,0,16,16" app:ScrollBarFix.KeepVerticalExpandedOwn="True">
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Items}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:GrannyEntry">
+                            <Grid Margin="0,0,0,3" HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="28" />
+                                    <ColumnDefinition Width="180" />
+                                    <ColumnDefinition Width="80" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Width="24" Height="24" Stretch="Uniform" VerticalAlignment="Center"
+                                       Source="{x:Bind Icon, Converter={StaticResource ImageUri}}" />
+                                <TextBlock Grid.Column="1" Text="{x:Bind Name}" Margin="8,0,8,0"
+                                           VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                                           Foreground="{StaticResource TextBrush}" />
+                                <TextBlock Grid.Column="2" Text="{x:Bind Price}"
+                                           VerticalAlignment="Center" TextAlignment="Right" FontWeight="SemiBold"
+                                           Foreground="{StaticResource HeaderBrush}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

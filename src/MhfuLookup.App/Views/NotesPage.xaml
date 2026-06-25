@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.NotesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:toolkit="using:AK.Toolkit.WinUI3"
+    Background="{StaticResource WindowBgBrush}">
+
+    <Grid Padding="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <StackPanel>
+                <TextBlock Text="Notes" FontSize="22" FontWeight="Bold" Foreground="{StaticResource TextBrush}" />
+                <TextBlock Foreground="{StaticResource MutedTextBrush}" FontSize="13" TextWrapping="Wrap"
+                           Text="Every note you've added to a monster or weapon. Edit it here, click the name to open its page, or remove it with ✕." />
+            </StackPanel>
+            <Button x:Name="ExportNotesButton" Content="Export Notes…" Click="ExportNotes_Click"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" />
+        </Grid>
+
+        <TextBlock Grid.Row="1" VerticalAlignment="Top" Margin="0,12,0,0"
+                   Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap"
+                   Text="No notes yet — open a monster or weapon and type in its Notes box to add one."
+                   Visibility="{x:Bind ViewModel.IsEmpty, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
+
+        <ScrollViewer Grid.Row="1" toolkit:ScrollBarExtensions.KeepVerticalExpanded="True">
+            <ItemsControl ItemsSource="{x:Bind ViewModel.Groups}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="vm:NoteGroup">
+                        <StackPanel Margin="0,0,0,10">
+                            <TextBlock Text="{x:Bind Header}" FontWeight="Bold"
+                                       Foreground="{StaticResource HeaderBrush}" Margin="0,8,0,4" />
+                            <ItemsControl ItemsSource="{x:Bind}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:NoteEntry">
+                                        <Border Background="{StaticResource PanelBgBrush}" CornerRadius="6"
+                                                Padding="10" Margin="0,0,0,8">
+                                            <StackPanel Spacing="6">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <!-- Clickable header → deep-link to the entity -->
+                                                    <Button Grid.Column="0" Click="NavigateNote_Click" Tag="{x:Bind}"
+                                                            Background="Transparent" BorderThickness="0" Padding="0"
+                                                            HorizontalAlignment="Left" HorizontalContentAlignment="Left"
+                                                            ToolTipService.ToolTip="Open this page">
+                                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                                            <Image Width="28" Height="28" Stretch="Uniform" VerticalAlignment="Center"
+                                                                   Source="{x:Bind IconUri, Converter={StaticResource ImageUri}}" />
+                                                            <StackPanel VerticalAlignment="Center">
+                                                                <TextBlock Text="{x:Bind Name}" FontWeight="SemiBold"
+                                                                           Foreground="{StaticResource TextBrush}" />
+                                                                <TextBlock Text="{x:Bind Category}" FontSize="11"
+                                                                           Foreground="{StaticResource MutedTextBrush}" />
+                                                            </StackPanel>
+                                                        </StackPanel>
+                                                    </Button>
+                                                    <Button Grid.Column="1" Content="✕" Click="DeleteNote_Click" Tag="{x:Bind}"
+                                                            Background="Transparent" BorderThickness="0"
+                                                            Foreground="{StaticResource MutedTextBrush}" FontSize="14"
+                                                            VerticalAlignment="Top" ToolTipService.ToolTip="Delete note" />
+                                                </Grid>
+                                                <TextBox Text="{x:Bind Note, Mode=TwoWay}" Tag="{x:Bind}"
+                                                         AcceptsReturn="True" TextWrapping="Wrap"
+                                                         MinHeight="56" MaxHeight="220"
+                                                         TextChanged="NoteBox_TextChanged" LostFocus="NoteBox_LostFocus" />
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.HelpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="{StaticResource WindowBgBrush}">
+
+    <ScrollViewer Padding="24">
+        <StackPanel MaxWidth="760" HorizontalAlignment="Left" Spacing="6">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="14" Margin="0,0,0,2">
+                <Image Source="ms-appx:///Assets/Misc/help_cat_black.png" Height="44" Stretch="Uniform" VerticalAlignment="Center" />
+                <TextBlock Text="Help for MHFU Look Up" FontSize="24" FontWeight="Bold" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                <Image Source="ms-appx:///Assets/Misc/help_cat_tan.png" Height="44" Stretch="Uniform" VerticalAlignment="Center" />
+            </StackPanel>
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" MaxWidth="620"
+                       FontSize="14" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,8">
+                MHFU LookUp is an offline reference for Monster Hunter Freedom Unite (MHP2G). Pick a tab on the
+                left — most have a search box at the top. Here's what each tab covers.
+            </TextBlock>
+
+            <TextBlock Text="The Tabs" Style="{StaticResource SectionTitle}" />
+            <StackPanel Spacing="0">
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Bookmarks" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Your saved monsters, weapons, items, armor sets, armor skills, decorations, quests, treasures, gathering areas and Trenya destinations, grouped by type.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Add a bookmark with the <Run FontWeight="SemiBold">bookmark icon</Run> next to the name on any of those detail views; click it again to remove.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Click an entry here to jump straight to it, or use the <Run FontWeight="SemiBold">✕</Run> to remove it.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Notes" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Every note you've added to a monster, weapon, armor set or quest, grouped by type.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Edit a note right here (it saves when you click away), click the name to open its page, or remove it with <Run FontWeight="SemiBold">✕</Run>.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Export Notes</Run> — save all your weapon &amp; monster notes to a text document.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Monsters" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The monster's name and icon stay pinned at the top while you scroll the details.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Hitzones for cut / impact / shot and each element, colour-coded by how much damage the part takes.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Stagger and break thresholds.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Ailment tolerances (poison, paralysis, sleep, and so on).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Carve / capture / break reward tables, listed per rank.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Monster Facts</Run> — trivia and reference notes about the monster.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Notes</Run> — your own editable notes for each monster; they save automatically.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Weapons" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Upgrade trees for every weapon type, with branch lines. Cross-type forges (e.g. a Great Sword that upgrades into a Long Sword) show as a leaf in the source tree and as the origin at the top of the target tree.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Each weapon shows a rarity-coloured weapon-type icon, in both the upgrade tree and the detail header.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Per-weapon stats: rarity (colour-coded by tier), sharpness, element / status (with icons), slots and affinity.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Attack shows the displayed value with <Run FontWeight="SemiBold">True Raw</Run> in parentheses — e.g. “912 (190)”. True Raw is the displayed Attack divided by the weapon's class multiplier (Great Sword/Long Sword 4.8, Hammer/Hunting Horn 5.2, Lance/Gunlance 2.3, Sword &amp; Shield/Dual Blades 1.4, bowguns &amp; Bow 1.2), so you can compare real power across weapon types.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Element and status values likewise show their <Run FontWeight="SemiBold">True Value</Run> (displayed ÷ 10) in parentheses — e.g. “470 (47)”.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Crafting materials shown with icons, plus the create / upgrade recipes.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Type-specific detail: bow charges &amp; coatings, bowgun ammo loadouts, gunlance shelling, hunting-horn notes &amp; songs. Each adds a reference button — Hunting Horn “Songs…”, the bowguns “Ammo…”, Bow “Shot Types…” (with each shot type's per-arrow / per-hit damage pattern), and Gunlance “Shells…” (damage + fire per shell level for Normal, Long, Spread and Wyvern Fire).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  MHP2G-exclusive “(DUMMY)” weapons are included and labelled — they can't normally be crafted in MHFU.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Notes</Run> — your own editable notes for each weapon; they save automatically.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  “Filter…” narrows the list; a material can link back to the monster that drops it.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Armor Sets" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Search by set name, a skill you want points in (e.g. “Sneak”), or an activated skill (e.g. “Stealth”).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Per-piece defense, resistances, slots and skill points.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Skills that activate when the set is worn — <Run Foreground="{StaticResource PositiveBrush}">green</Run> = beneficial, <Run Foreground="{StaticResource NegativeBrush}">red</Run> = detrimental.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Blademaster / Gunner toggle to switch the variant.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Male / Female toggle for set and piece names.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Notes</Run> — your own editable notes for each set; they save automatically.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Armor Skills" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  All skills listed alphabetically by default; use the dropdown to filter to a category (Offense, Defense, Bowgun, …). A skill can appear in more than one category.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Point thresholds and what each tier does, and which categories the skill belongs to.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The categories mirror the skill groupings in <Run FontWeight="SemiBold">Athena's Armor Set Search</Run> for MHFU — so if you plan sets with that tool, finding the relevant skills here should feel familiar and make set-searching more streamlined.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Decorations" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Jewels and the skills (with points) they grant.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Slot cost for each jewel.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Recipes to craft them.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  List by name or by skill.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Quests" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Organized by hub and rank.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Target monster(s) and/or delivery-item icons.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  KEY / URGENT badges.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Objective, fee, reward and unlock conditions.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Notes</Run> — your own editable notes for each quest; they save automatically.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Training School" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The Training School quests, selectable by category.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Per quest: danger rating, objective and item sets.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Weapon Selection — each loaner weapon &amp; armor loadout with its instructor notes and active skills (<Run Foreground="{StaticResource PositiveBrush}">green</Run> = helpful, <Run Foreground="{StaticResource NegativeBrush}">red</Run> = avoid).</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Gathering" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Per-area node tables.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Zone, node and type stay fixed on the left while you scroll.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Low / High / G-rank, Training and Treasure columns.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Items" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The full item list, grouped by category.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Descriptions, rarity, carry limit and sell value.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Jump to category</Run> — the dropdown at the top scrolls straight to any category (Consumables, Plants, Info Books, …).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Info Books</Run> (monster intel) are their own category; Treasure-Hunt items live in the Treasures tab, not here.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Combo List" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Combination recipes: Product = Item 1 + Item 2.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Success chance and quantity for each.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Grouped into normal combinations, Treasure-Hunt-only and Alchemy-only.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Treasures" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Treasure-quest items with point values.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Where to find each one.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  A ★ marks items that count toward a Guild Card award.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Kitchen" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Felyne Kitchen recipes: two ingredients combine into an effect.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Pick the number of Felyne chefs to see that level's ingredient list and recipes (more chefs unlock more).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Effects are colour-coded — <Run Foreground="{StaticResource PositiveBrush}">green</Run> = beneficial, <Run Foreground="{StaticResource NegativeBrush}">red</Run> = detrimental.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  A “Felyne Whim Skills” page lists every Felyne Whim skill (MHF2 + MHFU) and what each does.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Trenya" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Items Trenya brings back from his sea trips, by destination.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Pick how many Pokke Points to fund him with — higher tiers yield rarer items.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Rewards are grouped by category (General, Mineral, Monster, Jewel, and so on).</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Pokke Farm" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Items obtainable from each farm area — Mining Points, Fishing Pier, Insect Thicket, Bug Tree, and more.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Each area lists its yields by upgrade tier (and Field Rows shows plantable &amp; fertilizer items).</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Peddling Granny" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The discount vendor's wares and prices, by inventory — she sells from a rotating stock.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Pick an inventory on the left (Regular, Discount, or DLC); discount inventories list reduced prices.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Veggie Elder" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The Veggie Elder's item-for-item trades, organized by zone (pick one on the left).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Each trade shows the item you hand over and its <Run FontWeight="SemiBold">Common</Run> and <Run FontWeight="SemiBold">Rare</Run> results (~20% chance of the Rare).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Search the box at the top to find a trade across <Run FontWeight="SemiBold">all zones</Run> at once; each result is tagged with the zone it's in.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Felyne Comrades" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  A guide to the AI Felyne fighters you hire and train. Pick a section on the left.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Basic Info / Comrade Board / Growth</Run> — the Comrade's stats, the kitchen board's options, and training types.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Weapons</Run> — the recommended Slash / Impact weapon per attack-power tier, with each weapon's damage divider (smaller is better).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Points/Skills</Run> — every trainable skill with its point cost, effect, and how to unlock it.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Hunting Behavior</Run> — how Comrades aid you, gather, and fight, plus a colour-coded Temperaments table (attack preference, healing rate and target).</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Awards" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Every Guild Card award, with its icon and description.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  How to earn each one.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Settings" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  UI scale.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Window / taskbar icon.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  App colour theme.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The monster icon shown on each tab.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Restore Defaults resets scale, icon, theme and tab icons.</TextBlock>
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <StackPanel Spacing="3">
+                    <TextBlock Text="About" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Data sources &amp; attribution.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Trademarks and ownership.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Disclaimers, including AI use.</TextBlock>
+                </StackPanel>
+
+            </StackPanel>
+
+            <TextBlock Text="Tips" Style="{StaticResource SectionTitle}" />
+            <StackPanel Spacing="6">
+                <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">
+                    • <Run FontWeight="SemiBold">Search</Run> — most list tabs have a search box at the top that
+                    filters as you type.
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">
+                    • <Run FontWeight="SemiBold">Wide tables</Run> — the mouse wheel always scrolls vertically; to
+                    move a wide table sideways, drag its horizontal scrollbar (it appears only when needed).
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">
+                    • <Run FontWeight="SemiBold">Notes</Run> — add your own notes to any monster, weapon, armor set or
+                    quest (they save when you click away). Review, edit or export them all from the Notes tab; if you
+                    close the app with an unsaved edit, it asks first.
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">
+                    • <Run FontWeight="SemiBold">Everything is offline</Run> — all data is stored locally, so the
+                    app works without an internet connection.
+                </TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

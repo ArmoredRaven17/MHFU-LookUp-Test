@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.ArmorSkillPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="using:MhfuLookup.Core.Models"
+    xmlns:ctl="using:MhfuLookup.App.Controls"
+    xmlns:toolkit="using:AK.Toolkit.WinUI3"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="{StaticResource PanelBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- Category filter: "All Skills" (default, alphabetical) or one of the named categories. -->
+            <ComboBox x:Name="CategoryFilter" Grid.Row="0" Margin="8,8,8,0" HorizontalAlignment="Stretch"
+                      ItemsSource="{x:Bind ViewModel.Categories}"
+                      SelectedItem="{x:Bind ViewModel.SelectedCategory, Mode=TwoWay}" />
+            <TextBox x:Name="SearchBox" Grid.Row="1" Margin="8"
+                     PlaceholderText="Search skills…" TextChanged="SearchBox_TextChanged" />
+            <ListView x:Name="SkillList" Grid.Row="2" SelectionMode="Single"
+                      ItemsSource="{x:Bind ViewModel.Items}"
+                      SelectionChanged="SkillList_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Skill">
+                        <TextBlock Text="{x:Bind Name}" Foreground="{StaticResource TextBrush}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <ScrollViewer Grid.Column="1" Background="{StaticResource TableBgBrush}" Padding="16" toolkit:ScrollBarExtensions.KeepVerticalExpanded="True">
+            <StackPanel>
+                <TextBlock Text="Select a skill from the list."
+                           Foreground="{StaticResource MutedTextBrush}"
+                           Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVisible}}" />
+
+                <StackPanel Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVis}}">
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <TextBlock Text="{x:Bind ViewModel.Selected.Name, Mode=OneWay}"
+                                   FontSize="20" FontWeight="Bold" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                        <ctl:BookmarkStar x:Name="SkillStar" />
+                    </StackPanel>
+                    <TextBlock Text="{x:Bind ViewModel.SelectedCategoriesText, Mode=OneWay}"
+                               Foreground="{StaticResource MutedTextBrush}"
+                               Visibility="{x:Bind ViewModel.SelectedCategoriesText, Mode=OneWay, Converter={StaticResource StringToVis}}" />
+                    <TextBlock Text="{x:Bind ViewModel.Selected.Description, Mode=OneWay}"
+                               Foreground="{StaticResource MutedTextBrush}" FontStyle="Italic"
+                               TextWrapping="Wrap" Margin="0,4,0,8" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" /><ColumnDefinition Width="200" /><ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Points" Style="{StaticResource HeaderCell}" />
+                        <TextBlock Grid.Column="1" Text="Skill" Style="{StaticResource HeaderCell}" />
+                        <TextBlock Grid.Column="2" Text="Description" Style="{StaticResource HeaderCell}" />
+                    </Grid>
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Selected.Levels, Mode=OneWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="models:SkillLevel">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70" /><ColumnDefinition Width="200" /><ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{x:Bind Points, Converter={StaticResource SignedInt}}"
+                                               Foreground="{x:Bind Points, Converter={StaticResource SignBrush}}"
+                                               FontSize="12" Padding="6,3" />
+                                    <TextBlock Grid.Column="1" Text="{x:Bind Name}" Style="{StaticResource BodyCell}" />
+                                    <TextBlock Grid.Column="2" Text="{x:Bind Description}" Style="{StaticResource BodyCell}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

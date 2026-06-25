@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.DecorationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:ctl="using:MhfuLookup.App.Controls"
+    xmlns:toolkit="using:AK.Toolkit.WinUI3"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="{StaticResource PanelBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBox x:Name="SearchBox" Grid.Row="0" Margin="8"
+                     PlaceholderText="Search decorations…" TextChanged="SearchBox_TextChanged" />
+            <ToggleSwitch Grid.Row="1" Margin="8,0,8,4"
+                          OffContent="By name" OnContent="By skill"
+                          IsOn="{x:Bind ViewModel.BySkill, Mode=TwoWay}" />
+            <ListView x:Name="DecoList" Grid.Row="2" ItemsSource="{x:Bind ViewModel.Items}"
+                      SelectionMode="Single" SelectionChanged="DecoList_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:DecorationView">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Image Width="20" Height="20" Stretch="Uniform" VerticalAlignment="Center"
+                                   Source="{x:Bind IconUri, Converter={StaticResource ImageUri}}" />
+                            <TextBlock Text="{x:Bind DisplayName}" Foreground="{StaticResource TextBrush}"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <ScrollViewer Grid.Column="1" Background="{StaticResource TableBgBrush}" Padding="16" toolkit:ScrollBarExtensions.KeepVerticalExpanded="True">
+            <StackPanel>
+                <TextBlock Text="Select a decoration."
+                           Foreground="{StaticResource MutedTextBrush}"
+                           Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVisible}}" />
+
+                <StackPanel Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVis}}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Image Width="32" Height="32" Stretch="Uniform" VerticalAlignment="Center"
+                               Source="{x:Bind ViewModel.Selected.IconUri, Mode=OneWay, Converter={StaticResource ImageUri}}" />
+                        <TextBlock Text="{x:Bind ViewModel.Selected.Name, Mode=OneWay}"
+                                   FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextBrush}"
+                                   VerticalAlignment="Center" />
+                        <ctl:BookmarkStar x:Name="DecoStar" />
+                    </StackPanel>
+                    <TextBlock Text="{x:Bind ViewModel.Selected.SkillsText, Mode=OneWay}"
+                               Foreground="{StaticResource PositiveBrush}" Margin="0,2,0,6" TextWrapping="Wrap" />
+                    <Border Background="{StaticResource AccentBrush}" CornerRadius="3" Padding="8,3"
+                            HorizontalAlignment="Left" Margin="0,0,0,8">
+                        <TextBlock Text="{x:Bind ViewModel.Selected.SlotText, Mode=OneWay}"
+                                   Foreground="White" FontSize="12" />
+                    </Border>
+
+                    <TextBlock Text="Recipes" Style="{StaticResource SectionTitle}"
+                               Visibility="{x:Bind ViewModel.Selected.HasRecipes, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Selected.Recipes, Mode=OneWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:DecoRecipe">
+                                <StackPanel Margin="0,2,0,8">
+                                    <TextBlock Text="{x:Bind Label}" FontSize="11"
+                                               Foreground="{StaticResource HeaderBrush}" Margin="0,0,0,2" />
+                                    <ItemsControl ItemsSource="{x:Bind Materials}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="vm:DecoMaterial">
+                                                <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,2">
+                                                    <Image Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center"
+                                                           Source="{x:Bind IconUri, Converter={StaticResource ImageUri}}" />
+                                                    <TextBlock Text="{x:Bind Text}" Foreground="{StaticResource TextBrush}"
+                                                               VerticalAlignment="Center" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,22 @@
+## .NET / Visual Studio
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+## Generated database (rebuild with MhfuLookup.DataMigration)
+/data/mhfu.db
+
+## Test artifacts
+[Tt]est[Rr]esults/
+*.trx
+
+# DB backups from ROM-data work
+data/*.bak-*
+
+# Icon-set backups (pre-ROM art, kept locally for revert)
+src/MhfuLookup.App/Assets/Items.bak-mh4g/
+src/MhfuLookup.App/Assets/Locations.bak-prev/
+src/MhfuLookup.App/Assets/Awards.bak-wiki/
+src/MhfuLookup.App/Assets/WeaponTypes.bak-wiki/

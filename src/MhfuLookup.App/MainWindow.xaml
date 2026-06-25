@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="MhfuLookup.App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:ctl="using:MhfuLookup.App.Controls">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Menu-art background; the theme surface brushes are translucent so it shows through tinted
+             by the current theme colour. Behind everything, fixed (not scaled). -->
+        <Image Grid.Row="0" Grid.RowSpan="2" Source="ms-appx:///Assets/Misc/menu_background.png"
+               Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <!-- Fixed dark scrim: keeps the base dark (even over the brighter parts of the art) so text
+             stays readable once the theme surfaces above it are made translucent. -->
+        <Rectangle Grid.Row="0" Grid.RowSpan="2" Fill="#000000" Opacity="0.35" />
+
+        <!-- Custom title bar (lets us show a larger app icon than the default chrome). -->
+        <Grid x:Name="AppTitleBar" Grid.Row="0" Height="48" Background="{StaticResource WindowBgBrush}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="10" Margin="14,0,0,0">
+                <Image x:Name="TitleBarIcon" Width="36" Height="36" Stretch="Uniform" />
+                <TextBlock Text="MHFU LookUp" VerticalAlignment="Center"
+                           FontFamily="{StaticResource AppFontFamily}"
+                           Foreground="{StaticResource TextBrush}" FontSize="16" FontWeight="SemiBold" />
+            </StackPanel>
+        </Grid>
+
+        <ctl:ScaleHost x:Name="ScaleRoot" Grid.Row="1">
+        <NavigationView
+            x:Name="Nav"
+            FontFamily="{StaticResource AppFontFamily}"
+            IsSettingsVisible="False"
+            IsBackButtonVisible="Collapsed"
+            PaneDisplayMode="Left"
+            OpenPaneLength="220"
+            Background="{StaticResource WindowBgBrush}"
+            SelectionChanged="Nav_SelectionChanged">
+
+        <!-- Tab icons are assigned in code from TabIcons (customisable in Settings). -->
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Bookmarks"     Tag="bookmarks" />
+            <NavigationViewItem Content="Notes"         Tag="notes" />
+            <NavigationViewItem Content="Monsters"     Tag="monster" />
+            <NavigationViewItem Content="Weapons"       Tag="weapon" />
+            <NavigationViewItem Content="Armor Sets"    Tag="armorset" />
+            <NavigationViewItem Content="Armor Skills"  Tag="armorskill" />
+            <NavigationViewItem Content="Decorations"   Tag="decoration" />
+            <NavigationViewItem Content="Quests"        Tag="quest" />
+            <NavigationViewItem Content="Training School" Tag="training" />
+            <NavigationViewItem Content="Gathering"     Tag="gathering" />
+            <NavigationViewItem Content="Items"         Tag="items" />
+            <NavigationViewItem Content="Combo List"    Tag="combolist" />
+            <NavigationViewItem Content="Treasures"     Tag="treasures" />
+            <NavigationViewItem Content="Kitchen"       Tag="kitchen" />
+            <NavigationViewItem Content="Trenya"        Tag="trenya" />
+            <NavigationViewItem Content="Pokke Farm"    Tag="pokke" />
+            <NavigationViewItem Content="Peddling Granny" Tag="granny" />
+            <NavigationViewItem Content="Veggie Elder"   Tag="veggie" />
+            <NavigationViewItem Content="Felyne Comrades" Tag="comrades" />
+            <NavigationViewItem Content="Awards"        Tag="awards" />
+            <NavigationViewItem Content="Settings"      Tag="settings" />
+            <NavigationViewItem Content="Help"          Tag="help" />
+            <NavigationViewItem Content="About"         Tag="about" />
+        </NavigationView.MenuItems>
+
+        <Frame x:Name="ContentFrame" Background="{StaticResource WindowBgBrush}" />
+    </NavigationView>
+        </ctl:ScaleHost>
+    </Grid>
+</Window>

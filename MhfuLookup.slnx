@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="docs/app-structure.md" />
+    <File Path="docs/architecture.md" />
+    <File Path="docs/core-domain.md" />
+    <File Path="docs/database-schema.md" />
+    <File Path="docs/deploying.md" />
+    <File Path="docs/gather-extraction.md" />
+    <File Path="docs/README.md" />
+    <File Path="docs/user-guide.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <File Path="docs/user-guide.md" />
+    <Project Path="src/MhfuLookup.App/MhfuLookup.App.csproj">
+      <Platform Project="x86" />
+    </Project>
+    <Project Path="src/MhfuLookup.Core/MhfuLookup.Core.csproj" />
+    <Project Path="src/MhfuLookup.DataMigration/MhfuLookup.DataMigration.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MhfuLookup.Core.Tests/MhfuLookup.Core.Tests.csproj" />
+  </Folder>
+</Solution>

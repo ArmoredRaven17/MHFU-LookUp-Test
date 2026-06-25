@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.KitchenPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:app="using:MhfuLookup.App"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Chef count (1–5) / Felyne Whim Skills selector -->
+        <ListView Grid.Column="0" Background="{StaticResource PanelBgBrush}"
+                  ItemsSource="{x:Bind ViewModel.ChefLevels}"
+                  SelectedItem="{x:Bind ViewModel.SelectedChef, Mode=TwoWay}"
+                  SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:ChefOption">
+                    <TextBlock Text="{x:Bind Label}" VerticalAlignment="Center" TextWrapping="Wrap"
+                               Foreground="{StaticResource TextBrush}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Selected page content -->
+        <Grid Grid.Column="1" Background="{StaticResource TableBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{x:Bind ViewModel.Title, Mode=OneWay}" Margin="16,12,16,6"
+                       FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextBrush}" />
+
+            <!-- ── Recipes (a chef level is selected) ── -->
+            <Grid Grid.Row="1" Visibility="{x:Bind ViewModel.ShowRecipes, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Ingredient legend, above the recipe table -->
+                <ItemsControl Grid.Row="0" ItemsSource="{x:Bind ViewModel.Ingredients}" Margin="16,0,16,6">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:IngredientLine">
+                            <TextBlock TextWrapping="Wrap" FontSize="12" Margin="0,0,0,1">
+                                <Run Text="{x:Bind Category}" FontWeight="SemiBold" Foreground="{StaticResource TextBrush}" />
+                                <Run Text=": " Foreground="{StaticResource MutedTextBrush}" />
+                                <Run Text="{x:Bind Items}" Foreground="{StaticResource MutedTextBrush}" />
+                            </TextBlock>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Border Grid.Row="1" Height="1" Background="{StaticResource BorderBrush}" Margin="16,2,16,6" />
+
+                <Grid Grid.Row="2" Margin="16,0,16,2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" /><ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="150" /><ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Ingredient 1" Style="{StaticResource HeaderCell}" />
+                    <TextBlock Grid.Column="2" Text="Ingredient 2" Style="{StaticResource HeaderCell}" />
+                    <TextBlock Grid.Column="4" Text="Result / Effect" Style="{StaticResource HeaderCell}" />
+                </Grid>
+
+                <ListView Grid.Row="3" SelectionMode="None" Padding="16,0,16,12"
+                          ItemsSource="{x:Bind ViewModel.Recipes}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:FoodView">
+                            <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}"
+                                    CornerRadius="3" Padding="0,3">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" /><ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="150" /><ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{x:Bind Ingredient1}" Style="{StaticResource BodyCell}" />
+                                    <TextBlock Grid.Column="1" Text="+" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" />
+                                    <TextBlock Grid.Column="2" Text="{x:Bind Ingredient2}" Style="{StaticResource BodyCell}" />
+                                    <TextBlock Grid.Column="3" Text="→" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" />
+                                    <TextBlock Grid.Column="4" Text="{x:Bind Effect}" Foreground="{x:Bind EffectColor}"
+                                               FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <!-- ── Felyne Whim Skills ── -->
+            <Grid Grid.Row="1" Visibility="{x:Bind ViewModel.ShowWhim, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="16,0,16,2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" /><ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Skill" Style="{StaticResource HeaderCell}" />
+                    <TextBlock Grid.Column="1" Text="Effect" Style="{StaticResource HeaderCell}" />
+                </Grid>
+
+                <ListView Grid.Row="1" SelectionMode="None" Padding="16,0,16,12"
+                          ItemsSource="{x:Bind ViewModel.WhimSkills}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:WhimSkill">
+                            <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}"
+                                    CornerRadius="3" Padding="0,3">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200" /><ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{x:Bind Name}" FontWeight="SemiBold"
+                                               Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                    <TextBlock Grid.Column="1" Text="{x:Bind Description}" Style="{StaticResource BodyCell}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

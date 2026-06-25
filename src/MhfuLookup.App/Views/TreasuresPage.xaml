@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.TreasuresPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:core="using:MhfuLookup.Core.Data"
+    xmlns:ctl="using:MhfuLookup.App.Controls"
+    xmlns:toolkit="using:AK.Toolkit.WinUI3"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="{StaticResource PanelBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBox x:Name="SearchBox" Grid.Row="0" Margin="8"
+                     PlaceholderText="Search treasures…" TextChanged="SearchBox_TextChanged" />
+            <TextBlock Grid.Row="1" Margin="8,0,8,6" FontSize="11" FontStyle="Italic" TextWrapping="Wrap"
+                       Foreground="{StaticResource MutedTextBrush}">
+                <Run Text="★" Foreground="#E0B000" /><Run Text=" = Guild Card award (collect for a card award)." />
+            </TextBlock>
+            <ListView x:Name="TreasureList" Grid.Row="2"
+                      SelectionMode="Single" SelectionChanged="TreasureList_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="core:TreasureRow">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <Image Width="24" Height="24" Stretch="Uniform" VerticalAlignment="Center"
+                                   Source="{x:Bind Icon, Converter={StaticResource ItemIcon}}" />
+                            <TextBlock Text="★" Foreground="#E0B000" FontSize="13" VerticalAlignment="Center"
+                                       Visibility="{x:Bind IsAward, Converter={StaticResource BoolToVis}}" />
+                            <TextBlock Text="{x:Bind Name}" Foreground="{StaticResource TextBrush}"
+                                       VerticalAlignment="Center" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate x:DataType="vm:TreasureAreaGroup">
+                                <TextBlock Text="{x:Bind Area}" FontWeight="Bold"
+                                           Foreground="{StaticResource HeaderBrush}" Margin="0,6,0,2" />
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ListView.GroupStyle>
+            </ListView>
+        </Grid>
+
+        <ScrollViewer Grid.Column="1" Background="{StaticResource TableBgBrush}" Padding="16" toolkit:ScrollBarExtensions.KeepVerticalExpanded="True">
+            <StackPanel>
+                <TextBlock Text="Select a treasure."
+                           Foreground="{StaticResource MutedTextBrush}"
+                           Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVisible}}" />
+
+                <StackPanel Visibility="{x:Bind ViewModel.Selected, Mode=OneWay, Converter={StaticResource NullToVis}}">
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <Image Width="48" Height="48" Stretch="Uniform" VerticalAlignment="Center"
+                               Source="{x:Bind ViewModel.Selected.Icon, Mode=OneWay, Converter={StaticResource ItemIcon}}" />
+                        <StackPanel VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <TextBlock Text="{x:Bind ViewModel.Selected.Name, Mode=OneWay}"
+                                           FontSize="20" FontWeight="Bold" Foreground="{StaticResource TextBrush}" />
+                                <Border Background="#E0B000" CornerRadius="3" Padding="6,2" VerticalAlignment="Center"
+                                        Visibility="{x:Bind ViewModel.Selected.IsAward, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="★ AWARD" Foreground="#1E1E1E" FontSize="10" FontWeight="Bold" />
+                                </Border>
+                            </StackPanel>
+                            <TextBlock Text="{x:Bind ViewModel.Selected.Area, Mode=OneWay}"
+                                       Foreground="{StaticResource MutedTextBrush}" />
+                        </StackPanel>
+                        <ctl:BookmarkStar x:Name="TreasureStar" />
+                    </StackPanel>
+
+                    <TextBlock Text="{x:Bind ViewModel.Selected.Description, Mode=OneWay}" Margin="0,14,0,0"
+                               Foreground="{StaticResource TextBrush}" TextWrapping="Wrap" />
+
+                    <Grid Margin="0,14,0,0" ColumnSpacing="10" RowSpacing="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110" /><ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition /><RowDefinition /><RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Where to Find" Style="{StaticResource HeaderCell}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.Selected.WhereToFind, Mode=OneWay}" Style="{StaticResource BodyCell}" TextWrapping="Wrap" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Points" Style="{StaticResource HeaderCell}" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind ViewModel.Selected.Points, Mode=OneWay}" Style="{StaticResource BodyCell}" />
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Rarity" Style="{StaticResource HeaderCell}" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind ViewModel.Selected.Rarity, Mode=OneWay}" Style="{StaticResource BodyCell}" />
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

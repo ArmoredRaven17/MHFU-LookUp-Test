@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.FelyneComradesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    xmlns:app="using:MhfuLookup.App"
+    Background="Transparent">
+
+    <Page.Resources>
+        <!-- Prose block templates (paragraph / sub-header / table) -->
+        <DataTemplate x:Key="ProseParaTemplate" x:DataType="vm:ProseParagraph">
+            <TextBlock Text="{x:Bind Text}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}"
+                       LineHeight="20" Margin="0,0,0,8" />
+        </DataTemplate>
+        <DataTemplate x:Key="ProseHeaderTemplate" x:DataType="vm:ProseHeader">
+            <TextBlock Text="{x:Bind Text}" FontWeight="SemiBold" Foreground="{StaticResource HeaderBrush}"
+                       Margin="0,8,0,4" />
+        </DataTemplate>
+        <DataTemplate x:Key="ProseTableTemplate" x:DataType="vm:ProseTable">
+            <StackPanel Margin="0,0,0,10">
+                <!-- Two-column (Label : value) -->
+                <ItemsControl ItemsSource="{x:Bind Rows}"
+                              Visibility="{x:Bind TwoColumn, Converter={StaticResource BoolToVis}}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:ProseRow">
+                            <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}" CornerRadius="3" Padding="0,4">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200" /><ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{x:Bind Label}" FontWeight="SemiBold" Margin="0,0,12,0"
+                                               Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                    <TextBlock Grid.Column="1" Text="{x:Bind Value}" Style="{StaticResource BodyCell}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <!-- Single-column list -->
+                <ItemsControl ItemsSource="{x:Bind Rows}"
+                              Visibility="{x:Bind OneColumn, Converter={StaticResource BoolToVis}}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:ProseRow">
+                            <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}" CornerRadius="3" Padding="8,4">
+                                <TextBlock Text="{x:Bind Label}" Foreground="{StaticResource TextBrush}" TextWrapping="Wrap" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </DataTemplate>
+        <app:ProseBlockTemplateSelector x:Key="ProseSelector"
+                                        Paragraph="{StaticResource ProseParaTemplate}"
+                                        Header="{StaticResource ProseHeaderTemplate}"
+                                        Table="{StaticResource ProseTableTemplate}" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Section selector -->
+        <ListView Grid.Column="0" Background="{StaticResource PanelBgBrush}"
+                  ItemsSource="{x:Bind ViewModel.Sections}"
+                  SelectedItem="{x:Bind ViewModel.SelectedSection, Mode=TwoWay}"
+                  SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:ComradeSection">
+                    <TextBlock Text="{x:Bind Title}" VerticalAlignment="Center" TextWrapping="Wrap"
+                               Foreground="{StaticResource TextBrush}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Selected section content -->
+        <Grid Grid.Column="1" Background="{StaticResource TableBgBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{x:Bind ViewModel.Title, Mode=OneWay}" Margin="16,12,16,6"
+                       FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextBrush}" />
+
+            <ScrollViewer Grid.Row="1" Padding="16,0,16,16" app:ScrollBarFix.KeepVerticalExpandedOwn="True"
+                          HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Visible">
+                <StackPanel>
+
+                    <!-- Section prose (paragraphs, sub-headers, and bullet runs rendered as tables) -->
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.BodyBlocks, Mode=OneWay}"
+                                  ItemTemplateSelector="{StaticResource ProseSelector}" Margin="0,0,0,8" />
+
+                    <!-- Weapon Upgrade table -->
+                    <StackPanel HorizontalAlignment="Left"
+                                Visibility="{x:Bind ViewModel.ShowWeapons, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                        <Grid Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110" /><ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="150" /><ColumnDefinition Width="240" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Attack Power" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="1" Text="Slash Weapon" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="2" Text="Impact Weapon" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="3" Text="Weapon Divider (Smaller is better)" Style="{StaticResource HeaderCell}" />
+                        </Grid>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.Weapons}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:ComradeWeapon">
+                                    <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}" CornerRadius="3" Padding="0,4">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="110" /><ColumnDefinition Width="150" />
+                                                <ColumnDefinition Width="150" /><ColumnDefinition Width="240" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{x:Bind AttackPower}" Style="{StaticResource BodyCell}" />
+                                            <TextBlock Grid.Column="1" Text="{x:Bind Slash}" Style="{StaticResource BodyCell}" />
+                                            <TextBlock Grid.Column="2" Text="{x:Bind Impact}" Style="{StaticResource BodyCell}" />
+                                            <TextBlock Grid.Column="3" Text="{x:Bind Divider}" Style="{StaticResource BodyCell}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                    <!-- Points and Skills table -->
+                    <StackPanel Visibility="{x:Bind ViewModel.ShowSkills, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                        <Grid Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160" /><ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="2*" /><ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Skill" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="1" Text="Cost" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="2" Text="Description" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="3" Text="How To Unlock" Style="{StaticResource HeaderCell}" />
+                        </Grid>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.Skills}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:ComradeSkill">
+                                    <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}" CornerRadius="3" Padding="0,4">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="160" /><ColumnDefinition Width="60" />
+                                                <ColumnDefinition Width="2*" /><ColumnDefinition Width="2*" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{x:Bind Skill}" FontWeight="SemiBold"
+                                                       Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                            <TextBlock Grid.Column="1" Text="{x:Bind Cost}" Foreground="{StaticResource TextBrush}"
+                                                       VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="2" Text="{x:Bind Description}" Style="{StaticResource BodyCell}" Margin="0,0,12,0" />
+                                            <TextBlock Grid.Column="3" Text="{x:Bind Unlock}" Foreground="{StaticResource MutedTextBrush}"
+                                                       VerticalAlignment="Center" TextWrapping="Wrap" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                    <!-- Temperaments table -->
+                    <StackPanel Visibility="{x:Bind ViewModel.ShowTemperaments, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                        <Grid Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" /><ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" /><ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Character" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="1" Text="Attack Preference" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="2" Text="Healing Rate" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="3" Text="Attacking Target" Style="{StaticResource HeaderCell}" />
+                        </Grid>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.Temperaments}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:ComradeTemperament">
+                                    <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}" CornerRadius="3" Padding="0,4">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" /><ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" /><ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{x:Bind Character}" FontWeight="SemiBold"
+                                                       Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                            <TextBlock Grid.Column="1" Text="{x:Bind AttackPref}" Style="{StaticResource BodyCell}"
+                                                       Foreground="{x:Bind AttackPrefColor}" />
+                                            <TextBlock Grid.Column="2" Text="{x:Bind Healing}" Style="{StaticResource BodyCell}"
+                                                       Foreground="{x:Bind HealingColor}" />
+                                            <TextBlock Grid.Column="3" Text="{x:Bind Target}" Style="{StaticResource BodyCell}"
+                                                       Foreground="{x:Bind TargetColor}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

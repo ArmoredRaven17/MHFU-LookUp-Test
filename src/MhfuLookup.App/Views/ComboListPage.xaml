@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MhfuLookup.App.Views.ComboListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
+    Background="{StaticResource WindowBgBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="SearchBox" Grid.Row="0" Margin="16,12,16,4" MaxWidth="360" HorizontalAlignment="Left"
+                 PlaceholderText="Search combinations…" TextChanged="SearchBox_TextChanged" />
+
+        <ListView x:Name="ComboList" Grid.Row="1" SelectionMode="None" Padding="16,0,16,12">
+            <!-- Flush, table-like rows so the data columns line up with the group-header columns. -->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:ComboView">
+                    <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}"
+                            CornerRadius="3" Padding="0,3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170" /><ColumnDefinition Width="16" />
+                            <ColumnDefinition Width="160" /><ColumnDefinition Width="16" />
+                            <ColumnDefinition Width="160" /><ColumnDefinition Width="110" /><ColumnDefinition Width="44" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="6">
+                            <Image Width="22" Height="22" Source="{x:Bind ProductIcon, Converter={StaticResource ItemIcon}}" />
+                            <TextBlock Text="{x:Bind Product}" Foreground="{StaticResource TextBrush}" FontWeight="SemiBold"
+                                       VerticalAlignment="Center" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <TextBlock Grid.Column="1" Text="=" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" />
+
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="6">
+                            <Image Width="22" Height="22" Source="{x:Bind Item1Icon, Converter={StaticResource ItemIcon}}" />
+                            <TextBlock Text="{x:Bind Item1}" Foreground="{StaticResource TextBrush}"
+                                       VerticalAlignment="Center" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <TextBlock Grid.Column="3" Text="+" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center"
+                                   Visibility="{x:Bind HasItem2, Converter={StaticResource BoolToVis}}" />
+
+                        <StackPanel Grid.Column="4" Orientation="Horizontal" Spacing="6"
+                                    Visibility="{x:Bind HasItem2, Converter={StaticResource BoolToVis}}">
+                            <Image Width="22" Height="22" Source="{x:Bind Item2Icon, Converter={StaticResource ItemIcon}}" />
+                            <TextBlock Text="{x:Bind Item2}" Foreground="{StaticResource TextBrush}"
+                                       VerticalAlignment="Center" TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="5" Text="{x:Bind Pct}" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" Padding="6,0,0,0" />
+                        <TextBlock Grid.Column="6" Text="{x:Bind Qty}" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" Padding="6,0,0,0" />
+                    </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate x:DataType="vm:ComboGroup">
+                            <!-- Section title above the column headers, which sit above the rows.
+                                 Same column widths as the item template so they align. -->
+                            <StackPanel Background="{StaticResource WindowBgBrush}">
+                                <TextBlock Text="{x:Bind Section}" FontWeight="Bold"
+                                           Foreground="{StaticResource HeaderBrush}" Margin="0,8,0,2" />
+                                <Grid Margin="0,0,0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="170" /><ColumnDefinition Width="16" />
+                                        <ColumnDefinition Width="160" /><ColumnDefinition Width="16" />
+                                        <ColumnDefinition Width="160" /><ColumnDefinition Width="110" /><ColumnDefinition Width="44" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Product" Style="{StaticResource HeaderCell}" />
+                                    <TextBlock Grid.Column="2" Text="Item 1" Style="{StaticResource HeaderCell}" />
+                                    <TextBlock Grid.Column="4" Text="Item 2" Style="{StaticResource HeaderCell}" />
+                                    <TextBlock Grid.Column="5" Text="Success Chance" Style="{StaticResource HeaderCell}" />
+                                    <TextBlock Grid.Column="6" Text="Qty" Style="{StaticResource HeaderCell}" />
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+        </ListView>
+    </Grid>
+</Page>
