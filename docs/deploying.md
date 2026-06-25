@@ -6,7 +6,7 @@ MHFU LookUp ships as an **MSIX package** — a signed installer that gives users
 
 ```powershell
 # x64 (the usual target)
-dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-x64
+dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-x64 -p:Platform=x64
 ```
 
 Output folder:
@@ -20,8 +20,8 @@ The `.msix` file inside that folder is the installer. It is **self-contained** �
 Other architectures:
 
 ```powershell
-dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-arm64
-dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-x86
+dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-arm64 -p:Platform=ARM64
+dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-x86 -p:Platform=x86
 ```
 
 ## Signing (required to install)
@@ -80,7 +80,7 @@ A certificate from DigiCert, Sectigo, etc. (~$70–200/year) removes the SmartSc
 ## Framework-dependent build (smaller package, needs prerequisites)
 
 ```powershell
-dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-x64 `
+dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-x64 -p:Platform=x64 `
   -p:SelfContained=false -p:WindowsAppSDKSelfContained=false
 ```
 
