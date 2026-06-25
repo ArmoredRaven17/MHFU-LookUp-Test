@@ -12,10 +12,12 @@ dotnet publish src/MhfuLookup.App/MhfuLookup.App.csproj -c Release -r win-x64 -p
 Output folder:
 
 ```
-src/MhfuLookup.App/bin/Release/net8.0-windows10.0.19041.0/win-x64/AppPackages/
+src/MhfuLookup.App/AppPackages/MhfuLookup.App_1.0.0.0_x64_Test/
 ```
 
-The `.msix` file inside that folder is the installer. It is **self-contained** — the .NET runtime and Windows App SDK are bundled, so it runs on a clean Windows 10 1809+ machine with nothing pre-installed.
+The `_Test` suffix indicates the package is unsigned. The `.msix` file inside is the installer.
+
+It is **self-contained** — the .NET runtime and Windows App SDK are bundled, so it runs on a clean Windows 10 1809+ machine with nothing pre-installed.
 
 Other architectures:
 

@@ -31,6 +31,9 @@
     <!-- No debug symbols in a release/distribution build (drops the .pdb files). -->
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
+    <!-- Actually produce the .msix file during publish. -->
+    <GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
   </PropertyGroup>
 
   <ItemGroup>
