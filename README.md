@@ -148,10 +148,3 @@ This project is dual-licensed because it mixes original code with wiki-sourced d
 
 *Not legal advice — this is the conventional setup for a fan project combining original code with
 CC BY-SA wiki data.*
-
-## Known follow-ups (not yet ported)
-
-- Weapon **filter dialog** (multi-criteria search from the Python app).
-- **Material → monster** click-through from weapon materials.
-- Weapon **notes editor** (the `weapon_notes` table + repository methods exist; UI not wired).
-- Bowgun **ammo tables** / bow charge & coating chips (currently summarised as text rows).
