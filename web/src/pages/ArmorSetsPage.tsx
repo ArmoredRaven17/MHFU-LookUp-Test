@@ -177,7 +177,7 @@ function ArmorSetDetail({ set: s }: { set: ArmorSet }) {
               </tr>
             </thead>
             <tbody>
-              {ordered.map((p, i) => (
+              {ordered.map(p => (
                 <tr key={p.slot} className="tbl-row">
                   <td className="tbl-cell" style={{ padding: '3px 4px' }}>
                     <img src={slotIcon(p.slot, s.rarity)} alt={p.slot} width={20} height={20}
