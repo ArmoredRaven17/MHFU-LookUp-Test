@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadItems } from '../data/loaders'
 import type { Item } from '../types'
 import SearchBox from '../components/SearchBox'
+import { BASE } from '../utils/assets'
 
 const ICON_SIZE = 28
 
@@ -70,7 +71,7 @@ export default function ItemsPage() {
                 }}
               >
                 <img
-                  src={`/assets/Items/${it.icon}.png`}
+                  src={`${BASE}/assets/Items/${it.icon}.png`}
                   alt=""
                   width={ICON_SIZE}
                   height={ICON_SIZE}
@@ -104,7 +105,7 @@ function ItemDetail({ item: it }: { item: Item }) {
     <div style={{ maxWidth: 600 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
         <img
-          src={`/assets/Items/${it.icon}.png`}
+          src={`${BASE}/assets/Items/${it.icon}.png`}
           alt={it.name}
           width={48}
           height={48}

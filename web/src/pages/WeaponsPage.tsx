@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { loadWeapons } from '../data/loaders'
 import type { Weapon } from '../types'
+import { BASE } from '../utils/assets'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -25,7 +26,7 @@ function rarityTier(r?: number) {
 function typeIcon(type: string, rarity?: number) {
   const k = typeKey(type)
   const t = rarityTier(rarity)
-  return `/assets/WeaponTypes/${k}_R${t}.png`
+  return `${BASE}/assets/WeaponTypes/${k}_R${t}.png`
 }
 
 // Sharpness: Red, Orange, Yellow, Green, Blue, White, Purple

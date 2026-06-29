@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadSkills, loadArmorSets } from '../data/loaders'
 import type { Skill, ArmorSet } from '../types'
 import SearchBox from '../components/SearchBox'
+import { BASE } from '../utils/assets'
 
 const CATEGORY_ORDER = [
   'All Skills',
@@ -24,7 +25,7 @@ function rarityTier(r: number) {
   return r >= 4 ? Math.min(r, 10) : 1
 }
 function slotIcon(slot: string, rarity: number) {
-  return `/assets/Armor/${slot}_R${rarityTier(rarity)}.png`
+  return `${BASE}/assets/Armor/${slot}_R${rarityTier(rarity)}.png`
 }
 function signColor(n: number) {
   return n > 0 ? 'var(--positive)' : n < 0 ? 'var(--negative)' : 'var(--muted)'

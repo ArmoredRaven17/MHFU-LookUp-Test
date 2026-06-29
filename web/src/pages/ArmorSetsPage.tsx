@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadArmorSets } from '../data/loaders'
 import type { ArmorSet, ArmorPiece } from '../types'
 import SearchBox from '../components/SearchBox'
+import { BASE } from '../utils/assets'
 
 const SLOT_ORDER = ['head', 'chest', 'arms', 'waist', 'legs']
 const SLOT_LABEL: Record<string, string> = {
@@ -16,10 +17,10 @@ function rarityTier(r: number) {
   return r >= 4 ? Math.min(r, 10) : 1
 }
 function chestIcon(rarity: number) {
-  return `/assets/Armor/chest_R${rarityTier(rarity)}.png`
+  return `${BASE}/assets/Armor/chest_R${rarityTier(rarity)}.png`
 }
 function slotIcon(slot: string, rarity: number) {
-  return `/assets/Armor/${slot}_R${rarityTier(rarity)}.png`
+  return `${BASE}/assets/Armor/${slot}_R${rarityTier(rarity)}.png`
 }
 
 function signColor(n: number) {

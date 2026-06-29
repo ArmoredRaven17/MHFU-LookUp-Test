@@ -1,4 +1,5 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import { BASE } from '../utils/assets'
 
 interface NavItem {
   path: string
@@ -56,7 +57,7 @@ export default function Layout() {
           gap: 8,
         }}>
           <img
-            src="/assets/Monsters/rathalos.png"
+            src={`${BASE}/assets/Monsters/rathalos.png`}
             alt=""
             width={28}
             height={28}
@@ -96,7 +97,7 @@ export default function Layout() {
                 }}
               >
                 <img
-                  src={`/assets/Monsters/${item.icon}.png`}
+                  src={`${BASE}/assets/Monsters/${item.icon}.png`}
                   alt=""
                   width={20}
                   height={20}

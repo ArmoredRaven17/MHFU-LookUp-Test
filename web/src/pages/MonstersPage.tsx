@@ -4,6 +4,7 @@ import { loadMonsters } from '../data/loaders'
 import type { Monster, Hitzone } from '../types'
 import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
+import { BASE } from '../utils/assets'
 
 function pctPos(n: number) {
   if (n === 0) return { text: '—', style: {} }
@@ -68,7 +69,7 @@ export default function MonstersPage() {
                 cursor: 'pointer', textAlign: 'left', fontSize: 13,
               }}
             >
-              <img src={`/assets/Monsters/${m.id}.png`} alt="" width={24} height={24}
+              <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt="" width={24} height={24}
                    style={{ objectFit: 'contain', flexShrink: 0 }} />
               {m.name}
             </button>
@@ -96,7 +97,7 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
     <div style={{ maxWidth: 900 }}>
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-        <img src={`/assets/Monsters/${m.id}.png`} alt={m.name} width={48} height={48}
+        <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt={m.name} width={48} height={48}
              style={{ objectFit: 'contain' }} />
         <div style={{ flex: 1 }}>
           <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 22, fontWeight: 600 }}>{m.name}</h2>

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { loadQuests } from '../data/loaders'
 import type { Quest, QuestCategory } from '../types'
 import SearchBox from '../components/SearchBox'
+import { BASE } from '../utils/assets'
 
 const TRAINING_SLUGS = [
   'training_basic',
@@ -125,7 +126,7 @@ function TrainingDetail({ quest: q }: { quest: Quest }) {
             {q.monsters.map((m, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6,
                                     background: 'var(--surface)', borderRadius: 4, padding: '4px 8px' }}>
-                <img src={`/assets/Monsters/${m.toLowerCase().replace(/ /g, '_')}.png`}
+                <img src={`${BASE}/assets/Monsters/${m.toLowerCase().replace(/ /g, '_')}.png`}
                      alt={m} width={22} height={22} style={{ objectFit: 'contain' }}
                      onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
                 <span style={{ fontSize: 13 }}>{m}</span>
