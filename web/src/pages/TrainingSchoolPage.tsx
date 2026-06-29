@@ -68,10 +68,10 @@ export default function TrainingSchoolPage() {
         <SearchBox value={search} onChange={setSearch} placeholder="Search quests…" />
 
         <div style={{ overflowY: 'auto', flex: 1 }}>
-          {filtered.map((q, i) => {
+          {filtered.map(q => {
             const active = q === selected
             return (
-              <button key={i} onClick={() => setSelected(q)} style={{
+              <button key={q.name} onClick={() => setSelected(q)} style={{
                 display: 'block', width: '100%', padding: '5px 12px',
                 background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',

@@ -91,10 +91,10 @@ export default function QuestsPage() {
         <SearchBox value={search} onChange={setSearch} placeholder="Search quests…" />
 
         <div style={{ overflowY: 'auto', flex: 1 }}>
-          {filtered.map((q, i) => {
+          {filtered.map(q => {
             const active = q === selected
             return (
-              <button key={i} onClick={() => setSelected(q)} style={{
+              <button key={q.name} onClick={() => setSelected(q)} style={{
                 display: 'flex', alignItems: 'flex-start', gap: 6,
                 width: '100%', padding: '5px 10px',
                 background: active ? 'rgba(200,168,75,0.15)' : 'transparent',

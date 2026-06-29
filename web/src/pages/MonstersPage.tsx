@@ -5,7 +5,6 @@ import type { Monster, Hitzone } from '../types'
 import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
 
-function pct(n: number) { return n > 0 ? `${n}%` : '—' }
 function pctPos(n: number) {
   if (n === 0) return { text: '—', style: {} }
   return { text: `${n}%`, style: { color: n >= 45 ? 'var(--positive)' : n >= 25 ? 'var(--text)' : 'var(--negative)' } }
