@@ -10,11 +10,10 @@ const ASSET_DIRS = [
   'Items', 'Locations', 'Materials', 'Misc', 'Monsters', 'Notes', 'WeaponTypes',
 ]
 
-// In the monorepo (desktop + web), assets live alongside the desktop app.
-// In the web-only repo, assets are pre-committed to web/public/assets/ and
-// Vite serves them directly — no copy step needed.
-const desktopAssets = resolve(__dirname, '../src/MhfuLookup.App/Assets')
-const needsCopy = existsSync(desktopAssets)
+// Skip the copy when assets are already committed to web/public/assets/
+// (web-only repo). Use the copy when running from the monorepo where assets
+// live alongside the desktop app source.
+const needsCopy = !existsSync(resolve(__dirname, 'public/assets/Monsters'))
 
 export default defineConfig({
   plugins: [
