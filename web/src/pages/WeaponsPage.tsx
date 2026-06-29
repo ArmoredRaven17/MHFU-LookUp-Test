@@ -184,7 +184,7 @@ function WeaponDetail({ weapon: w, allWeapons, onNavigate }: {
           <tbody>
             <StatRow label="Attack" value={doc.atk} />
             {doc.element && <StatRow label="Element" value={doc.element} />}
-            {(doc as Record<string,unknown>).shelling && <StatRow label="Shelling" value={String((doc as Record<string,unknown>).shelling)} />}
+            {doc.shelling && <StatRow label="Shelling" value={doc.shelling} />}
             {doc.affinity !== 0 && (
               <StatRow label="Affinity"
                 value={<span style={{ color: doc.affinity > 0 ? 'var(--positive)' : 'var(--negative)' }}>
@@ -198,18 +198,18 @@ function WeaponDetail({ weapon: w, allWeapons, onNavigate }: {
             {doc.price > 0 && <StatRow label="Price" value={`${doc.price.toLocaleString()}z`} />}
             {isBowgun && (
               <>
-                {(doc as Record<string,unknown>).reload && <StatRow label="Reload" value={String((doc as Record<string,unknown>).reload)} />}
-                {(doc as Record<string,unknown>).recoil && <StatRow label="Recoil" value={String((doc as Record<string,unknown>).recoil)} />}
+                {doc.reload && <StatRow label="Reload" value={doc.reload} />}
+                {doc.recoil && <StatRow label="Recoil" value={doc.recoil} />}
               </>
             )}
           </tbody>
         </table>
 
         {/* Hunting Horn notes */}
-        {w.type === 'Hunting Horn' && (doc as Record<string,unknown>).notes && (
+        {w.type === 'Hunting Horn' && doc.notes && (
           <div style={{ display: 'flex', gap: 4, marginTop: 8 }}>
             <span style={{ color: 'var(--muted)', fontSize: 12, marginRight: 4 }}>Notes:</span>
-            {((doc as Record<string,unknown>).notes as string[]).map((n, i) => (
+            {doc.notes.map((n, i) => (
               <span key={i} style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                 width: 22, height: 22, borderRadius: '50%',
@@ -238,11 +238,11 @@ function WeaponDetail({ weapon: w, allWeapons, onNavigate }: {
       {/* Bow charges & coatings */}
       {isBow && (
         <Section title="Bow Details">
-          {(doc as Record<string,unknown>).charges && (
+          {doc.charges && (
             <div style={{ marginBottom: 8 }}>
               <p style={{ color: 'var(--muted)', fontSize: 11, margin: '0 0 4px' }}>Charges</p>
               <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
-                {((doc as Record<string,unknown>).charges as string[]).map((c, i) => (
+                {doc.charges.map((c, i) => (
                   <span key={i} style={{
                     background: 'var(--surface)', border: '1px solid var(--border)',
                     borderRadius: 3, padding: '2px 6px', fontSize: 12,
@@ -251,11 +251,11 @@ function WeaponDetail({ weapon: w, allWeapons, onNavigate }: {
               </div>
             </div>
           )}
-          {(doc as Record<string,unknown>).coatings && (
+          {doc.coatings && (
             <div>
               <p style={{ color: 'var(--muted)', fontSize: 11, margin: '0 0 4px' }}>Coatings</p>
               <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
-                {((doc as Record<string,unknown>).coatings as string[]).map((c, i) => (
+                {doc.coatings.map((c, i) => (
                   <span key={i} style={{
                     background: 'var(--surface)', border: '1px solid var(--border)',
                     borderRadius: 3, padding: '2px 6px', fontSize: 12,
@@ -268,7 +268,7 @@ function WeaponDetail({ weapon: w, allWeapons, onNavigate }: {
       )}
 
       {/* Bowgun ammo */}
-      {isBowgun && <BowgunAmmo doc={doc as Record<string,unknown>} />}
+      {isBowgun && <BowgunAmmo doc={doc} />}
 
       {/* Materials */}
       {doc.materials && (
@@ -364,17 +364,17 @@ function noteColor(n: string) {
   return map[n] ?? '#888'
 }
 
-function BowgunAmmo({ doc }: { doc: Record<string, unknown> }) {
+function BowgunAmmo({ doc }: { doc: import('../types').WeaponDoc }) {
   const sections: { label: string; data: Record<string, number | number[]> }[] = []
-  if (doc.ammo_raw) sections.push({ label: 'Raw Ammo', data: doc.ammo_raw as Record<string, number | number[]> })
-  if (doc.ammo_support) sections.push({ label: 'Support Ammo', data: doc.ammo_support as Record<string, number | number[]> })
-  if (doc.ammo_element) sections.push({ label: 'Element Ammo', data: doc.ammo_element as Record<string, number | number[]> })
-  if (doc.ammo_other) sections.push({ label: 'Other Ammo', data: doc.ammo_other as Record<string, number | number[]> })
+  if (doc.ammo_raw) sections.push({ label: 'Raw Ammo', data: doc.ammo_raw })
+  if (doc.ammo_support) sections.push({ label: 'Support Ammo', data: doc.ammo_support })
+  if (doc.ammo_element) sections.push({ label: 'Element Ammo', data: doc.ammo_element })
+  if (doc.ammo_other) sections.push({ label: 'Other Ammo', data: doc.ammo_other })
 
   if (doc.rapid) {
     return (
       <Section title="Rapid Fire">
-        <p style={{ fontSize: 13, color: 'var(--text)', margin: '0 0 12px' }}>{String(doc.rapid)}</p>
+        <p style={{ fontSize: 13, color: 'var(--text)', margin: '0 0 12px' }}>{doc.rapid}</p>
         {sections.map(s => <AmmoSection key={s.label} label={s.label} data={s.data} />)}
       </Section>
     )

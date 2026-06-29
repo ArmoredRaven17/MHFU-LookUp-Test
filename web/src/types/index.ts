@@ -50,6 +50,16 @@ export interface WeaponDoc {
   special?: string; special_value?: number;
   coating?: string; arc_shot?: string; rapid_fire?: string;
   capacity?: string; reload?: string; recoil?: string; deviation?: string;
+  // Weapon-type-specific fields
+  shelling?: string;
+  notes?: string[];
+  charges?: string[];
+  coatings?: string[];
+  rapid?: string;
+  ammo_raw?: Record<string, number | number[]>;
+  ammo_support?: Record<string, number | number[]>;
+  ammo_element?: Record<string, number | number[]>;
+  ammo_other?: Record<string, number | number[]>;
 }
 export interface Weapon {
   weapon_pk: number; id: string; type: string; name: string;

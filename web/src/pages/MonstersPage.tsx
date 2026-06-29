@@ -5,9 +5,6 @@ import type { Monster, Hitzone } from '../types'
 import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
 
-const SHARPNESS_COLORS = ['#ff4444','#aaaaaa','#4444ff','#44ff44','#ffff44','#44ffff','#ffffff']
-const SHARPNESS_LABELS = ['Red','Orange','Yellow','Green','Blue','White','Purple']
-
 function pct(n: number) { return n > 0 ? `${n}%` : '—' }
 function pctPos(n: number) {
   if (n === 0) return { text: '—', style: {} }
@@ -340,23 +337,3 @@ function RankedRewards({ monster: m }: { monster: Monster }) {
   )
 }
 
-function RewardTable({ rewards }: { rewards: { name: string; pct: number; qty?: number }[] }) {
-  return (
-    <table style={{ borderCollapse: 'collapse', minWidth: 280 }}>
-      <thead>
-        <tr>
-          <th className="tbl-header" style={{ textAlign: 'left' }}>Item</th>
-          <th className="tbl-header" style={{ textAlign: 'right' }}>%</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rewards.map((r, i) => (
-          <tr key={i} className="tbl-row">
-            <td className="tbl-cell">{r.name}</td>
-            <td className="tbl-cell" style={{ textAlign: 'right' }}>{pct(r.pct)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  )
-}
