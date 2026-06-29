@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* ── MHFU colour palette ───────────────────────────────────────────── */
+:root {
+  --bg:         #18181d;
+  --panel:      #111115;
+  --surface:    #1d1d24;
+  --accent:     #c8a84b;
+  --accent-dim: #9a7d33;
+  --text:       #d4d4d4;
+  --muted:      #888890;
+  --border:     #2c2c35;
+  --row-alt:    rgba(255 255 255 / 0.04);
+  --positive:   #6abf6a;
+  --negative:   #bf6a6a;
+  --header-bg:  rgba(200 168 75 / 0.12);
+}
+
+@theme inline {
+  --color-accent:   var(--accent);
+  --color-panel:    var(--panel);
+  --color-surface:  var(--surface);
+  --color-muted:    var(--muted);
+  --color-border:   var(--border);
+  --color-pos:      var(--positive);
+  --color-neg:      var(--negative);
+  --font-mhfu: 'MHFUFont', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'MHFUFont', ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+}
+
+@font-face {
+  font-family: 'MHFUFont';
+  src: url('/assets/Fonts/mhfu_font.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* ── Scrollbars ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* ── Table helpers ──────────────────────────────────────────────────── */
+.tbl-header {
+  background: var(--header-bg);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 6px;
+}
+
+.tbl-cell {
+  padding: 3px 6px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.tbl-row:nth-child(even) { background: var(--row-alt); }
+
+/* ── Color helpers ──────────────────────────────────────────────────── */
+.text-accent { color: var(--accent); }
+.text-muted  { color: var(--muted); }
+.text-pos    { color: var(--positive); }
+.text-neg    { color: var(--negative); }
