@@ -137,7 +137,7 @@ export default function ArmorSkillsPage() {
             return (
               <button key={s.id} onClick={() => navigate(`/armorskills/${s.id}`)} style={{
                 display: 'block', width: '100%', padding: '5px 12px',
-                background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -170,7 +170,7 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
     <div style={{ maxWidth: 720 }}>
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-        <h2 style={{ margin: '0 0 2px', color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>
+        <h2 style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>
           {s.name}
         </h2>
         <BookmarkButton bookmark={{ type: 'armorskill', id: s.id, name: s.name, path: `/armorskills/${s.id}` }} />
@@ -251,7 +251,7 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 18 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>

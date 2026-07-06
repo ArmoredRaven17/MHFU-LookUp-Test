@@ -136,7 +136,7 @@ export default function ArmorSetsPage() {
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {groups.map(g => (
             <div key={g.rarity}>
-              <div style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 12, padding: '6px 10px 2px' }}>
+              <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 12, padding: '6px 10px 2px' }}>
                 Rarity {g.rarity}
               </div>
               {g.sets.map(s => {
@@ -144,7 +144,7 @@ export default function ArmorSetsPage() {
                 return (
                   <button key={s.id} onClick={() => navigate(`/armorsets/${s.id}`)} style={{
                     display: 'block', width: '100%', padding: '4px 10px', textAlign: 'left',
-                    background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                    background: active ? 'var(--header-bg)' : 'transparent',
                     border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                     color: active ? 'var(--accent)' : 'var(--text)', cursor: 'pointer', fontSize: 13,
                   }}>
@@ -200,7 +200,7 @@ function ArmorSetDetail({ set, selectedClass, female, gunner, negativeSet }: {
   return (
     <div style={{ maxWidth: 900 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>{name}</h2>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{name}</h2>
         <BookmarkButton bookmark={{ type: 'armorset', id: set.id, name, path: `/armorsets/${set.id}`, icon: chestIcon(set.rarity) }} />
       </div>
       <p style={{ margin: '0 0 8px', color: 'var(--muted)', fontSize: 12 }}>Rarity {set.rarity}</p>
@@ -250,7 +250,7 @@ function VariantView({ variant: v, rarity, female, showClassHeader, negativeSet 
   return (
     <div style={{ marginBottom: 18 }}>
       {showClassHeader && (
-        <p style={{ margin: '4px 0 6px', color: 'var(--accent)', fontSize: 14, fontWeight: 600 }}>{v.class_type}</p>
+        <p style={{ margin: '4px 0 6px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>{v.class_type}</p>
       )}
 
       {/* Piece stats */}
@@ -308,7 +308,7 @@ function VariantView({ variant: v, rarity, female, showClassHeader, negativeSet 
                     <td className="tbl-cell">
                       <button onClick={() => navigate(`/armorskills/${r.sid}`)} title="Open in Armor Skills" style={{
                         background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-                        color: 'var(--accent)', fontSize: 13, textAlign: 'left',
+                        color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 13, textAlign: 'left',
                       }}>{r.name}</button>
                     </td>
                     {r.cells.map((c, i) => (
@@ -367,7 +367,7 @@ function activatedColor(name: string, negativeSet: Set<string>) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 14 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>

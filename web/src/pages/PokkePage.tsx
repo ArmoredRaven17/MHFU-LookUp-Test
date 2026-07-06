@@ -98,7 +98,7 @@ export default function PokkePage() {
           return (
             <button key={a} onClick={() => { setTierSel(null); navigate(`/pokke/${encodeURIComponent(a)}`) }} style={{
               display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '6px 12px',
-              background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+              background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               color: active ? 'var(--accent)' : 'var(--text)',
               cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -129,12 +129,12 @@ export default function PokkePage() {
                     }}>
                       {groups.map(x => <option key={x.label} value={x.label}>{x.label}</option>)}
                     </select>
-                  : <div style={{ fontWeight: 600, color: 'var(--accent)', fontSize: 13, marginBottom: 2 }}>{g.label}</div>}
+                  : <div style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13, marginBottom: 2 }}>{g.label}</div>}
 
                 {g.note && <p style={{ margin: '0 0 3px', fontSize: 12, color: 'var(--muted)' }}>{g.note}</p>}
 
                 {hasNotes && (
-                  <div style={{ display: 'grid', gridTemplateColumns: GRID, borderBottom: '1px solid var(--border)', padding: '0 0 2px', fontSize: 11, color: 'var(--accent)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: GRID, borderBottom: '1px solid var(--border)', padding: '0 0 2px', fontSize: 11, color: 'var(--text)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     <span /><span>Item</span><span>Rate</span>
                   </div>
                 )}

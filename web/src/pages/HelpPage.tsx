@@ -214,11 +214,11 @@ export default function HelpPage() {
 function Bullet({ children }: { children: ReactNode }) {
   return (
     <p style={{ margin: '0 0 3px', fontSize: 14, color: 'var(--text)', lineHeight: 1.5, display: 'flex', gap: 8 }}>
-      <span style={{ color: 'var(--accent)', flexShrink: 0 }}>•</span>
+      <span style={{ color: 'var(--text)', flexShrink: 0 }}>•</span>
       <span>{children}</span>
     </p>
   )
 }
 function SectionTitle({ children, style }: { children: ReactNode; style?: React.CSSProperties }) {
-  return <h2 style={{ margin: '0 0 8px', fontSize: 18, fontWeight: 700, color: 'var(--accent)', ...style }}>{children}</h2>
+  return <h2 style={{ margin: '0 0 8px', fontSize: 18, fontWeight: 700, color: 'var(--text)', ...style }}>{children}</h2>
 }

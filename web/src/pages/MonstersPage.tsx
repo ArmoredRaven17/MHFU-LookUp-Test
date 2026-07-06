@@ -73,7 +73,7 @@ export default function MonstersPage() {
           {groups.map(g => (
             <div key={g.type}>
               <div style={{
-                fontWeight: 700, color: 'var(--accent)', fontSize: 12,
+                fontWeight: 700, color: 'var(--text)', fontSize: 12,
                 padding: '6px 10px 2px',
               }}>
                 {g.type}
@@ -85,7 +85,7 @@ export default function MonstersPage() {
                   style={{
                     display: 'flex', alignItems: 'center', gap: 8,
                     width: '100%', padding: '4px 10px',
-                    background: m.id === id ? 'rgba(200,168,75,0.15)' : 'transparent',
+                    background: m.id === id ? 'var(--header-bg)' : 'transparent',
                     border: 'none', borderLeft: m.id === id ? '2px solid var(--accent)' : '2px solid transparent',
                     color: m.id === id ? 'var(--accent)' : 'var(--text)',
                     cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -124,7 +124,7 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
         <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt={m.name} width={48} height={48}
              style={{ objectFit: 'contain' }} />
         <div>
-          <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 22, fontWeight: 600 }}>{m.name}</h2>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 22, fontWeight: 600 }}>{m.name}</h2>
           <p style={{ margin: 0, color: 'var(--muted)', fontSize: 13 }}>{m.type}</p>
         </div>
         <BookmarkButton bookmark={{ type: 'monster', id: m.id, name: m.name, path: `/monsters/${m.id}`, icon: `${BASE}/assets/Monsters/${m.id}.png` }} />
@@ -253,7 +253,7 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 20 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 14,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 14,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>
@@ -316,7 +316,7 @@ function LootSection({ header, parts }: { header: string; parts: LootPartData[] 
           <div style={{ display: 'flex', gap: 16, overflowX: 'auto', paddingBottom: 4 }}>
             {p.tiers.map((t, j) => (
               <div key={j} style={{ minWidth: 168 }}>
-                <p style={{ margin: '0 0 2px', fontSize: 11, color: 'var(--accent)' }}>{t.label}</p>
+                <p style={{ margin: '0 0 2px', fontSize: 11, color: 'var(--text)' }}>{t.label}</p>
                 <table style={{ borderCollapse: 'collapse', width: '100%' }}>
                   <tbody>
                     {t.rows.map((r, k) => (

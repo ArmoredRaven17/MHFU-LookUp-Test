@@ -499,7 +499,7 @@ export default function WeaponsPage() {
             <button key={t} onClick={() => setType(t)} style={{
               display: 'flex', alignItems: 'center', gap: 5,
               padding: '3px 6px', borderRadius: 3, cursor: 'pointer',
-              background: type === t ? 'rgba(200,168,75,0.2)' : 'transparent',
+              background: type === t ? 'var(--header-bg)' : 'transparent',
               border: type === t ? '1px solid var(--accent)' : '1px solid transparent',
               color: type === t ? 'var(--accent)' : 'var(--muted)',
               fontSize: 11, whiteSpace: 'nowrap', overflow: 'hidden',
@@ -534,7 +534,7 @@ export default function WeaponsPage() {
           ))}
           <button onClick={() => setFilterOpen(true)} style={{
             flex: 1, padding: '3px 6px', fontSize: 11, cursor: 'pointer',
-            background: filterActive ? 'rgba(200,168,75,0.2)' : 'var(--surface)',
+            background: filterActive ? 'var(--header-bg)' : 'var(--surface)',
             border: filterActive ? '1px solid var(--accent)' : '1px solid var(--border)',
             borderRadius: 3, color: filterActive ? 'var(--accent)' : 'var(--muted)', fontWeight: filterActive ? 600 : 400,
           }}>Filter…</button>
@@ -604,7 +604,7 @@ function TreeNode({ node, selectedId, collapsed, onToggle, onNavigate }: {
     <div>
       <div onClick={clickable ? onClick : undefined} style={{
         display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px 3px 4px',
-        background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+        background: active ? 'var(--header-bg)' : 'transparent',
         borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
         cursor: clickable ? 'pointer' : 'default', fontSize: 12,
       }}>
@@ -675,7 +675,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
         <img src={typeIcon(w.type, doc.rarity)} alt="" width={44} height={44}
              style={{ objectFit: 'contain' }} />
         <div>
-          <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>{w.name}</h2>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{w.name}</h2>
           <p style={{ margin: 0, color: 'var(--muted)', fontSize: 12 }}>{w.type}</p>
         </div>
         <BookmarkButton bookmark={{ type: 'weapon', id: w.id, name: w.name, path: `/weapons/${w.id}` }} />
@@ -852,7 +852,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
             <div style={{ marginBottom: 6 }}>
               <span style={{ color: 'var(--muted)', fontSize: 11 }}>Upgrades from: </span>
               <button onClick={() => onNavigate(parent.id)} style={{
-                background: 'none', border: 'none', color: 'var(--accent)',
+                background: 'none', border: 'none', color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600,
                 cursor: 'pointer', fontSize: 13, padding: 0,
               }}>{parent.name}</button>
             </div>
@@ -863,7 +863,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8 }}>
                 {children.map(c => (
                   <button key={c.id} onClick={() => onNavigate(c.id)} style={{
-                    background: 'none', border: 'none', color: 'var(--accent)',
+                    background: 'none', border: 'none', color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600,
                     cursor: 'pointer', fontSize: 13, padding: 0, textAlign: 'left',
                   }}>└ {c.name}</button>
                 ))}
@@ -895,7 +895,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 18 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>
@@ -947,7 +947,7 @@ function BowgunAmmo({ doc }: { doc: WeaponDoc }) {
       {/* Ammo loadout: colour-coded name + per-level clip sizes */}
       {groups.length > 0 && (
         <Section title="Ammo">
-          <div style={{ display: 'grid', gridTemplateColumns: AMMO_GRID, fontSize: 11, color: 'var(--accent)', marginBottom: 2 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: AMMO_GRID, fontSize: 11, color: 'var(--text)', marginBottom: 2 }}>
             <span />
             {['Lv1','Lv2','Lv3'].map(h => <span key={h} style={{ textAlign: 'center' }}>{h}</span>)}
           </div>

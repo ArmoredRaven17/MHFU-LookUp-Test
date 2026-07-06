@@ -49,7 +49,7 @@ export default function BookmarksPage() {
           {groups.map(g => (
             <div key={g.type}>
               <div style={{
-                fontWeight: 700, color: 'var(--accent)', fontSize: 13,
+                fontWeight: 700, color: 'var(--text)', fontSize: 13,
                 margin: '12px 0 2px',
               }}>
                 {g.header}

@@ -22,13 +22,13 @@ function makeIconResolver(items: Item[], treasures: Treasure[]) {
   }
 }
 
-function Cell({ name, icon, accent }: { name: string; icon: string; accent?: boolean }) {
+function Cell({ name, icon }: { name: string; icon: string }) {
   if (!name) return <span />
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
       {icon && <img src={icon} alt="" width={24} height={24} style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
-      <span style={{ color: accent ? 'var(--accent)' : 'var(--text)', fontSize: 13 }}>{name}</span>
+      <span style={{ color: 'var(--text)', fontSize: 13 }}>{name}</span>
     </span>
   )
 }
@@ -80,7 +80,7 @@ export default function VeggiePage() {
             return (
               <button key={z} onClick={() => { setSearch(''); setZoneSel(z) }} style={{
                 display: 'block', width: '100%', padding: '6px 12px',
-                background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13, lineHeight: 1.3,
@@ -102,18 +102,18 @@ export default function VeggiePage() {
         </div>
 
         {/* Column header */}
-        <div style={{ display: 'grid', gridTemplateColumns: GRID, padding: '4px 16px', fontSize: 12, fontWeight: 600, color: 'var(--accent)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: GRID, padding: '4px 16px', fontSize: 12, fontWeight: 600, color: 'var(--text)' }}>
           <span>Item</span><span>Common Trade</span><span>Rare Trade</span>
         </div>
 
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {trades.map((t, i) => (
             <div key={i} className="tbl-row" style={{ padding: '4px 0' }}>
-              {searching && <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--accent)', marginBottom: 1 }}>{t.zone}</div>}
+              {searching && <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--text)', marginBottom: 1 }}>{t.zone}</div>}
               <div style={{ display: 'grid', gridTemplateColumns: GRID, alignItems: 'center', gap: 8 }}>
                 <Cell name={t.item} icon={resolveIcon(t.item)} />
                 <Cell name={t.common_trade} icon={resolveIcon(t.common_trade)} />
-                <Cell name={t.rare_trade} icon={resolveIcon(t.rare_trade)} accent />
+                <Cell name={t.rare_trade} icon={resolveIcon(t.rare_trade)} />
               </div>
             </div>
           ))}

@@ -67,7 +67,7 @@ export default function ItemsPage() {
           {groups.map(g => (
             <div key={g.category}>
               <div ref={el => { if (el) groupRefs.current.set(g.category, el) }}
-                   style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 12, padding: '6px 10px 2px' }}>
+                   style={{ fontWeight: 700, color: 'var(--text)', fontSize: 12, padding: '6px 10px 2px' }}>
                 {g.category}
               </div>
               {g.items.map(it => {
@@ -75,7 +75,7 @@ export default function ItemsPage() {
                 return (
                   <button key={it.id} onClick={() => navigate(`/items/${encodeURIComponent(it.name)}`)} style={{
                     display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '3px 10px',
-                    background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                    background: active ? 'var(--header-bg)' : 'transparent',
                     border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                     color: active ? 'var(--accent)' : 'var(--text)',
                     cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -123,7 +123,7 @@ function ItemDetail({ item: it, gather, monsters, treasure }: { item: Item; gath
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>{it.name}</h2>
+            <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{it.name}</h2>
             {gather.length > 0 && <img src={GATHER_MARK} alt="" title="Gatherable" width={17} height={17} />}
             {treasure && <img src={GATHER_MARK} alt="" title="Treasure Hunt" width={17} height={17} style={{ filter: TREASURE_FILTER }} />}
           </div>
@@ -173,7 +173,7 @@ function ItemDetail({ item: it, gather, monsters, treasure }: { item: Item; gath
                   <td className="tbl-cell">
                     {m.monster && (
                       <button onClick={() => navigate(`/monsters/${m.monsterId}`)} title="View this monster" style={{
-                        background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--accent)', fontSize: 12, fontWeight: 600, textAlign: 'left',
+                        background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--accent)', textDecoration: 'underline', fontSize: 12, fontWeight: 600, textAlign: 'left',
                       }}>{m.monster}</button>
                     )}
                   </td>
@@ -212,7 +212,7 @@ function SourceTable({ headers, rows }: { headers: string[]; rows: string[][] })
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 16 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{title}</h3>
       {children}
     </div>

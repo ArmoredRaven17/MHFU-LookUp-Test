@@ -144,7 +144,7 @@ function Divider() {
 function Li({ children }: { children: React.ReactNode }) {
   return (
     <p style={{ display: 'flex', gap: 8, margin: '0 0 6px', fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
-      <span style={{ flexShrink: 0, color: 'var(--accent)' }}>•</span>
+      <span style={{ flexShrink: 0, color: 'var(--text)' }}>•</span>
       <span>{children}</span>
     </p>
   )
@@ -153,7 +153,7 @@ function Li({ children }: { children: React.ReactNode }) {
 function A({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer"
-       style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+       style={{ color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600 }}>
       {children}
     </a>
   )

@@ -52,13 +52,13 @@ export default function TreasuresPage() {
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {groups.map(g => (
             <div key={g.area}>
-              <div style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 12, padding: '6px 10px 2px' }}>{g.area}</div>
+              <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 12, padding: '6px 10px 2px' }}>{g.area}</div>
               {g.items.map(t => {
                 const active = selected?.id === t.id
                 return (
                   <button key={t.id} onClick={() => navigate(`/treasures/${t.id}`)} style={{
                     display: 'flex', alignItems: 'center', gap: 6, width: '100%', padding: '3px 10px',
-                    background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                    background: active ? 'var(--header-bg)' : 'transparent',
                     border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                     color: active ? 'var(--accent)' : 'var(--text)',
                     cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -98,7 +98,7 @@ function TreasureDetail({ treasure: t, monsters }: { treasure: Treasure; monster
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>{t.name}</h2>
+            <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{t.name}</h2>
             {t.is_award ? (
               <span style={{ background: AWARD_GOLD, color: '#1E1E1E', borderRadius: 3, padding: '2px 6px', fontSize: 10, fontWeight: 700 }}>★ AWARD</span>
             ) : null}
@@ -129,7 +129,7 @@ function TreasureDetail({ treasure: t, monsters }: { treasure: Treasure; monster
 
       {monsters.length > 0 && (
         <div style={{ marginBottom: 16 }}>
-          <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Obtained From Monsters</h3>
+          <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Obtained From Monsters</h3>
           <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 560 }}>
             <thead>
               <tr>{['Monster', 'Source', 'Rank', 'Rate'].map((h, i) => (
@@ -142,7 +142,7 @@ function TreasureDetail({ treasure: t, monsters }: { treasure: Treasure; monster
                   <td className="tbl-cell">
                     {m.monster && (
                       <button onClick={() => navigate(`/monsters/${m.monsterId}`)} title="View this monster" style={{
-                        background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--accent)', fontSize: 12, fontWeight: 600, textAlign: 'left',
+                        background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--accent)', textDecoration: 'underline', fontSize: 12, fontWeight: 600, textAlign: 'left',
                       }}>{m.monster}</button>
                     )}
                   </td>

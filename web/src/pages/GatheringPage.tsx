@@ -48,7 +48,7 @@ export default function GatheringPage() {
             return (
               <button key={a.slug} onClick={() => navigate(`/gathering/${a.slug}`)} style={{
                 display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '5px 10px',
-                background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13,
               }}>
@@ -128,7 +128,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
     <>
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', padding: '10px 16px 6px' }}>
-        <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 18, fontWeight: 600 }}>{area.area}</h2>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>{area.area}</h2>
         <BookmarkButton bookmark={{ type: 'gathering', id: area.slug, name: area.area, path: `/gathering/${area.slug}`, icon: locationIconUrl(area.area) }} />
         {ranks.length > 1 && (
           <select value={effRank} onChange={e => setRank(e.target.value)} style={{
@@ -147,7 +147,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
 
       {/* Column header */}
       <div style={{ display: 'grid', gridTemplateColumns: GRID, padding: '0 16px 2px', fontSize: 11,
-                    color: 'var(--accent)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    color: 'var(--text)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
         <span>Zone</span><span>Node</span><span>Type</span><span>{effRank}</span>
       </div>
 
@@ -160,7 +160,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
             <span style={{ color: 'var(--muted)' }}>{r.type}</span>
             <span>
               {r.lines.map((ln, j) => ln.isHeader ? (
-                <span key={j} style={{ display: 'block', color: 'var(--accent)', fontSize: 11, fontWeight: 600, margin: '3px 0 1px' }}>{ln.name}</span>
+                <span key={j} style={{ display: 'block', color: 'var(--text)', fontSize: 11, fontWeight: 600, margin: '3px 0 1px' }}>{ln.name}</span>
               ) : (
                 <span key={j} style={{ display: 'flex', justifyContent: 'space-between', gap: 8 }}>
                   <span style={{ color: 'var(--text)' }}>{ln.name}</span>

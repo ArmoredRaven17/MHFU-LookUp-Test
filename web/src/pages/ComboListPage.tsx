@@ -99,7 +99,7 @@ export default function ComboListPage() {
       <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
         {groups.map(g => (
           <div key={g.section} style={{ marginTop: 12 }}>
-            <h3 style={{ margin: '0 0 4px', color: 'var(--accent)', fontSize: 14, fontWeight: 700 }}>{label(g.section)}</h3>
+            <h3 style={{ margin: '0 0 4px', color: 'var(--text)', fontSize: 14, fontWeight: 700 }}>{label(g.section)}</h3>
             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
               <thead>
                 <tr>

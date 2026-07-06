@@ -39,7 +39,7 @@ export default function AwardsPage() {
               <button key={a.id} onClick={() => setSelected(a)} style={{
                 display: 'flex', alignItems: 'center', gap: 8,
                 width: '100%', padding: '5px 10px',
-                background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -85,7 +85,7 @@ function AwardDetail({ award: a }: { award: Award }) {
           style={{ objectFit: 'contain', flexShrink: 0 }}
           onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
         />
-        <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 18, fontWeight: 600 }}>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>
           {a.name}
         </h2>
       </div>

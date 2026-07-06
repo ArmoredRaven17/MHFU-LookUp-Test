@@ -58,7 +58,7 @@ export default function KitchenPage() {
           return (
             <button key={o.chefs} onClick={() => setSelected(o.chefs)} style={{
               display: 'block', width: '100%', padding: '7px 12px',
-              background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+              background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               color: active ? 'var(--accent)' : 'var(--text)',
               cursor: 'pointer', textAlign: 'left', fontSize: 13,

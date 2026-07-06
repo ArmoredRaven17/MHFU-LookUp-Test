@@ -121,7 +121,7 @@ const selStyle: React.CSSProperties = {
 }
 
 function SectionTitle({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
-  return <h2 style={{ margin: '0 0 8px', fontSize: 16, fontWeight: 600, color: 'var(--accent)', ...style }}>{children}</h2>
+  return <h2 style={{ margin: '0 0 8px', fontSize: 16, fontWeight: 600, color: 'var(--text)', ...style }}>{children}</h2>
 }
 function Label({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return <p style={{ margin: '0 0 6px', fontSize: 13, color: 'var(--text)', ...style }}>{children}</p>

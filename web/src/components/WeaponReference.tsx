@@ -29,7 +29,7 @@ export default function WeaponReference({ type, hhSongs }: { type: string; hhSon
       {buttons.map(([label, key]) => (
         <button key={key} onClick={() => setOpen(key)} style={{
           background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-          color: 'var(--accent)', padding: '3px 10px', fontSize: 12, cursor: 'pointer',
+          color: 'var(--text)', padding: '3px 10px', fontSize: 12, cursor: 'pointer',
         }}>{label}</button>
       ))}
       {open === 'sharpness' && <Modal title="Sharpness Modifiers" onClose={() => setOpen(null)}><SharpnessSheet /></Modal>}
@@ -53,7 +53,7 @@ function Modal({ title, onClose, children }: { title: string; onClose: () => voi
         width: '100%', maxWidth: 820, maxHeight: '85vh', overflow: 'auto', padding: 20,
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-          <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 18, fontWeight: 600 }}>{title}</h2>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>{title}</h2>
           <button onClick={onClose} title="Close" style={{
             background: 'none', border: 'none', color: 'var(--muted)', fontSize: 20, cursor: 'pointer', lineHeight: 1,
           }}>✕</button>
@@ -272,7 +272,7 @@ function AmmoSheet() {
       </p>
       {AMMO_CAT.map(g => (
         <div key={g.group} style={{ marginBottom: 14 }}>
-          <p style={{ margin: '0 0 4px', color: 'var(--accent)', fontSize: 14, fontWeight: 600 }}>{g.group}</p>
+          <p style={{ margin: '0 0 4px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>{g.group}</p>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ borderCollapse: 'collapse', width: '100%', minWidth: 620 }}>
               <thead>
@@ -403,14 +403,14 @@ function RecoilReloadSheet() {
         own rating value, then read the effective rating from the band. Lower is better.
       </p>
 
-      <p style={{ margin: '0 0 2px', color: 'var(--accent)', fontSize: 14, fontWeight: 600 }}>Recoil</p>
+      <p style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>Recoil</p>
       <div style={codeStyle}>Adjusted = Ammo Recoil − Bowgun Recoil Value</div>
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 16 }}>
         <ValueTable header="Gun Recoil" rows={RECOIL_VALUES} />
         <BandTable header="Rating" unit="Recovery" rows={RECOIL_BANDS} />
       </div>
 
-      <p style={{ margin: '0 0 2px', color: 'var(--accent)', fontSize: 14, fontWeight: 600 }}>Reload</p>
+      <p style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>Reload</p>
       <div style={codeStyle}>Adjusted = Ammo Reload − Bowgun Reload Value</div>
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 12 }}>
         <ValueTable header="Gun Reload" rows={RELOAD_VALUES} />

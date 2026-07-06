@@ -82,7 +82,7 @@ export default function NotesPage() {
         <div style={{ overflowY: 'auto', flex: 1, padding: '0 16px 16px' }}>
           {groups.map(g => (
             <div key={g.type}>
-              <div style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 13, margin: '12px 0 4px' }}>
+              <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 13, margin: '12px 0 4px' }}>
                 {g.header}
               </div>
               {g.entries.map(n => (

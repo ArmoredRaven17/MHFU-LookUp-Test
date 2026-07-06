@@ -101,7 +101,7 @@ export default function TrenyaPage() {
           return (
             <button key={l} onClick={() => selectLocation(l)} style={{
               display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '6px 12px',
-              background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+              background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               cursor: 'pointer', textAlign: 'left', fontSize: 13,
             }}>
@@ -122,7 +122,7 @@ export default function TrenyaPage() {
             <BookmarkButton bookmark={{ type: 'trenya', id: location, name: location, path: `/trenya/${encodeURIComponent(location)}`, icon: locationIconUrl(location) }} />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginTop: 6 }}>
-            <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--accent)' }}>Pokke Points</span>
+            <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--text)' }}>Pokke Points</span>
             {effTier !== null && (
               <select value={effTier} onChange={e => setTier(Number(e.target.value))} style={{
                 background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
@@ -142,7 +142,7 @@ export default function TrenyaPage() {
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {categories.map(g => (
             <div key={g.category} style={{ display: 'flex', gap: 12, borderBottom: '1px solid var(--border)', padding: '8px 0' }}>
-              <div style={{ width: 140, minWidth: 140, color: 'var(--accent)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{g.category}</div>
+              <div style={{ width: 140, minWidth: 140, color: 'var(--text)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{g.category}</div>
               <div style={{ flex: 1 }}>
                 {g.items.map((it, i) => {
                   const icon = resolveIcon(it.item, it.category)

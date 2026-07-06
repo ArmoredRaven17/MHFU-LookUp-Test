@@ -51,7 +51,7 @@ export default function GrannyPage() {
           return (
             <button key={inv} onClick={() => setSelected(inv)} style={{
               display: 'block', width: '100%', padding: '7px 12px',
-              background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+              background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               color: active ? 'var(--accent)' : 'var(--text)',
               cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -82,7 +82,7 @@ export default function GrannyPage() {
                       onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                   : <span />}
                 <span style={{ color: 'var(--text)', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: 8 }}>{it.item}</span>
-                <span style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 600, textAlign: 'right' }}>{it.price}</span>
+                <span style={{ color: 'var(--text)', fontSize: 13, fontWeight: 600, textAlign: 'right' }}>{it.price}</span>
               </div>
             )
           })}

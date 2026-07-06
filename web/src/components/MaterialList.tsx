@@ -24,7 +24,7 @@ export default function MaterialList({ csv, vertical }: { csv: string; vertical?
           {m.path
             ? <button onClick={() => navigate(m.path!)} style={{
                 background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-                color: 'var(--accent)', fontSize: 13,
+                color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 13,
               }}>{m.text}</button>
             : <span style={{ fontSize: 13, color: 'var(--text)' }}>{m.text}</span>}
         </span>

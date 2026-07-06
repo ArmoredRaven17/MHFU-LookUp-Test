@@ -47,7 +47,7 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
         width: '100%', maxWidth: 720, maxHeight: '85vh', overflow: 'auto', padding: 20,
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-          <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 18, fontWeight: 600 }}>Weapon Filters — {type}</h2>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>Weapon Filters — {type}</h2>
           <button onClick={onClose} title="Close" style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: 20, cursor: 'pointer', lineHeight: 1 }}>✕</button>
         </div>
 
@@ -189,7 +189,7 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8, marginTop: 18 }}>
           <button onClick={() => setF(defaultWeaponFilter())} style={btnStyle}>Clear All</button>
           <button onClick={onClose} style={btnStyle}>Cancel</button>
-          <button onClick={() => onApply(f)} style={{ ...btnStyle, background: 'var(--accent)', color: '#111', border: 'none', fontWeight: 600 }}>Apply</button>
+          <button onClick={() => onApply(f)} style={{ ...btnStyle, border: '1px solid var(--text)', fontWeight: 600 }}>Apply</button>
         </div>
       </div>
     </div>

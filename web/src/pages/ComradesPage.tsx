@@ -78,7 +78,7 @@ export default function ComradesPage() {
           return (
             <button key={s.id} onClick={() => setSectionId(s.id)} style={{
               display: 'block', width: '100%', padding: '7px 12px',
-              background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+              background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               color: active ? 'var(--accent)' : 'var(--text)',
               cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -94,7 +94,7 @@ export default function ComradesPage() {
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {/* Prose body */}
           {blocks.map((b, i) => {
-            if (b.kind === 'h') return <p key={i} style={{ margin: '8px 0 4px', fontWeight: 600, color: 'var(--accent)', fontSize: 13 }}>{b.text}</p>
+            if (b.kind === 'h') return <p key={i} style={{ margin: '8px 0 4px', fontWeight: 600, color: 'var(--text)', fontSize: 13 }}>{b.text}</p>
             if (b.kind === 'p') return <p key={i} style={{ margin: '0 0 8px', color: 'var(--text)', fontSize: 13, lineHeight: 1.5 }}>{b.text}</p>
             return (
               <div key={i} style={{ marginBottom: 10, maxWidth: 640 }}>
@@ -121,7 +121,7 @@ function WeaponsTable({ weapons }: { weapons: ComradeWeapon[] }) {
   const GRID = '110px 150px 150px 240px'
   return (
     <div style={{ marginTop: 4 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--accent)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--text)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
         <span>Attack Power</span><span>Slash Weapon</span><span>Impact Weapon</span><span>Weapon Divider (Smaller is better)</span>
       </div>
       {weapons.map(w => (
@@ -140,7 +140,7 @@ function SkillsTable({ skills }: { skills: ComradeSkill[] }) {
   const GRID = '160px 60px 2fr 2fr'
   return (
     <div style={{ marginTop: 4 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--accent)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--text)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
         <span>Skill</span><span>Cost</span><span>Description</span><span>How To Unlock</span>
       </div>
       {skills.map(s => (
@@ -159,7 +159,7 @@ function TemperamentsTable({ temps }: { temps: ComradeTemperament[] }) {
   const GRID = '1fr 1fr 1fr 1fr'
   return (
     <div style={{ marginTop: 4 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--accent)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--text)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
         <span>Character</span><span>Attack Preference</span><span>Healing Rate</span><span>Attacking Target</span>
       </div>
       {temps.map(t => (
@@ -173,3 +173,4 @@ function TemperamentsTable({ temps }: { temps: ComradeTemperament[] }) {
     </div>
   )
 }
+

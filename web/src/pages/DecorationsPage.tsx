@@ -73,7 +73,7 @@ export default function DecorationsPage() {
               <button key={d.id} onClick={() => navigate(`/decorations/${d.id}`)} style={{
                 display: 'flex', alignItems: 'center', gap: 8,
                 width: '100%', padding: '4px 10px',
-                background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+                background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13,
@@ -112,7 +112,7 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
         <img src={decoIcon(d.color)} alt="" width={32} height={32} style={{ objectFit: 'contain' }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
-        <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>{d.name}</h2>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{d.name}</h2>
         <BookmarkButton bookmark={{ type: 'decoration', id: d.id, name: d.name, path: `/decorations/${d.id}`, icon: decoIcon(d.color) }} />
       </div>
 
@@ -130,7 +130,7 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
 
       {/* Slot badge */}
       <span style={{
-        display: 'inline-block', background: 'var(--accent)', color: '#111', borderRadius: 3,
+        display: 'inline-block', background: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--text)', borderRadius: 3,
         padding: '2px 8px', fontSize: 12, marginBottom: 12,
       }}>
         <span style={{ fontFamily: 'ui-monospace, monospace' }}>{slotBar(d.slot_cost)}</span>
@@ -159,7 +159,7 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 16 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>
