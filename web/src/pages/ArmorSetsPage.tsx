@@ -18,6 +18,18 @@ function rarityTier(r: number) {
 const armorIcon = (slot: string, rarity: number) => `${BASE}/assets/Armor/${slot.toLowerCase()}_R${rarityTier(rarity)}.png`
 const chestIcon = (rarity: number) => armorIcon('chest', rarity)
 
+// Rarity-tier colour (matches the blacksmith icon palette). 1–3 share white.
+function rarityColor(r: number) {
+  if (r >= 10) return '#AC5CC0'
+  if (r === 9) return '#FFD65A'
+  if (r === 8) return '#FF5A5A'
+  if (r === 7) return '#FF9C5A'
+  if (r === 6) return '#94B5FF'
+  if (r === 5) return '#EF94A5'
+  if (r === 4) return '#73CE8C'
+  return '#EFEFEF'
+}
+
 const SLOTS = ['head', 'chest', 'arms', 'waist', 'legs']
 const cap = (s: string) => (s.length === 0 ? s : s[0].toUpperCase() + s.slice(1))
 const slotBar = (n: number) => {
@@ -136,7 +148,7 @@ export default function ArmorSetsPage() {
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {groups.map(g => (
             <div key={g.rarity}>
-              <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 12, padding: '6px 10px 2px' }}>
+              <div style={{ fontWeight: 700, color: rarityColor(g.rarity), fontSize: 12, padding: '6px 10px 2px' }}>
                 Rarity {g.rarity}
               </div>
               {g.sets.map(s => {
