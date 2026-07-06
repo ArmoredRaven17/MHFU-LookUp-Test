@@ -15,13 +15,9 @@
                 <TextBlock Text="About" FontSize="22" FontWeight="Bold" Foreground="{StaticResource TextBrush}"
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Grid>
-            <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,2"
+            <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,8"
                        TextAlignment="Center">
                 MHFU LookUp is an unofficial, offline reference tool for Monster Hunter Freedom Unite (MHP2G).
-            </TextBlock>
-            <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"
-                       TextAlignment="Center">
-                Created by <Run FontWeight="SemiBold">Armored_Raven</Run>.
             </TextBlock>
 
             <StackPanel Spacing="0">
@@ -35,51 +31,62 @@
                 </StackPanel>
                 <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
 
-                <!-- Data sources -->
+                <!-- ROM-extracted data — now the majority of the app's factual values -->
+                <StackPanel Spacing="3">
+                    <TextBlock Text="Extracted Directly from the ROM" FontWeight="SemiBold" FontSize="15"
+                               Foreground="{StaticResource TextBrush}" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,2">
+                        A large and growing share of this app's data no longer comes from any community source —
+                        it's decrypted and reverse‑engineered straight out of MHFU's own game files, so it can't
+                        drift from what the game actually does.
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Item rarity, sell value, carry/stack size, and descriptions</Run> — the game's internal item‑master table, which wasn't documented anywhere before this.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Item, location/map, weapon‑type, and Guild Card award icons</Run> — dumped from the game's own sprite sheets and re‑tinted using the game's own colour palette.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">All armor recipes and stats</Run> (defense, resistances, deco slots, forge cost, max defense, and skill points, all 5 slots) — decoded from the game's static forge tables.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Monster hitzones</Run> — all 83 monsters, cross‑checked byte‑for‑byte against the game's own per‑part damage tables.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Monster carve, capture, and break/wound‑part rewards</Run> — decoded from the game's reward‑data tables.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Treasure‑Hunt turn‑in points.</Run></TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Gathering‑area drop rates</Run> — Possibly the first time these values have been published anywhere; no community source had them.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Pokke Farm rates</Run> for Mining Points, Insect Thicket, Mushroom Tree, Bee Hive, Bomb Mining, Bug Tree, Great Sword Cave, and the Casting Machine — plus confirmation that Trenya's returns are drawn uniformly at random, with no hidden per‑item rates.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Weapon damage constants</Run> — sharpness modifiers, element/status multipliers, and the per‑class "True Raw" divisor shown in the Weapons tab.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="13" Foreground="{StaticResource MutedTextBrush}" Margin="0,2,0,2">Still open: Pokke Farm's Field Rows per‑crop rates and the Fishing Pier's full per‑spot catch pools haven't been fully extracted yet — those sections still reflect the best community information available.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The full method, tooling, and ROM addresses are documented for anyone who wants the details:</TextBlock>
+                    <HyperlinkButton Content="Read the extraction write-up" Click="GatherDoc_Click" Padding="14,0,0,4" />
+                </StackPanel>
+                <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
+
+                <!-- Data sources still coming from community references -->
                 <StackPanel Spacing="3">
                     <TextBlock Text="Data Sources &amp; Attribution" FontWeight="SemiBold" FontSize="15"
                                Foreground="{StaticResource TextBrush}" />
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,2">
-                        Compiled from openly available community sources. The underlying values are factual game
-                        data; English names follow Capcom's official localization.
+                        Everything not listed above as ROM‑extracted is compiled from openly available community
+                        sources. The underlying values are factual game data; English names follow Capcom's
+                        official localization.
                     </TextBlock>
 
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Monsters</Run> (hitzones, ailment tolerances, rewards) and <Run FontWeight="SemiBold">Veggie Elder trades</Run> — MHP2G @wiki:</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Monster ailment tolerances</Run> and <Run FontWeight="SemiBold">Veggie Elder trades</Run> — MHP2G @wiki:</TextBlock>
                     <HyperlinkButton Content="https://w.atwiki.jp/mhp2g/" NavigateUri="https://w.atwiki.jp/mhp2g/" Padding="14,0,0,4" />
 
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Quests, armor, decorations, armor skills, gathering, weapon sharpness, items &amp; account items, combinations, treasures, kitchen recipes, Felyne Whim skills, Felyne Comrades, Trenya, and Pokke Farm</Run> — Monster Hunter Wiki (Fandom), used under the CC BY‑SA license:</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Quests, Training School quest objectives, decorations, weapon sharpness/stats, combinations, treasure "where to find" text, kitchen recipes, Felyne Whim skills, Felyne Comrades, and Trenya's item lists</Run> — Monster Hunter Wiki (Fandom), used under the CC BY‑SA license:</TextBlock>
                     <HyperlinkButton Content="https://monsterhunter.fandom.com" NavigateUri="https://monsterhunter.fandom.com/wiki/Monster_Hunter_Wiki" Padding="14,0,0,4" />
 
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Decoration/jewel &amp; crafting‑material icon colors, and weapon‑data cross‑referencing</Run> (upgrade trees, rarity, materials, and the MHP2G‑exclusive “dummy” weapons) — derived from and cross‑checked against vallode/mhfu‑blacksmith (MIT License, © 2022 vallode):</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Weapon data</Run> (attack, sharpness, slots, affinity, materials, upgrade trees, rarity, and the MHP2G‑exclusive “dummy” weapons) — vallode/mhfu‑blacksmith (MIT License, © 2022 vallode):</TextBlock>
                     <HyperlinkButton Content="https://github.com/vallode/mhfu-blacksmith" NavigateUri="https://github.com/vallode/mhfu-blacksmith" Padding="14,0,0,4" />
 
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Monster icons</Run> — from the Monster Hunter Wiki (Fandom); the underlying artwork is © Capcom.</TextBlock>
-
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Map / location area icons</Run> — from the Monster Hunter Wiki (Fandom); the underlying artwork is © Capcom.</TextBlock>
 
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Element &amp; status value icons</Run> — from the Monster Hunter Wiki (Fandom); the underlying artwork is © Capcom.</TextBlock>
 
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Hunting Horn note icons &amp; sheet music</Run> — Monster Hunter Wiki (Fandom), “Hunting Horn Sheet Music” page (song effects, note sequences, and the note‑colour icons); note artwork © Capcom:</TextBlock>
                     <HyperlinkButton Content="https://monsterhunter.fandom.com" NavigateUri="https://monsterhunter.fandom.com/wiki/Hunting_Horn_Sheet_Music_(file)" Padding="14,0,0,4" />
 
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Item descriptions, carry counts, Guild Card awards, Training School quests &amp; weapon-type icons</Run> — Monster Hunter Wiki (monsterhunterwiki.org), a MediaWiki community wiki, used under the CC BY‑SA 4.0 license (award &amp; equipment icons © Capcom):</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Guild Card award names, descriptions &amp; unlock conditions</Run> — Monster Hunter Wiki (monsterhunterwiki.org), a MediaWiki community wiki, used under the CC BY‑SA 4.0 license (the award icons themselves are ROM‑extracted — see above; icon artwork © Capcom):</TextBlock>
                     <HyperlinkButton Content="https://monsterhunterwiki.org" NavigateUri="https://monsterhunterwiki.org/wiki/MHFU/Items" Padding="14,0,0,4" />
 
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Armor-skill category groupings</Run> — the skills and their data are the app's own; only the way they're sorted into the Armor Skills tab's categories (Offense / Defense / Resistance / Blademaster / Bowgun / Bow / Treasure Hunting / Farming) follows <Run FontStyle="Italic">Athena's Armor Set Search</Run> for MHFU, purely so users of both tools see familiar groupings.</TextBlock>
 
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Bowgun stats (verification)</Run> — Minegarde, a now‑defunct community site, accessed via the Internet Archive:</TextBlock>
-                    <HyperlinkButton Content="https://web.archive.org/web/*/minegarde.com" NavigateUri="https://web.archive.org/web/2id_/http://minegarde.com/" Padding="14,0,0,4" />
-
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Bowgun ammo stats</Run> (power, hits, recoil, reload, element / status — shown in the Ammo reference) — from the <Run FontStyle="Italic">Bowgun Damage Guide (PSP)</Run> by VampireCosmonaut, published on GameFAQs:</TextBlock>
-                    <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
-
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Gathering area structure</Run> — the per‑node drop rates are extracted from the ROM, but the gathering‑map layout (which nodes belong to which area, and the Secret Area) was structured with the help of the MHFU <Run FontStyle="Italic">Guide and Walkthrough (PSP)</Run> by ryin77, published on GameFAQs:</TextBlock>
-                    <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
-
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Pokke Farm structure</Run> — the Bomb Mining splits and tier tables (and the other farm‑node rates) are extracted from the ROM, but the Pokke Farm tab's structure and early direction for decoding it came from the <Run FontStyle="Italic">Pokke Farm Guide (PSP)</Run> by VioletKIRA, published on GameFAQs:</TextBlock>
-                    <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
-
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Bow damage formula (verification)</Run> — cross‑confirmed by Armored_Raven against two community FAQs published on GameFAQs: the MHFU <Run FontStyle="Italic">Bow Damage Formula FAQ</Run> by Boldrin (2009) and the Monster Hunter Freedom 2 <Run FontStyle="Italic">Bow Damage Formula FAQ</Run> by Deathslayer31 / Brian VanWulfen (2007):</TextBlock>
                     <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
 
                     <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="{StaticResource MutedTextBrush}" Margin="0,2,0,0">
@@ -89,13 +96,26 @@
                 </StackPanel>
                 <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
 
-                <!-- ROM-extracted gathering data — unique to this app -->
+                <!-- Community guides used as references / cross-checks while decoding the ROM -->
                 <StackPanel Spacing="3">
-                    <TextBlock Text="Gathering Rates — Extracted from the ROM" FontWeight="SemiBold" FontSize="15"
+                    <TextBlock Text="Community Guides Used While Decoding the ROM" FontWeight="SemiBold" FontSize="15"
                                Foreground="{StaticResource TextBrush}" />
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The per‑node gathering percentages in the Gathering tab aren't published on any community site — no one had them. They were pulled straight from the game by reverse‑engineering MHFU's ROM: tracing the gather mechanism in live memory, then cracking the XOR‑encrypted gather tables (a four‑stream, round‑robin Lehmer‑LCG keystream) to decrypt every map and rank from the ROM files. As far as we know, this is the first source for real MHFU gathering rates.</TextBlock>
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The full method, tooling, and ROM addresses are documented for anyone who wants the details:</TextBlock>
-                    <HyperlinkButton Content="Read the extraction write-up" Click="GatherDoc_Click" Padding="14,0,0,4" />
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,2">
+                        These guides didn't supply the final numbers shown in the app, but were genuinely useful as
+                        references and cross‑checks while reverse‑engineering the ROM.
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Gathering‑area structure</Run> (which nodes belong to which area, and the Secret Area) — the MHFU <Run FontStyle="Italic">Guide and Walkthrough (PSP)</Run> by ryin77, published on GameFAQs:</TextBlock>
+                    <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
+
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Pokke Farm tab structure &amp; Bomb Mining tier labels</Run> — the <Run FontStyle="Italic">Pokke Farm Guide (PSP)</Run> by VioletKIRA, published on GameFAQs:</TextBlock>
+                    <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
+
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Bowgun stats</Run> — cross‑verified against Minegarde, a now‑defunct community site, accessed via the Internet Archive:</TextBlock>
+                    <HyperlinkButton Content="https://web.archive.org/web/*/minegarde.com" NavigateUri="https://web.archive.org/web/2id_/http://minegarde.com/" Padding="14,0,0,4" />
+
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Bow damage formula</Run> — cross‑confirmed against two community FAQs published on GameFAQs: the MHFU <Run FontStyle="Italic">Bow Damage Formula FAQ</Run> by Boldrin (2009) and the Monster Hunter Freedom 2 <Run FontStyle="Italic">Bow Damage Formula FAQ</Run> by Deathslayer31 / Brian VanWulfen (2007):</TextBlock>
+                    <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
                 </StackPanel>
                 <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
 
@@ -113,7 +133,7 @@
                     <TextBlock Text="License" FontWeight="SemiBold" FontSize="15"
                                Foreground="{StaticResource TextBrush}" />
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Source code — <Run FontWeight="SemiBold">MIT License</Run>, © 2026 Armored_Raven.</TextBlock>
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Game reference data — <Run FontWeight="SemiBold">CC BY‑SA 4.0</Run> (derived from the wikis above; attribution + share‑alike).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Game reference data derived from the wikis above — <Run FontWeight="SemiBold">CC BY‑SA 4.0</Run> (attribution + share‑alike). Data extracted directly from the ROM is factual game data, not independently copyrightable.</TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Monster Hunter names &amp; assets remain © Capcom (see below).</TextBlock>
                 </StackPanel>
                 <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />

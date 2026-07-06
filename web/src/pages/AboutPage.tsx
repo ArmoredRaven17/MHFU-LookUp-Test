@@ -12,11 +12,8 @@ export default function AboutPage() {
                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
           <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: 'var(--text)' }}>About</h2>
         </div>
-        <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: 14, margin: '0 0 4px' }}>
-          MHFU LookUp is an unofficial, offline reference tool for Monster Hunter Freedom Unite (MHP2G).
-        </p>
-        <p style={{ textAlign: 'center', color: 'var(--text)', fontSize: 14, margin: '0 0 20px' }}>
-          Created by <strong>Armored_Raven</strong>.
+        <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: 14, margin: '0 0 20px' }}>
+          MHFU LookUp is an unofficial reference tool for Monster Hunter Freedom Unite (MHP2G).
         </p>
 
         <Divider />
@@ -29,27 +26,54 @@ export default function AboutPage() {
 
         <Divider />
 
-        {/* Data Sources */}
-        <Section title="Data Sources & Attribution">
+        {/* ROM extraction — now the majority of the app's factual values */}
+        <Section title="Extracted Directly from the ROM">
           <p style={{ color: 'var(--muted)', fontSize: 13, margin: '0 0 10px', lineHeight: 1.6 }}>
-            Compiled from openly available community sources. The underlying values are factual game data;
-            English names follow Capcom's official localization.
+            A large and growing share of this app's data no longer comes from any community source — it's
+            decrypted and reverse-engineered straight out of MHFU's own game files, so it can't drift from
+            what the game actually does.
           </p>
 
-          <Li><strong>Monsters</strong> (hitzones, ailment tolerances, rewards) and <strong>Veggie Elder trades</strong> — MHP2G @wiki: <A href="https://w.atwiki.jp/mhp2g/">w.atwiki.jp/mhp2g</A></Li>
-          <Li><strong>Quests, armor, decorations, armor skills, gathering, weapon sharpness, items & account items, combinations, treasures, kitchen recipes, Felyne Whim skills, Felyne Comrades, Trenya, and Pokke Farm</strong> — Monster Hunter Wiki (Fandom), used under the CC BY-SA license: <A href="https://monsterhunter.fandom.com/wiki/Monster_Hunter_Wiki">monsterhunter.fandom.com</A></Li>
-          <Li><strong>Decoration/jewel & crafting-material icon colors, and weapon-data cross-referencing</strong> (upgrade trees, rarity, materials, and MHP2G-exclusive "dummy" weapons) — vallode/mhfu-blacksmith (MIT License, © 2022 vallode): <A href="https://github.com/vallode/mhfu-blacksmith">github.com/vallode/mhfu-blacksmith</A></Li>
+          <Li><strong>Item rarity, sell value, carry/stack size, and descriptions</strong> — the game's internal item-master table, which wasn't documented anywhere before this.</Li>
+          <Li><strong>Item, location/map, weapon-type, and Guild Card award icons</strong> — dumped from the game's own sprite sheets and re-tinted using the game's own colour palette.</Li>
+          <Li><strong>All armor recipes and stats</strong> (defense, resistances, deco slots, forge cost, max defense, and skill points, all 5 slots) — decoded from the game's static forge tables.</Li>
+          <Li><strong>Monster hitzones</strong> — all 83 monsters, cross-checked byte-for-byte against the game's own per-part damage tables.</Li>
+          <Li><strong>Monster carve, capture, and break/wound-part rewards</strong> — decoded from the game's reward-data tables.</Li>
+          <Li><strong>Treasure-Hunt turn-in points.</strong></Li>
+          <Li><strong>Gathering-area drop rates</strong> — Possibly the first time these values have been published anywhere; no community source had them.</Li>
+          <Li><strong>Pokke Farm rates</strong> for Mining Points, Insect Thicket, Mushroom Tree, Bee Hive, Bomb Mining, Bug Tree, Great Sword Cave, and the Casting Machine — plus confirmation that Trenya's returns are drawn uniformly at random, with no hidden per-item rates.</Li>
+          <Li><strong>Weapon damage constants</strong> — sharpness modifiers, element/status multipliers, and the per-class "True Raw" divisor shown in the Weapons tab.</Li>
+
+          <p style={{ color: 'var(--muted)', fontSize: 12, margin: '4px 0 10px', lineHeight: 1.5 }}>
+            Still open: Pokke Farm's Field Rows per-crop rates and the Fishing Pier's full per-spot catch
+            pools haven't been fully extracted yet — those sections still reflect the best community
+            information available.
+          </p>
+          <p style={{ color: 'var(--text)', fontSize: 13, margin: 0 }}>
+            The full method, tooling, and ROM addresses are documented for anyone who wants the details —
+            see <code>docs/rom-data-extraction.md</code> in the source repository.
+          </p>
+        </Section>
+
+        <Divider />
+
+        {/* Data Sources still from community references */}
+        <Section title="Data Sources & Attribution">
+          <p style={{ color: 'var(--muted)', fontSize: 13, margin: '0 0 10px', lineHeight: 1.6 }}>
+            Everything not listed above as ROM-extracted is compiled from openly available community
+            sources. The underlying values are factual game data; English names follow Capcom's official
+            localization.
+          </p>
+
+          <Li><strong>Monster ailment tolerances</strong> and <strong>Veggie Elder trades</strong> — MHP2G @wiki: <A href="https://w.atwiki.jp/mhp2g/">w.atwiki.jp/mhp2g</A></Li>
+          <Li><strong>Quests, Training School quest objectives, decorations, weapon sharpness/stats, combinations, treasure "where to find" text, kitchen recipes, Felyne Whim skills, Felyne Comrades, and Trenya's item lists</strong> — Monster Hunter Wiki (Fandom), used under the CC BY-SA license: <A href="https://monsterhunter.fandom.com/wiki/Monster_Hunter_Wiki">monsterhunter.fandom.com</A></Li>
+          <Li><strong>Weapon data</strong> (attack, sharpness, slots, affinity, materials, upgrade trees, rarity, and the MHP2G-exclusive "dummy" weapons) — vallode/mhfu-blacksmith (MIT License, © 2022 vallode): <A href="https://github.com/vallode/mhfu-blacksmith">github.com/vallode/mhfu-blacksmith</A></Li>
           <Li><strong>Monster icons</strong> — from the Monster Hunter Wiki (Fandom); the underlying artwork is © Capcom.</Li>
-          <Li><strong>Map / location area icons</strong> — from the Monster Hunter Wiki (Fandom); the underlying artwork is © Capcom.</Li>
           <Li><strong>Element & status value icons</strong> — from the Monster Hunter Wiki (Fandom); the underlying artwork is © Capcom.</Li>
           <Li><strong>Hunting Horn note icons & sheet music</strong> — Monster Hunter Wiki (Fandom), "Hunting Horn Sheet Music" page; note artwork © Capcom: <A href="https://monsterhunter.fandom.com/wiki/Hunting_Horn_Sheet_Music_(file)">monsterhunter.fandom.com</A></Li>
-          <Li><strong>Item descriptions, carry counts, Guild Card awards, Training School quests & weapon-type icons</strong> — Monster Hunter Wiki (monsterhunterwiki.org), CC BY-SA 4.0 (award & equipment icons © Capcom): <A href="https://monsterhunterwiki.org/wiki/MHFU/Items">monsterhunterwiki.org</A></Li>
+          <Li><strong>Guild Card award names, descriptions & unlock conditions</strong> — Monster Hunter Wiki (monsterhunterwiki.org), CC BY-SA 4.0 (the award icons themselves are ROM-extracted — see above; icon artwork © Capcom): <A href="https://monsterhunterwiki.org/wiki/MHFU/Items">monsterhunterwiki.org</A></Li>
           <Li><strong>Armor-skill category groupings</strong> — the skills and their data are the app's own; only the category sort order follows <em>Athena's Armor Set Search</em> for MHFU, so users of both tools see familiar groupings.</Li>
-          <Li><strong>Bowgun stats (verification)</strong> — Minegarde, accessed via the Internet Archive: <A href="https://web.archive.org/web/2id_/http://minegarde.com/">web.archive.org</A></Li>
           <Li><strong>Bowgun ammo stats</strong> — from the <em>Bowgun Damage Guide (PSP)</em> by VampireCosmonaut, published on GameFAQs: <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
-          <Li><strong>Gathering area structure</strong> — per-node drop rates are from the ROM; the gathering-map layout was structured with the help of the MHFU <em>Guide and Walkthrough (PSP)</em> by ryin77, on GameFAQs: <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
-          <Li><strong>Pokke Farm structure</strong> — farm-node rates from the ROM; the tab's structure and early direction came from the <em>Pokke Farm Guide (PSP)</em> by VioletKIRA, on GameFAQs: <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
-          <Li><strong>Bow damage formula (verification)</strong> — cross-confirmed against the MHFU <em>Bow Damage Formula FAQ</em> by Boldrin (2009) and the MHF2 <em>Bow Damage Formula FAQ</em> by Deathslayer31 / Brian VanWulfen (2007), both on GameFAQs: <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
 
           <p style={{ color: 'var(--muted)', fontSize: 11, margin: '10px 0 0', lineHeight: 1.5 }}>
             Reused Fandom wiki content is licensed CC BY-SA; the data set derived from it is shared under the same terms (attribution + share-alike).
@@ -58,10 +82,17 @@ export default function AboutPage() {
 
         <Divider />
 
-        {/* ROM extraction */}
-        <Section title="Gathering Rates — Extracted from the ROM">
-          <Li>The per-node gathering percentages in the Gathering tab aren't published on any community site — no one had them. They were pulled straight from the game by reverse-engineering MHFU's ROM: tracing the gather mechanism in live memory, then cracking the XOR-encrypted gather tables (a four-stream, round-robin Lehmer-LCG keystream) to decrypt every map and rank from the ROM files. As far as we know, this is the first source for real MHFU gathering rates.</Li>
-          <Li>The full method, tooling, and ROM addresses are documented for anyone who wants the details.</Li>
+        {/* Community guides used as references / cross-checks while decoding the ROM */}
+        <Section title="Community Guides Used While Decoding the ROM">
+          <p style={{ color: 'var(--muted)', fontSize: 13, margin: '0 0 10px', lineHeight: 1.6 }}>
+            These guides didn't supply the final numbers shown in the app, but were genuinely useful as
+            references and cross-checks while reverse-engineering the ROM.
+          </p>
+
+          <Li><strong>Gathering-area structure</strong> (which nodes belong to which area, and the Secret Area) — the MHFU <em>Guide and Walkthrough (PSP)</em> by ryin77, published on GameFAQs: <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
+          <Li><strong>Pokke Farm tab structure & Bomb Mining tier labels</strong> — the <em>Pokke Farm Guide (PSP)</em> by VioletKIRA, published on GameFAQs: <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
+          <Li><strong>Bowgun stats</strong> — cross-verified against Minegarde, a now-defunct community site, accessed via the Internet Archive: <A href="https://web.archive.org/web/2id_/http://minegarde.com/">web.archive.org</A></Li>
+          <Li><strong>Bow damage formula</strong> — cross-confirmed against two community FAQs published on GameFAQs: the MHFU <em>Bow Damage Formula FAQ</em> by Boldrin (2009) and the MHF2 <em>Bow Damage Formula FAQ</em> by Deathslayer31 / Brian VanWulfen (2007): <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
         </Section>
 
         <Divider />
@@ -76,7 +107,7 @@ export default function AboutPage() {
         {/* License */}
         <Section title="License">
           <Li><strong>Source code</strong> — MIT License, © 2026 Armored_Raven.</Li>
-          <Li><strong>Game reference data</strong> — CC BY-SA 4.0 (derived from the wikis above; attribution + share-alike).</Li>
+          <Li><strong>Game reference data</strong> derived from the wikis above — CC BY-SA 4.0 (attribution + share-alike). Data extracted directly from the ROM is factual game data, not independently copyrightable.</Li>
           <Li>Monster Hunter names & assets remain © Capcom (see below).</Li>
         </Section>
 
