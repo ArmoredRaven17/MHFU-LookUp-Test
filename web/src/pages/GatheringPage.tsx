@@ -4,6 +4,7 @@ import { loadGathering } from '../data/loaders'
 import type { GatheringArea, GatherNode, GatherItem } from '../types'
 import { locationIconUrl, locationColor } from '../utils/location'
 import BookmarkButton from '../components/BookmarkButton'
+import { useMaterialResolver } from '../hooks/useMaterials'
 import { BASE } from '../utils/assets'
 
 const RANK_DEFS: [keyof GatherNode & string, string][] = [
@@ -75,6 +76,8 @@ export default function GatheringPage() {
 // ── Detail ────────────────────────────────────────────────────────────────────
 
 function AreaDetail({ area }: { area: GatheringArea }) {
+  const navigate = useNavigate()
+  const resolveMaterial = useMaterialResolver()
   const [rank, setRank] = useState('')
   const [search, setSearch] = useState('')
 
@@ -159,14 +162,28 @@ function AreaDetail({ area }: { area: GatheringArea }) {
             <span style={{ color: 'var(--muted)' }}>{r.node}</span>
             <span style={{ color: 'var(--muted)' }}>{r.type}</span>
             <span>
-              {r.lines.map((ln, j) => ln.isHeader ? (
-                <span key={j} style={{ display: 'block', color: 'var(--text)', fontSize: 11, fontWeight: 600, margin: '3px 0 1px' }}>{ln.name}</span>
-              ) : (
-                <span key={j} style={{ display: 'flex', justifyContent: 'space-between', gap: 8 }}>
-                  <span style={{ color: 'var(--text)' }}>{ln.name}</span>
-                  {ln.rate && <span style={{ color: 'var(--muted)', flexShrink: 0 }}>{ln.rate}</span>}
-                </span>
-              ))}
+              {r.lines.map((ln, j) => {
+                if (ln.isHeader) {
+                  return <span key={j} style={{ display: 'block', color: 'var(--text)', fontSize: 11, fontWeight: 600, margin: '3px 0 1px' }}>{ln.name}</span>
+                }
+                const mat = resolveMaterial(ln.name)[0]
+                return (
+                  <span key={j} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, minWidth: 0 }}>
+                      {mat?.icon && <img src={mat.icon} alt="" width={16} height={16}
+                        style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
+                        onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
+                      {mat?.path
+                        ? <button onClick={() => navigate(mat.path!)} style={{
+                            background: 'none', border: 'none', padding: 0, cursor: 'pointer',
+                            color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 12, textAlign: 'left',
+                          }}>{ln.name}</button>
+                        : <span style={{ color: 'var(--text)' }}>{ln.name}</span>}
+                    </span>
+                    {ln.rate && <span style={{ color: 'var(--muted)', flexShrink: 0 }}>{ln.rate}</span>}
+                  </span>
+                )
+              })}
             </span>
           </div>
         ))}
