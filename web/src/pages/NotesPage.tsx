@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useNotes, type NoteRecord } from '../hooks/useNotes'
+import { useNoteOrderIndex } from '../utils/noteOrder'
 import { BASE } from '../utils/assets'
 
 // Group order, header, and fallback tab icon per type — mirrors desktop
@@ -45,10 +46,18 @@ function exportNotes(groups: Group[]) {
 export default function NotesPage() {
   const { notes, setNote, remove } = useNotes()
   const navigate = useNavigate()
+  const orderIndex = useNoteOrderIndex()
 
   const groups: Group[] = SECTIONS
     .map(s => ({ ...s, entries: notes.filter(n => n.type === s.type) }))
     .filter(g => g.entries.length > 0)
+    .map(g => ({
+      ...g,
+      entries: [...g.entries].sort((a, b) => {
+        const diff = orderIndex(a) - orderIndex(b)
+        return Number.isFinite(diff) ? diff : 0
+      }),
+    }))
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', background: 'transparent' }}>
