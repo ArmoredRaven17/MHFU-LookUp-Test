@@ -18,7 +18,7 @@ const AREA_ORDER = ['Field Rows', 'Fishing Pier', 'Casting Machine', 'Mining Poi
 // "Perfect swing" notes render on a second line, matching the desktop FormatNote.
 const formatNote = (note: string) => note.replace('  —  perfect swing: ', '\nPerfect: ')
 
-// Resolve an item to a full icon URL (items ∪ treasures, then "+ Jewel", then tinted decoration, then strip ×N).
+// Resolve an item to a full icon URL (items ∪ treasures, then "+ Jewel", then tinted decoration, then strip a trailing ×N/xN quantity suffix).
 function makeIconResolver(items: Item[], treasures: Treasure[], decos: Decoration[]) {
   const exact = new Map<string, string>()
   const norm = new Map<string, string>()
@@ -35,7 +35,7 @@ function makeIconResolver(items: Item[], treasures: Treasure[], decos: Decoratio
     const b = resolveItem(name) || resolveItem(`${name} Jewel`)
     if (b) return `${BASE}/assets/Items/${b}.png`
     for (const c of [name, `${name} Jewel`]) { const col = jewelColor.get(normName(c)); if (col) return `${BASE}/assets/Decorations/${col}.png` }
-    const bare = name.replace(/\s*×\d+$/, '')
+    const bare = name.replace(/\s*[×xX]\d+$/, '')
     if (bare !== name) return resolve(bare)
     return ''
   }
