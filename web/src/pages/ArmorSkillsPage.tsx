@@ -217,7 +217,7 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
       {/* Armor pieces */}
       {pieces.length > 0 && (
         <Section title="Armor Pieces">
-          <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 560 }}>
+          <table style={{ borderCollapse: 'collapse' }}>
             <thead>
               <tr>
                 <th className="tbl-header" style={{ width: 28 }} />
