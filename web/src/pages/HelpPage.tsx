@@ -39,7 +39,6 @@ const TABS: TabHelp[] = [
     'Crafting materials shown with icons (each can link back to the monster or item it comes from), plus the create / upgrade recipes.',
     'Type-specific detail: bow charges & coatings, bowgun ammo loadouts, gunlance shelling, hunting-horn notes & songs. Each adds a reference button — Hunting Horn "Songs…", the bowguns "Ammo…", Bow "Shot Types…", and Gunlance "Shells…".',
     'MHP2G-exclusive "(DUMMY)" weapons are included and labelled — they can\'t normally be crafted in MHFU.',
-    'Drag the divider between the tree and the details to widen the tree; long weapon names stay fully readable.',
     <><B>Notes</B> — your own editable notes for each weapon; they save automatically.</>,
   ] },
   { title: 'Armor Sets', bullets: [

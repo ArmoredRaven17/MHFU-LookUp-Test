@@ -358,24 +358,9 @@ export default function WeaponsPage() {
   const [hhSongs, setHhSongs] = useState<HhSongData | null>(null)
   const [type, setType] = useState('Great Sword')
 
-  // Resizable tree panel — drag the divider to widen it so long names stay readable.
-  const TREE_MIN = 220, TREE_MAX = 620
-  const [treeWidth, setTreeWidth] = useState(() => {
-    const v = parseInt(localStorage.getItem('mhfu-weapon-tree-width') ?? '', 10)
-    return Number.isFinite(v) ? Math.min(TREE_MAX, Math.max(TREE_MIN, v)) : 300
-  })
-  const startResize = (e: React.MouseEvent) => {
-    e.preventDefault()
-    const startX = e.clientX, startW = treeWidth
-    const move = (ev: MouseEvent) => setTreeWidth(Math.min(TREE_MAX, Math.max(TREE_MIN, startW + ev.clientX - startX)))
-    const up = () => {
-      window.removeEventListener('mousemove', move)
-      window.removeEventListener('mouseup', up)
-      setTreeWidth(w => { localStorage.setItem('mhfu-weapon-tree-width', String(w)); return w })
-    }
-    window.addEventListener('mousemove', move)
-    window.addEventListener('mouseup', up)
-  }
+  // Fixed tree panel width — wide enough that every weapon type's deepest tree
+  // (longest names/nesting, e.g. Great Sword) shows in full without horizontal scrolling.
+  const TREE_WIDTH = 420
 
   useEffect(() => {
     loadWeapons().then(setWeapons)
@@ -485,7 +470,7 @@ export default function WeaponsPage() {
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Left panel ── */}
       <div style={{
-        width: treeWidth, minWidth: treeWidth,
+        width: TREE_WIDTH, minWidth: TREE_WIDTH,
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
@@ -555,11 +540,6 @@ export default function WeaponsPage() {
           </div>
         </div>
       </div>
-
-      {/* Draggable divider */}
-      <div onMouseDown={startResize} title="Drag to resize" style={{
-        width: 5, flexShrink: 0, cursor: 'col-resize', background: 'var(--border)',
-      }} />
 
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
