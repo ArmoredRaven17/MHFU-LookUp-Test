@@ -70,10 +70,10 @@ export default function Layout() {
       {/* ── Sidebar ── */}
       <nav style={{
         width: 185, minWidth: 185,
-        backgroundColor: 'var(--panel)',
-        // Repeating texture with a translucent panel-coloured overlay (theme-aware) + a darkening layer.
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(rgba(var(--panel-rgb), 0.91), rgba(var(--panel-rgb), 0.91)), url(${BASE}/assets/Textures/nav_bg.png)`,
-        backgroundRepeat: 'no-repeat, no-repeat, repeat',   // overlays fill; texture tiles at native 128px, not stretched
+        backgroundColor: 'var(--bg)',
+        // Repeating stone texture under a translucent bg-coloured overlay (theme-aware, readable).
+        backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`,
+        backgroundRepeat: 'no-repeat, repeat',
         borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
@@ -95,10 +95,10 @@ export default function Layout() {
       {/* ── Content ── */}
       <main style={{
         flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column',
-        backgroundColor: 'var(--bg)',
-        // Repeating stone texture under a translucent bg-coloured overlay (theme-aware, readable).
-        backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`,
-        backgroundRepeat: 'no-repeat, repeat',
+        backgroundColor: 'var(--panel)',
+        // Repeating texture with a translucent panel-coloured overlay (theme-aware) + a darkening layer.
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(rgba(var(--panel-rgb), 0.91), rgba(var(--panel-rgb), 0.91)), url(${BASE}/assets/Textures/nav_bg.png)`,
+        backgroundRepeat: 'no-repeat, no-repeat, repeat',   // overlays fill; texture tiles at native 128px, not stretched
       }}>
         <Outlet />
       </main>
