@@ -118,7 +118,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
           {cat?.ranks.map((rank, ri) => (
             <div key={ri}>
               {rank.label && (
-                <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 12, padding: '6px 10px 2px' }}>
+                <div style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 12, padding: '6px 10px 2px' }}>
                   {rank.label}
                 </div>
               )}
