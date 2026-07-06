@@ -356,6 +356,7 @@ export default function WeaponsPage() {
   const navigate = useNavigate()
   const [weapons, setWeapons] = useState<Weapon[]>([])
   const [hhSongs, setHhSongs] = useState<HhSongData | null>(null)
+  const [typesCollapsed, setTypesCollapsed] = useState(false)
   const [type, setType] = useState('Great Sword')
 
   // Fixed tree panel width — wide enough that every weapon type's deepest tree
@@ -475,25 +476,39 @@ export default function WeaponsPage() {
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         {/* Type selector */}
-        <div style={{
-          padding: '6px 6px 4px',
-          borderBottom: '1px solid var(--border)',
-          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3,
-        }}>
-          {TYPE_ORDER.map(t => (
-            <button key={t} onClick={() => setType(t)} style={{
-              display: 'flex', alignItems: 'center', gap: 5,
-              padding: '3px 6px', borderRadius: 3, cursor: 'pointer',
-              background: type === t ? 'var(--header-bg)' : 'transparent',
-              border: type === t ? '1px solid var(--accent)' : '1px solid transparent',
-              color: type === t ? 'var(--accent)' : 'var(--muted)',
-              fontSize: 11, whiteSpace: 'nowrap', overflow: 'hidden',
+        <div style={{ borderBottom: '1px solid var(--border)' }}>
+          <button onClick={() => setTypesCollapsed(c => !c)} style={{
+            display: 'flex', alignItems: 'center', gap: 6, width: '100%',
+            background: 'none', border: 'none', cursor: 'pointer',
+            padding: '5px 8px', fontSize: 11, fontWeight: 600, color: 'var(--muted)',
+            textTransform: 'uppercase', letterSpacing: '0.04em',
+          }}>
+            <span style={{ width: 10, flexShrink: 0 }}>{typesCollapsed ? '▸' : '▾'}</span>
+            <span style={{ flex: 1, textAlign: 'left' }}>Weapon Type</span>
+            <img src={typeIcon(type)} alt="" width={14} height={14} style={{ objectFit: 'contain', flexShrink: 0 }} />
+            <span style={{ color: 'var(--text)', textTransform: 'none', fontWeight: 400 }}>{type}</span>
+          </button>
+          {!typesCollapsed && (
+            <div style={{
+              padding: '0 6px 6px',
+              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3,
             }}>
-              <img src={typeIcon(t)} alt="" width={16} height={16}
-                   style={{ objectFit: 'contain', flexShrink: 0 }} />
-              {t}
-            </button>
-          ))}
+              {TYPE_ORDER.map(t => (
+                <button key={t} onClick={() => setType(t)} style={{
+                  display: 'flex', alignItems: 'center', gap: 5,
+                  padding: '3px 6px', borderRadius: 3, cursor: 'pointer',
+                  background: type === t ? 'var(--header-bg)' : 'transparent',
+                  border: type === t ? '1px solid var(--accent)' : '1px solid transparent',
+                  color: type === t ? 'var(--accent)' : 'var(--muted)',
+                  fontSize: 11, whiteSpace: 'nowrap', overflow: 'hidden',
+                }}>
+                  <img src={typeIcon(t)} alt="" width={16} height={16}
+                       style={{ objectFit: 'contain', flexShrink: 0 }} />
+                  {t}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Name search */}
