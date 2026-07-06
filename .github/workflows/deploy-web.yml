@@ -39,6 +39,14 @@ jobs:
           VITE_BASE: /${{ github.event.repository.name }}/
         run: npm run build
 
+      # GitHub Pages is a static host with no rewrite rules, so a direct hit on a client-side
+      # route (e.g. /monsters) 404s before React Router ever runs. Serving a copy of index.html
+      # as 404.html lets Pages fall back to the app shell, which then reads the real URL and
+      # renders the right route.
+      - name: SPA fallback (404.html)
+        working-directory: web
+        run: cp dist/index.html dist/404.html
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
