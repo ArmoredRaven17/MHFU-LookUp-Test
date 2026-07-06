@@ -18,14 +18,22 @@ export function locationIconUrl(area: string) {
   return `${BASE}/assets/Locations/${ICON_OVERRIDE[key] ?? key}.png`
 }
 
-// Thematic colour per locale (icy blue, sandy desert, green jungle/forest, …).
+// Thematic colour per locale, derived from each location icon's dominant colour
+// (lightened where the raw icon colour was too dark to read as flat text).
 export function locationColor(area: string) {
   const l = area.toLowerCase()
-  if (l.includes('snow')) return '#7FD8F0'
-  if (l.includes('desert')) return '#E0B060'
-  if (l.includes('volcano')) return '#FF7A4D'
-  if (l.includes('swamp')) return '#A8A24E'
-  if (l.includes('jungle') || l.includes('forest') || l.includes('hills')) return '#6ABF6A'
-  if (l.includes('tower')) return '#9FB0C0'
+  if (l.includes('old volcano')) return '#FA8E8D'
+  if (l.includes('old jungle')) return '#67D55D'
+  if (l.includes('old swamp')) return '#D7AAE7'
+  if (l.includes('old desert')) return '#D3BB98'
+  if (l.includes('snow')) return '#B8BFC4'
+  if (l.includes('great forest')) return '#78BAAB'
+  if (l.includes('forest') || l.includes('hills')) return '#AE9B84'
+  if (l.includes('jungle')) return '#8FA397'
+  if (l.includes('tower')) return '#8F97A3'
+  if (l.includes('swamp')) return '#A088AA'
+  if (l.includes('volcano')) return '#8FA397'
+  if (l.includes('desert')) return '#AE9B84'
+  if (l.includes('arena') || l.includes('battleground')) return '#9E8EA4'
   return 'var(--text)'
 }
