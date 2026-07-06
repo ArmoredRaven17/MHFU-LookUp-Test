@@ -51,8 +51,8 @@ export const COLOR_PRESETS: ColorPreset[] = [
 ]
 
 export const DEFAULT_SURFACE = 'charcoal'
-export const DEFAULT_ACCENT = '#c8a84b'
-export const DEFAULT_ICON = 'rathalos'
+export const DEFAULT_ACCENT = '#C04040'
+export const DEFAULT_ICON = 'nargacuga'
 
 const LS_SURFACE = 'mhfu-surface'
 const LS_ACCENT = 'mhfu-accent'
