@@ -7,6 +7,8 @@ import BookmarkButton from '../components/BookmarkButton'
 import NotesBox from '../components/NotesBox'
 import MaterialList from '../components/MaterialList'
 import WeaponReference from '../components/WeaponReference'
+import WeaponFilterModal from '../components/WeaponFilterModal'
+import { defaultWeaponFilter, isWeaponFilterActive, matchesWeaponFilter } from '../utils/weaponFilter'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -390,6 +392,13 @@ export default function WeaponsPage() {
     [weapons, type]
   )
 
+  // Name search + multi-criteria filter (persists across type switches, like desktop).
+  const [search, setSearch] = useState('')
+  const [filter, setFilter] = useState(defaultWeaponFilter())
+  const [filterOpen, setFilterOpen] = useState(false)
+  const filterActive = isWeaponFilterActive(filter)
+  const flatMode = search.trim().length > 0 || filterActive
+
   // Collapsed node keys (tree defaults to fully expanded).
   const [collapsed, setCollapsed] = useState<Set<string>>(() => new Set())
   const toggle = (key: string) => setCollapsed(prev => {
@@ -455,6 +464,15 @@ export default function WeaponsPage() {
     return out
   }, [typeWeapons, type, byTypeName, incoming])
 
+  // Flat filtered/searched list — no tree structure, cross-type nesting, or collapse (matches desktop).
+  const flatNodes = useMemo<TNode[]>(() => {
+    if (!flatMode) return []
+    const q = search.trim().toLowerCase()
+    return typeWeapons
+      .filter(w => (!q || w.name.toLowerCase().includes(q)) && matchesWeaponFilter(w.doc, type, w.name, filter))
+      .map(w => ({ key: `w-${w.weapon_pk}`, weapon: w, name: w.name, type: w.type, children: [], guides: [], depth: 0 }))
+  }, [typeWeapons, type, search, filter, flatMode])
+
   // Every node that has children (for Collapse All).
   const collapsibleKeys = useMemo(() => {
     const keys: string[] = []
@@ -493,12 +511,20 @@ export default function WeaponsPage() {
           ))}
         </div>
 
+        {/* Name search */}
+        <div style={{ padding: '6px', borderBottom: '1px solid var(--border)' }}>
+          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search weapons…" style={{
+            width: '100%', boxSizing: 'border-box', background: 'var(--bg)', border: '1px solid var(--border)',
+            borderRadius: 4, color: 'var(--text)', padding: '4px 8px', fontSize: 12,
+          }} />
+        </div>
+
         {/* Type-specific reference sheets for the selected weapon type */}
         <div style={{ padding: '6px', borderBottom: '1px solid var(--border)' }}>
           <WeaponReference type={type} hhSongs={hhSongs} />
         </div>
 
-        {/* Expand / collapse all */}
+        {/* Expand / collapse / filter */}
         <div style={{ display: 'flex', gap: 6, padding: '4px 6px', borderBottom: '1px solid var(--border)' }}>
           {([['Expand All', () => setCollapsed(new Set())], ['Collapse All', () => setCollapsed(new Set(collapsibleKeys))]] as const).map(([label, fn]) => (
             <button key={label} onClick={fn} style={{
@@ -506,15 +532,26 @@ export default function WeaponsPage() {
               background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 3, color: 'var(--muted)',
             }}>{label}</button>
           ))}
+          <button onClick={() => setFilterOpen(true)} style={{
+            flex: 1, padding: '3px 6px', fontSize: 11, cursor: 'pointer',
+            background: filterActive ? 'rgba(200,168,75,0.2)' : 'var(--surface)',
+            border: filterActive ? '1px solid var(--accent)' : '1px solid var(--border)',
+            borderRadius: 3, color: filterActive ? 'var(--accent)' : 'var(--muted)', fontWeight: filterActive ? 600 : 400,
+          }}>Filter…</button>
         </div>
 
-        {/* Weapon tree (scrolls horizontally so long names stay fully readable) */}
+        {/* Weapon tree (scrolls horizontally so long names stay fully readable).
+            Searching or filtering flattens to a plain matching list (no tree/cross-type nesting),
+            matching the desktop behaviour. */}
         <div style={{ overflow: 'auto', flex: 1, padding: '4px 0' }}>
           <div style={{ minWidth: 'max-content' }}>
-            {roots.map(n => (
+            {(flatMode ? flatNodes : roots).map(n => (
               <TreeNode key={n.key} node={n} selectedId={id} collapsed={collapsed}
                         onToggle={toggle} onNavigate={wid => navigate(`/weapons/${wid}`)} />
             ))}
+            {flatMode && flatNodes.length === 0 && (
+              <p style={{ color: 'var(--muted)', padding: '8px 12px', fontSize: 12 }}>No weapons match.</p>
+            )}
           </div>
         </div>
       </div>
@@ -531,6 +568,12 @@ export default function WeaponsPage() {
           : <WeaponDetail weapon={selected} allWeapons={weapons} hhSongs={hhSongs} onNavigate={id => navigate(`/weapons/${id}`)} />
         }
       </div>
+
+      {filterOpen && (
+        <WeaponFilterModal type={type} current={filter}
+          onApply={f => { setFilter(f); setFilterOpen(false) }}
+          onClose={() => setFilterOpen(false)} />
+      )}
     </div>
   )
 }
