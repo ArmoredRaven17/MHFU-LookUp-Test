@@ -140,7 +140,7 @@ skill_cats = {}
 for r in con.execute('SELECT skill_id, category FROM skill_categories'):
     skill_cats.setdefault(r['skill_id'], []).append(r['category'])
 level_rows = con.execute(
-    'SELECT skill_id, points, name, description FROM skill_levels ORDER BY skill_id, points'
+    'SELECT skill_id, points, name, description FROM skill_levels ORDER BY skill_id, sort_order'
 ).fetchall()
 levels_by_skill: dict = {}
 for r in level_rows:
