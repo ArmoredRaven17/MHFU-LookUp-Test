@@ -70,9 +70,9 @@ export default function Layout() {
       {/* ── Sidebar ── */}
       <nav style={{
         width: 185, minWidth: 185,
-        backgroundColor: 'var(--bg)',
-        // Repeating stone texture under a translucent bg-coloured overlay (theme-aware, readable).
-        backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`,
+        backgroundColor: 'var(--surface)',
+        // Repeating texture under a translucent surface-coloured overlay (theme-aware, readable).
+        backgroundImage: `linear-gradient(rgba(var(--surface-rgb), 0.96), rgba(var(--surface-rgb), 0.96)), url(${BASE}/assets/Textures/surface_bg.png)`,
         backgroundRepeat: 'no-repeat, repeat',
         borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
