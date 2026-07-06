@@ -9,12 +9,11 @@ export interface DropdownOption {
 
 // Custom <select> replacement that renders each option's colour swatch or icon inline,
 // both in the closed button and in the open list — native <option> can't show either.
-export default function Dropdown({ value, options, onChange, style, minWidth = 200 }: {
+export default function Dropdown({ value, options, onChange, style }: {
   value: string
   options: DropdownOption[]
   onChange: (value: string) => void
   style?: React.CSSProperties
-  minWidth?: number
 }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -30,35 +29,36 @@ export default function Dropdown({ value, options, onChange, style, minWidth = 2
   }, [open])
 
   return (
-    <div ref={ref} style={{ position: 'relative', minWidth, ...style }}>
+    <div ref={ref} style={{ position: 'relative', display: 'inline-block', ...style }}>
       <button type="button" onClick={() => setOpen(o => !o)} style={{
-        display: 'flex', alignItems: 'center', gap: 8, width: '100%',
+        display: 'flex', alignItems: 'center', gap: 8,
         background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
         color: 'var(--text)', padding: '4px 8px', fontSize: 13, cursor: 'pointer', textAlign: 'left',
+        whiteSpace: 'nowrap',
       }}>
         <Swatch option={current} />
-        <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {current?.label ?? value}
-        </span>
+        <span>{current?.label ?? value}</span>
         <span style={{ color: 'var(--muted)', fontSize: 11, flexShrink: 0 }}>{open ? '▴' : '▾'}</span>
       </button>
 
       {open && (
         <div style={{
-          position: 'absolute', top: '100%', left: 0, right: 0, marginTop: 2, zIndex: 30,
+          position: 'absolute', top: '100%', left: 0, marginTop: 2, zIndex: 30,
+          minWidth: '100%', width: 'max-content', maxWidth: 280,
           maxHeight: 280, overflowY: 'auto', background: 'var(--surface)', border: '1px solid var(--border)',
           borderRadius: 4, boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
         }}>
           {options.map(o => (
             <div key={o.value} onClick={() => { onChange(o.value); setOpen(false) }} style={{
               display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', cursor: 'pointer', fontSize: 13,
+              whiteSpace: 'nowrap',
               background: o.value === value ? 'var(--header-bg)' : 'transparent',
               color: o.value === value ? 'var(--accent)' : 'var(--text)',
             }}
                  onMouseEnter={e => { if (o.value !== value) e.currentTarget.style.background = 'var(--row-alt)' }}
                  onMouseLeave={e => { if (o.value !== value) e.currentTarget.style.background = 'transparent' }}>
               <Swatch option={o} />
-              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{o.label}</span>
+              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{o.label}</span>
             </div>
           ))}
         </div>
