@@ -73,7 +73,7 @@ export default function MonstersPage() {
           {groups.map(g => (
             <div key={g.type}>
               <div style={{
-                fontWeight: 700, color: 'var(--text)', fontSize: 12,
+                fontWeight: 700, color: 'var(--accent)', fontSize: 12,
                 padding: '6px 10px 2px',
               }}>
                 {g.type}
