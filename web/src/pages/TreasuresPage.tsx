@@ -6,6 +6,7 @@ import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
 import { BASE } from '../utils/assets'
 import { useItemSources, normName, type MonsterSource } from '../hooks/useItemSources'
+import { locationColor } from '../utils/location'
 
 const AWARD_GOLD = '#E0B000'
 
@@ -52,7 +53,7 @@ export default function TreasuresPage() {
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {groups.map(g => (
             <div key={g.area}>
-              <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 12, padding: '6px 10px 2px' }}>{g.area}</div>
+              <div style={{ fontWeight: 700, color: locationColor(g.area), fontSize: 12, padding: '6px 10px 2px' }}>{g.area}</div>
               {g.items.map(t => {
                 const active = selected?.id === t.id
                 return (
