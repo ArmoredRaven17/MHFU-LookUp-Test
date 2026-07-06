@@ -186,14 +186,15 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
         </p>
       )}
 
-      {/* Skill levels table */}
+      {/* Skill levels table — single-tier skills skip the Effect column since it's just
+          a repeat of the description already shown above. */}
       <Section title="Skill Levels">
-        <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 640 }}>
+        <table style={{ borderCollapse: 'collapse', width: s.levels.length > 1 ? '100%' : 'auto', maxWidth: 640 }}>
           <thead>
             <tr>
               <th className="tbl-header" style={{ textAlign: 'right', width: 64 }}>Points</th>
-              <th className="tbl-header" style={{ textAlign: 'left', width: 180 }}>Activated Skill</th>
-              <th className="tbl-header" style={{ textAlign: 'left' }}>Effect</th>
+              <th className="tbl-header" style={{ textAlign: 'left', width: s.levels.length > 1 ? 180 : undefined }}>Activated Skill</th>
+              {s.levels.length > 1 && <th className="tbl-header" style={{ textAlign: 'left' }}>Effect</th>}
             </tr>
           </thead>
           <tbody>
@@ -205,9 +206,11 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
                   {signStr(lv.points)}
                 </td>
                 <td className="tbl-cell">{lv.name}</td>
-                <td className="tbl-cell" style={{ color: 'var(--muted)', fontSize: 12 }}>
-                  {lv.description}
-                </td>
+                {s.levels.length > 1 && (
+                  <td className="tbl-cell" style={{ color: 'var(--muted)', fontSize: 12 }}>
+                    {lv.description}
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
