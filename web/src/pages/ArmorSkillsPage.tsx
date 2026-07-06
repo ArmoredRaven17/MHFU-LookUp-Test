@@ -4,6 +4,7 @@ import { loadSkills, loadArmorSets } from '../data/loaders'
 import type { Skill, ArmorSet } from '../types'
 import SearchBox from '../components/SearchBox'
 import { BASE } from '../utils/assets'
+import BookmarkButton from '../components/BookmarkButton'
 
 const CATEGORY_ORDER = [
   'All Skills',
@@ -49,17 +50,23 @@ export default function ArmorSkillsPage() {
   const pieceIndex = useMemo(() => {
     const idx = new Map<string, PieceEntry[]>()
     for (const set of armorSets) {
-      for (const piece of set.pieces) {
-        for (const sk of piece.skills) {
-          const entries = idx.get(sk.skill_id) ?? []
-          entries.push({
-            setName: set.name,
-            pieceName: piece.name,
-            slot: piece.slot,
-            points: sk.points,
-            rarity: set.rarity,
-          })
-          idx.set(sk.skill_id, entries)
+      const seen = new Set<string>()   // dedupe identical pieces across BM/Gunner variants
+      for (const variant of set.variants) {
+        for (const piece of variant.pieces) {
+          for (const sk of piece.skills) {
+            const key = `${piece.slot}:${sk.skill_id}:${sk.points}`
+            if (seen.has(key)) continue
+            seen.add(key)
+            const entries = idx.get(sk.skill_id) ?? []
+            entries.push({
+              setName: set.name,
+              pieceName: piece.name_male || piece.name_female,
+              slot: piece.slot,
+              points: sk.points,
+              rarity: set.rarity,
+            })
+            idx.set(sk.skill_id, entries)
+          }
         }
       }
     }
@@ -105,7 +112,7 @@ export default function ArmorSkillsPage() {
       {/* ── List panel ── */}
       <div style={{
         width: 240, minWidth: 240,
-        background: 'var(--surface)', borderRight: '1px solid var(--border)',
+        backgroundColor: 'var(--surface)', backgroundImage: `linear-gradient(rgba(var(--surface-rgb), 0.96), rgba(var(--surface-rgb), 0.96)), url(${BASE}/assets/Textures/surface_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         {/* Category dropdown */}
@@ -146,7 +153,7 @@ export default function ArmorSkillsPage() {
       </div>
 
       {/* ── Detail panel ── */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'var(--bg)' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
         {!selected
           ? <p className="text-muted" style={{ marginTop: 16 }}>Select a skill from the list.</p>
           : <SkillDetail skill={selected} pieces={pieces} />
@@ -162,9 +169,12 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
   return (
     <div style={{ maxWidth: 720 }}>
       {/* Header */}
-      <h2 style={{ margin: '0 0 2px', color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>
-        {s.name}
-      </h2>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+        <h2 style={{ margin: '0 0 2px', color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>
+          {s.name}
+        </h2>
+        <BookmarkButton bookmark={{ type: 'armorskill', id: s.id, name: s.name, path: `/armorskills/${s.id}` }} />
+      </div>
       {s.categories.length > 0 && (
         <p style={{ margin: '0 0 6px', color: 'var(--muted)', fontSize: 12 }}>
           {s.categories.join(' · ')}
@@ -187,7 +197,7 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
             </tr>
           </thead>
           <tbody>
-            {[...s.levels].sort((a, b) => b.points - a.points).map((lv, i) => (
+            {s.levels.map((lv, i) => (
               <tr key={i} className="tbl-row">
                 <td className="tbl-cell" style={{
                   textAlign: 'right', color: signColor(lv.points), fontWeight: 600,
@@ -206,13 +216,12 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
 
       {/* Armor pieces */}
       {pieces.length > 0 && (
-        <Section title={`Armor Pieces (${pieces.length})`}>
-          <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 640 }}>
+        <Section title="Armor Pieces">
+          <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 560 }}>
             <thead>
               <tr>
                 <th className="tbl-header" style={{ width: 28 }} />
                 <th className="tbl-header" style={{ textAlign: 'left' }}>Piece</th>
-                <th className="tbl-header" style={{ textAlign: 'left', color: 'var(--muted)' }}>Set</th>
                 <th className="tbl-header" style={{ textAlign: 'right', width: 60 }}>Points</th>
               </tr>
             </thead>
@@ -224,9 +233,6 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
                          width={20} height={20} style={{ objectFit: 'contain', display: 'block' }} />
                   </td>
                   <td className="tbl-cell">{p.pieceName}</td>
-                  <td className="tbl-cell" style={{ color: 'var(--muted)', fontSize: 12 }}>
-                    {p.setName}
-                  </td>
                   <td className="tbl-cell" style={{
                     textAlign: 'right', color: signColor(p.points), fontWeight: 600,
                   }}>

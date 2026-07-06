@@ -19,6 +19,8 @@ async function load<T>(file: string): Promise<T> {
 }
 
 export const loadMonsters    = () => load<Monster[]>('monsters.json')
+export const loadMonsterOrder = () => load<Record<string, string[]>>('monster_order.json')
+export const loadHhSongs      = () => load<import('../types').HhSongData>('hh_songs.json')
 export const loadItems       = () => load<Item[]>('items.json')
 export const loadWeapons     = () => load<Weapon[]>('weapons.json')
 export const loadArmorSets   = () => load<ArmorSet[]>('armor_sets.json')

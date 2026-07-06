@@ -1,4 +1,5 @@
 import { useBookmarks, type Bookmark } from '../hooks/useBookmarks'
+import { BASE } from '../utils/assets'
 
 interface Props {
   bookmark: Bookmark
@@ -19,13 +20,17 @@ export default function BookmarkButton({ bookmark }: Props) {
       title={active ? 'Remove bookmark' : 'Add bookmark'}
       style={{
         background: 'none', border: 'none', cursor: 'pointer',
-        fontSize: 18, lineHeight: 1,
-        color: active ? 'var(--accent)' : 'var(--muted)',
-        padding: '2px 4px',
-        transition: 'color 0.15s',
+        padding: '0 6px 2px', display: 'inline-flex', alignItems: 'center',
+        alignSelf: 'center',
       }}
     >
-      {active ? '★' : '☆'}
+      <img
+        src={`${BASE}/assets/Misc/bookmark_${active ? 'on' : 'off'}.png`}
+        alt={active ? 'Bookmarked' : 'Not bookmarked'}
+        width={24}
+        height={24}
+        style={{ objectFit: 'contain' }}
+      />
     </button>
   )
 }

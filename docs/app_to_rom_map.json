@@ -1,0 +1,3650 @@
+{
+"Potion": [
+6,
+"exact"
+],
+"Mega Potion": [
+7,
+"exact"
+],
+"Nutrients": [
+8,
+"exact"
+],
+"Mega Nutrients": [
+9,
+"exact"
+],
+"Antidote": [
+10,
+"exact"
+],
+"Immunizer": [
+11,
+"exact"
+],
+"Power Juice": [
+12,
+"exact"
+],
+"Mega Juice": [
+13,
+"exact"
+],
+"Demondrug": [
+14,
+"exact"
+],
+"Mega Demondrug": [
+15,
+"exact"
+],
+"Power Pill": [
+16,
+"exact"
+],
+"Armorskin": [
+17,
+"exact"
+],
+"Mega Armorskin": [
+18,
+"exact"
+],
+"Armor Pill": [
+19,
+"exact"
+],
+"Cool Drink": [
+20,
+"exact"
+],
+"Hot Drink": [
+21,
+"exact"
+],
+"Thawing Agent": [
+22,
+"exact"
+],
+"Herbal Medicine": [
+29,
+"exact"
+],
+"Max Potion": [
+30,
+"exact"
+],
+"Ancient Potion": [
+31,
+"exact"
+],
+"Catalyst": [
+32,
+"exact"
+],
+"Energy Drink": [
+33,
+"exact"
+],
+"Life Crystals": [
+35,
+"norm"
+],
+"Lifepowder": [
+36,
+"exact"
+],
+"Raw Meat": [
+42,
+"exact"
+],
+"Rare Steak": [
+46,
+"exact"
+],
+"Well-Done Steak": [
+47,
+"exact"
+],
+"Gourmet Steak": [
+48,
+"exact"
+],
+"Burnt Meat": [
+49,
+"exact"
+],
+"Hot Meat": [
+50,
+"exact"
+],
+"Cool Meat": [
+51,
+"fuzzy"
+],
+"Rare Fish": [
+52,
+"exact"
+],
+"Gourmet Fish": [
+53,
+"exact"
+],
+"Gourmet Fish+": [
+54,
+"exact"
+],
+"Burnt Fish": [
+55,
+"exact"
+],
+"Deodorant": [
+72,
+"exact"
+],
+"Spicy Mushroom": [
+182,
+"exact"
+],
+"Frozen Berry": [
+192,
+"exact"
+],
+"Sushifish": [
+229,
+"exact"
+],
+"Book of Combos 1": [
+0,
+"exact"
+],
+"Book of Combos 2": [
+1,
+"exact"
+],
+"Book of Combos 3": [
+2,
+"exact"
+],
+"Book of Combos 4": [
+3,
+"exact"
+],
+"Book of Combos 5": [
+4,
+"exact"
+],
+"Alchemy Guide": [
+5,
+"exact"
+],
+"Organizer Guide": [
+828,
+"exact"
+],
+"Backpacker Guide": [
+829,
+"exact"
+],
+"Dung": [
+66,
+"exact"
+],
+"Wyvern Droppings": [
+67,
+"exact"
+],
+"Cricket": [
+135,
+"exact"
+],
+"Worm": [
+136,
+"exact"
+],
+"Firefly": [
+137,
+"exact"
+],
+"Frog": [
+138,
+"exact"
+],
+"Tuna Bait": [
+139,
+"exact"
+],
+"Arrowana Bait": [
+140,
+"exact"
+],
+"Goldenfish Bait": [
+141,
+"exact"
+],
+"Mega Fishing Fly": [
+142,
+"exact"
+],
+"Old Pickaxe": [
+143,
+"exact"
+],
+"Iron Pickaxe": [
+144,
+"exact"
+],
+"Mega Pickaxe": [
+145,
+"exact"
+],
+"Expand Pickaxe": [
+146,
+"exact"
+],
+"Old Bugnet": [
+147,
+"exact"
+],
+"Bugnet": [
+148,
+"exact"
+],
+"Mega Bugnet": [
+149,
+"exact"
+],
+"BBQ Spit": [
+150,
+"exact"
+],
+"Gourmet BBQ Spit": [
+151,
+"exact"
+],
+"Psychoserum": [
+23,
+"exact"
+],
+"Gunpowder": [
+34,
+"exact"
+],
+"Tranquilizer": [
+41,
+"exact"
+],
+"Poisoned Meat": [
+43,
+"exact"
+],
+"Tainted Meat": [
+44,
+"exact"
+],
+"Drugged Meat": [
+45,
+"exact"
+],
+"Boomerang": [
+56,
+"exact"
+],
+"Bomb Material": [
+62,
+"exact"
+],
+"Paintball": [
+63,
+"exact"
+],
+"Flash Bomb": [
+64,
+"exact"
+],
+"Sonic Bomb": [
+65,
+"exact"
+],
+"Dung Bomb": [
+68,
+"exact"
+],
+"Smoke Bomb": [
+69,
+"exact"
+],
+"Poison Smoke Bmb": [
+70,
+"exact"
+],
+"Farcaster": [
+71,
+"exact"
+],
+"Tranq Bomb": [
+73,
+"exact"
+],
+"Spiderweb": [
+74,
+"exact"
+],
+"Net": [
+75,
+"exact"
+],
+"Trap Tool": [
+76,
+"exact"
+],
+"Pitfall Trap": [
+77,
+"exact"
+],
+"Shock Trap": [
+78,
+"exact"
+],
+"Lightning Rod": [
+79,
+"exact"
+],
+"Small Barrel": [
+81,
+"exact"
+],
+"Large Barrel": [
+82,
+"exact"
+],
+"Sm Barrel-Bomb": [
+83,
+"exact"
+],
+"Sm Barrel-Bomb+": [
+84,
+"exact"
+],
+"Lg Barrel-Bomb": [
+85,
+"exact"
+],
+"Lg Barrel-Bomb+": [
+86,
+"exact"
+],
+"Bounce Bomb": [
+87,
+"exact"
+],
+"Bounce Bomb+": [
+88,
+"exact"
+],
+"Whetstone": [
+152,
+"exact"
+],
+"Binoculars": [
+153,
+"exact"
+],
+"Flute": [
+155,
+"exact"
+],
+"Health Flute": [
+156,
+"exact"
+],
+"Antidote Flute": [
+157,
+"exact"
+],
+"Demon Flute": [
+158,
+"exact"
+],
+"Armor Flute": [
+159,
+"exact"
+],
+"Powercharm": [
+37,
+"exact"
+],
+"Powertalon": [
+38,
+"exact"
+],
+"Armorcharm": [
+39,
+"exact"
+],
+"Armortalon": [
+40,
+"exact"
+],
+"Huskberry": [
+92,
+"exact"
+],
+"Sm Bone Husk": [
+93,
+"exact"
+],
+"Lg Bone Husk": [
+94,
+"exact"
+],
+"Normal S Lv1": [
+95,
+"exact"
+],
+"Normal S Lv2": [
+96,
+"exact"
+],
+"Normal S Lv3": [
+97,
+"exact"
+],
+"Pierce S Lv1": [
+98,
+"exact"
+],
+"Pierce S Lv2": [
+99,
+"exact"
+],
+"Pierce S Lv3": [
+100,
+"exact"
+],
+"Pellet S Lv1": [
+101,
+"exact"
+],
+"Pellet S Lv2": [
+102,
+"exact"
+],
+"Pellet S Lv3": [
+103,
+"exact"
+],
+"Crag S Lv1": [
+104,
+"exact"
+],
+"Crag S Lv2": [
+105,
+"exact"
+],
+"Clust S Lv1": [
+107,
+"exact"
+],
+"Clust S Lv2": [
+108,
+"exact"
+],
+"Clust S Lv3": [
+109,
+"exact"
+],
+"Flaming S": [
+110,
+"exact"
+],
+"Water S": [
+111,
+"exact"
+],
+"Thunder S": [
+112,
+"exact"
+],
+"Freeze S": [
+113,
+"exact"
+],
+"Dragon S": [
+114,
+"exact"
+],
+"Recov S Lv1": [
+115,
+"exact"
+],
+"Recov S Lv2": [
+116,
+"exact"
+],
+"Poison S Lv1": [
+117,
+"exact"
+],
+"Poison S Lv2": [
+118,
+"exact"
+],
+"Para S Lv1": [
+119,
+"exact"
+],
+"Para S Lv2": [
+120,
+"exact"
+],
+"Sleep S Lv1": [
+121,
+"exact"
+],
+"Sleep S Lv2": [
+122,
+"exact"
+],
+"Paint S": [
+124,
+"exact"
+],
+"Demon S": [
+125,
+"exact"
+],
+"Armor S": [
+126,
+"exact"
+],
+"Tranq S": [
+123,
+"exact"
+],
+"Empty Bottle": [
+128,
+"exact"
+],
+"Poison Coating": [
+130,
+"exact"
+],
+"ParalysisCoating": [
+131,
+"exact"
+],
+"Sleep Coating": [
+132,
+"exact"
+],
+"Power Coating": [
+129,
+"exact"
+],
+"CloseRngCoating": [
+133,
+"exact"
+],
+"Paint Coating": [
+134,
+"exact"
+],
+"First-aid Med.": [
+863,
+"norm"
+],
+"Ration": [
+864,
+"exact"
+],
+"Mini Whetstone": [
+866,
+"exact"
+],
+"Prtbl Shock Trap": [
+867,
+"exact"
+],
+"Supply Flash Bomb": [
+868,
+"fuzzy"
+],
+"Sply Max Potion": [
+869,
+"exact"
+],
+"Sply Pitfall Trp": [
+870,
+"exact"
+],
+"Sply Lg Brrl Bmb": [
+871,
+"exact"
+],
+"Map": [
+862,
+"exact"
+],
+"Throwing Knife": [
+57,
+"exact"
+],
+"Poison Thrw Knf": [
+58,
+"exact"
+],
+"Paralyze Thr Knf": [
+60,
+"exact"
+],
+"Sleeping Thr Knf": [
+59,
+"exact"
+],
+"Tranq Thrwng Knf": [
+61,
+"exact"
+],
+"Paw Pass Ticket": [
+926,
+"exact"
+],
+"Limited Paw Pass": [
+927,
+"exact"
+],
+"Portable Spit": [
+865,
+"exact"
+],
+"Ballista S": [
+872,
+"exact"
+],
+"Cannon S": [
+873,
+"exact"
+],
+"Anti-Dragon Bomb": [
+89,
+"exact"
+],
+"White Liver": [
+302,
+"exact"
+],
+"Popo Tongue": [
+303,
+"exact"
+],
+"Secret Pouch": [
+304,
+"exact"
+],
+"Piscine Liver": [
+307,
+"exact"
+],
+"CarapaceonBrains": [
+305,
+"exact"
+],
+"CarapaceonBrain+": [
+306,
+"exact"
+],
+"Wyvern Tears": [
+308,
+"exact"
+],
+"Wyvern Sobs": [
+309,
+"exact"
+],
+"Territorial Dung": [
+310,
+"exact"
+],
+"TerritorialDung+": [
+311,
+"exact"
+],
+"Crab Pearl": [
+312,
+"exact"
+],
+"Crab Pearl+": [
+313,
+"exact"
+],
+"Dragon Treasure": [
+314,
+"exact"
+],
+"Anc Drgn Treasre": [
+315,
+"exact"
+],
+"Decayed Drgn Scl": [
+316,
+"exact"
+],
+"Dragon Herb": [
+317,
+"exact"
+],
+"Tropical Berry": [
+191,
+"exact"
+],
+"Mountain Herbs": [
+172,
+"exact"
+],
+"Special Mushroom": [
+174,
+"exact"
+],
+"Secret Mushroom": [
+175,
+"fuzzy"
+],
+"Beatiful Shell": [
+196,
+"fuzzy"
+],
+"Coal": [
+211,
+"exact"
+],
+"Goldstone Piece": [
+212,
+"exact"
+],
+"Goldstone Hunk": [
+213,
+"exact"
+],
+"Goldenfish": [
+240,
+"exact"
+],
+"Silverfish": [
+241,
+"exact"
+],
+"Royal Rhino": [
+260,
+"exact"
+],
+"Divine Rhino": [
+261,
+"exact"
+],
+"Wyvern Egg": [
+875,
+"exact"
+],
+"Herbivore Egg": [
+876,
+"exact"
+],
+"Carnivore Egg": [
+877,
+"exact"
+],
+"Sootstone Ore": [
+878,
+"exact"
+],
+"Quartz Ore": [
+879,
+"exact"
+],
+"Powderstone": [
+880,
+"exact"
+],
+"Khezu Whelp": [
+881,
+"exact"
+],
+"Khz Whlp Ice Crm": [
+882,
+"exact"
+],
+"Honey": [
+160,
+"exact"
+],
+"Sunset Herb": [
+161,
+"exact"
+],
+"Herb": [
+162,
+"exact"
+],
+"Antidote Herb": [
+163,
+"exact"
+],
+"Fire Herb": [
+164,
+"exact"
+],
+"Ivy": [
+165,
+"exact"
+],
+"Sleep Herb": [
+166,
+"exact"
+],
+"Sap Plant": [
+167,
+"exact"
+],
+"Felvine": [
+168,
+"exact"
+],
+"Cactus Flower": [
+169,
+"exact"
+],
+"Hot Pepper": [
+170,
+"exact"
+],
+"Dosbiscus": [
+171,
+"exact"
+],
+"Giant Corn": [
+173,
+"exact"
+],
+"Blue Mushroom": [
+176,
+"exact"
+],
+"Nitroshroom": [
+177,
+"exact"
+],
+"Parashroom": [
+178,
+"exact"
+],
+"Toadstool": [
+179,
+"exact"
+],
+"Exciteshroom": [
+180,
+"exact"
+],
+"Dragon Toadstool": [
+181,
+"exact"
+],
+"Spicy Mushshroom": [
+182,
+"fuzzy"
+],
+"Chaos Mushroom": [
+183,
+"exact"
+],
+"Paintberry": [
+184,
+"exact"
+],
+"Power Seed": [
+185,
+"exact"
+],
+"Armor Seed": [
+186,
+"exact"
+],
+"Dragon Seed": [
+187,
+"exact"
+],
+"Scatternut": [
+188,
+"exact"
+],
+"Needleberry": [
+189,
+"exact"
+],
+"Bomberry": [
+190,
+"exact"
+],
+"Red Seed": [
+193,
+"exact"
+],
+"Green Seed": [
+194,
+"exact"
+],
+"Yellow Seed": [
+195,
+"exact"
+],
+"Stone": [
+199,
+"exact"
+],
+"Disk Stone": [
+200,
+"exact"
+],
+"Iron Ore": [
+201,
+"exact"
+],
+"Earth Crystal": [
+202,
+"exact"
+],
+"Machalite Ore": [
+203,
+"exact"
+],
+"Dragonite Ore": [
+204,
+"exact"
+],
+"Carbalite Ore": [
+205,
+"exact"
+],
+"Eltalite Ore": [
+206,
+"exact"
+],
+"Union Ore": [
+207,
+"exact"
+],
+"Mellanje Ore": [
+208,
+"exact"
+],
+"Firestone": [
+209,
+"exact"
+],
+"Firecell Stone": [
+210,
+"exact"
+],
+"Lightcrystal": [
+214,
+"exact"
+],
+"Novacrystal": [
+215,
+"exact"
+],
+"Pure Crystal": [
+216,
+"norm"
+],
+"Antiseptic Stone": [
+217,
+"exact"
+],
+"Ice Crystal": [
+218,
+"exact"
+],
+"Rainbow Ore": [
+219,
+"exact"
+],
+"Armor Stone": [
+221,
+"exact"
+],
+"Armor Sphere": [
+222,
+"exact"
+],
+"Armor Sphere+": [
+223,
+"exact"
+],
+"Hrd Armor Sphere": [
+224,
+"exact"
+],
+"Hvy Armor Sphere": [
+225,
+"exact"
+],
+"Ryl Armor Sphere": [
+226,
+"exact"
+],
+"Tru Armor Sphere": [
+227,
+"exact"
+],
+"Suiko Jewel": [
+943,
+"exact"
+],
+"Akito Jewel": [
+944,
+"exact"
+],
+"BattlefieldJewel": [
+945,
+"exact"
+],
+"LapislazuliJewel": [
+946,
+"norm"
+],
+"Knife Mackerel": [
+228,
+"exact"
+],
+"Sleepyfish": [
+230,
+"exact"
+],
+"Pin Tuna": [
+231,
+"exact"
+],
+"Rumblefish": [
+232,
+"exact"
+],
+"Scatterfish": [
+233,
+"exact"
+],
+"Burst Arrowana": [
+234,
+"exact"
+],
+"Bomb Arrowana": [
+235,
+"exact"
+],
+"Glutton Tuna": [
+236,
+"exact"
+],
+"Gastronome Tuna": [
+237,
+"exact"
+],
+"Speartuna": [
+238,
+"exact"
+],
+"Small Goldenfish": [
+239,
+"exact"
+],
+"Ancient Fish": [
+242,
+"exact"
+],
+"Springnight Carp": [
+243,
+"exact"
+],
+"Tailed Frog": [
+244,
+"exact"
+],
+"Insect Husk": [
+245,
+"exact"
+],
+"Yambug": [
+246,
+"exact"
+],
+"Bughopper": [
+247,
+"exact"
+],
+"Snakebee Larva": [
+248,
+"exact"
+],
+"Godbug": [
+249,
+"exact"
+],
+"Bitterbug": [
+250,
+"exact"
+],
+"Flashbug": [
+251,
+"exact"
+],
+"Thunderbug": [
+252,
+"exact"
+],
+"Carpenterbug": [
+253,
+"exact"
+],
+"King Scarab": [
+254,
+"exact"
+],
+"Emperor Cricket": [
+255,
+"exact"
+],
+"Killer Beetle": [
+256,
+"exact"
+],
+"Hercudrome": [
+257,
+"exact"
+],
+"Rare Scarab": [
+258,
+"exact"
+],
+"PhantomButterfly": [
+259,
+"exact"
+],
+"Rainbow Insect": [
+262,
+"exact"
+],
+"Great Hornfly": [
+263,
+"exact"
+],
+"Great Ladybug": [
+264,
+"exact"
+],
+"Screamer": [
+265,
+"exact"
+],
+"Poison Sac": [
+266,
+"exact"
+],
+"Toxin Sac": [
+267,
+"exact"
+],
+"DeadlyPoisonSac": [
+268,
+"exact"
+],
+"Paralysis Sac": [
+269,
+"exact"
+],
+"Sleep Sac": [
+270,
+"exact"
+],
+"Coma Sac": [
+271,
+"exact"
+],
+"Flame Sac": [
+272,
+"exact"
+],
+"Inferno Sac": [
+273,
+"exact"
+],
+"Blazing Fire Sac": [
+274,
+"exact"
+],
+"Electro Sac": [
+275,
+"exact"
+],
+"Thunder Sac": [
+276,
+"exact"
+],
+"Lightning Sac": [
+277,
+"exact"
+],
+"Sm Monster Bone": [
+280,
+"exact"
+],
+"Med Monster Bone": [
+281,
+"exact"
+],
+"Lg Monster Bone": [
+282,
+"exact"
+],
+"Monster Bone+": [
+283,
+"exact"
+],
+"Hrd Monster Bone": [
+284,
+"exact"
+],
+"Hvy Monster Bone": [
+285,
+"exact"
+],
+"Eldr Dragon Bone": [
+286,
+"exact"
+],
+"BigEDragonBone": [
+287,
+"exact"
+],
+"Mystery Bone": [
+288,
+"exact"
+],
+"Unknown Skull": [
+289,
+"exact"
+],
+"Master's Skull": [
+290,
+"exact"
+],
+"Bone": [
+291,
+"exact"
+],
+"RobustWyvernBone": [
+292,
+"exact"
+],
+"Brute Bone": [
+293,
+"exact"
+],
+"Giant Bone": [
+294,
+"exact"
+],
+"Stout Bone": [
+295,
+"exact"
+],
+"Massive Bone": [
+296,
+"exact"
+],
+"Wyvern Fang": [
+297,
+"exact"
+],
+"Wyvern Claw": [
+298,
+"exact"
+],
+"Wyvern Stone": [
+299,
+"exact"
+],
+"Big Wyvern Stone": [
+300,
+"exact"
+],
+"BigEDragonJewel": [
+301,
+"exact"
+],
+"Sharp Claw": [
+426,
+"exact"
+],
+"Piercing Claw": [
+427,
+"exact"
+],
+"Felyne Fur Ruby": [
+318,
+"exact"
+],
+"Pawprint Stamp": [
+905,
+"exact"
+],
+"Mosswine Hide": [
+319,
+"exact"
+],
+"Bullfango Pelt": [
+320,
+"exact"
+],
+"ThkBullfangoPelt": [
+321,
+"exact"
+],
+"Bullfango Head": [
+322,
+"exact"
+],
+"Bulldrome Tusk": [
+323,
+"exact"
+],
+"Bulldrome Hide": [
+324,
+"exact"
+],
+"Bulldrome Hide+": [
+325,
+"exact"
+],
+"Kelbi Horn": [
+326,
+"exact"
+],
+"Kelbi Hide": [
+327,
+"exact"
+],
+"Anteka Antlers": [
+328,
+"exact"
+],
+"Anteka Pelt": [
+329,
+"exact"
+],
+"High Qualty Pelt": [
+330,
+"exact"
+],
+"Remobra Skin": [
+331,
+"exact"
+],
+"Remobra Skin+": [
+332,
+"exact"
+],
+"SpecRemobraSkin+": [
+333,
+"exact"
+],
+"Striped Skin": [
+334,
+"exact"
+],
+"Remobra Skull": [
+335,
+"exact"
+],
+"ShakalakaTreasre": [
+336,
+"exact"
+],
+"ShakalakaTreasr+": [
+337,
+"exact"
+],
+"ShakaInheritance": [
+338,
+"exact"
+],
+"Giaprey Scale": [
+339,
+"exact"
+],
+"Giaprey Scale+": [
+340,
+"exact"
+],
+"Giaprey Hide": [
+341,
+"exact"
+],
+"Giaprey Hide+": [
+342,
+"exact"
+],
+"Giadrome Hide": [
+343,
+"exact"
+],
+"Giadrome Claw": [
+344,
+"exact"
+],
+"Giadrome Claw+": [
+345,
+"exact"
+],
+"Giadrome Skull": [
+346,
+"exact"
+],
+"Velociprey Fang": [
+347,
+"exact"
+],
+"Velociprey Scale": [
+348,
+"exact"
+],
+"Velociprey Scle+": [
+349,
+"exact"
+],
+"Velociprey Hide": [
+350,
+"exact"
+],
+"Velociprey Hide+": [
+351,
+"exact"
+],
+"Velocidrome Hide": [
+352,
+"exact"
+],
+"Velocidrome Claw": [
+353,
+"exact"
+],
+"Velocidrome Clw+": [
+354,
+"exact"
+],
+"Velocidrome Head": [
+355,
+"exact"
+],
+"Genprey Fang": [
+356,
+"exact"
+],
+"Genprey Scale": [
+357,
+"exact"
+],
+"Genprey Scale+": [
+358,
+"exact"
+],
+"Genprey Hide": [
+359,
+"exact"
+],
+"Genprey Hide+": [
+360,
+"exact"
+],
+"Gendrome Hide": [
+361,
+"exact"
+],
+"Gendrome Tail": [
+362,
+"exact"
+],
+"Gendrome Skull": [
+363,
+"exact"
+],
+"Ioprey Fang": [
+364,
+"exact"
+],
+"Ioprey Scale": [
+365,
+"exact"
+],
+"Ioprey Scale+": [
+366,
+"exact"
+],
+"Ioprey Hide": [
+367,
+"exact"
+],
+"Ioprey Hide+": [
+368,
+"exact"
+],
+"Iodrome Hide": [
+369,
+"exact"
+],
+"Iodrome Skull": [
+370,
+"exact"
+],
+"OrangeHypnoPelt": [
+371,
+"exact"
+],
+"OrangeHypnoPelt+": [
+372,
+"exact"
+],
+"Top-GrdHypnoClaw": [
+373,
+"exact"
+],
+"Hypno Claw+": [
+374,
+"exact"
+],
+"Hypno Bezoar": [
+375,
+"exact"
+],
+"Hypno Bezoar+": [
+376,
+"exact"
+],
+"Hypno Beak": [
+377,
+"exact"
+],
+"Hypno Fang": [
+378,
+"exact"
+],
+"RainbowTailFeath": [
+379,
+"exact"
+],
+"Kut-Ku Scale": [
+381,
+"exact"
+],
+"Kut-Ku Scale+": [
+382,
+"exact"
+],
+"Thick Kut-Ku Scl": [
+383,
+"exact"
+],
+"Kut-Ku Shell": [
+384,
+"exact"
+],
+"Kut-Ku Carapace": [
+385,
+"exact"
+],
+"Hvy Kut-Ku Shell": [
+386,
+"exact"
+],
+"Kut-Ku Ear": [
+387,
+"exact"
+],
+"Long Kut-Ku Ear": [
+388,
+"exact"
+],
+"Lucky Kut-Ku Ear": [
+389,
+"exact"
+],
+"Giant Beak": [
+390,
+"exact"
+],
+"Splendid Beak": [
+391,
+"exact"
+],
+"Kut-Ku Webbing": [
+392,
+"exact"
+],
+"Str Kut-Ku Wing": [
+393,
+"exact"
+],
+"Blue Kut-Ku Scl": [
+394,
+"exact"
+],
+"Blue Kut-Ku Scl+": [
+395,
+"exact"
+],
+"ThkBlueKut-KuScl": [
+396,
+"exact"
+],
+"Blue Kut-Ku Shl": [
+397,
+"exact"
+],
+"Blue Kut-Ku Cpc": [
+398,
+"exact"
+],
+"HvyBlueKut-KuShl": [
+399,
+"exact"
+],
+"Power Extract": [
+278,
+"exact"
+],
+"Rubbery Hide": [
+400,
+"exact"
+],
+"Rubbery Hide+": [
+401,
+"exact"
+],
+"SpecRubberyHide+": [
+402,
+"exact"
+],
+"Gypceros Head": [
+403,
+"exact"
+],
+"HardGypcerosHead": [
+404,
+"exact"
+],
+"Pur Rubbery Hide": [
+405,
+"exact"
+],
+"Pur Rubbery Wng": [
+null,
+null
+],
+"HrdPuGypcerosWng": [
+407,
+"exact"
+],
+"Garuga Scale": [
+408,
+"exact"
+],
+"Garuga Scale+": [
+409,
+"exact"
+],
+"ThickGarugaScale": [
+410,
+"exact"
+],
+"Garuga Shell": [
+411,
+"exact"
+],
+"Garuga Carpace": [
+412,
+"fuzzy"
+],
+"Hvy Garuga Shell": [
+413,
+"exact"
+],
+"Garuga Ear": [
+414,
+"exact"
+],
+"Long Garuga Ear": [
+415,
+"exact"
+],
+"Sharpened Beak": [
+416,
+"exact"
+],
+"Rejuvenanted Beak": [
+417,
+"fuzzy"
+],
+"Garuga Wing": [
+418,
+"exact"
+],
+"Str Garuga Wing": [
+419,
+"exact"
+],
+"Garuga Tail": [
+420,
+"exact"
+],
+"LethrGarugaTail": [
+421,
+"exact"
+],
+"Garuga Mane": [
+422,
+"exact"
+],
+"SilverGarugaPelt": [
+423,
+"exact"
+],
+"Blango Pelt": [
+424,
+"exact"
+],
+"Blango Pelt+": [
+425,
+"exact"
+],
+"Blangonga Fang": [
+428,
+"exact"
+],
+"Blangonga Fang+": [
+429,
+"exact"
+],
+"HvyBlangongaFang": [
+430,
+"exact"
+],
+"Blangonga Pelt": [
+431,
+"exact"
+],
+"Blangonga Pelt+": [
+432,
+"exact"
+],
+"HrdBlangongaPlt+": [
+433,
+"exact"
+],
+"Blangonga Whiskr": [
+434,
+"exact"
+],
+"Lthr Pelagus Plt": [
+435,
+"exact"
+],
+"Blangonga Tail": [
+436,
+"exact"
+],
+"LeathrBlangoTail": [
+437,
+"exact"
+],
+"C.BlangongaPelt+": [
+438,
+"exact"
+],
+"HvyC.BlangoFang": [
+439,
+"exact"
+],
+"LthrC.BlangoTail": [
+440,
+"exact"
+],
+"Conga Pelt": [
+441,
+"exact"
+],
+"Conga Pelt+": [
+442,
+"exact"
+],
+"HrdCongalalaPlt+": [
+445,
+"exact"
+],
+"Vibrant Pelt": [
+446,
+"exact"
+],
+"Congalala Claw": [
+447,
+"exact"
+],
+"Congalala Claw+": [
+448,
+"exact"
+],
+"HrdCongalalaClw+": [
+449,
+"exact"
+],
+"Congalala Fang": [
+450,
+"exact"
+],
+"Lg Pelagus Fang": [
+451,
+"exact"
+],
+"E.CongalalaPelt+": [
+452,
+"exact"
+],
+"HrdE.CongaClaw": [
+453,
+"exact"
+],
+"Vibrant Comb": [
+454,
+"exact"
+],
+"Rajang Horn": [
+455,
+"exact"
+],
+"Hard Rajang Horn": [
+456,
+"exact"
+],
+"Rajang Fang": [
+457,
+"exact"
+],
+"Blk Rajang Pelt": [
+459,
+"exact"
+],
+"Blk Rajang Pelt+": [
+460,
+"exact"
+],
+"Rajang Claw": [
+461,
+"exact"
+],
+"Hard Rajang Claw": [
+462,
+"exact"
+],
+"Rajang Tail": [
+463,
+"exact"
+],
+"Gold Rajang Pelt": [
+465,
+"exact"
+],
+"GoldRajangPelt+": [
+466,
+"exact"
+],
+"Piscine Fang": [
+467,
+"exact"
+],
+"HvyPiscineFang": [
+468,
+"exact"
+],
+"Sm Lobstershell": [
+514,
+"exact"
+],
+"Lg Lobstershell": [
+515,
+"exact"
+],
+"Gt Lobstershell": [
+516,
+"exact"
+],
+"Plesioth Scale": [
+469,
+"exact"
+],
+"Plesioth Scale+": [
+470,
+"exact"
+],
+"ThckPlesiothScl": [
+471,
+"exact"
+],
+"Plesioth Fin": [
+472,
+"exact"
+],
+"Plesioth Fin+": [
+473,
+"exact"
+],
+"SpecPlesiothFin+": [
+474,
+"exact"
+],
+"Grn Plesioth Scl": [
+475,
+"exact"
+],
+"Grn Plsioth Scl+": [
+476,
+"exact"
+],
+"ThckGrnPlesioScl": [
+477,
+"exact"
+],
+"Grn Plesioth Fin": [
+478,
+"exact"
+],
+"SpecGrnPlesioFn+": [
+480,
+"exact"
+],
+"Cephalos Scale": [
+481,
+"exact"
+],
+"Cephalos Scale+": [
+482,
+"exact"
+],
+"Cephalos Fin": [
+483,
+"exact"
+],
+"Cephalos Fin+": [
+484,
+"exact"
+],
+"Coral Cphlos Scl": [
+485,
+"exact"
+],
+"Coral Cphlos Fin": [
+486,
+"exact"
+],
+"ThckLavasiothScl": [
+487,
+"exact"
+],
+"HvyLavasiothShl": [
+488,
+"exact"
+],
+"HvyLavasiothFang": [
+489,
+"exact"
+],
+"SpecLavasioFin+": [
+490,
+"exact"
+],
+"Black Pearl": [
+197,
+"exact"
+],
+"Giant Blk Pearl": [
+198,
+"exact"
+],
+"Wyvern Skull Shl": [
+492,
+"exact"
+],
+"Sm Hermitaur Shl": [
+493,
+"exact"
+],
+"Hermitaur Shell": [
+494,
+"exact"
+],
+"Hermitaur Carpce": [
+495,
+"exact"
+],
+"HvyHermitaurShl": [
+496,
+"exact"
+],
+"Hermitaur Claw": [
+497,
+"exact"
+],
+"Hermitaur Claw+": [
+498,
+"exact"
+],
+"HrdHermitaurClaw": [
+499,
+"exact"
+],
+"PlumD.HermitrShl": [
+500,
+"exact"
+],
+"PlumD.HermitrClw": [
+501,
+"exact"
+],
+"Sm Ceanataur Shl": [
+502,
+"exact"
+],
+"Ceanataur Shell": [
+503,
+"exact"
+],
+"Ceanataur Carpce": [
+504,
+"exact"
+],
+"HvyCeanataurShl": [
+505,
+"exact"
+],
+"Ceanataur Leg": [
+506,
+"exact"
+],
+"HvyCeanataurLeg": [
+507,
+"exact"
+],
+"Ceanataur Claw": [
+509,
+"exact"
+],
+"Ceanataur Claw+": [
+510,
+"exact"
+],
+"HrdCeanataurClaw": [
+511,
+"exact"
+],
+"TerraCeanatrShl": [
+512,
+"exact"
+],
+"TerraCeanatrClaw": [
+513,
+"exact"
+],
+"Fire Wyvern Claw": [
+542,
+"exact"
+],
+"HrdFireWyvernClw": [
+543,
+"exact"
+],
+"FireWyvern Fluid": [
+544,
+"exact"
+],
+"FireWyvrn Marrow": [
+545,
+"exact"
+],
+"FireWyvrn BrnStm": [
+546,
+"exact"
+],
+"Rathian Scale": [
+519,
+"exact"
+],
+"Rathian Scale+": [
+520,
+"exact"
+],
+"ThckRathianScl": [
+521,
+"exact"
+],
+"Rathian Plate": [
+522,
+"exact"
+],
+"Rathian Ruby": [
+523,
+"exact"
+],
+"HvnlyRathianScl": [
+524,
+"exact"
+],
+"Rathian Shell": [
+525,
+"exact"
+],
+"Rathian Carapace": [
+526,
+"exact"
+],
+"HvyRathianShell": [
+527,
+"exact"
+],
+"Rathian Spike": [
+528,
+"exact"
+],
+"Rathian Spike+": [
+529,
+"exact"
+],
+"Rathian Thorn": [
+530,
+"exact"
+],
+"Pnk Rathian Scl": [
+531,
+"exact"
+],
+"Pnk Rathian Scl+": [
+532,
+"exact"
+],
+"ThckPnkRathnScl": [
+533,
+"exact"
+],
+"Pnk Rathian Shl": [
+534,
+"exact"
+],
+"Pnk Rathian Cpc": [
+535,
+"exact"
+],
+"HvyPnkRathianShl": [
+536,
+"exact"
+],
+"Gld Rathian Scl+": [
+537,
+"exact"
+],
+"ThckGldRathnScl": [
+538,
+"exact"
+],
+"Gld Rathian Cpc": [
+539,
+"exact"
+],
+"HvyGldRathianShl": [
+540,
+"exact"
+],
+"GoldRathianThorn": [
+541,
+"exact"
+],
+"Rathalos Scale": [
+547,
+"exact"
+],
+"Rathalos Scale+": [
+548,
+"exact"
+],
+"Hrd Rathalos Scl": [
+549,
+"exact"
+],
+"Rathalos Plate": [
+550,
+"exact"
+],
+"Rathalos Ruby": [
+551,
+"exact"
+],
+"HvnlyRathalosScl": [
+552,
+"exact"
+],
+"Rathalos Shell": [
+553,
+"exact"
+],
+"Rathalos Carpace": [
+554,
+"exact"
+],
+"HvyRathalosShl": [
+555,
+"exact"
+],
+"Rathalos Tail": [
+556,
+"exact"
+],
+"LthrRathalosTail": [
+557,
+"exact"
+],
+"Rathalos Webbing": [
+558,
+"exact"
+],
+"Rathalos Wing": [
+559,
+"exact"
+],
+"StrRathalosWing": [
+560,
+"exact"
+],
+"Azure Rthlos Scl": [
+561,
+"exact"
+],
+"Azre Rthlos Scl+": [
+562,
+"exact"
+],
+"ThckAzurRthlsScl": [
+563,
+"exact"
+],
+"Azure Rthlos Shl": [
+564,
+"exact"
+],
+"Azure Rthlos Cpc": [
+565,
+"exact"
+],
+"HvyAzurRthlsShl": [
+566,
+"exact"
+],
+"Azur Rthlos Tail": [
+567,
+"exact"
+],
+"LthrAzrRthlsTail": [
+568,
+"exact"
+],
+"Azur Rthlos Wing": [
+569,
+"exact"
+],
+"Slvr Rthlos Scl+": [
+570,
+"exact"
+],
+"ThckSlvrRthlsScl": [
+571,
+"exact"
+],
+"Slvr Rthlos Cpc": [
+572,
+"exact"
+],
+"HvySlvrRthlsShl": [
+573,
+"exact"
+],
+"Slvr Rthlos Tail": [
+574,
+"exact"
+],
+"LthrSlvrRthlsTal": [
+575,
+"exact"
+],
+"Slvr Rthlos Wing": [
+576,
+"exact"
+],
+"Pale Extract": [
+279,
+"exact"
+],
+"Flabby Hide": [
+577,
+"exact"
+],
+"Khezu Hide - Tan": [
+578,
+"exact"
+],
+"KhezuHide-Cream": [
+579,
+"exact"
+],
+"Pale Bone": [
+580,
+"exact"
+],
+"Pale Khezu Steak": [
+581,
+"exact"
+],
+"KhezuSpecialCut": [
+582,
+"exact"
+],
+"Alluring Hide": [
+583,
+"exact"
+],
+"Alluring Webbing": [
+584,
+"exact"
+],
+"StrAlluringWing": [
+585,
+"exact"
+],
+"Basarios Shell": [
+586,
+"exact"
+],
+"Basarios Carpace": [
+587,
+"exact"
+],
+"HvyBasariosShell": [
+588,
+"exact"
+],
+"Basarios Wing": [
+589,
+"exact"
+],
+"StrBasariosWing": [
+590,
+"exact"
+],
+"Basarios Tears": [
+591,
+"exact"
+],
+"Tigrex Scale": [
+592,
+"exact"
+],
+"Tigrex Scale+": [
+593,
+"exact"
+],
+"ThickTigrexScale": [
+594,
+"exact"
+],
+"HvnlyTigrexScale": [
+595,
+"exact"
+],
+"Tigrex Shell": [
+596,
+"exact"
+],
+"Tigrex Carapace": [
+597,
+"exact"
+],
+"Hvy Tigrex Shell": [
+598,
+"exact"
+],
+"Tigrex Tail": [
+599,
+"exact"
+],
+"LeathrTigrexTail": [
+600,
+"exact"
+],
+"Tigrex Claw": [
+601,
+"exact"
+],
+"Tigrex Claw+": [
+602,
+"exact"
+],
+"Hard Tigrex Claw": [
+603,
+"exact"
+],
+"Tigrex Fang": [
+604,
+"exact"
+],
+"Tigrex Fang+": [
+605,
+"exact"
+],
+"Hvy Tigrex Fang": [
+606,
+"exact"
+],
+"Tigrex Skull Shl": [
+607,
+"exact"
+],
+"Narga Scale+": [
+608,
+"exact"
+],
+"ThickNargaScale": [
+609,
+"exact"
+],
+"HvnlyNargaScale": [
+610,
+"exact"
+],
+"Black Narga Pelt": [
+611,
+"exact"
+],
+"BlackNargaPelt+": [
+612,
+"exact"
+],
+"Nargacuga Tail": [
+613,
+"exact"
+],
+"LeathrNargaTail": [
+614,
+"fuzzy"
+],
+"Narga Tail Spike": [
+615,
+"exact"
+],
+"HvyNargaTailSpik": [
+616,
+"exact"
+],
+"NargaCuttingWing": [
+617,
+"exact"
+],
+"StrNargaCttngWng": [
+618,
+"exact"
+],
+"Nargacuga Fang+": [
+619,
+"exact"
+],
+"HvyNargacugaFang": [
+620,
+"exact"
+],
+"Narga Brain Stem": [
+621,
+"exact"
+],
+"Gravios Shell": [
+622,
+"exact"
+],
+"Gravios Carapace": [
+623,
+"exact"
+],
+"HvyGraviosShell": [
+624,
+"exact"
+],
+"HvnlyGraviosShl": [
+625,
+"exact"
+],
+"Gravios Skl Shl": [
+626,
+"exact"
+],
+"Gravios BrainStm": [
+627,
+"exact"
+],
+"Blk Gravios Shl": [
+628,
+"exact"
+],
+"Blk Gravios Cpc": [
+629,
+"exact"
+],
+"HvyBlkGraviosShl": [
+630,
+"exact"
+],
+"HvnlyBlkGraviShl": [
+631,
+"exact"
+],
+"Blk Gravios Skl": [
+632,
+"exact"
+],
+"Twisted Horn": [
+633,
+"exact"
+],
+"Majestic Horn": [
+634,
+"exact"
+],
+"StoutWarpedHorn": [
+635,
+"exact"
+],
+"Diablos Shell": [
+636,
+"exact"
+],
+"Diablos Carapace": [
+637,
+"exact"
+],
+"HvyDiablosShell": [
+638,
+"exact"
+],
+"Diablos Spine": [
+639,
+"exact"
+],
+"Diablos Thoracic": [
+640,
+"exact"
+],
+"HvyDiablosSpine": [
+641,
+"exact"
+],
+"Diablos Tail": [
+642,
+"exact"
+],
+"LthrDiablosTail": [
+643,
+"exact"
+],
+"Blos Fang": [
+644,
+"exact"
+],
+"TwstBlkBlosHrn": [
+645,
+"exact"
+],
+"StoutBlkTwstdHrn": [
+646,
+"exact"
+],
+"Black Blos Shell": [
+647,
+"exact"
+],
+"Black Blos Cpc": [
+648,
+"exact"
+],
+"HvyBlkBlosShell": [
+649,
+"exact"
+],
+"Black Blos Spine": [
+650,
+"exact"
+],
+"Blk Blos Thracic": [
+651,
+"exact"
+],
+"HvyBlkBlosSpine": [
+652,
+"exact"
+],
+"Black Blos Tail": [
+653,
+"exact"
+],
+"LthrBlkBlosTail": [
+654,
+"exact"
+],
+"Monster Fluid": [
+24,
+"exact"
+],
+"Monster Broth": [
+25,
+"exact"
+],
+"Monster Essence": [
+26,
+"exact"
+],
+"Thunderbug Juice": [
+27,
+"exact"
+],
+"Thunderbug Jelly": [
+28,
+"exact"
+],
+"Vespoid Abdomen": [
+655,
+"exact"
+],
+"VespoidQn'sCrown": [
+656,
+"exact"
+],
+"Vespoid Shell": [
+657,
+"exact"
+],
+"Vespoid Carapace": [
+658,
+"exact"
+],
+"Vespoid Wing": [
+659,
+"exact"
+],
+"Vespoid InnrWng": [
+660,
+"exact"
+],
+"Vespoid Razorwing": [
+661,
+"fuzzy"
+],
+"Hornetaur Shell": [
+662,
+"exact"
+],
+"Hornetaur Crapce": [
+663,
+"exact"
+],
+"Hornetaur Head": [
+664,
+"exact"
+],
+"Hornetaur Wing": [
+665,
+"exact"
+],
+"HornetaurInnrWng": [
+666,
+"exact"
+],
+"Hornet Razorwing": [
+667,
+"exact"
+],
+"Blood Red Horn": [
+668,
+"exact"
+],
+"TopGrdRedHorn": [
+669,
+"norm"
+],
+"Monoblos Shell": [
+670,
+"exact"
+],
+"MonoblosCarapace": [
+671,
+"exact"
+],
+"Monoblos Spine": [
+672,
+"exact"
+],
+"MonoblosThoracic": [
+673,
+"exact"
+],
+"Monoblos Heart": [
+674,
+"exact"
+],
+"Wht Monoblos Hrn": [
+675,
+"exact"
+],
+"Top-GrdPlatHorn": [
+676,
+"exact"
+],
+"Wht Monoblos Shl": [
+677,
+"exact"
+],
+"Wht Monoblos Cpc": [
+678,
+"exact"
+],
+"Wht Monoblos Spn": [
+679,
+"exact"
+],
+"WhtMonoblosThora": [
+680,
+"exact"
+],
+"Kirin Horn": [
+681,
+"exact"
+],
+"Kirin Hide": [
+682,
+"exact"
+],
+"Kirin Hide+": [
+683,
+"exact"
+],
+"SpecialKirinHide": [
+684,
+"exact"
+],
+"Kirin Mane": [
+685,
+"exact"
+],
+"Platinum Mane": [
+686,
+"exact"
+],
+"Kirin Thndr Tail": [
+687,
+"exact"
+],
+"LthrKirinThndrTl": [
+688,
+"exact"
+],
+"Kirin Azure Horn": [
+689,
+"exact"
+],
+"Lao-Shan's Claw": [
+690,
+"exact"
+],
+"Lao-Shan's Horn": [
+691,
+"exact"
+],
+"Lao-Shan's Scale": [
+692,
+"exact"
+],
+"Lao-Shan Scale+": [
+693,
+"exact"
+],
+"Lao-Shan'sThkScl": [
+694,
+"exact"
+],
+"Lao-Shan's Ruby": [
+695,
+"exact"
+],
+"Lao-ShanHvnlyScl": [
+696,
+"exact"
+],
+"Lao-Shan's Shell": [
+697,
+"exact"
+],
+"Lao-ShanCarapace": [
+698,
+"exact"
+],
+"Lao-Shan'sHvyShl": [
+699,
+"exact"
+],
+"Azure LaoS Horn": [
+700,
+"exact"
+],
+"Azure LaoS Shell": [
+701,
+"exact"
+],
+"Azure LaoS Claw": [
+702,
+"exact"
+],
+"Gaoren Shell": [
+703,
+"exact"
+],
+"Gaoren Carapace": [
+704,
+"exact"
+],
+"HvyGaorenShell": [
+705,
+"exact"
+],
+"HvnlyGaorenShell": [
+706,
+"exact"
+],
+"Gaoren Spine": [
+707,
+"exact"
+],
+"Gaoren Thoracic": [
+708,
+"exact"
+],
+"Hvy Gaoren Spine": [
+709,
+"exact"
+],
+"Gaoren Pincer": [
+710,
+"exact"
+],
+"Gaoren Claw": [
+711,
+"exact"
+],
+"Hard Gaoren Claw": [
+712,
+"exact"
+],
+"Daora Shell": [
+713,
+"exact"
+],
+"Daora Carapace": [
+714,
+"exact"
+],
+"Hvy Daora Shell": [
+715,
+"exact"
+],
+"DaoraDragonScale": [
+716,
+"exact"
+],
+"DaoraDragonScal+": [
+717,
+"exact"
+],
+"ThckDaoraDrgnScl": [
+718,
+"exact"
+],
+"Daora Webbing": [
+719,
+"exact"
+],
+"Str Daora Wing": [
+720,
+"exact"
+],
+"Daora Horn": [
+721,
+"exact"
+],
+"Hard Daora Horn": [
+722,
+"exact"
+],
+"Daora Tail": [
+723,
+"exact"
+],
+"Lthr Daora Tail": [
+724,
+"exact"
+],
+"Daora Claw": [
+725,
+"exact"
+],
+"Daora Sharp Claw": [
+726,
+"exact"
+],
+"Daora Jewel": [
+727,
+"exact"
+],
+"Chameleos Hide": [
+728,
+"exact"
+],
+"Chameleos Hide+": [
+729,
+"exact"
+],
+"SpecChameleHide+": [
+730,
+"exact"
+],
+"Chameleos Horn": [
+731,
+"exact"
+],
+"Chameleos Spike": [
+732,
+"exact"
+],
+"HrdChameleosHorn": [
+733,
+"exact"
+],
+"Chameleos Claw": [
+734,
+"exact"
+],
+"ChameleosWebbing": [
+735,
+"exact"
+],
+"StrChameleosWing": [
+736,
+"exact"
+],
+"Chameleos Tail": [
+737,
+"exact"
+],
+"LthrChameleoTail": [
+738,
+"exact"
+],
+"Chameleos Jewel": [
+739,
+"exact"
+],
+"Fire Dragon Scl": [
+740,
+"exact"
+],
+"Fire Dragn Scl+": [
+741,
+"fuzzy"
+],
+"ThckFireDrgnScl": [
+742,
+"exact"
+],
+"Fire Dragon Claw": [
+743,
+"exact"
+],
+"HrdFireDrgnClaw": [
+744,
+"exact"
+],
+"Fire Drgn Webbng": [
+745,
+"exact"
+],
+"Fire Dragon Pwdr": [
+746,
+"exact"
+],
+"Fire Drgn Jwl": [
+747,
+"exact"
+],
+"ElderDragonBlood": [
+748,
+"exact"
+],
+"Lunastra Shell": [
+749,
+"exact"
+],
+"LunastraCarapacel": [
+750,
+"fuzzy"
+],
+"Lunastra Mane": [
+751,
+"exact"
+],
+"Lunastra Tail": [
+752,
+"exact"
+],
+"Lunastra Horn": [
+753,
+"exact"
+],
+"Lunastra Spike": [
+754,
+"exact"
+],
+"Teostra Shell": [
+755,
+"exact"
+],
+"Teostra Carapace": [
+756,
+"exact"
+],
+"HvyTeostraShell": [
+757,
+"exact"
+],
+"Teostra Mane": [
+758,
+"exact"
+],
+"Teostra Tail": [
+759,
+"exact"
+],
+"LthrTeostraTail": [
+760,
+"exact"
+],
+"Teostra Horn": [
+761,
+"exact"
+],
+"Teostra Horn+": [
+762,
+"exact"
+],
+"HardTeostraHorn": [
+763,
+"exact"
+],
+"Dragonmoss": [
+764,
+"exact"
+],
+"Dragonmoss+": [
+765,
+"exact"
+],
+"AncientDrgnmoss": [
+766,
+"exact"
+],
+"Dragonwood": [
+767,
+"exact"
+],
+"Dragonwood+": [
+768,
+"exact"
+],
+"AncientDrgnwood": [
+769,
+"exact"
+],
+"YamaTsukamiHide": [
+770,
+"exact"
+],
+"YamaTsukamiFluid": [
+772,
+"exact"
+],
+"Dark Piece": [
+773,
+"exact"
+],
+"Dark Stone": [
+774,
+"exact"
+],
+"Fatalis Horn": [
+775,
+"exact"
+],
+"HrdFatalisHorn": [
+776,
+"fuzzy"
+],
+"Fatalis Scale": [
+777,
+"exact"
+],
+"ThckFatalisScale": [
+778,
+"exact"
+],
+"Fatalis Shell": [
+779,
+"exact"
+],
+"Hvy Fatalis Shl": [
+780,
+"exact"
+],
+"Fatalis Eye": [
+781,
+"exact"
+],
+"Fatalis Evil Eye": [
+782,
+"exact"
+],
+"Fatalis Webbing": [
+783,
+"exact"
+],
+"Str Fatalis Wng": [
+784,
+"exact"
+],
+"Fatalis CrmsnHrn": [
+785,
+"exact"
+],
+"HrdFatlisCrmHorn": [
+786,
+"exact"
+],
+"Fatalis CrmsnScl": [
+787,
+"exact"
+],
+"ThckFatlisCrmScl": [
+788,
+"exact"
+],
+"Fatalis CrmsnShl": [
+789,
+"exact"
+],
+"HvyFatalisCrmShl": [
+790,
+"exact"
+],
+"Fatalis DevilEye": [
+791,
+"exact"
+],
+"Fatalis CrmsnWng": [
+792,
+"exact"
+],
+"StrFatlisCrmWing": [
+793,
+"exact"
+],
+"Wht Fatalis Scl": [
+794,
+"exact"
+],
+"ThckWhtFatlisShl": [
+795,
+"fuzzy"
+],
+"Wht Fatalis Shl": [
+796,
+"exact"
+],
+"HvyWhtFatalisShl": [
+797,
+"exact"
+],
+"Wht Fatalis Wbng": [
+798,
+"exact"
+],
+"StrWhtFatalisWng": [
+799,
+"exact"
+],
+"Wht Fatalis Horn": [
+800,
+"exact"
+],
+"HrdWhtFatlisHorn": [
+801,
+"exact"
+],
+"Akantor Scale": [
+802,
+"exact"
+],
+"Akantor Shell": [
+803,
+"exact"
+],
+"Akantor Tail": [
+804,
+"exact"
+],
+"Akantor Claw": [
+805,
+"exact"
+],
+"Akantor Fang": [
+806,
+"exact"
+],
+"Akantor Spike": [
+807,
+"exact"
+],
+"HvyUkanlosShell": [
+808,
+"exact"
+],
+"UkanlosUnderscl": [
+809,
+"exact"
+],
+"Hvy Ukanlos Tail": [
+810,
+"exact"
+],
+"UkanlosDiggngClw": [
+811,
+"exact"
+],
+"UkanlosShovelJaw": [
+812,
+"exact"
+],
+"StrongUkanlosFin": [
+813,
+"exact"
+],
+"Ukanlos Stone": [
+814,
+"exact"
+],
+"Barrel Lid": [
+80,
+"exact"
+],
+"Garbage": [
+154,
+"exact"
+],
+"Sinister Cloth": [
+816,
+"exact"
+],
+"Lost Umbrella": [
+817,
+"exact"
+],
+"Commendation": [
+902,
+"exact"
+],
+"Commendation G": [
+903,
+"exact"
+],
+"Commendation S": [
+904,
+"exact"
+],
+"Pokke Ticket": [
+906,
+"exact"
+],
+"Pokke Ticket+": [
+907,
+"exact"
+],
+"Normal Ticket": [
+908,
+"exact"
+],
+"Hard Ticket": [
+909,
+"exact"
+],
+"Plus Class Ticket": [
+910,
+"fuzzy"
+],
+"FlynMealPassReg": [
+915,
+"exact"
+],
+"FlynMealPassPlus": [
+916,
+"exact"
+],
+"Comrade Ticket": [
+917,
+"exact"
+],
+"VeggieElderTcket": [
+918,
+"exact"
+],
+"VeggieElderTckt+": [
+919,
+"exact"
+],
+"VegElderTcktBrz": [
+920,
+"exact"
+],
+"VegElderTcktSlv": [
+921,
+"exact"
+],
+"VegElderTckGld": [
+922,
+"fuzzy"
+],
+"VegElderTckSky": [
+923,
+"fuzzy"
+],
+"Wyverian Harp": [
+815,
+"exact"
+],
+"Hero of Kkto Bio": [
+911,
+"exact"
+],
+"Hero of JumboBio": [
+912,
+"exact"
+],
+"Elder Thank You": [
+913,
+"exact"
+],
+"Elder Thnk You+": [
+914,
+"exact"
+],
+"Ruststone": [
+818,
+"exact"
+],
+"Flat Ruststone": [
+819,
+"exact"
+],
+"Large Ruststone": [
+820,
+"exact"
+],
+"Small Ruststone": [
+821,
+"exact"
+],
+"Ruststone Rod": [
+822,
+"exact"
+],
+"Ancient Stone": [
+823,
+"exact"
+],
+"AncientFlatStone": [
+824,
+"norm"
+],
+"Lg Ancient Stone": [
+825,
+"exact"
+],
+"Sm Ancient Stone": [
+826,
+"exact"
+],
+"Ancient StoneRod": [
+827,
+"exact"
+],
+"Steel Egg": [
+859,
+"exact"
+],
+"Silver Egg": [
+860,
+"exact"
+],
+"Golden Egg": [
+861,
+"exact"
+],
+"Kut-Ku Coin": [
+883,
+"exact"
+],
+"Congalala Coin": [
+884,
+"exact"
+],
+"Khezu Coin": [
+885,
+"exact"
+],
+"Daimyo Coin": [
+886,
+"exact"
+],
+"Blangonga Coin": [
+887,
+"exact"
+],
+"Yian Garuga Coin": [
+888,
+"exact"
+],
+"Tigrex Coin": [
+889,
+"exact"
+],
+"Diablos Coin": [
+890,
+"exact"
+],
+"Gravios Coin": [
+891,
+"exact"
+],
+"Kirin Coin": [
+892,
+"exact"
+],
+"Cephadrome Coin": [
+893,
+"exact"
+],
+"Plesioth Coin": [
+894,
+"exact"
+],
+"Shogun Coin": [
+895,
+"exact"
+],
+"Fire Coin": [
+896,
+"exact"
+],
+"Rajang Coin": [
+897,
+"exact"
+],
+"BlackBeltCoinG": [
+898,
+"exact"
+],
+"Expert Coin G": [
+899,
+"exact"
+],
+"Warrior Coin G": [
+900,
+"exact"
+],
+"Legend Coin G": [
+901,
+"exact"
+],
+"Blackbelt Ticket": [
+924,
+"exact"
+],
+"Expert Ticket": [
+925,
+"exact"
+],
+"Great Stone": [
+220,
+"exact"
+],
+"Hunter's Ticket": [
+939,
+"exact"
+],
+"Hunter Soul Ticket": [
+939,
+"fuzzy"
+],
+"Puppet Ticket": [
+941,
+"exact"
+],
+"SpecPuppetTicket": [
+942,
+"exact"
+],
+"Hypno Ticket": [
+380,
+"exact"
+],
+"Lavasioth Ticket": [
+491,
+"exact"
+],
+"No Coating": [
+127,
+"exact"
+],
+"Amezari Shell": [
+null,
+null
+],
+"Gt Amezari Shell": [
+null,
+null
+],
+"Wyvern": [
+874,
+"exact"
+],
+"Dengeki Ticket": [
+null,
+null
+],
+"Famitsu PO": [
+null,
+null
+],
+"Magazine Ticket": [
+null,
+null
+],
+"Dengeki Ticket+": [
+null,
+null
+],
+"Dengeki Ticket G": [
+null,
+null
+],
+"Famitsu Ticket": [
+null,
+null
+],
+"SpecFamitsuTckt": [
+null,
+null
+],
+"Pirate Tckt J G": [
+null,
+null
+],
+"Select Mushroom": [
+175,
+"exact"
+],
+"YamaTsukaFillet": [
+771,
+"exact"
+],
+"Ceanataur Pincer": [
+508,
+"exact"
+],
+"Pur Gypceros Wng": [
+406,
+"exact"
+],
+"Hvy Rajang Fang": [
+458,
+"exact"
+],
+"ThckWhtFatlisScl": [
+795,
+"exact"
+]
+}

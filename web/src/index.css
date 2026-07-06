@@ -3,8 +3,11 @@
 /* ── MHFU colour palette ───────────────────────────────────────────── */
 :root {
   --bg:         #18181d;
+  --bg-rgb:     24, 24, 29;
   --panel:      #111115;
+  --panel-rgb:  27, 27, 27;
   --surface:    #1d1d24;
+  --surface-rgb: 29, 29, 36;
   --accent:     #c8a84b;
   --accent-dim: #9a7d33;
   --text:       #d4d4d4;

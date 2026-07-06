@@ -32,6 +32,18 @@ for r in rows:
     monsters.append({'id': r['id'], 'name': r['name'], 'type': r['type'], **doc})
 save('monsters.json', monsters)
 
+# Curated list grouping/order (type -> ordered member ids), mirrors the desktop app.
+mo = con.execute("SELECT value FROM app_meta WHERE key='monster_order'").fetchone()
+save('monster_order.json', json.loads(mo['value']) if mo else {})
+
+# Hunting Horn song catalogue + note-set -> song-ids map (for the HH weapon detail).
+hs = con.execute("SELECT value FROM app_meta WHERE key='hh_songs'").fetchone()
+hm = con.execute("SELECT value FROM app_meta WHERE key='hh_songmap'").fetchone()
+save('hh_songs.json', {
+    'songs': json.loads(hs['value']) if hs else [],
+    'note_map': json.loads(hm['value']) if hm else {},
+})
+
 # ── Items ─────────────────────────────────────────────────────────────────────
 print('Exporting items…')
 rows = con.execute(
@@ -59,63 +71,55 @@ save('weapons.json', weapons)
 
 # ── Armor ─────────────────────────────────────────────────────────────────────
 print('Exporting armor sets…')
+
+_SLOT_ORDER = "CASE slot WHEN 'head' THEN 0 WHEN 'chest' THEN 1 WHEN 'arms' THEN 2 WHEN 'waist' THEN 3 WHEN 'legs' THEN 4 ELSE 5 END"
+
+def parse_mat(s: str):
+    parts = s.split(' ', 1)
+    return {'qty': int(parts[0]), 'name': parts[1]} if len(parts) == 2 and parts[0].isdigit() else {'qty': 1, 'name': s}
+
 sets = con.execute(
-    'SELECT id, name, rank, rarity, class_split, gender_exclusive '
+    'SELECT id, name, rank, rarity, class_split, gender_exclusive, has_paired_names '
     'FROM armor_sets ORDER BY rarity, sort_order, name'
 ).fetchall()
 armor = []
 for s in sets:
     sid = s['id']
 
-    # pieces (deduplicate BM/Gunner via GROUP BY slot)
-    pieces_raw = con.execute(
-        """SELECT ap.slot,
-                  COALESCE(NULLIF(ap.name_male,''), ap.name_female, ap.slot) AS piece_name,
-                  ap.defense, ap.fire_res, ap.water_res, ap.thunder_res, ap.ice_res, ap.dragon_res,
-                  ap.deco_slots
-           FROM armor_pieces ap
-           WHERE ap.set_id = ?
-           GROUP BY ap.slot
-           ORDER BY CASE ap.slot WHEN 'head' THEN 0 WHEN 'chest' THEN 1
-                                 WHEN 'arms' THEN 2 WHEN 'waist' THEN 3
-                                 WHEN 'legs' THEN 4 ELSE 5 END""",
-        (sid,)
-    ).fetchall()
+    # Activated skills per class variant.
+    act = {r['class_type']: json.loads(r['activated_skills_json'] or '[]')
+           for r in con.execute('SELECT class_type, activated_skills_json FROM armor_variants WHERE set_id=?', (sid,))}
+    # Class variants present in the pieces (Both / Blademaster / Gunner).
+    class_types = [r['class_type'] for r in con.execute(
+        f'SELECT DISTINCT class_type FROM armor_pieces WHERE set_id=? '
+        f"ORDER BY CASE class_type WHEN 'Both' THEN 0 WHEN 'Blademaster' THEN 1 ELSE 2 END", (sid,))]
 
-    pieces = []
-    for p in pieces_raw:
-        # skill points
-        piece_ids = [row[0] for row in con.execute(
-            'SELECT piece_id FROM armor_pieces WHERE set_id=? AND slot=?', (sid, p['slot'])
-        ).fetchall()]
-        sp_sql = 'SELECT sp.skill_id, sk.name, sp.points FROM armor_piece_skill_points sp JOIN skills sk ON sk.id=sp.skill_id WHERE sp.piece_id IN ({}) GROUP BY sp.skill_id ORDER BY sp.points DESC'.format(
-            ','.join('?' * len(piece_ids))
-        )
-        skills_rows = con.execute(sp_sql, piece_ids).fetchall()
-
-        # materials — "qty material_name" strings, stored in armor_piece_materials.material
-        mat_rows = con.execute(
-            'SELECT material FROM armor_piece_materials WHERE piece_id=? ORDER BY idx',
-            (piece_ids[0],)
-        ).fetchall() if piece_ids else []
-
-        def parse_mat(s: str):
-            parts = s.split(' ', 1)
-            return {'qty': int(parts[0]), 'name': parts[1]} if len(parts) == 2 and parts[0].isdigit() else {'qty': 1, 'name': s}
-
-        pieces.append({
-            'slot': p['slot'],
-            'name': p['piece_name'],
-            'defense': p['defense'],
-            'fire_res': p['fire_res'],
-            'water_res': p['water_res'],
-            'thunder_res': p['thunder_res'],
-            'ice_res': p['ice_res'],
-            'dragon_res': p['dragon_res'],
-            'slots': p['deco_slots'],
-            'skills': [{'skill_id': r['skill_id'], 'skill_name': r['name'], 'points': r['points']} for r in skills_rows],
-            'materials': [parse_mat(r['material']) for r in mat_rows],
-        })
+    variants = []
+    for ct in class_types:
+        pieces_raw = con.execute(
+            f'''SELECT piece_id, slot, name_male, name_female, defense, max_defense,
+                       fire_res, water_res, thunder_res, ice_res, dragon_res, deco_slots, cost
+                FROM armor_pieces WHERE set_id=? AND class_type=? ORDER BY {_SLOT_ORDER}''',
+            (sid, ct)).fetchall()
+        pieces = []
+        for p in pieces_raw:
+            pid = p['piece_id']
+            skills_rows = con.execute(
+                'SELECT sp.skill_id, sk.name, sp.points FROM armor_piece_skill_points sp '
+                'JOIN skills sk ON sk.id=sp.skill_id WHERE sp.piece_id=? ORDER BY sp.points DESC', (pid,)).fetchall()
+            mat_rows = con.execute(
+                'SELECT material FROM armor_piece_materials WHERE piece_id=? ORDER BY idx', (pid,)).fetchall()
+            pieces.append({
+                'slot': p['slot'],
+                'name_male': p['name_male'], 'name_female': p['name_female'],
+                'defense': p['defense'], 'max_defense': p['max_defense'],
+                'fire_res': p['fire_res'], 'water_res': p['water_res'], 'thunder_res': p['thunder_res'],
+                'ice_res': p['ice_res'], 'dragon_res': p['dragon_res'],
+                'slots': p['deco_slots'], 'cost': p['cost'],
+                'skills': [{'skill_id': r['skill_id'], 'skill_name': r['name'], 'points': r['points']} for r in skills_rows],
+                'materials': [parse_mat(r['material']) for r in mat_rows],
+            })
+        variants.append({'class_type': ct, 'activated_skills': act.get(ct, []), 'pieces': pieces})
 
     armor.append({
         'id': sid,
@@ -124,7 +128,8 @@ for s in sets:
         'rarity': s['rarity'],
         'class_split': s['class_split'],
         'gender_exclusive': s['gender_exclusive'],
-        'pieces': pieces,
+        'has_paired_names': s['has_paired_names'],
+        'variants': variants,
     })
 save('armor_sets.json', armor)
 
@@ -261,7 +266,7 @@ save('veggie.json', [dict(r) for r in ve_rows])
 # ── Felyne Comrades ───────────────────────────────────────────────────────────
 print('Exporting Felyne Comrades…')
 fc_sections  = con.execute('SELECT id, title, body, table_kind, sort_order FROM felyne_comrade_sections ORDER BY sort_order').fetchall()
-fc_weapons   = con.execute('SELECT id, attack_power, slash, impact FROM felyne_comrade_weapons ORDER BY sort_order').fetchall()
+fc_weapons   = con.execute('SELECT id, attack_power, slash, impact, divider FROM felyne_comrade_weapons ORDER BY sort_order').fetchall()
 fc_skills    = con.execute('SELECT id, skill, cost, description, unlock FROM felyne_comrade_skills ORDER BY sort_order').fetchall()
 fc_temps     = con.execute('SELECT id, character, attack_pref, healing, target FROM felyne_comrade_temperaments ORDER BY sort_order').fetchall()
 save('comrades.json', {

@@ -4,8 +4,19 @@ export interface Hitzone {
   fire: number; water: number; thunder: number; ice: number; dragon: number; ko: number;
 }
 export interface StaggerLimit { part: string; limit: number; }
-export interface AilmentTolerance { ailment: string; tolerance: string; }
-export interface MonsterItem { name: string; condition?: string; }
+export interface AilmentTolerance {
+  ailment: string
+  initial?: string | number
+  increase?: string | number
+  max?: string | number
+  duration?: string | number
+  damage?: string | number
+  recovery?: string | number
+}
+// A tool/trap the monster reacts to mid-fight (item + effect + notes).
+export interface MonsterItem { item: string; effect?: string; duration?: number; notes?: string }
+// The monster's quest metadata; `notes` holds the read-only "Monster Facts" lore.
+export interface MonsterQuests { notes?: string; [key: string]: unknown }
 
 // Reward drop: item name + percentage (from the ROM loot tables)
 export interface RewardDrop { item: string; pct: number; }
@@ -26,7 +37,7 @@ export interface Monster {
   carve?: CarveGroup[];
   capture?: Record<string, unknown>;   // same shape as CarveGroup, but a single object
   break?: BreakGroup[];
-  quests?: string[];
+  quests?: MonsterQuests;
 }
 
 // ── Items ──────────────────────────────────────────────────────────────
@@ -43,10 +54,11 @@ export interface WeaponDoc {
   atk: number; affinity: number; slots: number; price: number;
   upgrades_from: string | null;
   sharpness?: number[]; sharpness_plus1?: number[]; sharpness_capacity?: number;
-  materials?: string; rarity?: number;
+  materials?: string; materials_alt?: string; rarity?: number;
+  def_bonus?: number;
   external_upgrades?: ExternalUpgrade[];
-  element?: string; element_value?: number;
-  element2?: string; element2_value?: number;
+  element?: string; element_value?: number; element_type?: string;
+  element2?: string; element2_value?: number; element2_type?: string;
   special?: string; special_value?: number;
   coating?: string; arc_shot?: string; rapid_fire?: string;
   capacity?: string; reload?: string; recoil?: string; deviation?: string;
@@ -66,19 +78,34 @@ export interface Weapon {
   sort_order: number; doc: WeaponDoc;
 }
 
+// Hunting Horn song catalogue (app_meta hh_songs/hh_songmap).
+export interface HhSong {
+  id: string; name: string; effect: string; duration: string
+  encore_effect?: string | null; encore_duration?: string | null
+  note_sequences: string[][]
+}
+export interface HhSongData { songs: HhSong[]; note_map: Record<string, string[]> }
+
 // ── Armor ──────────────────────────────────────────────────────────────
 export interface ArmorSkillPoint { skill_id: string; skill_name: string; points: number; }
 export interface ArmorPiece {
-  slot: string; name: string;
-  defense: number; fire_res: number; water_res: number;
+  slot: string; name_male: string; name_female: string;
+  defense: number; max_defense: number;
+  fire_res: number; water_res: number;
   thunder_res: number; ice_res: number; dragon_res: number;
-  slots: number; skills: ArmorSkillPoint[];
+  slots: number; cost: number;
+  skills: ArmorSkillPoint[];
   materials: { name: string; qty: number }[];
+}
+export interface ArmorVariant {
+  class_type: 'Both' | 'Blademaster' | 'Gunner';
+  activated_skills: string[];
+  pieces: ArmorPiece[];
 }
 export interface ArmorSet {
   id: string; name: string; rank: string; rarity: number;
-  class_split: number; gender_exclusive: string | null;
-  pieces: ArmorPiece[];
+  class_split: number; gender_exclusive: string | null; has_paired_names: number;
+  variants: ArmorVariant[];
 }
 
 // ── Armor Skills ───────────────────────────────────────────────────────
@@ -97,12 +124,22 @@ export interface Decoration {
 }
 
 // ── Quests ─────────────────────────────────────────────────────────────
+export interface QuestLoadoutArmor { name: string; skills: string; decoration: string; }
+export interface QuestLoadout {
+  weapon_type: string; weapon: string; description: string;
+  armor: QuestLoadoutArmor[];
+  items: string[];
+  active_skills: (string | { name: string; negative?: boolean })[];
+}
 export interface Quest {
   name: string; objective: string; area: string;
   time: string; fee: string; reward: string;
   monsters: string[]; rewards: string[];
   key: boolean; urgent: boolean;
   description?: string; environment?: string;
+  // Training School quests
+  danger?: string; notes?: string; unlock?: string;
+  loadouts?: QuestLoadout[];
 }
 export interface QuestRank { stars: number; label: string; quests: Quest[]; }
 export interface QuestCategory { slug: string; category: string; ranks: QuestRank[]; }
@@ -128,7 +165,8 @@ export interface FoodRecipe {
   chefs: number; ingredient1: string; ingredient2: string; effect: string;
 }
 export interface WhimSkill { name: string; description: string; }
-export interface KitchenData { recipes: FoodRecipe[]; whim_skills: WhimSkill[]; }
+export interface FoodIngredient { chefs: number; category: string; items: string; }
+export interface KitchenData { recipes: FoodRecipe[]; ingredients: FoodIngredient[]; whim_skills: WhimSkill[]; }
 
 // ── Trenya ─────────────────────────────────────────────────────────────
 export interface TrenyaItem { location: string; category: string; item: string; points: number; }
@@ -144,7 +182,7 @@ export interface VeggieItem { zone: string; item: string; common_trade: string; 
 
 // ── Felyne Comrades ────────────────────────────────────────────────────
 export interface ComradeSection { id: number; title: string; body: string; table_kind: string; sort_order: number; }
-export interface ComradeWeapon { id: number; attack_power: string; slash: string; impact: string; }
+export interface ComradeWeapon { id: number; attack_power: string; slash: string; impact: string; divider: string; }
 export interface ComradeSkill { id: number; skill: string; cost: string; description: string; unlock: string; }
 export interface ComradeTemperament { id: number; character: string; attack_pref: string; healing: string; target: string; }
 export interface ComradesData { sections: ComradeSection[]; weapons: ComradeWeapon[]; skills: ComradeSkill[]; temperaments: ComradeTemperament[]; }

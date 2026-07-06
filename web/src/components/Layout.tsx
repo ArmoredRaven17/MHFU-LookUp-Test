@@ -1,13 +1,16 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BASE } from '../utils/assets'
+import { useTabIcons } from '../theme/tabIcons'
+import { useAppIcon } from '../theme/appearance'
 
-interface NavItem {
+export interface NavItem {
   path: string
   label: string
-  icon: string  // monster id used as icon
+  icon: string  // default monster id used as icon
 }
 
-const NAV: NavItem[] = [
+// Content tabs (order + default icons). Exported so Settings → Tab Icons reuses the list.
+export const NAV: NavItem[] = [
   { path: 'bookmarks',  label: 'Bookmarks',       icon: 'anteka' },
   { path: 'notes',      label: 'Notes',            icon: 'remobra' },
   { path: 'monsters',   label: 'Monsters',         icon: 'tigrex' },
@@ -28,90 +31,75 @@ const NAV: NavItem[] = [
   { path: 'veggie',     label: 'Veggie Elder',     icon: 'shakalaka' },
   { path: 'comrades',   label: 'Felyne Comrades',  icon: 'felyne' },
   { path: 'awards',     label: 'Awards',           icon: 'kirin' },
+  { path: 'settings',   label: 'Settings',         icon: 'hypnocatrice' },
+  { path: 'help',       label: 'Help',             icon: 'khezu' },
   { path: 'about',      label: 'About',            icon: 'fatalis' },
 ]
 
+function NavRow({ item, iconId, active }: { item: NavItem; iconId: string; active: boolean }) {
+  return (
+    <NavLink
+      to={`/${item.path}`}
+      style={{
+        display: 'flex', alignItems: 'center', gap: 8, padding: '5px 12px',
+        textDecoration: 'none',
+        color: active ? 'var(--accent)' : 'var(--text)',
+        background: active ? 'var(--header-bg)' : 'transparent',
+        borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
+        fontSize: 13, whiteSpace: 'nowrap', transition: 'background 0.1s',
+      }}
+      onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)' }}
+      onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.background = 'transparent' }}
+    >
+      <img src={`${BASE}/assets/Monsters/${iconId}.png`} alt="" width={20} height={20}
+           style={{ objectFit: 'contain', flexShrink: 0 }}
+           onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
+      {item.label}
+    </NavLink>
+  )
+}
+
 export default function Layout() {
   const loc = useLocation()
+  const overrides = useTabIcons()
+  const appIcon = useAppIcon()
+  const isActive = (path: string) => loc.pathname === `/${path}` || loc.pathname.startsWith(`/${path}/`)
 
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Sidebar ── */}
-      <nav
-        style={{
-          width: 220,
-          minWidth: 220,
-          background: 'var(--panel)',
-          borderRight: '1px solid var(--border)',
-          display: 'flex',
-          flexDirection: 'column',
-          overflow: 'hidden',
-        }}
-      >
+      <nav style={{
+        width: 185, minWidth: 185,
+        backgroundColor: 'var(--panel)',
+        // Repeating texture with a translucent panel-coloured overlay (theme-aware) + a darkening layer.
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), linear-gradient(rgba(var(--panel-rgb), 0.91), rgba(var(--panel-rgb), 0.91)), url(${BASE}/assets/Textures/nav_bg.png)`,
+        backgroundRepeat: 'no-repeat, no-repeat, repeat',   // overlays fill; texture tiles at native 128px, not stretched
+        borderRight: '1px solid var(--border)',
+        display: 'flex', flexDirection: 'column', overflow: 'hidden',
+      }}>
         {/* Title bar */}
-        <div style={{
-          padding: '10px 12px',
-          borderBottom: '1px solid var(--border)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 8,
-        }}>
-          <img
-            src={`${BASE}/assets/Monsters/rathalos.png`}
-            alt=""
-            width={28}
-            height={28}
-            style={{ objectFit: 'contain' }}
-          />
-          <span style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 }}>
-            MHFU LookUp
-          </span>
+        <div style={{ padding: '10px 12px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <img src={`${BASE}/assets/Monsters/${appIcon}.png`} alt="" width={28} height={28} style={{ objectFit: 'contain' }}
+               onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
+          <span style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 }}>MHFU LookUp</span>
         </div>
 
         {/* Nav items */}
         <div style={{ overflowY: 'auto', flex: 1 }}>
-          {NAV.map(item => {
-            const active = loc.pathname === `/${item.path}` ||
-              loc.pathname.startsWith(`/${item.path}/`)
-            return (
-              <NavLink
-                key={item.path}
-                to={`/${item.path}`}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  padding: '5px 12px',
-                  textDecoration: 'none',
-                  color: active ? 'var(--accent)' : 'var(--text)',
-                  background: active ? 'rgba(200,168,75,0.12)' : 'transparent',
-                  borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
-                  fontSize: 13,
-                  transition: 'background 0.1s',
-                }}
-                onMouseEnter={e => {
-                  if (!active) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)'
-                }}
-                onMouseLeave={e => {
-                  if (!active) (e.currentTarget as HTMLElement).style.background = 'transparent'
-                }}
-              >
-                <img
-                  src={`${BASE}/assets/Monsters/${item.icon}.png`}
-                  alt=""
-                  width={20}
-                  height={20}
-                  style={{ objectFit: 'contain', flexShrink: 0 }}
-                />
-                {item.label}
-              </NavLink>
-            )
-          })}
+          {NAV.map(item => (
+            <NavRow key={item.path} item={item} iconId={overrides[item.path] ?? item.icon} active={isActive(item.path)} />
+          ))}
         </div>
       </nav>
 
       {/* ── Content ── */}
-      <main style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+      <main style={{
+        flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column',
+        backgroundColor: 'var(--bg)',
+        // Repeating stone texture under a translucent bg-coloured overlay (theme-aware, readable).
+        backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`,
+        backgroundRepeat: 'no-repeat, repeat',
+      }}>
         <Outlet />
       </main>
     </div>

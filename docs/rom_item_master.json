@@ -1,0 +1,8822 @@
+[
+{
+"id": 0,
+"name": "Book of Combos 1",
+"rarity": 4,
+"stack": 1,
+"value": 100
+},
+{
+"id": 1,
+"name": "Book of Combos 2",
+"rarity": 4,
+"stack": 1,
+"value": 200
+},
+{
+"id": 2,
+"name": "Book of Combos 3",
+"rarity": 4,
+"stack": 1,
+"value": 500
+},
+{
+"id": 3,
+"name": "Book of Combos 4",
+"rarity": 5,
+"stack": 1,
+"value": 1000
+},
+{
+"id": 4,
+"name": "Book of Combos 5",
+"rarity": 5,
+"stack": 1,
+"value": 1500
+},
+{
+"id": 5,
+"name": "Alchemy Guide",
+"rarity": 5,
+"stack": 1,
+"value": 2000
+},
+{
+"id": 6,
+"name": "Potion",
+"rarity": 1,
+"stack": 10,
+"value": 7
+},
+{
+"id": 7,
+"name": "Mega Potion",
+"rarity": 2,
+"stack": 10,
+"value": 16
+},
+{
+"id": 8,
+"name": "Nutrients",
+"rarity": 2,
+"stack": 5,
+"value": 25
+},
+{
+"id": 9,
+"name": "Mega Nutrients",
+"rarity": 3,
+"stack": 5,
+"value": 92
+},
+{
+"id": 10,
+"name": "Antidote",
+"rarity": 1,
+"stack": 10,
+"value": 6
+},
+{
+"id": 11,
+"name": "Immunizer",
+"rarity": 3,
+"stack": 10,
+"value": 92
+},
+{
+"id": 12,
+"name": "Power Juice",
+"rarity": 2,
+"stack": 5,
+"value": 29
+},
+{
+"id": 13,
+"name": "Mega Juice",
+"rarity": 3,
+"stack": 5,
+"value": 205
+},
+{
+"id": 14,
+"name": "Demondrug",
+"rarity": 4,
+"stack": 5,
+"value": 67
+},
+{
+"id": 15,
+"name": "Mega Demondrug",
+"rarity": 5,
+"stack": 5,
+"value": 283
+},
+{
+"id": 16,
+"name": "Power Pill",
+"rarity": 1,
+"stack": 5,
+"value": 280
+},
+{
+"id": 17,
+"name": "Armorskin",
+"rarity": 4,
+"stack": 5,
+"value": 58
+},
+{
+"id": 18,
+"name": "Mega Armorskin",
+"rarity": 5,
+"stack": 5,
+"value": 269
+},
+{
+"id": 19,
+"name": "Armor Pill",
+"rarity": 1,
+"stack": 5,
+"value": 260
+},
+{
+"id": 20,
+"name": "Cool Drink",
+"rarity": 1,
+"stack": 5,
+"value": 30
+},
+{
+"id": 21,
+"name": "Hot Drink",
+"rarity": 1,
+"stack": 5,
+"value": 25
+},
+{
+"id": 22,
+"name": "Thawing Agent",
+"rarity": 1,
+"stack": 10,
+"value": 10
+},
+{
+"id": 23,
+"name": "Psychoserum",
+"rarity": 3,
+"stack": 3,
+"value": 30
+},
+{
+"id": 24,
+"name": "Monster Fluid",
+"rarity": 4,
+"stack": 99,
+"value": 500
+},
+{
+"id": 25,
+"name": "Monster Broth",
+"rarity": 5,
+"stack": 99,
+"value": 1000
+},
+{
+"id": 26,
+"name": "Monster Essence",
+"rarity": 5,
+"stack": 99,
+"value": 2000
+},
+{
+"id": 27,
+"name": "Thunderbug Juice",
+"rarity": 5,
+"stack": 99,
+"value": 250
+},
+{
+"id": 28,
+"name": "Thunderbug Jelly",
+"rarity": 5,
+"stack": 99,
+"value": 1000
+},
+{
+"id": 29,
+"name": "Herbal Medicine",
+"rarity": 2,
+"stack": 10,
+"value": 25
+},
+{
+"id": 30,
+"name": "Max Potion",
+"rarity": 3,
+"stack": 2,
+"value": 210
+},
+{
+"id": 31,
+"name": "Ancient Potion",
+"rarity": 5,
+"stack": 1,
+"value": 345
+},
+{
+"id": 32,
+"name": "Catalyst",
+"rarity": 2,
+"stack": 5,
+"value": 48
+},
+{
+"id": 33,
+"name": "Energy Drink",
+"rarity": 2,
+"stack": 10,
+"value": 6
+},
+{
+"id": 34,
+"name": "Gunpowder",
+"rarity": 2,
+"stack": 20,
+"value": 22
+},
+{
+"id": 35,
+"name": "Lifecrystals",
+"rarity": 3,
+"stack": 10,
+"value": 59
+},
+{
+"id": 36,
+"name": "Lifepowder",
+"rarity": 4,
+"stack": 3,
+"value": 315
+},
+{
+"id": 37,
+"name": "Powercharm",
+"rarity": 5,
+"stack": 1,
+"value": 3600
+},
+{
+"id": 38,
+"name": "Powertalon",
+"rarity": 5,
+"stack": 1,
+"value": 6840
+},
+{
+"id": 39,
+"name": "Armorcharm",
+"rarity": 5,
+"stack": 1,
+"value": 2400
+},
+{
+"id": 40,
+"name": "Armortalon",
+"rarity": 5,
+"stack": 1,
+"value": 5040
+},
+{
+"id": 41,
+"name": "Tranquilizer",
+"rarity": 4,
+"stack": 10,
+"value": 15
+},
+{
+"id": 42,
+"name": "Raw Meat",
+"rarity": 1,
+"stack": 10,
+"value": 5
+},
+{
+"id": 43,
+"name": "Poisoned Meat",
+"rarity": 1,
+"stack": 10,
+"value": 19
+},
+{
+"id": 44,
+"name": "Tainted Meat",
+"rarity": 2,
+"stack": 10,
+"value": 30
+},
+{
+"id": 45,
+"name": "Drugged Meat",
+"rarity": 1,
+"stack": 10,
+"value": 32
+},
+{
+"id": 46,
+"name": "Rare Steak",
+"rarity": 1,
+"stack": 10,
+"value": 3
+},
+{
+"id": 47,
+"name": "Well-Done Steak",
+"rarity": 2,
+"stack": 10,
+"value": 48
+},
+{
+"id": 48,
+"name": "Gourmet Steak",
+"rarity": 3,
+"stack": 10,
+"value": 64
+},
+{
+"id": 49,
+"name": "Burnt Meat",
+"rarity": 1,
+"stack": 10,
+"value": 1
+},
+{
+"id": 50,
+"name": "Hot Meat",
+"rarity": 1,
+"stack": 10,
+"value": 25
+},
+{
+"id": 51,
+"name": "Cold Meat",
+"rarity": 1,
+"stack": 10,
+"value": 30
+},
+{
+"id": 52,
+"name": "Rare Fish",
+"rarity": 1,
+"stack": 10,
+"value": 2
+},
+{
+"id": 53,
+"name": "Gourmet Fish",
+"rarity": 2,
+"stack": 10,
+"value": 40
+},
+{
+"id": 54,
+"name": "Gourmet Fish+",
+"rarity": 3,
+"stack": 10,
+"value": 58
+},
+{
+"id": 55,
+"name": "Burnt Fish",
+"rarity": 1,
+"stack": 10,
+"value": 1
+},
+{
+"id": 56,
+"name": "Boomerang",
+"rarity": 4,
+"stack": 5,
+"value": 15
+},
+{
+"id": 57,
+"name": "Throwing Knife",
+"rarity": 1,
+"stack": 5,
+"value": 0
+},
+{
+"id": 58,
+"name": "Poison Thrw Knf",
+"rarity": 1,
+"stack": 5,
+"value": 0
+},
+{
+"id": 59,
+"name": "Sleeping Thr Knf",
+"rarity": 1,
+"stack": 5,
+"value": 0
+},
+{
+"id": 60,
+"name": "Paralyze Thr Knf",
+"rarity": 1,
+"stack": 5,
+"value": 0
+},
+{
+"id": 61,
+"name": "Tranq Thrwng Knf",
+"rarity": 4,
+"stack": 5,
+"value": 0
+},
+{
+"id": 62,
+"name": "Bomb Material",
+"rarity": 1,
+"stack": 30,
+"value": 15
+},
+{
+"id": 63,
+"name": "Paintball",
+"rarity": 1,
+"stack": 99,
+"value": 10
+},
+{
+"id": 64,
+"name": "Flash Bomb",
+"rarity": 2,
+"stack": 5,
+"value": 57
+},
+{
+"id": 65,
+"name": "Sonic Bomb",
+"rarity": 2,
+"stack": 10,
+"value": 45
+},
+{
+"id": 66,
+"name": "Dung",
+"rarity": 1,
+"stack": 10,
+"value": 1
+},
+{
+"id": 67,
+"name": "Wyvern Droppings",
+"rarity": 4,
+"stack": 99,
+"value": 2
+},
+{
+"id": 68,
+"name": "Dung Bomb",
+"rarity": 2,
+"stack": 10,
+"value": 9
+},
+{
+"id": 69,
+"name": "Smoke Bomb",
+"rarity": 2,
+"stack": 10,
+"value": 44
+},
+{
+"id": 70,
+"name": "Poison Smoke Bmb",
+"rarity": 2,
+"stack": 10,
+"value": 60
+},
+{
+"id": 71,
+"name": "Farcaster",
+"rarity": 3,
+"stack": 1,
+"value": 30
+},
+{
+"id": 72,
+"name": "Deodorant",
+"rarity": 2,
+"stack": 5,
+"value": 8
+},
+{
+"id": 73,
+"name": "Tranq Bomb",
+"rarity": 4,
+"stack": 8,
+"value": 35
+},
+{
+"id": 74,
+"name": "Spiderweb",
+"rarity": 1,
+"stack": 10,
+"value": 6
+},
+{
+"id": 75,
+"name": "Net",
+"rarity": 2,
+"stack": 10,
+"value": 54
+},
+{
+"id": 76,
+"name": "Trap Tool",
+"rarity": 3,
+"stack": 2,
+"value": 20
+},
+{
+"id": 77,
+"name": "Pitfall Trap",
+"rarity": 3,
+"stack": 1,
+"value": 46
+},
+{
+"id": 78,
+"name": "Shock Trap",
+"rarity": 3,
+"stack": 1,
+"value": 160
+},
+{
+"id": 79,
+"name": "Lightning Rod",
+"rarity": 3,
+"stack": 10,
+"value": 28
+},
+{
+"id": 80,
+"name": "Barrel Lid",
+"rarity": 5,
+"stack": 99,
+"value": 10
+},
+{
+"id": 81,
+"name": "Small Barrel",
+"rarity": 1,
+"stack": 10,
+"value": 8
+},
+{
+"id": 82,
+"name": "Large Barrel",
+"rarity": 2,
+"stack": 10,
+"value": 21
+},
+{
+"id": 83,
+"name": "Sm Barrel-Bomb",
+"rarity": 2,
+"stack": 10,
+"value": 16
+},
+{
+"id": 84,
+"name": "Sm Barrel-Bomb+",
+"rarity": 4,
+"stack": 5,
+"value": 52
+},
+{
+"id": 85,
+"name": "Lg Barrel-Bomb",
+"rarity": 3,
+"stack": 3,
+"value": 52
+},
+{
+"id": 86,
+"name": "Lg Barrel-Bomb+",
+"rarity": 4,
+"stack": 2,
+"value": 80
+},
+{
+"id": 87,
+"name": "Bounce Bomb",
+"rarity": 2,
+"stack": 10,
+"value": 18
+},
+{
+"id": 88,
+"name": "Bounce Bomb+",
+"rarity": 4,
+"stack": 10,
+"value": 68
+},
+{
+"id": 89,
+"name": "Anti-Dragon Bomb",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 90,
+"name": "dummy",
+"rarity": 5,
+"stack": 10,
+"value": 50
+},
+{
+"id": 91,
+"name": "dummy",
+"rarity": 5,
+"stack": 5,
+"value": 80
+},
+{
+"id": 92,
+"name": "Huskberry",
+"rarity": 1,
+"stack": 99,
+"value": 1
+},
+{
+"id": 93,
+"name": "Sm Bone Husk",
+"rarity": 2,
+"stack": 99,
+"value": 3
+},
+{
+"id": 94,
+"name": "Lg Bone Husk",
+"rarity": 3,
+"stack": 99,
+"value": 5
+},
+{
+"id": 95,
+"name": "Normal S Lv1",
+"rarity": 1,
+"stack": 255,
+"value": 0
+},
+{
+"id": 96,
+"name": "Normal S Lv2",
+"rarity": 1,
+"stack": 99,
+"value": 1
+},
+{
+"id": 97,
+"name": "Normal S Lv3",
+"rarity": 2,
+"stack": 99,
+"value": 2
+},
+{
+"id": 98,
+"name": "Pierce S Lv1",
+"rarity": 2,
+"stack": 60,
+"value": 1
+},
+{
+"id": 99,
+"name": "Pierce S Lv2",
+"rarity": 2,
+"stack": 60,
+"value": 2
+},
+{
+"id": 100,
+"name": "Pierce S Lv3",
+"rarity": 3,
+"stack": 60,
+"value": 3
+},
+{
+"id": 101,
+"name": "Pellet S Lv1",
+"rarity": 2,
+"stack": 60,
+"value": 1
+},
+{
+"id": 102,
+"name": "Pellet S Lv2",
+"rarity": 2,
+"stack": 60,
+"value": 2
+},
+{
+"id": 103,
+"name": "Pellet S Lv3",
+"rarity": 3,
+"stack": 60,
+"value": 2
+},
+{
+"id": 104,
+"name": "Crag S Lv1",
+"rarity": 3,
+"stack": 9,
+"value": 4
+},
+{
+"id": 105,
+"name": "Crag S Lv2",
+"rarity": 3,
+"stack": 9,
+"value": 7
+},
+{
+"id": 106,
+"name": "Crag S Lv3",
+"rarity": 3,
+"stack": 9,
+"value": 7
+},
+{
+"id": 107,
+"name": "Clust S Lv1",
+"rarity": 2,
+"stack": 3,
+"value": 4
+},
+{
+"id": 108,
+"name": "Clust S Lv2",
+"rarity": 3,
+"stack": 3,
+"value": 6
+},
+{
+"id": 109,
+"name": "Clust S Lv3",
+"rarity": 3,
+"stack": 3,
+"value": 10
+},
+{
+"id": 110,
+"name": "Flaming S",
+"rarity": 3,
+"stack": 60,
+"value": 2
+},
+{
+"id": 111,
+"name": "Water S",
+"rarity": 3,
+"stack": 60,
+"value": 2
+},
+{
+"id": 112,
+"name": "Thunder S",
+"rarity": 3,
+"stack": 60,
+"value": 2
+},
+{
+"id": 113,
+"name": "Freeze S",
+"rarity": 3,
+"stack": 60,
+"value": 2
+},
+{
+"id": 114,
+"name": "Dragon S",
+"rarity": 5,
+"stack": 3,
+"value": 10
+},
+{
+"id": 115,
+"name": "Recov S Lv1",
+"rarity": 1,
+"stack": 12,
+"value": 2
+},
+{
+"id": 116,
+"name": "Recov S Lv2",
+"rarity": 2,
+"stack": 12,
+"value": 2
+},
+{
+"id": 117,
+"name": "Poison S Lv1",
+"rarity": 2,
+"stack": 12,
+"value": 2
+},
+{
+"id": 118,
+"name": "Poison S Lv2",
+"rarity": 3,
+"stack": 8,
+"value": 2
+},
+{
+"id": 119,
+"name": "Para S Lv1",
+"rarity": 3,
+"stack": 12,
+"value": 3
+},
+{
+"id": 120,
+"name": "Para S Lv2",
+"rarity": 4,
+"stack": 8,
+"value": 5
+},
+{
+"id": 121,
+"name": "Sleep S Lv1",
+"rarity": 3,
+"stack": 12,
+"value": 2
+},
+{
+"id": 122,
+"name": "Sleep S Lv2",
+"rarity": 4,
+"stack": 8,
+"value": 3
+},
+{
+"id": 123,
+"name": "Tranq S",
+"rarity": 4,
+"stack": 8,
+"value": 4
+},
+{
+"id": 124,
+"name": "Paint S",
+"rarity": 1,
+"stack": 99,
+"value": 6
+},
+{
+"id": 125,
+"name": "Demon S",
+"rarity": 3,
+"stack": 5,
+"value": 9
+},
+{
+"id": 126,
+"name": "Armor S",
+"rarity": 3,
+"stack": 5,
+"value": 7
+},
+{
+"id": 127,
+"name": "No Coating",
+"rarity": 1,
+"stack": 255,
+"value": 0
+},
+{
+"id": 128,
+"name": "Empty Bottle",
+"rarity": 1,
+"stack": 99,
+"value": 1
+},
+{
+"id": 129,
+"name": "Power Coating",
+"rarity": 2,
+"stack": 50,
+"value": 3
+},
+{
+"id": 130,
+"name": "Poison Coating",
+"rarity": 3,
+"stack": 20,
+"value": 2
+},
+{
+"id": 131,
+"name": "ParalysisCoating",
+"rarity": 3,
+"stack": 20,
+"value": 3
+},
+{
+"id": 132,
+"name": "Sleep Coating",
+"rarity": 3,
+"stack": 20,
+"value": 2
+},
+{
+"id": 133,
+"name": "CloseRngCoating",
+"rarity": 3,
+"stack": 20,
+"value": 3
+},
+{
+"id": 134,
+"name": "Paint Coating",
+"rarity": 1,
+"stack": 99,
+"value": 6
+},
+{
+"id": 135,
+"name": "Cricket",
+"rarity": 1,
+"stack": 5,
+"value": 1
+},
+{
+"id": 136,
+"name": "Worm",
+"rarity": 1,
+"stack": 10,
+"value": 2
+},
+{
+"id": 137,
+"name": "Firefly",
+"rarity": 2,
+"stack": 20,
+"value": 4
+},
+{
+"id": 138,
+"name": "Frog",
+"rarity": 2,
+"stack": 10,
+"value": 15
+},
+{
+"id": 139,
+"name": "Tuna Bait",
+"rarity": 2,
+"stack": 10,
+"value": 4
+},
+{
+"id": 140,
+"name": "Arrowana Bait",
+"rarity": 2,
+"stack": 10,
+"value": 7
+},
+{
+"id": 141,
+"name": "Goldenfish Bait",
+"rarity": 4,
+"stack": 5,
+"value": 30
+},
+{
+"id": 142,
+"name": "Mega Fishing Fly",
+"rarity": 3,
+"stack": 10,
+"value": 3
+},
+{
+"id": 143,
+"name": "Old Pickaxe",
+"rarity": 1,
+"stack": 3,
+"value": 6
+},
+{
+"id": 144,
+"name": "Iron Pickaxe",
+"rarity": 1,
+"stack": 4,
+"value": 16
+},
+{
+"id": 145,
+"name": "Mega Pickaxe",
+"rarity": 3,
+"stack": 5,
+"value": 24
+},
+{
+"id": 146,
+"name": "Expand Pickaxe",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 147,
+"name": "Old Bugnet",
+"rarity": 1,
+"stack": 3,
+"value": 3
+},
+{
+"id": 148,
+"name": "Bugnet",
+"rarity": 1,
+"stack": 4,
+"value": 8
+},
+{
+"id": 149,
+"name": "Mega Bugnet",
+"rarity": 3,
+"stack": 5,
+"value": 12
+},
+{
+"id": 150,
+"name": "BBQ Spit",
+"rarity": 4,
+"stack": 1,
+"value": 56
+},
+{
+"id": 151,
+"name": "Gourmet BBQ Spit",
+"rarity": 4,
+"stack": 1,
+"value": 500
+},
+{
+"id": 152,
+"name": "Whetstone",
+"rarity": 1,
+"stack": 20,
+"value": 8
+},
+{
+"id": 153,
+"name": "Binoculars",
+"rarity": 1,
+"stack": 1,
+"value": 5
+},
+{
+"id": 154,
+"name": "Garbage",
+"rarity": 1,
+"stack": 99,
+"value": 1
+},
+{
+"id": 155,
+"name": "Flute",
+"rarity": 2,
+"stack": 1,
+"value": 48
+},
+{
+"id": 156,
+"name": "Health Flute",
+"rarity": 4,
+"stack": 1,
+"value": 550
+},
+{
+"id": 157,
+"name": "Antidote Flute",
+"rarity": 4,
+"stack": 1,
+"value": 520
+},
+{
+"id": 158,
+"name": "Demon Flute",
+"rarity": 5,
+"stack": 1,
+"value": 1080
+},
+{
+"id": 159,
+"name": "Armor Flute",
+"rarity": 5,
+"stack": 1,
+"value": 986
+},
+{
+"id": 160,
+"name": "Honey",
+"rarity": 2,
+"stack": 10,
+"value": 45
+},
+{
+"id": 161,
+"name": "Sunset Herb",
+"rarity": 2,
+"stack": 10,
+"value": 2
+},
+{
+"id": 162,
+"name": "Herb",
+"rarity": 1,
+"stack": 10,
+"value": 2
+},
+{
+"id": 163,
+"name": "Antidote Herb",
+"rarity": 1,
+"stack": 10,
+"value": 2
+},
+{
+"id": 164,
+"name": "Fire Herb",
+"rarity": 2,
+"stack": 20,
+"value": 4
+},
+{
+"id": 165,
+"name": "Ivy",
+"rarity": 1,
+"stack": 10,
+"value": 8
+},
+{
+"id": 166,
+"name": "Sleep Herb",
+"rarity": 1,
+"stack": 10,
+"value": 5
+},
+{
+"id": 167,
+"name": "Sap Plant",
+"rarity": 1,
+"stack": 30,
+"value": 2
+},
+{
+"id": 168,
+"name": "Felvine",
+"rarity": 1,
+"stack": 10,
+"value": 1
+},
+{
+"id": 169,
+"name": "Cactus Flower",
+"rarity": 2,
+"stack": 10,
+"value": 10
+},
+{
+"id": 170,
+"name": "Hot Pepper",
+"rarity": 2,
+"stack": 10,
+"value": 4
+},
+{
+"id": 171,
+"name": "Dosbiscus",
+"rarity": 4,
+"stack": 99,
+"value": 20
+},
+{
+"id": 172,
+"name": "Mountain Herbs",
+"rarity": 5,
+"stack": 20,
+"value": 50
+},
+{
+"id": 173,
+"name": "Giant Corn",
+"rarity": 5,
+"stack": 99,
+"value": 500
+},
+{
+"id": 174,
+"name": "Special Mushroom",
+"rarity": 5,
+"stack": 20,
+"value": 50
+},
+{
+"id": 175,
+"name": "Select Mushroom",
+"rarity": 5,
+"stack": 10,
+"value": 500
+},
+{
+"id": 176,
+"name": "Blue Mushroom",
+"rarity": 2,
+"stack": 10,
+"value": 2
+},
+{
+"id": 177,
+"name": "Nitroshroom",
+"rarity": 2,
+"stack": 20,
+"value": 6
+},
+{
+"id": 178,
+"name": "Parashroom",
+"rarity": 3,
+"stack": 10,
+"value": 15
+},
+{
+"id": 179,
+"name": "Toadstool",
+"rarity": 2,
+"stack": 10,
+"value": 8
+},
+{
+"id": 180,
+"name": "Exciteshroom",
+"rarity": 3,
+"stack": 10,
+"value": 18
+},
+{
+"id": 181,
+"name": "Dragon Toadstool",
+"rarity": 3,
+"stack": 10,
+"value": 40
+},
+{
+"id": 182,
+"name": "Spicy Mushroom",
+"rarity": 3,
+"stack": 5,
+"value": 54
+},
+{
+"id": 183,
+"name": "Chaos Mushroom",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 184,
+"name": "Paintberry",
+"rarity": 1,
+"stack": 99,
+"value": 6
+},
+{
+"id": 185,
+"name": "Power Seed",
+"rarity": 2,
+"stack": 10,
+"value": 140
+},
+{
+"id": 186,
+"name": "Armor Seed",
+"rarity": 2,
+"stack": 10,
+"value": 110
+},
+{
+"id": 187,
+"name": "Dragon Seed",
+"rarity": 2,
+"stack": 20,
+"value": 78
+},
+{
+"id": 188,
+"name": "Scatternut",
+"rarity": 2,
+"stack": 30,
+"value": 4
+},
+{
+"id": 189,
+"name": "Needleberry",
+"rarity": 1,
+"stack": 99,
+"value": 1
+},
+{
+"id": 190,
+"name": "Bomberry",
+"rarity": 2,
+"stack": 10,
+"value": 12
+},
+{
+"id": 191,
+"name": "Tropical Berry",
+"rarity": 5,
+"stack": 10,
+"value": 50
+},
+{
+"id": 192,
+"name": "Frozen Berry",
+"rarity": 3,
+"stack": 5,
+"value": 54
+},
+{
+"id": 193,
+"name": "Red Seed",
+"rarity": 2,
+"stack": 99,
+"value": 1
+},
+{
+"id": 194,
+"name": "Green Seed",
+"rarity": 2,
+"stack": 99,
+"value": 1
+},
+{
+"id": 195,
+"name": "Yellow Seed",
+"rarity": 4,
+"stack": 99,
+"value": 25
+},
+{
+"id": 196,
+"name": "Beautiful Shell",
+"rarity": 2,
+"stack": 10,
+"value": 40
+},
+{
+"id": 197,
+"name": "Black Pearl",
+"rarity": 4,
+"stack": 99,
+"value": 150
+},
+{
+"id": 198,
+"name": "Giant Blk Pearl",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 199,
+"name": "Stone",
+"rarity": 1,
+"stack": 99,
+"value": 1
+},
+{
+"id": 200,
+"name": "Disk Stone",
+"rarity": 4,
+"stack": 99,
+"value": 68
+},
+{
+"id": 201,
+"name": "Iron Ore",
+"rarity": 4,
+"stack": 99,
+"value": 60
+},
+{
+"id": 202,
+"name": "Earth Crystal",
+"rarity": 4,
+"stack": 99,
+"value": 80
+},
+{
+"id": 203,
+"name": "Machalite Ore",
+"rarity": 5,
+"stack": 99,
+"value": 160
+},
+{
+"id": 204,
+"name": "Dragonite Ore",
+"rarity": 5,
+"stack": 99,
+"value": 480
+},
+{
+"id": 205,
+"name": "Carbalite Ore",
+"rarity": 5,
+"stack": 99,
+"value": 680
+},
+{
+"id": 206,
+"name": "Eltalite Ore",
+"rarity": 5,
+"stack": 99,
+"value": 1280
+},
+{
+"id": 207,
+"name": "Union Ore",
+"rarity": 5,
+"stack": 99,
+"value": 1020
+},
+{
+"id": 208,
+"name": "Mellanje Ore",
+"rarity": 5,
+"stack": 99,
+"value": 1920
+},
+{
+"id": 209,
+"name": "Firestone",
+"rarity": 5,
+"stack": 99,
+"value": 860
+},
+{
+"id": 210,
+"name": "Firecell Stone",
+"rarity": 5,
+"stack": 99,
+"value": 1720
+},
+{
+"id": 211,
+"name": "Coal",
+"rarity": 3,
+"stack": 10,
+"value": 150
+},
+{
+"id": 212,
+"name": "Goldstone Piece",
+"rarity": 3,
+"stack": 10,
+"value": 200
+},
+{
+"id": 213,
+"name": "Goldstone Hunk",
+"rarity": 4,
+"stack": 10,
+"value": 1000
+},
+{
+"id": 214,
+"name": "Lightcrystal",
+"rarity": 5,
+"stack": 99,
+"value": 1150
+},
+{
+"id": 215,
+"name": "Novacrystal",
+"rarity": 5,
+"stack": 99,
+"value": 2440
+},
+{
+"id": 216,
+"name": "Purecrystal",
+"rarity": 5,
+"stack": 99,
+"value": 7320
+},
+{
+"id": 217,
+"name": "Antiseptic Stone",
+"rarity": 3,
+"stack": 10,
+"value": 183
+},
+{
+"id": 218,
+"name": "Ice Crystal",
+"rarity": 2,
+"stack": 20,
+"value": 60
+},
+{
+"id": 219,
+"name": "Rainbow Ore",
+"rarity": 5,
+"stack": 99,
+"value": 960
+},
+{
+"id": 220,
+"name": "Great Stone",
+"rarity": 5,
+"stack": 99,
+"value": 1000
+},
+{
+"id": 221,
+"name": "Armor Stone",
+"rarity": 4,
+"stack": 99,
+"value": 150
+},
+{
+"id": 222,
+"name": "Armor Sphere",
+"rarity": 5,
+"stack": 99,
+"value": 80
+},
+{
+"id": 223,
+"name": "Armor Sphere+",
+"rarity": 5,
+"stack": 99,
+"value": 300
+},
+{
+"id": 224,
+"name": "Hrd Armor Sphere",
+"rarity": 5,
+"stack": 99,
+"value": 400
+},
+{
+"id": 225,
+"name": "Hvy Armor Sphere",
+"rarity": 5,
+"stack": 99,
+"value": 600
+},
+{
+"id": 226,
+"name": "Ryl Armor Sphere",
+"rarity": 5,
+"stack": 99,
+"value": 500
+},
+{
+"id": 227,
+"name": "Tru Armor Sphere",
+"rarity": 5,
+"stack": 99,
+"value": 700
+},
+{
+"id": 228,
+"name": "Knife Mackerel",
+"rarity": 1,
+"stack": 10,
+"value": 45
+},
+{
+"id": 229,
+"name": "Sushifish",
+"rarity": 1,
+"stack": 10,
+"value": 45
+},
+{
+"id": 230,
+"name": "Sleepyfish",
+"rarity": 2,
+"stack": 10,
+"value": 45
+},
+{
+"id": 231,
+"name": "Pin Tuna",
+"rarity": 1,
+"stack": 30,
+"value": 50
+},
+{
+"id": 232,
+"name": "Rumblefish",
+"rarity": 2,
+"stack": 30,
+"value": 15
+},
+{
+"id": 233,
+"name": "Scatterfish",
+"rarity": 4,
+"stack": 10,
+"value": 150
+},
+{
+"id": 234,
+"name": "Burst Arrowana",
+"rarity": 4,
+"stack": 10,
+"value": 45
+},
+{
+"id": 235,
+"name": "Bomb Arrowana",
+"rarity": 4,
+"stack": 10,
+"value": 135
+},
+{
+"id": 236,
+"name": "Glutton Tuna",
+"rarity": 4,
+"stack": 10,
+"value": 13
+},
+{
+"id": 237,
+"name": "Gastronome Tuna",
+"rarity": 5,
+"stack": 5,
+"value": 23
+},
+{
+"id": 238,
+"name": "Speartuna",
+"rarity": 5,
+"stack": 10,
+"value": 1000
+},
+{
+"id": 239,
+"name": "Small Goldenfish",
+"rarity": 4,
+"stack": 99,
+"value": 500
+},
+{
+"id": 240,
+"name": "Goldenfish",
+"rarity": 4,
+"stack": 10,
+"value": 500
+},
+{
+"id": 241,
+"name": "Silverfish",
+"rarity": 5,
+"stack": 10,
+"value": 1500
+},
+{
+"id": 242,
+"name": "Ancient Fish",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 243,
+"name": "Springnight Carp",
+"rarity": 4,
+"stack": 99,
+"value": 60
+},
+{
+"id": 244,
+"name": "Tailed Frog",
+"rarity": 5,
+"stack": 99,
+"value": 500
+},
+{
+"id": 245,
+"name": "Insect Husk",
+"rarity": 1,
+"stack": 10,
+"value": 1
+},
+{
+"id": 246,
+"name": "Yambug",
+"rarity": 1,
+"stack": 99,
+"value": 3
+},
+{
+"id": 247,
+"name": "Bughopper",
+"rarity": 1,
+"stack": 99,
+"value": 6
+},
+{
+"id": 248,
+"name": "Snakebee Larva",
+"rarity": 1,
+"stack": 99,
+"value": 30
+},
+{
+"id": 249,
+"name": "Godbug",
+"rarity": 4,
+"stack": 10,
+"value": 210
+},
+{
+"id": 250,
+"name": "Bitterbug",
+"rarity": 1,
+"stack": 10,
+"value": 2
+},
+{
+"id": 251,
+"name": "Flashbug",
+"rarity": 2,
+"stack": 10,
+"value": 48
+},
+{
+"id": 252,
+"name": "Thunderbug",
+"rarity": 4,
+"stack": 99,
+"value": 350
+},
+{
+"id": 253,
+"name": "Carpenterbug",
+"rarity": 4,
+"stack": 99,
+"value": 120
+},
+{
+"id": 254,
+"name": "King Scarab",
+"rarity": 5,
+"stack": 99,
+"value": 800
+},
+{
+"id": 255,
+"name": "Emperor Cricket",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 256,
+"name": "Killer Beetle",
+"rarity": 4,
+"stack": 99,
+"value": 200
+},
+{
+"id": 257,
+"name": "Hercudrome",
+"rarity": 5,
+"stack": 99,
+"value": 540
+},
+{
+"id": 258,
+"name": "Rare Scarab",
+"rarity": 5,
+"stack": 99,
+"value": 1000
+},
+{
+"id": 259,
+"name": "PhantomButterfly",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 260,
+"name": "Royal Rhino",
+"rarity": 2,
+"stack": 10,
+"value": 200
+},
+{
+"id": 261,
+"name": "Divine Rhino",
+"rarity": 4,
+"stack": 10,
+"value": 1000
+},
+{
+"id": 262,
+"name": "Rainbow Insect",
+"rarity": 5,
+"stack": 99,
+"value": 640
+},
+{
+"id": 263,
+"name": "Great Hornfly",
+"rarity": 5,
+"stack": 99,
+"value": 60
+},
+{
+"id": 264,
+"name": "Great Ladybug",
+"rarity": 5,
+"stack": 99,
+"value": 60
+},
+{
+"id": 265,
+"name": "Screamer",
+"rarity": 4,
+"stack": 99,
+"value": 15
+},
+{
+"id": 266,
+"name": "Poison Sac",
+"rarity": 4,
+"stack": 99,
+"value": 96
+},
+{
+"id": 267,
+"name": "Toxin Sac",
+"rarity": 5,
+"stack": 99,
+"value": 192
+},
+{
+"id": 268,
+"name": "DeadlyPoisonSac",
+"rarity": 5,
+"stack": 99,
+"value": 1920
+},
+{
+"id": 269,
+"name": "Paralysis Sac",
+"rarity": 4,
+"stack": 99,
+"value": 120
+},
+{
+"id": 270,
+"name": "Sleep Sac",
+"rarity": 4,
+"stack": 99,
+"value": 340
+},
+{
+"id": 271,
+"name": "Coma Sac",
+"rarity": 5,
+"stack": 99,
+"value": 2040
+},
+{
+"id": 272,
+"name": "Flame Sac",
+"rarity": 4,
+"stack": 99,
+"value": 240
+},
+{
+"id": 273,
+"name": "Inferno Sac",
+"rarity": 5,
+"stack": 99,
+"value": 480
+},
+{
+"id": 274,
+"name": "Blazing Fire Sac",
+"rarity": 5,
+"stack": 99,
+"value": 1920
+},
+{
+"id": 275,
+"name": "Electro Sac",
+"rarity": 4,
+"stack": 99,
+"value": 480
+},
+{
+"id": 276,
+"name": "Thunder Sac",
+"rarity": 5,
+"stack": 99,
+"value": 960
+},
+{
+"id": 277,
+"name": "Lightning Sac",
+"rarity": 5,
+"stack": 99,
+"value": 2400
+},
+{
+"id": 278,
+"name": "Power Extract",
+"rarity": 3,
+"stack": 20,
+"value": 56
+},
+{
+"id": 279,
+"name": "Pale Extract",
+"rarity": 3,
+"stack": 20,
+"value": 122
+},
+{
+"id": 280,
+"name": "Sm Monster Bone",
+"rarity": 3,
+"stack": 99,
+"value": 10
+},
+{
+"id": 281,
+"name": "Med Monster Bone",
+"rarity": 4,
+"stack": 99,
+"value": 210
+},
+{
+"id": 282,
+"name": "Lg Monster Bone",
+"rarity": 5,
+"stack": 99,
+"value": 440
+},
+{
+"id": 283,
+"name": "Monster Bone+",
+"rarity": 5,
+"stack": 99,
+"value": 560
+},
+{
+"id": 284,
+"name": "Hrd Monster Bone",
+"rarity": 5,
+"stack": 99,
+"value": 660
+},
+{
+"id": 285,
+"name": "Hvy Monster Bone",
+"rarity": 5,
+"stack": 99,
+"value": 1320
+},
+{
+"id": 286,
+"name": "Eldr Dragon Bone",
+"rarity": 5,
+"stack": 99,
+"value": 880
+},
+{
+"id": 287,
+"name": "BigEDragonBone",
+"rarity": 5,
+"stack": 99,
+"value": 2200
+},
+{
+"id": 288,
+"name": "Mystery Bone",
+"rarity": 1,
+"stack": 99,
+"value": 1
+},
+{
+"id": 289,
+"name": "Unknown Skull",
+"rarity": 4,
+"stack": 99,
+"value": 120
+},
+{
+"id": 290,
+"name": "Master's Skull",
+"rarity": 5,
+"stack": 99,
+"value": 1250
+},
+{
+"id": 291,
+"name": "Bone",
+"rarity": 1,
+"stack": 99,
+"value": 15
+},
+{
+"id": 292,
+"name": "RobustWyvernBone",
+"rarity": 5,
+"stack": 99,
+"value": 800
+},
+{
+"id": 293,
+"name": "Brute Bone",
+"rarity": 3,
+"stack": 99,
+"value": 20
+},
+{
+"id": 294,
+"name": "Giant Bone",
+"rarity": 4,
+"stack": 99,
+"value": 150
+},
+{
+"id": 295,
+"name": "Stout Bone",
+"rarity": 5,
+"stack": 99,
+"value": 600
+},
+{
+"id": 296,
+"name": "Massive Bone",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 297,
+"name": "Wyvern Fang",
+"rarity": 3,
+"stack": 99,
+"value": 6
+},
+{
+"id": 298,
+"name": "Wyvern Claw",
+"rarity": 3,
+"stack": 50,
+"value": 18
+},
+{
+"id": 299,
+"name": "Wyvern Stone",
+"rarity": 5,
+"stack": 99,
+"value": 6000
+},
+{
+"id": 300,
+"name": "Big Wyvern Stone",
+"rarity": 5,
+"stack": 99,
+"value": 12000
+},
+{
+"id": 301,
+"name": "BigEDragonJewel",
+"rarity": 5,
+"stack": 99,
+"value": 18000
+},
+{
+"id": 302,
+"name": "White Liver",
+"rarity": 2,
+"stack": 99,
+"value": 100
+},
+{
+"id": 303,
+"name": "Popo Tongue",
+"rarity": 3,
+"stack": 99,
+"value": 45
+},
+{
+"id": 304,
+"name": "Secret Pouch",
+"rarity": 4,
+"stack": 10,
+"value": 100
+},
+{
+"id": 305,
+"name": "CarapaceonBrains",
+"rarity": 2,
+"stack": 10,
+"value": 150
+},
+{
+"id": 306,
+"name": "CarapaceonBrain+",
+"rarity": 4,
+"stack": 10,
+"value": 750
+},
+{
+"id": 307,
+"name": "Piscine Liver",
+"rarity": 3,
+"stack": 10,
+"value": 300
+},
+{
+"id": 308,
+"name": "Wyvern Tears",
+"rarity": 5,
+"stack": 10,
+"value": 500
+},
+{
+"id": 309,
+"name": "Wyvern Sobs",
+"rarity": 5,
+"stack": 10,
+"value": 2500
+},
+{
+"id": 310,
+"name": "Territorial Dung",
+"rarity": 5,
+"stack": 10,
+"value": 500
+},
+{
+"id": 311,
+"name": "TerritorialDung+",
+"rarity": 5,
+"stack": 10,
+"value": 2500
+},
+{
+"id": 312,
+"name": "Crab Pearl",
+"rarity": 5,
+"stack": 10,
+"value": 500
+},
+{
+"id": 313,
+"name": "Crab Pearl+",
+"rarity": 5,
+"stack": 10,
+"value": 2500
+},
+{
+"id": 314,
+"name": "Dragon Treasure",
+"rarity": 5,
+"stack": 10,
+"value": 800
+},
+{
+"id": 315,
+"name": "Anc Drgn Treasre",
+"rarity": 5,
+"stack": 10,
+"value": 4000
+},
+{
+"id": 316,
+"name": "Decayed Drgn Scl",
+"rarity": 5,
+"stack": 99,
+"value": 250
+},
+{
+"id": 317,
+"name": "Dragon Herb",
+"rarity": 5,
+"stack": 10,
+"value": 500
+},
+{
+"id": 318,
+"name": "Felyne Fur Ruby",
+"rarity": 5,
+"stack": 99,
+"value": 1000
+},
+{
+"id": 319,
+"name": "Mosswine Hide",
+"rarity": 4,
+"stack": 99,
+"value": 36
+},
+{
+"id": 320,
+"name": "Bullfango Pelt",
+"rarity": 1,
+"stack": 50,
+"value": 40
+},
+{
+"id": 321,
+"name": "ThkBullfangoPelt",
+"rarity": 5,
+"stack": 99,
+"value": 600
+},
+{
+"id": 322,
+"name": "Bullfango Head",
+"rarity": 4,
+"stack": 99,
+"value": 130
+},
+{
+"id": 323,
+"name": "Bulldrome Tusk",
+"rarity": 4,
+"stack": 99,
+"value": 160
+},
+{
+"id": 324,
+"name": "Bulldrome Hide",
+"rarity": 4,
+"stack": 99,
+"value": 100
+},
+{
+"id": 325,
+"name": "Bulldrome Hide+",
+"rarity": 4,
+"stack": 99,
+"value": 300
+},
+{
+"id": 326,
+"name": "Kelbi Horn",
+"rarity": 4,
+"stack": 99,
+"value": 52
+},
+{
+"id": 327,
+"name": "Kelbi Hide",
+"rarity": 1,
+"stack": 50,
+"value": 24
+},
+{
+"id": 328,
+"name": "Anteka Antlers",
+"rarity": 4,
+"stack": 99,
+"value": 58
+},
+{
+"id": 329,
+"name": "Anteka Pelt",
+"rarity": 3,
+"stack": 99,
+"value": 35
+},
+{
+"id": 330,
+"name": "High Qualty Pelt",
+"rarity": 4,
+"stack": 99,
+"value": 105
+},
+{
+"id": 331,
+"name": "Remobra Skin",
+"rarity": 4,
+"stack": 99,
+"value": 180
+},
+{
+"id": 332,
+"name": "Remobra Skin+",
+"rarity": 4,
+"stack": 99,
+"value": 540
+},
+{
+"id": 333,
+"name": "SpecRemobraSkin+",
+"rarity": 5,
+"stack": 99,
+"value": 1620
+},
+{
+"id": 334,
+"name": "Striped Skin",
+"rarity": 4,
+"stack": 99,
+"value": 290
+},
+{
+"id": 335,
+"name": "Remobra Skull",
+"rarity": 4,
+"stack": 99,
+"value": 750
+},
+{
+"id": 336,
+"name": "ShakalakaTreasre",
+"rarity": 4,
+"stack": 99,
+"value": 360
+},
+{
+"id": 337,
+"name": "ShakalakaTreasr+",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 338,
+"name": "ShakaInheritance",
+"rarity": 5,
+"stack": 99,
+"value": 900
+},
+{
+"id": 339,
+"name": "Giaprey Scale",
+"rarity": 3,
+"stack": 50,
+"value": 40
+},
+{
+"id": 340,
+"name": "Giaprey Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 120
+},
+{
+"id": 341,
+"name": "Giaprey Hide",
+"rarity": 3,
+"stack": 50,
+"value": 28
+},
+{
+"id": 342,
+"name": "Giaprey Hide+",
+"rarity": 5,
+"stack": 99,
+"value": 84
+},
+{
+"id": 343,
+"name": "Giadrome Hide",
+"rarity": 4,
+"stack": 99,
+"value": 240
+},
+{
+"id": 344,
+"name": "Giadrome Claw",
+"rarity": 4,
+"stack": 99,
+"value": 200
+},
+{
+"id": 345,
+"name": "Giadrome Claw+",
+"rarity": 5,
+"stack": 99,
+"value": 550
+},
+{
+"id": 346,
+"name": "Giadrome Skull",
+"rarity": 4,
+"stack": 99,
+"value": 560
+},
+{
+"id": 347,
+"name": "Velociprey Fang",
+"rarity": 2,
+"stack": 99,
+"value": 15
+},
+{
+"id": 348,
+"name": "Velociprey Scale",
+"rarity": 3,
+"stack": 50,
+"value": 40
+},
+{
+"id": 349,
+"name": "Velociprey Scle+",
+"rarity": 5,
+"stack": 99,
+"value": 120
+},
+{
+"id": 350,
+"name": "Velociprey Hide",
+"rarity": 3,
+"stack": 50,
+"value": 28
+},
+{
+"id": 351,
+"name": "Velociprey Hide+",
+"rarity": 5,
+"stack": 99,
+"value": 84
+},
+{
+"id": 352,
+"name": "Velocidrome Hide",
+"rarity": 4,
+"stack": 99,
+"value": 240
+},
+{
+"id": 353,
+"name": "Velocidrome Claw",
+"rarity": 4,
+"stack": 99,
+"value": 200
+},
+{
+"id": 354,
+"name": "Velocidrome Clw+",
+"rarity": 5,
+"stack": 99,
+"value": 550
+},
+{
+"id": 355,
+"name": "Velocidrome Head",
+"rarity": 4,
+"stack": 99,
+"value": 560
+},
+{
+"id": 356,
+"name": "Genprey Fang",
+"rarity": 2,
+"stack": 99,
+"value": 35
+},
+{
+"id": 357,
+"name": "Genprey Scale",
+"rarity": 3,
+"stack": 50,
+"value": 40
+},
+{
+"id": 358,
+"name": "Genprey Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 180
+},
+{
+"id": 359,
+"name": "Genprey Hide",
+"rarity": 3,
+"stack": 50,
+"value": 28
+},
+{
+"id": 360,
+"name": "Genprey Hide+",
+"rarity": 5,
+"stack": 99,
+"value": 126
+},
+{
+"id": 361,
+"name": "Gendrome Hide",
+"rarity": 4,
+"stack": 99,
+"value": 560
+},
+{
+"id": 362,
+"name": "Gendrome Tail",
+"rarity": 5,
+"stack": 99,
+"value": 600
+},
+{
+"id": 363,
+"name": "Gendrome Skull",
+"rarity": 4,
+"stack": 99,
+"value": 665
+},
+{
+"id": 364,
+"name": "Ioprey Fang",
+"rarity": 2,
+"stack": 99,
+"value": 25
+},
+{
+"id": 365,
+"name": "Ioprey Scale",
+"rarity": 3,
+"stack": 50,
+"value": 40
+},
+{
+"id": 366,
+"name": "Ioprey Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 240
+},
+{
+"id": 367,
+"name": "Ioprey Hide",
+"rarity": 3,
+"stack": 50,
+"value": 28
+},
+{
+"id": 368,
+"name": "Ioprey Hide+",
+"rarity": 5,
+"stack": 99,
+"value": 168
+},
+{
+"id": 369,
+"name": "Iodrome Hide",
+"rarity": 4,
+"stack": 99,
+"value": 560
+},
+{
+"id": 370,
+"name": "Iodrome Skull",
+"rarity": 4,
+"stack": 99,
+"value": 770
+},
+{
+"id": 371,
+"name": "OrangeHypnoPelt",
+"rarity": 5,
+"stack": 99,
+"value": 750
+},
+{
+"id": 372,
+"name": "OrangeHypnoPelt+",
+"rarity": 5,
+"stack": 99,
+"value": 2250
+},
+{
+"id": 373,
+"name": "Top-GrdHypnoClaw",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 374,
+"name": "Hypno Claw+",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 375,
+"name": "Hypno Bezoar",
+"rarity": 5,
+"stack": 99,
+"value": 3000
+},
+{
+"id": 376,
+"name": "Hypno Bezoar+",
+"rarity": 5,
+"stack": 99,
+"value": 6000
+},
+{
+"id": 377,
+"name": "Hypno Beak",
+"rarity": 5,
+"stack": 99,
+"value": 1400
+},
+{
+"id": 378,
+"name": "Hypno Fang",
+"rarity": 5,
+"stack": 99,
+"value": 4200
+},
+{
+"id": 379,
+"name": "RainbowTailFeath",
+"rarity": 5,
+"stack": 99,
+"value": 2000
+},
+{
+"id": 380,
+"name": "Hypno Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 381,
+"name": "Kut-Ku Scale",
+"rarity": 4,
+"stack": 99,
+"value": 250
+},
+{
+"id": 382,
+"name": "Kut-Ku Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 750
+},
+{
+"id": 383,
+"name": "Thick Kut-Ku Scl",
+"rarity": 5,
+"stack": 99,
+"value": 2250
+},
+{
+"id": 384,
+"name": "Kut-Ku Shell",
+"rarity": 4,
+"stack": 99,
+"value": 345
+},
+{
+"id": 385,
+"name": "Kut-Ku Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 1035
+},
+{
+"id": 386,
+"name": "Hvy Kut-Ku Shell",
+"rarity": 5,
+"stack": 99,
+"value": 3105
+},
+{
+"id": 387,
+"name": "Kut-Ku Ear",
+"rarity": 5,
+"stack": 99,
+"value": 1280
+},
+{
+"id": 388,
+"name": "Long Kut-Ku Ear",
+"rarity": 5,
+"stack": 99,
+"value": 2560
+},
+{
+"id": 389,
+"name": "Lucky Kut-Ku Ear",
+"rarity": 5,
+"stack": 99,
+"value": 5120
+},
+{
+"id": 390,
+"name": "Giant Beak",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 391,
+"name": "Splendid Beak",
+"rarity": 5,
+"stack": 99,
+"value": 3000
+},
+{
+"id": 392,
+"name": "Kut-Ku Webbing",
+"rarity": 4,
+"stack": 99,
+"value": 650
+},
+{
+"id": 393,
+"name": "Str Kut-Ku Wing",
+"rarity": 4,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 394,
+"name": "Blue Kut-Ku Scl",
+"rarity": 5,
+"stack": 99,
+"value": 375
+},
+{
+"id": 395,
+"name": "Blue Kut-Ku Scl+",
+"rarity": 5,
+"stack": 99,
+"value": 1125
+},
+{
+"id": 396,
+"name": "ThkBlueKut-KuScl",
+"rarity": 5,
+"stack": 99,
+"value": 3375
+},
+{
+"id": 397,
+"name": "Blue Kut-Ku Shl",
+"rarity": 5,
+"stack": 99,
+"value": 550
+},
+{
+"id": 398,
+"name": "Blue Kut-Ku Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 1380
+},
+{
+"id": 399,
+"name": "HvyBlueKut-KuShl",
+"rarity": 5,
+"stack": 99,
+"value": 4140
+},
+{
+"id": 400,
+"name": "Rubbery Hide",
+"rarity": 4,
+"stack": 99,
+"value": 370
+},
+{
+"id": 401,
+"name": "Rubbery Hide+",
+"rarity": 5,
+"stack": 99,
+"value": 1110
+},
+{
+"id": 402,
+"name": "SpecRubberyHide+",
+"rarity": 5,
+"stack": 99,
+"value": 3330
+},
+{
+"id": 403,
+"name": "Gypceros Head",
+"rarity": 5,
+"stack": 99,
+"value": 2200
+},
+{
+"id": 404,
+"name": "HardGypcerosHead",
+"rarity": 5,
+"stack": 99,
+"value": 8800
+},
+{
+"id": 405,
+"name": "Pur Rubbery Hide",
+"rarity": 5,
+"stack": 99,
+"value": 620
+},
+{
+"id": 406,
+"name": "Pur Gypceros Wng",
+"rarity": 5,
+"stack": 99,
+"value": 2300
+},
+{
+"id": 407,
+"name": "HrdPuGypcerosWng",
+"rarity": 5,
+"stack": 99,
+"value": 6900
+},
+{
+"id": 408,
+"name": "Garuga Scale",
+"rarity": 4,
+"stack": 99,
+"value": 490
+},
+{
+"id": 409,
+"name": "Garuga Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1470
+},
+{
+"id": 410,
+"name": "ThickGarugaScale",
+"rarity": 5,
+"stack": 99,
+"value": 4410
+},
+{
+"id": 411,
+"name": "Garuga Shell",
+"rarity": 4,
+"stack": 99,
+"value": 650
+},
+{
+"id": 412,
+"name": "Garuga Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 413,
+"name": "Hvy Garuga Shell",
+"rarity": 5,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 414,
+"name": "Garuga Ear",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 415,
+"name": "Long Garuga Ear",
+"rarity": 5,
+"stack": 99,
+"value": 3000
+},
+{
+"id": 416,
+"name": "Sharpened Beak",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 417,
+"name": "Rejuvenated Beak",
+"rarity": 5,
+"stack": 99,
+"value": 3600
+},
+{
+"id": 418,
+"name": "Garuga Wing",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 419,
+"name": "Str Garuga Wing",
+"rarity": 5,
+"stack": 99,
+"value": 7800
+},
+{
+"id": 420,
+"name": "Garuga Tail",
+"rarity": 5,
+"stack": 99,
+"value": 2000
+},
+{
+"id": 421,
+"name": "LethrGarugaTail",
+"rarity": 5,
+"stack": 99,
+"value": 8000
+},
+{
+"id": 422,
+"name": "Garuga Mane",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 423,
+"name": "SilverGarugaPelt",
+"rarity": 5,
+"stack": 99,
+"value": 7200
+},
+{
+"id": 424,
+"name": "Blango Pelt",
+"rarity": 4,
+"stack": 99,
+"value": 60
+},
+{
+"id": 425,
+"name": "Blango Pelt+",
+"rarity": 4,
+"stack": 99,
+"value": 180
+},
+{
+"id": 426,
+"name": "Sharp Claw",
+"rarity": 4,
+"stack": 99,
+"value": 120
+},
+{
+"id": 427,
+"name": "Piercing Claw",
+"rarity": 5,
+"stack": 99,
+"value": 600
+},
+{
+"id": 428,
+"name": "Blangonga Fang",
+"rarity": 5,
+"stack": 99,
+"value": 1350
+},
+{
+"id": 429,
+"name": "Blangonga Fang+",
+"rarity": 5,
+"stack": 99,
+"value": 2150
+},
+{
+"id": 430,
+"name": "HvyBlangongaFang",
+"rarity": 5,
+"stack": 99,
+"value": 6450
+},
+{
+"id": 431,
+"name": "Blangonga Pelt",
+"rarity": 4,
+"stack": 99,
+"value": 570
+},
+{
+"id": 432,
+"name": "Blangonga Pelt+",
+"rarity": 5,
+"stack": 99,
+"value": 1140
+},
+{
+"id": 433,
+"name": "HrdBlangongaPlt+",
+"rarity": 5,
+"stack": 99,
+"value": 3420
+},
+{
+"id": 434,
+"name": "Blangonga Whiskr",
+"rarity": 5,
+"stack": 99,
+"value": 820
+},
+{
+"id": 435,
+"name": "Lthr Pelagus Plt",
+"rarity": 5,
+"stack": 99,
+"value": 4100
+},
+{
+"id": 436,
+"name": "Blangonga Tail",
+"rarity": 5,
+"stack": 99,
+"value": 980
+},
+{
+"id": 437,
+"name": "LeathrBlangoTail",
+"rarity": 5,
+"stack": 99,
+"value": 5880
+},
+{
+"id": 438,
+"name": "C.BlangongaPelt+",
+"rarity": 5,
+"stack": 99,
+"value": 5130
+},
+{
+"id": 439,
+"name": "HvyC.BlangoFang",
+"rarity": 5,
+"stack": 99,
+"value": 9675
+},
+{
+"id": 440,
+"name": "LthrC.BlangoTail",
+"rarity": 5,
+"stack": 99,
+"value": 8820
+},
+{
+"id": 441,
+"name": "Conga Pelt",
+"rarity": 4,
+"stack": 99,
+"value": 60
+},
+{
+"id": 442,
+"name": "Conga Pelt+",
+"rarity": 4,
+"stack": 99,
+"value": 180
+},
+{
+"id": 443,
+"name": "Congalala Pelt",
+"rarity": 4,
+"stack": 99,
+"value": 550
+},
+{
+"id": 444,
+"name": "Congalala Pelt+",
+"rarity": 5,
+"stack": 99,
+"value": 1100
+},
+{
+"id": 445,
+"name": "HrdCongalalaPlt+",
+"rarity": 5,
+"stack": 99,
+"value": 3300
+},
+{
+"id": 446,
+"name": "Vibrant Pelt",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 447,
+"name": "Congalala Claw",
+"rarity": 4,
+"stack": 99,
+"value": 880
+},
+{
+"id": 448,
+"name": "Congalala Claw+",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 449,
+"name": "HrdCongalalaClw+",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 450,
+"name": "Congalala Fang",
+"rarity": 5,
+"stack": 99,
+"value": 770
+},
+{
+"id": 451,
+"name": "Lg Pelagus Fang",
+"rarity": 5,
+"stack": 99,
+"value": 3850
+},
+{
+"id": 452,
+"name": "E.CongalalaPelt+",
+"rarity": 5,
+"stack": 99,
+"value": 4950
+},
+{
+"id": 453,
+"name": "HrdE.CongaClaw",
+"rarity": 5,
+"stack": 99,
+"value": 6750
+},
+{
+"id": 454,
+"name": "Vibrant Comb",
+"rarity": 5,
+"stack": 99,
+"value": 9600
+},
+{
+"id": 455,
+"name": "Rajang Horn",
+"rarity": 5,
+"stack": 99,
+"value": 3200
+},
+{
+"id": 456,
+"name": "Hard Rajang Horn",
+"rarity": 5,
+"stack": 99,
+"value": 8000
+},
+{
+"id": 457,
+"name": "Rajang Fang",
+"rarity": 5,
+"stack": 99,
+"value": 2700
+},
+{
+"id": 458,
+"name": "Hvy Rajang Fang",
+"rarity": 5,
+"stack": 99,
+"value": 6750
+},
+{
+"id": 459,
+"name": "Blk Rajang Pelt",
+"rarity": 5,
+"stack": 99,
+"value": 2280
+},
+{
+"id": 460,
+"name": "Blk Rajang Pelt+",
+"rarity": 5,
+"stack": 99,
+"value": 5700
+},
+{
+"id": 461,
+"name": "Rajang Claw",
+"rarity": 5,
+"stack": 99,
+"value": 3000
+},
+{
+"id": 462,
+"name": "Hard Rajang Claw",
+"rarity": 5,
+"stack": 99,
+"value": 7500
+},
+{
+"id": 463,
+"name": "Rajang Tail",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 464,
+"name": "dummy",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 465,
+"name": "Gold Rajang Pelt",
+"rarity": 5,
+"stack": 99,
+"value": 9600
+},
+{
+"id": 466,
+"name": "GoldRajangPelt+",
+"rarity": 5,
+"stack": 99,
+"value": 15000
+},
+{
+"id": 467,
+"name": "Piscine Fang",
+"rarity": 4,
+"stack": 99,
+"value": 250
+},
+{
+"id": 468,
+"name": "HvyPiscineFang",
+"rarity": 5,
+"stack": 99,
+"value": 2250
+},
+{
+"id": 469,
+"name": "Plesioth Scale",
+"rarity": 4,
+"stack": 99,
+"value": 480
+},
+{
+"id": 470,
+"name": "Plesioth Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1440
+},
+{
+"id": 471,
+"name": "ThckPlesiothScl",
+"rarity": 5,
+"stack": 99,
+"value": 4320
+},
+{
+"id": 472,
+"name": "Plesioth Fin",
+"rarity": 5,
+"stack": 99,
+"value": 820
+},
+{
+"id": 473,
+"name": "Plesioth Fin+",
+"rarity": 5,
+"stack": 99,
+"value": 1640
+},
+{
+"id": 474,
+"name": "SpecPlesiothFin+",
+"rarity": 5,
+"stack": 99,
+"value": 4920
+},
+{
+"id": 475,
+"name": "Grn Plesioth Scl",
+"rarity": 5,
+"stack": 99,
+"value": 720
+},
+{
+"id": 476,
+"name": "Grn Plsioth Scl+",
+"rarity": 5,
+"stack": 99,
+"value": 2160
+},
+{
+"id": 477,
+"name": "ThckGrnPlesioScl",
+"rarity": 5,
+"stack": 99,
+"value": 6480
+},
+{
+"id": 478,
+"name": "Grn Plesioth Fin",
+"rarity": 5,
+"stack": 99,
+"value": 1230
+},
+{
+"id": 479,
+"name": "Grn Plsioth Fin+",
+"rarity": 5,
+"stack": 99,
+"value": 2460
+},
+{
+"id": 480,
+"name": "SpecGrnPlesioFn+",
+"rarity": 5,
+"stack": 99,
+"value": 7380
+},
+{
+"id": 481,
+"name": "Cephalos Scale",
+"rarity": 4,
+"stack": 99,
+"value": 400
+},
+{
+"id": 482,
+"name": "Cephalos Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 483,
+"name": "Cephalos Fin",
+"rarity": 5,
+"stack": 99,
+"value": 550
+},
+{
+"id": 484,
+"name": "Cephalos Fin+",
+"rarity": 5,
+"stack": 99,
+"value": 1050
+},
+{
+"id": 485,
+"name": "Coral Cphlos Scl",
+"rarity": 5,
+"stack": 99,
+"value": 2400
+},
+{
+"id": 486,
+"name": "Coral Cphlos Fin",
+"rarity": 5,
+"stack": 99,
+"value": 2750
+},
+{
+"id": 487,
+"name": "ThckLavasiothScl",
+"rarity": 5,
+"stack": 99,
+"value": 5940
+},
+{
+"id": 488,
+"name": "HvyLavasiothShl",
+"rarity": 5,
+"stack": 99,
+"value": 6625
+},
+{
+"id": 489,
+"name": "HvyLavasiothFang",
+"rarity": 5,
+"stack": 99,
+"value": 4050
+},
+{
+"id": 490,
+"name": "SpecLavasioFin+",
+"rarity": 5,
+"stack": 99,
+"value": 7450
+},
+{
+"id": 491,
+"name": "Lavasioth Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 492,
+"name": "Wyvern Skull Shl",
+"rarity": 4,
+"stack": 99,
+"value": 780
+},
+{
+"id": 493,
+"name": "Sm Hermitaur Shl",
+"rarity": 2,
+"stack": 99,
+"value": 45
+},
+{
+"id": 494,
+"name": "Hermitaur Shell",
+"rarity": 4,
+"stack": 99,
+"value": 550
+},
+{
+"id": 495,
+"name": "Hermitaur Carpce",
+"rarity": 5,
+"stack": 99,
+"value": 1100
+},
+{
+"id": 496,
+"name": "HvyHermitaurShl",
+"rarity": 5,
+"stack": 99,
+"value": 3300
+},
+{
+"id": 497,
+"name": "Hermitaur Claw",
+"rarity": 5,
+"stack": 99,
+"value": 975
+},
+{
+"id": 498,
+"name": "Hermitaur Claw+",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 499,
+"name": "HrdHermitaurClaw",
+"rarity": 5,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 500,
+"name": "PlumD.HermitrShl",
+"rarity": 5,
+"stack": 99,
+"value": 4950
+},
+{
+"id": 501,
+"name": "PlumD.HermitrClw",
+"rarity": 5,
+"stack": 99,
+"value": 8775
+},
+{
+"id": 502,
+"name": "Sm Ceanataur Shl",
+"rarity": 2,
+"stack": 99,
+"value": 55
+},
+{
+"id": 503,
+"name": "Ceanataur Shell",
+"rarity": 4,
+"stack": 99,
+"value": 720
+},
+{
+"id": 504,
+"name": "Ceanataur Carpce",
+"rarity": 5,
+"stack": 99,
+"value": 2160
+},
+{
+"id": 505,
+"name": "HvyCeanataurShl",
+"rarity": 5,
+"stack": 99,
+"value": 4320
+},
+{
+"id": 506,
+"name": "Ceanataur Leg",
+"rarity": 5,
+"stack": 99,
+"value": 750
+},
+{
+"id": 507,
+"name": "HvyCeanataurLeg",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 508,
+"name": "Ceanataur Pincer",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 509,
+"name": "Ceanataur Claw",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 510,
+"name": "Ceanataur Claw+",
+"rarity": 5,
+"stack": 99,
+"value": 3500
+},
+{
+"id": 511,
+"name": "HrdCeanataurClaw",
+"rarity": 5,
+"stack": 99,
+"value": 6300
+},
+{
+"id": 512,
+"name": "TerraCeanatrShl",
+"rarity": 5,
+"stack": 99,
+"value": 6480
+},
+{
+"id": 513,
+"name": "TerraCeanatrClaw",
+"rarity": 5,
+"stack": 99,
+"value": 8820
+},
+{
+"id": 514,
+"name": "Sm Lobstershell",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 515,
+"name": "Lg Lobstershell",
+"rarity": 5,
+"stack": 99,
+"value": 3500
+},
+{
+"id": 516,
+"name": "Gt Lobstershell",
+"rarity": 5,
+"stack": 99,
+"value": 6540
+},
+{
+"id": 517,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 3000
+},
+{
+"id": 518,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 6000
+},
+{
+"id": 519,
+"name": "Rathian Scale",
+"rarity": 4,
+"stack": 99,
+"value": 490
+},
+{
+"id": 520,
+"name": "Rathian Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1470
+},
+{
+"id": 521,
+"name": "ThckRathianScl",
+"rarity": 5,
+"stack": 99,
+"value": 4410
+},
+{
+"id": 522,
+"name": "Rathian Plate",
+"rarity": 5,
+"stack": 99,
+"value": 4850
+},
+{
+"id": 523,
+"name": "Rathian Ruby",
+"rarity": 5,
+"stack": 99,
+"value": 9700
+},
+{
+"id": 524,
+"name": "HvnlyRathianScl",
+"rarity": 5,
+"stack": 99,
+"value": 15000
+},
+{
+"id": 525,
+"name": "Rathian Shell",
+"rarity": 4,
+"stack": 99,
+"value": 650
+},
+{
+"id": 526,
+"name": "Rathian Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 527,
+"name": "HvyRathianShell",
+"rarity": 5,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 528,
+"name": "Rathian Spike",
+"rarity": 5,
+"stack": 99,
+"value": 2550
+},
+{
+"id": 529,
+"name": "Rathian Spike+",
+"rarity": 5,
+"stack": 99,
+"value": 5100
+},
+{
+"id": 530,
+"name": "Rathian Thorn",
+"rarity": 5,
+"stack": 99,
+"value": 9180
+},
+{
+"id": 531,
+"name": "Pnk Rathian Scl",
+"rarity": 5,
+"stack": 99,
+"value": 735
+},
+{
+"id": 532,
+"name": "Pnk Rathian Scl+",
+"rarity": 5,
+"stack": 99,
+"value": 1960
+},
+{
+"id": 533,
+"name": "ThckPnkRathnScl",
+"rarity": 5,
+"stack": 99,
+"value": 5880
+},
+{
+"id": 534,
+"name": "Pnk Rathian Shl",
+"rarity": 5,
+"stack": 99,
+"value": 975
+},
+{
+"id": 535,
+"name": "Pnk Rathian Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 2600
+},
+{
+"id": 536,
+"name": "HvyPnkRathianShl",
+"rarity": 5,
+"stack": 99,
+"value": 7800
+},
+{
+"id": 537,
+"name": "Gld Rathian Scl+",
+"rarity": 5,
+"stack": 99,
+"value": 2200
+},
+{
+"id": 538,
+"name": "ThckGldRathnScl",
+"rarity": 5,
+"stack": 99,
+"value": 6600
+},
+{
+"id": 539,
+"name": "Gld Rathian Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 3900
+},
+{
+"id": 540,
+"name": "HvyGldRathianShl",
+"rarity": 5,
+"stack": 99,
+"value": 8775
+},
+{
+"id": 541,
+"name": "GoldRathianThorn",
+"rarity": 5,
+"stack": 99,
+"value": 12000
+},
+{
+"id": 542,
+"name": "Fire Wyvern Claw",
+"rarity": 4,
+"stack": 99,
+"value": 600
+},
+{
+"id": 543,
+"name": "HrdFireWyvernClw",
+"rarity": 5,
+"stack": 99,
+"value": 5400
+},
+{
+"id": 544,
+"name": "FireWyvern Fluid",
+"rarity": 4,
+"stack": 99,
+"value": 500
+},
+{
+"id": 545,
+"name": "FireWyvrn Marrow",
+"rarity": 5,
+"stack": 99,
+"value": 2100
+},
+{
+"id": 546,
+"name": "FireWyvrn BrnStm",
+"rarity": 5,
+"stack": 99,
+"value": 6300
+},
+{
+"id": 547,
+"name": "Rathalos Scale",
+"rarity": 4,
+"stack": 99,
+"value": 490
+},
+{
+"id": 548,
+"name": "Rathalos Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1470
+},
+{
+"id": 549,
+"name": "Hrd Rathalos Scl",
+"rarity": 5,
+"stack": 99,
+"value": 4410
+},
+{
+"id": 550,
+"name": "Rathalos Plate",
+"rarity": 5,
+"stack": 99,
+"value": 4850
+},
+{
+"id": 551,
+"name": "Rathalos Ruby",
+"rarity": 5,
+"stack": 99,
+"value": 9700
+},
+{
+"id": 552,
+"name": "HvnlyRathalosScl",
+"rarity": 5,
+"stack": 99,
+"value": 15000
+},
+{
+"id": 553,
+"name": "Rathalos Shell",
+"rarity": 4,
+"stack": 99,
+"value": 650
+},
+{
+"id": 554,
+"name": "Rathalos Carpace",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 555,
+"name": "HvyRathalosShl",
+"rarity": 5,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 556,
+"name": "Rathalos Tail",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 557,
+"name": "LthrRathalosTail",
+"rarity": 5,
+"stack": 99,
+"value": 7200
+},
+{
+"id": 558,
+"name": "Rathalos Webbing",
+"rarity": 4,
+"stack": 99,
+"value": 880
+},
+{
+"id": 559,
+"name": "Rathalos Wing",
+"rarity": 5,
+"stack": 99,
+"value": 2550
+},
+{
+"id": 560,
+"name": "StrRathalosWing",
+"rarity": 5,
+"stack": 99,
+"value": 8925
+},
+{
+"id": 561,
+"name": "Azure Rthlos Scl",
+"rarity": 5,
+"stack": 99,
+"value": 735
+},
+{
+"id": 562,
+"name": "Azre Rthlos Scl+",
+"rarity": 5,
+"stack": 99,
+"value": 1960
+},
+{
+"id": 563,
+"name": "ThckAzurRthlsScl",
+"rarity": 5,
+"stack": 99,
+"value": 5880
+},
+{
+"id": 564,
+"name": "Azure Rthlos Shl",
+"rarity": 5,
+"stack": 99,
+"value": 975
+},
+{
+"id": 565,
+"name": "Azure Rthlos Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 2600
+},
+{
+"id": 566,
+"name": "HvyAzurRthlsShl",
+"rarity": 5,
+"stack": 99,
+"value": 7800
+},
+{
+"id": 567,
+"name": "Azur Rthlos Tail",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 568,
+"name": "LthrAzrRthlsTail",
+"rarity": 5,
+"stack": 99,
+"value": 9000
+},
+{
+"id": 569,
+"name": "Azur Rthlos Wing",
+"rarity": 5,
+"stack": 99,
+"value": 3825
+},
+{
+"id": 570,
+"name": "Slvr Rthlos Scl+",
+"rarity": 5,
+"stack": 99,
+"value": 2200
+},
+{
+"id": 571,
+"name": "ThckSlvrRthlsScl",
+"rarity": 5,
+"stack": 99,
+"value": 6600
+},
+{
+"id": 572,
+"name": "Slvr Rthlos Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 3900
+},
+{
+"id": 573,
+"name": "HvySlvrRthlsShl",
+"rarity": 5,
+"stack": 99,
+"value": 8775
+},
+{
+"id": 574,
+"name": "Slvr Rthlos Tail",
+"rarity": 5,
+"stack": 99,
+"value": 4800
+},
+{
+"id": 575,
+"name": "LthrSlvrRthlsTal",
+"rarity": 5,
+"stack": 99,
+"value": 9600
+},
+{
+"id": 576,
+"name": "Slvr Rthlos Wing",
+"rarity": 5,
+"stack": 99,
+"value": 7650
+},
+{
+"id": 577,
+"name": "Flabby Hide",
+"rarity": 4,
+"stack": 99,
+"value": 760
+},
+{
+"id": 578,
+"name": "Khezu Hide - Tan",
+"rarity": 5,
+"stack": 99,
+"value": 1520
+},
+{
+"id": 579,
+"name": "KhezuHide-Cream",
+"rarity": 5,
+"stack": 99,
+"value": 4560
+},
+{
+"id": 580,
+"name": "Pale Bone",
+"rarity": 5,
+"stack": 99,
+"value": 2380
+},
+{
+"id": 581,
+"name": "Pale Khezu Steak",
+"rarity": 5,
+"stack": 99,
+"value": 3580
+},
+{
+"id": 582,
+"name": "KhezuSpecialCut",
+"rarity": 5,
+"stack": 99,
+"value": 11000
+},
+{
+"id": 583,
+"name": "Alluring Hide",
+"rarity": 5,
+"stack": 99,
+"value": 1140
+},
+{
+"id": 584,
+"name": "Alluring Webbing",
+"rarity": 5,
+"stack": 99,
+"value": 2280
+},
+{
+"id": 585,
+"name": "StrAlluringWing",
+"rarity": 5,
+"stack": 99,
+"value": 6840
+},
+{
+"id": 586,
+"name": "Basarios Shell",
+"rarity": 4,
+"stack": 99,
+"value": 440
+},
+{
+"id": 587,
+"name": "Basarios Carpace",
+"rarity": 5,
+"stack": 99,
+"value": 1320
+},
+{
+"id": 588,
+"name": "HvyBasariosShell",
+"rarity": 5,
+"stack": 99,
+"value": 3960
+},
+{
+"id": 589,
+"name": "Basarios Wing",
+"rarity": 5,
+"stack": 99,
+"value": 1420
+},
+{
+"id": 590,
+"name": "StrBasariosWing",
+"rarity": 5,
+"stack": 99,
+"value": 11000
+},
+{
+"id": 591,
+"name": "Basarios Tears",
+"rarity": 5,
+"stack": 99,
+"value": 8888
+},
+{
+"id": 592,
+"name": "Tigrex Scale",
+"rarity": 4,
+"stack": 99,
+"value": 490
+},
+{
+"id": 593,
+"name": "Tigrex Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1470
+},
+{
+"id": 594,
+"name": "ThickTigrexScale",
+"rarity": 5,
+"stack": 99,
+"value": 4410
+},
+{
+"id": 595,
+"name": "HvnlyTigrexScale",
+"rarity": 5,
+"stack": 99,
+"value": 15000
+},
+{
+"id": 596,
+"name": "Tigrex Shell",
+"rarity": 4,
+"stack": 99,
+"value": 650
+},
+{
+"id": 597,
+"name": "Tigrex Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 598,
+"name": "Hvy Tigrex Shell",
+"rarity": 5,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 599,
+"name": "Tigrex Tail",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 600,
+"name": "LeathrTigrexTail",
+"rarity": 5,
+"stack": 99,
+"value": 7200
+},
+{
+"id": 601,
+"name": "Tigrex Claw",
+"rarity": 5,
+"stack": 99,
+"value": 700
+},
+{
+"id": 602,
+"name": "Tigrex Claw+",
+"rarity": 5,
+"stack": 99,
+"value": 2100
+},
+{
+"id": 603,
+"name": "Hard Tigrex Claw",
+"rarity": 5,
+"stack": 99,
+"value": 5880
+},
+{
+"id": 604,
+"name": "Tigrex Fang",
+"rarity": 5,
+"stack": 99,
+"value": 600
+},
+{
+"id": 605,
+"name": "Tigrex Fang+",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 606,
+"name": "Hvy Tigrex Fang",
+"rarity": 5,
+"stack": 99,
+"value": 5040
+},
+{
+"id": 607,
+"name": "Tigrex Skull Shl",
+"rarity": 5,
+"stack": 99,
+"value": 2550
+},
+{
+"id": 608,
+"name": "Narga Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1400
+},
+{
+"id": 609,
+"name": "ThickNargaScale",
+"rarity": 5,
+"stack": 99,
+"value": 4200
+},
+{
+"id": 610,
+"name": "HvnlyNargaScale",
+"rarity": 5,
+"stack": 99,
+"value": 14000
+},
+{
+"id": 611,
+"name": "Black Narga Pelt",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 612,
+"name": "BlackNargaPelt+",
+"rarity": 5,
+"stack": 99,
+"value": 5400
+},
+{
+"id": 613,
+"name": "Nargacuga Tail",
+"rarity": 5,
+"stack": 99,
+"value": 3400
+},
+{
+"id": 614,
+"name": "LeatherNargaTail",
+"rarity": 5,
+"stack": 99,
+"value": 6800
+},
+{
+"id": 615,
+"name": "Narga Tail Spike",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 616,
+"name": "HvyNargaTailSpik",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 617,
+"name": "NargaCuttingWing",
+"rarity": 5,
+"stack": 99,
+"value": 2550
+},
+{
+"id": 618,
+"name": "StrNargaCttngWng",
+"rarity": 5,
+"stack": 99,
+"value": 7650
+},
+{
+"id": 619,
+"name": "Nargacuga Fang+",
+"rarity": 5,
+"stack": 99,
+"value": 1300
+},
+{
+"id": 620,
+"name": "HvyNargacugaFang",
+"rarity": 5,
+"stack": 99,
+"value": 3900
+},
+{
+"id": 621,
+"name": "Narga Brain Stem",
+"rarity": 5,
+"stack": 99,
+"value": 6000
+},
+{
+"id": 622,
+"name": "Gravios Shell",
+"rarity": 4,
+"stack": 99,
+"value": 970
+},
+{
+"id": 623,
+"name": "Gravios Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 1880
+},
+{
+"id": 624,
+"name": "HvyGraviosShell",
+"rarity": 5,
+"stack": 99,
+"value": 5640
+},
+{
+"id": 625,
+"name": "HvnlyGraviosShl",
+"rarity": 5,
+"stack": 99,
+"value": 16000
+},
+{
+"id": 626,
+"name": "Gravios Skl Shl",
+"rarity": 5,
+"stack": 99,
+"value": 2550
+},
+{
+"id": 627,
+"name": "Gravios BrainStm",
+"rarity": 5,
+"stack": 99,
+"value": 6260
+},
+{
+"id": 628,
+"name": "Blk Gravios Shl",
+"rarity": 5,
+"stack": 99,
+"value": 1455
+},
+{
+"id": 629,
+"name": "Blk Gravios Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 2910
+},
+{
+"id": 630,
+"name": "HvyBlkGraviosShl",
+"rarity": 5,
+"stack": 99,
+"value": 8730
+},
+{
+"id": 631,
+"name": "HvnlyBlkGraviShl",
+"rarity": 5,
+"stack": 99,
+"value": 16000
+},
+{
+"id": 632,
+"name": "Blk Gravios Skl",
+"rarity": 5,
+"stack": 99,
+"value": 3825
+},
+{
+"id": 633,
+"name": "Twisted Horn",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 634,
+"name": "Majestic Horn",
+"rarity": 5,
+"stack": 99,
+"value": 2400
+},
+{
+"id": 635,
+"name": "StoutWarpedHorn",
+"rarity": 5,
+"stack": 99,
+"value": 7200
+},
+{
+"id": 636,
+"name": "Diablos Shell",
+"rarity": 4,
+"stack": 99,
+"value": 850
+},
+{
+"id": 637,
+"name": "Diablos Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 638,
+"name": "HvyDiablosShell",
+"rarity": 5,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 639,
+"name": "Diablos Spine",
+"rarity": 5,
+"stack": 99,
+"value": 1340
+},
+{
+"id": 640,
+"name": "Diablos Thoracic",
+"rarity": 5,
+"stack": 99,
+"value": 4020
+},
+{
+"id": 641,
+"name": "HvyDiablosSpine",
+"rarity": 5,
+"stack": 99,
+"value": 7236
+},
+{
+"id": 642,
+"name": "Diablos Tail",
+"rarity": 5,
+"stack": 99,
+"value": 1280
+},
+{
+"id": 643,
+"name": "LthrDiablosTail",
+"rarity": 5,
+"stack": 99,
+"value": 6400
+},
+{
+"id": 644,
+"name": "Blos Fang",
+"rarity": 4,
+"stack": 99,
+"value": 650
+},
+{
+"id": 645,
+"name": "TwstBlkBlosHrn",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 646,
+"name": "StoutBlkTwstdHrn",
+"rarity": 5,
+"stack": 99,
+"value": 9000
+},
+{
+"id": 647,
+"name": "Black Blos Shell",
+"rarity": 5,
+"stack": 99,
+"value": 1900
+},
+{
+"id": 648,
+"name": "Black Blos Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 3280
+},
+{
+"id": 649,
+"name": "HvyBlkBlosShell",
+"rarity": 5,
+"stack": 99,
+"value": 8528
+},
+{
+"id": 650,
+"name": "Black Blos Spine",
+"rarity": 5,
+"stack": 99,
+"value": 2010
+},
+{
+"id": 651,
+"name": "Blk Blos Thracic",
+"rarity": 5,
+"stack": 99,
+"value": 6030
+},
+{
+"id": 652,
+"name": "HvyBlkBlosSpine",
+"rarity": 5,
+"stack": 99,
+"value": 9045
+},
+{
+"id": 653,
+"name": "Black Blos Tail",
+"rarity": 5,
+"stack": 99,
+"value": 1920
+},
+{
+"id": 654,
+"name": "LthrBlkBlosTail",
+"rarity": 5,
+"stack": 99,
+"value": 9600
+},
+{
+"id": 655,
+"name": "Vespoid Abdomen",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 656,
+"name": "VespoidQn'sCrown",
+"rarity": 5,
+"stack": 99,
+"value": 5400
+},
+{
+"id": 657,
+"name": "Vespoid Shell",
+"rarity": 4,
+"stack": 99,
+"value": 120
+},
+{
+"id": 658,
+"name": "Vespoid Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 240
+},
+{
+"id": 659,
+"name": "Vespoid Wing",
+"rarity": 4,
+"stack": 99,
+"value": 73
+},
+{
+"id": 660,
+"name": "Vespoid InnrWng",
+"rarity": 5,
+"stack": 99,
+"value": 512
+},
+{
+"id": 661,
+"name": "Vspoid Razorwing",
+"rarity": 5,
+"stack": 99,
+"value": 1792
+},
+{
+"id": 662,
+"name": "Hornetaur Shell",
+"rarity": 4,
+"stack": 99,
+"value": 120
+},
+{
+"id": 663,
+"name": "Hornetaur Crapce",
+"rarity": 5,
+"stack": 99,
+"value": 360
+},
+{
+"id": 664,
+"name": "Hornetaur Head",
+"rarity": 4,
+"stack": 99,
+"value": 175
+},
+{
+"id": 665,
+"name": "Hornetaur Wing",
+"rarity": 4,
+"stack": 99,
+"value": 73
+},
+{
+"id": 666,
+"name": "HornetaurInnrWng",
+"rarity": 5,
+"stack": 99,
+"value": 512
+},
+{
+"id": 667,
+"name": "Hornet Razorwing",
+"rarity": 5,
+"stack": 99,
+"value": 1792
+},
+{
+"id": 668,
+"name": "Blood Red Horn",
+"rarity": 5,
+"stack": 99,
+"value": 1520
+},
+{
+"id": 669,
+"name": "Top-GrdRedHorn",
+"rarity": 5,
+"stack": 99,
+"value": 3800
+},
+{
+"id": 670,
+"name": "Monoblos Shell",
+"rarity": 4,
+"stack": 99,
+"value": 650
+},
+{
+"id": 671,
+"name": "MonoblosCarapace",
+"rarity": 5,
+"stack": 99,
+"value": 1300
+},
+{
+"id": 672,
+"name": "Monoblos Spine",
+"rarity": 5,
+"stack": 99,
+"value": 1340
+},
+{
+"id": 673,
+"name": "MonoblosThoracic",
+"rarity": 5,
+"stack": 99,
+"value": 4020
+},
+{
+"id": 674,
+"name": "Monoblos Heart",
+"rarity": 5,
+"stack": 99,
+"value": 3600
+},
+{
+"id": 675,
+"name": "Wht Monoblos Hrn",
+"rarity": 5,
+"stack": 99,
+"value": 2280
+},
+{
+"id": 676,
+"name": "Top-GrdPlatHorn",
+"rarity": 5,
+"stack": 99,
+"value": 5700
+},
+{
+"id": 677,
+"name": "Wht Monoblos Shl",
+"rarity": 5,
+"stack": 99,
+"value": 975
+},
+{
+"id": 678,
+"name": "Wht Monoblos Cpc",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 679,
+"name": "Wht Monoblos Spn",
+"rarity": 5,
+"stack": 99,
+"value": 2010
+},
+{
+"id": 680,
+"name": "WhtMonoblosThora",
+"rarity": 5,
+"stack": 99,
+"value": 6030
+},
+{
+"id": 681,
+"name": "Kirin Horn",
+"rarity": 5,
+"stack": 99,
+"value": 2200
+},
+{
+"id": 682,
+"name": "Kirin Hide",
+"rarity": 5,
+"stack": 99,
+"value": 3250
+},
+{
+"id": 683,
+"name": "Kirin Hide+",
+"rarity": 5,
+"stack": 99,
+"value": 5000
+},
+{
+"id": 684,
+"name": "SpecialKirinHide",
+"rarity": 5,
+"stack": 99,
+"value": 7500
+},
+{
+"id": 685,
+"name": "Kirin Mane",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 686,
+"name": "Platinum Mane",
+"rarity": 5,
+"stack": 99,
+"value": 4800
+},
+{
+"id": 687,
+"name": "Kirin Thndr Tail",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 688,
+"name": "LthrKirinThndrTl",
+"rarity": 5,
+"stack": 99,
+"value": 9000
+},
+{
+"id": 689,
+"name": "Kirin Azure Horn",
+"rarity": 5,
+"stack": 99,
+"value": 5500
+},
+{
+"id": 690,
+"name": "Lao-Shan's Claw",
+"rarity": 5,
+"stack": 99,
+"value": 1920
+},
+{
+"id": 691,
+"name": "Lao-Shan's Horn",
+"rarity": 5,
+"stack": 99,
+"value": 1700
+},
+{
+"id": 692,
+"name": "Lao-Shan's Scale",
+"rarity": 5,
+"stack": 99,
+"value": 650
+},
+{
+"id": 693,
+"name": "Lao-Shan Scale+",
+"rarity": 5,
+"stack": 99,
+"value": 1950
+},
+{
+"id": 694,
+"name": "Lao-Shan'sThkScl",
+"rarity": 5,
+"stack": 99,
+"value": 5850
+},
+{
+"id": 695,
+"name": "Lao-Shan's Ruby",
+"rarity": 5,
+"stack": 99,
+"value": 20000
+},
+{
+"id": 696,
+"name": "Lao-ShanHvnlyScl",
+"rarity": 5,
+"stack": 99,
+"value": 30000
+},
+{
+"id": 697,
+"name": "Lao-Shan's Shell",
+"rarity": 5,
+"stack": 99,
+"value": 900
+},
+{
+"id": 698,
+"name": "Lao-ShanCarapace",
+"rarity": 5,
+"stack": 99,
+"value": 2700
+},
+{
+"id": 699,
+"name": "Lao-Shan'sHvyShl",
+"rarity": 5,
+"stack": 99,
+"value": 8100
+},
+{
+"id": 700,
+"name": "Azure LaoS Horn",
+"rarity": 5,
+"stack": 99,
+"value": 5100
+},
+{
+"id": 701,
+"name": "Azure LaoS Shell",
+"rarity": 5,
+"stack": 99,
+"value": 3375
+},
+{
+"id": 702,
+"name": "Azure LaoS Claw",
+"rarity": 5,
+"stack": 99,
+"value": 9600
+},
+{
+"id": 703,
+"name": "Gaoren Shell",
+"rarity": 5,
+"stack": 99,
+"value": 1400
+},
+{
+"id": 704,
+"name": "Gaoren Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 2800
+},
+{
+"id": 705,
+"name": "HvyGaorenShell",
+"rarity": 5,
+"stack": 99,
+"value": 6300
+},
+{
+"id": 706,
+"name": "HvnlyGaorenShell",
+"rarity": 5,
+"stack": 99,
+"value": 20000
+},
+{
+"id": 707,
+"name": "Gaoren Spine",
+"rarity": 5,
+"stack": 99,
+"value": 3000
+},
+{
+"id": 708,
+"name": "Gaoren Thoracic",
+"rarity": 5,
+"stack": 99,
+"value": 6000
+},
+{
+"id": 709,
+"name": "Hvy Gaoren Spine",
+"rarity": 5,
+"stack": 99,
+"value": 9600
+},
+{
+"id": 710,
+"name": "Gaoren Pincer",
+"rarity": 5,
+"stack": 99,
+"value": 2150
+},
+{
+"id": 711,
+"name": "Gaoren Claw",
+"rarity": 5,
+"stack": 99,
+"value": 3200
+},
+{
+"id": 712,
+"name": "Hard Gaoren Claw",
+"rarity": 5,
+"stack": 99,
+"value": 8960
+},
+{
+"id": 713,
+"name": "Daora Shell",
+"rarity": 5,
+"stack": 99,
+"value": 1300
+},
+{
+"id": 714,
+"name": "Daora Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 3900
+},
+{
+"id": 715,
+"name": "Hvy Daora Shell",
+"rarity": 5,
+"stack": 99,
+"value": 7800
+},
+{
+"id": 716,
+"name": "DaoraDragonScale",
+"rarity": 5,
+"stack": 99,
+"value": 800
+},
+{
+"id": 717,
+"name": "DaoraDragonScal+",
+"rarity": 5,
+"stack": 99,
+"value": 2000
+},
+{
+"id": 718,
+"name": "ThckDaoraDrgnScl",
+"rarity": 5,
+"stack": 99,
+"value": 5000
+},
+{
+"id": 719,
+"name": "Daora Webbing",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 720,
+"name": "Str Daora Wing",
+"rarity": 5,
+"stack": 99,
+"value": 9000
+},
+{
+"id": 721,
+"name": "Daora Horn",
+"rarity": 5,
+"stack": 99,
+"value": 2450
+},
+{
+"id": 722,
+"name": "Hard Daora Horn",
+"rarity": 5,
+"stack": 99,
+"value": 9800
+},
+{
+"id": 723,
+"name": "Daora Tail",
+"rarity": 5,
+"stack": 99,
+"value": 2250
+},
+{
+"id": 724,
+"name": "Lthr Daora Tail",
+"rarity": 5,
+"stack": 99,
+"value": 9000
+},
+{
+"id": 725,
+"name": "Daora Claw",
+"rarity": 5,
+"stack": 99,
+"value": 2100
+},
+{
+"id": 726,
+"name": "Daora Sharp Claw",
+"rarity": 5,
+"stack": 99,
+"value": 6300
+},
+{
+"id": 727,
+"name": "Daora Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 10000
+},
+{
+"id": 728,
+"name": "Chameleos Hide",
+"rarity": 5,
+"stack": 99,
+"value": 1250
+},
+{
+"id": 729,
+"name": "Chameleos Hide+",
+"rarity": 5,
+"stack": 99,
+"value": 3750
+},
+{
+"id": 730,
+"name": "SpecChameleHide+",
+"rarity": 5,
+"stack": 99,
+"value": 7500
+},
+{
+"id": 731,
+"name": "Chameleos Horn",
+"rarity": 5,
+"stack": 99,
+"value": 2680
+},
+{
+"id": 732,
+"name": "Chameleos Spike",
+"rarity": 5,
+"stack": 99,
+"value": 8040
+},
+{
+"id": 733,
+"name": "HrdChameleosHorn",
+"rarity": 5,
+"stack": 99,
+"value": 10050
+},
+{
+"id": 734,
+"name": "Chameleos Claw",
+"rarity": 5,
+"stack": 99,
+"value": 2800
+},
+{
+"id": 735,
+"name": "ChameleosWebbing",
+"rarity": 5,
+"stack": 99,
+"value": 1760
+},
+{
+"id": 736,
+"name": "StrChameleosWing",
+"rarity": 5,
+"stack": 99,
+"value": 8800
+},
+{
+"id": 737,
+"name": "Chameleos Tail",
+"rarity": 5,
+"stack": 99,
+"value": 3800
+},
+{
+"id": 738,
+"name": "LthrChameleoTail",
+"rarity": 5,
+"stack": 99,
+"value": 9500
+},
+{
+"id": 739,
+"name": "Chameleos Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 10000
+},
+{
+"id": 740,
+"name": "Fire Dragon Scl",
+"rarity": 5,
+"stack": 99,
+"value": 1050
+},
+{
+"id": 741,
+"name": "Fire Drgn Scl+",
+"rarity": 5,
+"stack": 99,
+"value": 2100
+},
+{
+"id": 742,
+"name": "ThckFireDrgnScl",
+"rarity": 5,
+"stack": 99,
+"value": 4200
+},
+{
+"id": 743,
+"name": "Fire Dragon Claw",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 744,
+"name": "HrdFireDrgnClaw",
+"rarity": 5,
+"stack": 99,
+"value": 4800
+},
+{
+"id": 745,
+"name": "Fire Drgn Webbng",
+"rarity": 5,
+"stack": 99,
+"value": 1600
+},
+{
+"id": 746,
+"name": "Fire Dragon Pwdr",
+"rarity": 5,
+"stack": 99,
+"value": 3250
+},
+{
+"id": 747,
+"name": "Fire Drgn Jwl",
+"rarity": 5,
+"stack": 99,
+"value": 10000
+},
+{
+"id": 748,
+"name": "ElderDragonBlood",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 749,
+"name": "Lunastra Shell",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 750,
+"name": "LunastraCarapace",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 751,
+"name": "Lunastra Mane",
+"rarity": 5,
+"stack": 99,
+"value": 1900
+},
+{
+"id": 752,
+"name": "Lunastra Tail",
+"rarity": 5,
+"stack": 99,
+"value": 2500
+},
+{
+"id": 753,
+"name": "Lunastra Horn",
+"rarity": 5,
+"stack": 99,
+"value": 2000
+},
+{
+"id": 754,
+"name": "Lunastra Spike",
+"rarity": 5,
+"stack": 99,
+"value": 6000
+},
+{
+"id": 755,
+"name": "Teostra Shell",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 756,
+"name": "Teostra Carapace",
+"rarity": 5,
+"stack": 99,
+"value": 4500
+},
+{
+"id": 757,
+"name": "HvyTeostraShell",
+"rarity": 5,
+"stack": 99,
+"value": 9000
+},
+{
+"id": 758,
+"name": "Teostra Mane",
+"rarity": 5,
+"stack": 99,
+"value": 1900
+},
+{
+"id": 759,
+"name": "Teostra Tail",
+"rarity": 5,
+"stack": 99,
+"value": 2500
+},
+{
+"id": 760,
+"name": "LthrTeostraTail",
+"rarity": 5,
+"stack": 99,
+"value": 10000
+},
+{
+"id": 761,
+"name": "Teostra Horn",
+"rarity": 5,
+"stack": 99,
+"value": 2000
+},
+{
+"id": 762,
+"name": "Teostra Horn+",
+"rarity": 5,
+"stack": 99,
+"value": 6000
+},
+{
+"id": 763,
+"name": "HardTeostraHorn",
+"rarity": 5,
+"stack": 99,
+"value": 10800
+},
+{
+"id": 764,
+"name": "Dragonmoss",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 765,
+"name": "Dragonmoss+",
+"rarity": 5,
+"stack": 99,
+"value": 2250
+},
+{
+"id": 766,
+"name": "AncientDrgnmoss",
+"rarity": 5,
+"stack": 99,
+"value": 9000
+},
+{
+"id": 767,
+"name": "Dragonwood",
+"rarity": 5,
+"stack": 99,
+"value": 1200
+},
+{
+"id": 768,
+"name": "Dragonwood+",
+"rarity": 5,
+"stack": 99,
+"value": 1800
+},
+{
+"id": 769,
+"name": "AncientDrgnwood",
+"rarity": 5,
+"stack": 99,
+"value": 7200
+},
+{
+"id": 770,
+"name": "YamaTsukamiHide",
+"rarity": 5,
+"stack": 99,
+"value": 6320
+},
+{
+"id": 771,
+"name": "YamaTsukaFillet",
+"rarity": 5,
+"stack": 99,
+"value": 8750
+},
+{
+"id": 772,
+"name": "YamaTsukamiFluid",
+"rarity": 5,
+"stack": 99,
+"value": 8750
+},
+{
+"id": 773,
+"name": "Dark Piece",
+"rarity": 5,
+"stack": 99,
+"value": 260
+},
+{
+"id": 774,
+"name": "Dark Stone",
+"rarity": 5,
+"stack": 99,
+"value": 530
+},
+{
+"id": 775,
+"name": "Fatalis Horn",
+"rarity": 5,
+"stack": 99,
+"value": 5440
+},
+{
+"id": 776,
+"name": "HardFatalisHorn",
+"rarity": 5,
+"stack": 99,
+"value": 10880
+},
+{
+"id": 777,
+"name": "Fatalis Scale",
+"rarity": 5,
+"stack": 99,
+"value": 3560
+},
+{
+"id": 778,
+"name": "ThckFatalisScale",
+"rarity": 5,
+"stack": 99,
+"value": 6230
+},
+{
+"id": 779,
+"name": "Fatalis Shell",
+"rarity": 5,
+"stack": 99,
+"value": 5580
+},
+{
+"id": 780,
+"name": "Hvy Fatalis Shl",
+"rarity": 5,
+"stack": 99,
+"value": 9765
+},
+{
+"id": 781,
+"name": "Fatalis Eye",
+"rarity": 5,
+"stack": 99,
+"value": 9600
+},
+{
+"id": 782,
+"name": "Fatalis Evil Eye",
+"rarity": 5,
+"stack": 99,
+"value": 28000
+},
+{
+"id": 783,
+"name": "Fatalis Webbing",
+"rarity": 5,
+"stack": 99,
+"value": 7860
+},
+{
+"id": 784,
+"name": "Str Fatalis Wng",
+"rarity": 5,
+"stack": 99,
+"value": 11790
+},
+{
+"id": 785,
+"name": "Fatalis CrmsnHrn",
+"rarity": 5,
+"stack": 99,
+"value": 6528
+},
+{
+"id": 786,
+"name": "HrdFatlisCrmHorn",
+"rarity": 5,
+"stack": 99,
+"value": 13056
+},
+{
+"id": 787,
+"name": "Fatalis CrmsnScl",
+"rarity": 5,
+"stack": 99,
+"value": 4272
+},
+{
+"id": 788,
+"name": "ThckFatlisCrmScl",
+"rarity": 5,
+"stack": 99,
+"value": 7476
+},
+{
+"id": 789,
+"name": "Fatalis CrmsnShl",
+"rarity": 5,
+"stack": 99,
+"value": 5580
+},
+{
+"id": 790,
+"name": "HvyFatalisCrmShl",
+"rarity": 5,
+"stack": 99,
+"value": 9765
+},
+{
+"id": 791,
+"name": "Fatalis DevilEye",
+"rarity": 5,
+"stack": 99,
+"value": 25000
+},
+{
+"id": 792,
+"name": "Fatalis CrmsnWng",
+"rarity": 5,
+"stack": 99,
+"value": 7860
+},
+{
+"id": 793,
+"name": "StrFatlisCrmWing",
+"rarity": 5,
+"stack": 99,
+"value": 11790
+},
+{
+"id": 794,
+"name": "Wht Fatalis Scl",
+"rarity": 5,
+"stack": 99,
+"value": 8852
+},
+{
+"id": 795,
+"name": "ThckWhtFatlisScl",
+"rarity": 5,
+"stack": 99,
+"value": 15491
+},
+{
+"id": 796,
+"name": "Wht Fatalis Shl",
+"rarity": 5,
+"stack": 99,
+"value": 10230
+},
+{
+"id": 797,
+"name": "HvyWhtFatalisShl",
+"rarity": 5,
+"stack": 99,
+"value": 17391
+},
+{
+"id": 798,
+"name": "Wht Fatalis Wbng",
+"rarity": 5,
+"stack": 99,
+"value": 9900
+},
+{
+"id": 799,
+"name": "StrWhtFatalisWng",
+"rarity": 5,
+"stack": 99,
+"value": 14850
+},
+{
+"id": 800,
+"name": "Wht Fatalis Horn",
+"rarity": 5,
+"stack": 99,
+"value": 12300
+},
+{
+"id": 801,
+"name": "HrdWhtFatlisHorn",
+"rarity": 5,
+"stack": 99,
+"value": 24600
+},
+{
+"id": 802,
+"name": "Akantor Scale",
+"rarity": 5,
+"stack": 99,
+"value": 4272
+},
+{
+"id": 803,
+"name": "Akantor Shell",
+"rarity": 5,
+"stack": 99,
+"value": 5580
+},
+{
+"id": 804,
+"name": "Akantor Tail",
+"rarity": 5,
+"stack": 99,
+"value": 9312
+},
+{
+"id": 805,
+"name": "Akantor Claw",
+"rarity": 5,
+"stack": 99,
+"value": 6408
+},
+{
+"id": 806,
+"name": "Akantor Fang",
+"rarity": 5,
+"stack": 99,
+"value": 9500
+},
+{
+"id": 807,
+"name": "Akantor Spike",
+"rarity": 5,
+"stack": 99,
+"value": 10230
+},
+{
+"id": 808,
+"name": "HvyUkanlosShell",
+"rarity": 5,
+"stack": 99,
+"value": 8300
+},
+{
+"id": 809,
+"name": "UkanlosUnderscl",
+"rarity": 5,
+"stack": 99,
+"value": 7500
+},
+{
+"id": 810,
+"name": "Hvy Ukanlos Tail",
+"rarity": 5,
+"stack": 99,
+"value": 10000
+},
+{
+"id": 811,
+"name": "UkanlosDiggngClw",
+"rarity": 5,
+"stack": 99,
+"value": 7800
+},
+{
+"id": 812,
+"name": "UkanlosShovelJaw",
+"rarity": 5,
+"stack": 99,
+"value": 13000
+},
+{
+"id": 813,
+"name": "StrongUkanlosFin",
+"rarity": 5,
+"stack": 99,
+"value": 11000
+},
+{
+"id": 814,
+"name": "Ukanlos Stone",
+"rarity": 5,
+"stack": 99,
+"value": 25000
+},
+{
+"id": 815,
+"name": "Wyverian Harp",
+"rarity": 5,
+"stack": 99,
+"value": 620
+},
+{
+"id": 816,
+"name": "Sinister Cloth",
+"rarity": 5,
+"stack": 99,
+"value": 480
+},
+{
+"id": 817,
+"name": "Lost Umbrella",
+"rarity": 5,
+"stack": 99,
+"value": 1240
+},
+{
+"id": 818,
+"name": "Ruststone",
+"rarity": 5,
+"stack": 99,
+"value": 180
+},
+{
+"id": 819,
+"name": "Flat Ruststone",
+"rarity": 5,
+"stack": 99,
+"value": 180
+},
+{
+"id": 820,
+"name": "Large Ruststone",
+"rarity": 5,
+"stack": 99,
+"value": 180
+},
+{
+"id": 821,
+"name": "Small Ruststone",
+"rarity": 5,
+"stack": 99,
+"value": 180
+},
+{
+"id": 822,
+"name": "Ruststone Rod",
+"rarity": 5,
+"stack": 99,
+"value": 180
+},
+{
+"id": 823,
+"name": "Ancient Stone",
+"rarity": 5,
+"stack": 99,
+"value": 360
+},
+{
+"id": 824,
+"name": "AncientFlatstone",
+"rarity": 5,
+"stack": 99,
+"value": 360
+},
+{
+"id": 825,
+"name": "Lg Ancient Stone",
+"rarity": 5,
+"stack": 99,
+"value": 360
+},
+{
+"id": 826,
+"name": "Sm Ancient Stone",
+"rarity": 5,
+"stack": 99,
+"value": 360
+},
+{
+"id": 827,
+"name": "Ancient StoneRod",
+"rarity": 5,
+"stack": 99,
+"value": 360
+},
+{
+"id": 828,
+"name": "Organizer Guide",
+"rarity": 4,
+"stack": 1,
+"value": 0
+},
+{
+"id": 829,
+"name": "Backpacker Guide",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 830,
+"name": "Lynian Info",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 831,
+"name": "Shakalaka Info",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 832,
+"name": "Neopteron Info",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 833,
+"name": "GrtThundrbugInfo",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 834,
+"name": "Herbivore Info",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 835,
+"name": "Bird Wyvern Info",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 836,
+"name": "HypnocatriceInfo",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 837,
+"name": "Yian Garuga Info",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 838,
+"name": "FlyingWyvernInfo",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 839,
+"name": "Remobra Info",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 840,
+"name": "Tigrex Info",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 841,
+"name": "Nargacuga Info",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 842,
+"name": "Akantor Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 843,
+"name": "Ukanlos Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 844,
+"name": "Piscine Info",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 845,
+"name": "Lavasioth Info",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 846,
+"name": "Carapaceon Info1",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 847,
+"name": "Carapaceon Info2",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 848,
+"name": "Shen Gaoren Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 849,
+"name": "Pelagus Info",
+"rarity": 2,
+"stack": 1,
+"value": 0
+},
+{
+"id": 850,
+"name": "Rajang Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 851,
+"name": "Kirin Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 852,
+"name": "KushalaDaoraInfo",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 853,
+"name": "Chameleos Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 854,
+"name": "Lunastra Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 855,
+"name": "Teostra Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 856,
+"name": "Lao-Shan Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 857,
+"name": "YamaTsukamiInfo",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 858,
+"name": "Fatalis Info",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 859,
+"name": "Steel Egg",
+"rarity": 5,
+"stack": 15,
+"value": 1000
+},
+{
+"id": 860,
+"name": "Silver Egg",
+"rarity": 5,
+"stack": 10,
+"value": 10000
+},
+{
+"id": 861,
+"name": "Golden Egg",
+"rarity": 5,
+"stack": 5,
+"value": 20000
+},
+{
+"id": 862,
+"name": "Map",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 863,
+"name": "First-Aid Med",
+"rarity": 1,
+"stack": 10,
+"value": 0
+},
+{
+"id": 864,
+"name": "Ration",
+"rarity": 1,
+"stack": 10,
+"value": 0
+},
+{
+"id": 865,
+"name": "Portable Spit",
+"rarity": 1,
+"stack": 1,
+"value": 0
+},
+{
+"id": 866,
+"name": "Mini Whetstone",
+"rarity": 1,
+"stack": 10,
+"value": 0
+},
+{
+"id": 867,
+"name": "Prtbl Shock Trap",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 868,
+"name": "Supply Flash Bmb",
+"rarity": 2,
+"stack": 5,
+"value": 0
+},
+{
+"id": 869,
+"name": "Sply Max Potion",
+"rarity": 2,
+"stack": 3,
+"value": 0
+},
+{
+"id": 870,
+"name": "Sply Pitfall Trp",
+"rarity": 3,
+"stack": 1,
+"value": 0
+},
+{
+"id": 871,
+"name": "Sply Lg Brrl Bmb",
+"rarity": 3,
+"stack": 2,
+"value": 0
+},
+{
+"id": 872,
+"name": "Ballista S",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 873,
+"name": "Cannon S",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 874,
+"name": "Wyvern",
+"rarity": 1,
+"stack": 10,
+"value": 0
+},
+{
+"id": 875,
+"name": "Wyvern Egg",
+"rarity": 5,
+"stack": 1,
+"value": 1200
+},
+{
+"id": 876,
+"name": "Herbivore Egg",
+"rarity": 5,
+"stack": 1,
+"value": 1000
+},
+{
+"id": 877,
+"name": "Carnivore Egg",
+"rarity": 5,
+"stack": 1,
+"value": 700
+},
+{
+"id": 878,
+"name": "Sootstone Ore",
+"rarity": 5,
+"stack": 1,
+"value": 1000
+},
+{
+"id": 879,
+"name": "Quartz Ore",
+"rarity": 5,
+"stack": 1,
+"value": 2500
+},
+{
+"id": 880,
+"name": "Powderstone",
+"rarity": 5,
+"stack": 1,
+"value": 3000
+},
+{
+"id": 881,
+"name": "Khezu Whelp",
+"rarity": 5,
+"stack": 1,
+"value": 400
+},
+{
+"id": 882,
+"name": "Khz Whlp Ice Crm",
+"rarity": 5,
+"stack": 10,
+"value": 120
+},
+{
+"id": 883,
+"name": "Kut-Ku Coin",
+"rarity": 4,
+"stack": 99,
+"value": 100
+},
+{
+"id": 884,
+"name": "Congalala Coin",
+"rarity": 4,
+"stack": 99,
+"value": 200
+},
+{
+"id": 885,
+"name": "Khezu Coin",
+"rarity": 4,
+"stack": 99,
+"value": 300
+},
+{
+"id": 886,
+"name": "Daimyo Coin",
+"rarity": 4,
+"stack": 99,
+"value": 400
+},
+{
+"id": 887,
+"name": "Blangonga Coin",
+"rarity": 4,
+"stack": 99,
+"value": 500
+},
+{
+"id": 888,
+"name": "Yian Garuga Coin",
+"rarity": 4,
+"stack": 99,
+"value": 600
+},
+{
+"id": 889,
+"name": "Tigrex Coin",
+"rarity": 4,
+"stack": 99,
+"value": 700
+},
+{
+"id": 890,
+"name": "Diablos Coin",
+"rarity": 5,
+"stack": 99,
+"value": 800
+},
+{
+"id": 891,
+"name": "Gravios Coin",
+"rarity": 5,
+"stack": 99,
+"value": 900
+},
+{
+"id": 892,
+"name": "Kirin Coin",
+"rarity": 5,
+"stack": 99,
+"value": 1000
+},
+{
+"id": 893,
+"name": "Cephadrome Coin",
+"rarity": 4,
+"stack": 99,
+"value": 300
+},
+{
+"id": 894,
+"name": "Plesioth Coin",
+"rarity": 4,
+"stack": 99,
+"value": 500
+},
+{
+"id": 895,
+"name": "Shogun Coin",
+"rarity": 4,
+"stack": 99,
+"value": 700
+},
+{
+"id": 896,
+"name": "Fire Coin",
+"rarity": 5,
+"stack": 99,
+"value": 900
+},
+{
+"id": 897,
+"name": "Rajang Coin",
+"rarity": 5,
+"stack": 99,
+"value": 1100
+},
+{
+"id": 898,
+"name": "BlackBeltCoinG",
+"rarity": 5,
+"stack": 99,
+"value": 1500
+},
+{
+"id": 899,
+"name": "Expert Coin G",
+"rarity": 5,
+"stack": 99,
+"value": 2000
+},
+{
+"id": 900,
+"name": "Warrior Coin G",
+"rarity": 5,
+"stack": 99,
+"value": 2500
+},
+{
+"id": 901,
+"name": "Legend Coin G",
+"rarity": 5,
+"stack": 99,
+"value": 5000
+},
+{
+"id": 902,
+"name": "Commendation",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 903,
+"name": "Commendation G",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 904,
+"name": "Commendation S",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 905,
+"name": "Pawprint Stamp",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 906,
+"name": "Pokke Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 907,
+"name": "Pokke Ticket+",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 908,
+"name": "Normal Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 909,
+"name": "Hard Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 910,
+"name": "Plus Class Tcket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 911,
+"name": "Hero of Kkto Bio",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 912,
+"name": "Hero of JumboBio",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 913,
+"name": "Elder Thank You",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 914,
+"name": "Elder Thnk You+",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 915,
+"name": "FlynMealPassReg",
+"rarity": 4,
+"stack": 99,
+"value": 0
+},
+{
+"id": 916,
+"name": "FlynMealPassPlus",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 917,
+"name": "Comrade Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 918,
+"name": "VeggieElderTcket",
+"rarity": 4,
+"stack": 99,
+"value": 0
+},
+{
+"id": 919,
+"name": "VeggieElderTckt+",
+"rarity": 4,
+"stack": 99,
+"value": 0
+},
+{
+"id": 920,
+"name": "VegElderTcktBrz",
+"rarity": 4,
+"stack": 99,
+"value": 0
+},
+{
+"id": 921,
+"name": "VegElderTcktSlv",
+"rarity": 4,
+"stack": 99,
+"value": 0
+},
+{
+"id": 922,
+"name": "VegElderTcktGld",
+"rarity": 4,
+"stack": 99,
+"value": 0
+},
+{
+"id": 923,
+"name": "VegElderTcktSky",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 924,
+"name": "Blackbelt Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 925,
+"name": "Expert Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 926,
+"name": "Paw Pass Ticket",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 927,
+"name": "Limited Paw Pass",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 928,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 929,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 930,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 931,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 932,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 933,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 934,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 935,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 936,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 937,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 938,
+"name": "dummy",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 939,
+"name": "Hunter's Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 940,
+"name": "Hunter Soul Tkt",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 941,
+"name": "Puppet Ticket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 942,
+"name": "SpecPuppetTicket",
+"rarity": 5,
+"stack": 99,
+"value": 0
+},
+{
+"id": 943,
+"name": "Suiko Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 50
+},
+{
+"id": 944,
+"name": "Akito Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 350
+},
+{
+"id": 945,
+"name": "BattlefieldJewel",
+"rarity": 5,
+"stack": 99,
+"value": 530
+},
+{
+"id": 946,
+"name": "LapisLazuliJewel",
+"rarity": 5,
+"stack": 99,
+"value": 880
+},
+{
+"id": 947,
+"name": "Paralysis Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 948,
+"name": "Paralysis Jewel+",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 949,
+"name": "Pep Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 950,
+"name": "Jolt Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 951,
+"name": "Steadfast Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 952,
+"name": "Steadfast Jewel+",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 953,
+"name": "Antidote Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 954,
+"name": "Antidote Jewel+",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 955,
+"name": "Retroviral Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 956,
+"name": "Antiviral Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 957,
+"name": "Snowblower Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 958,
+"name": "SnowblowerJewel+",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 959,
+"name": "Tip Toe Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 960,
+"name": "Ninja Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 961,
+"name": "Strength Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 962,
+"name": "Feel Good Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 963,
+"name": "Razor Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 964,
+"name": "Artisan Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 965,
+"name": "Fencer Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 966,
+"name": "Expert Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 967,
+"name": "Grinder Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 968,
+"name": "Stone Wall Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 969,
+"name": "Hard Wall Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 970,
+"name": "HvnlyShieldJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 971,
+"name": "Hardball Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 972,
+"name": "Early Bird Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 973,
+"name": "Recoilless Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 974,
+"name": "StrongShot Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 975,
+"name": "Pierce Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 976,
+"name": "Pellet Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 977,
+"name": "Shot Bonus Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 978,
+"name": "PierceBonusJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 979,
+"name": "PelletBonusJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 980,
+"name": "Crag Bonus Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 981,
+"name": "ScattrBonusJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 982,
+"name": "SpecialAtk Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 983,
+"name": "Element Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 984,
+"name": "Bombardier Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 985,
+"name": "PickyEater Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 986,
+"name": "No Food Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 987,
+"name": "Fatso Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 988,
+"name": "Attack Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 989,
+"name": "Defense Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 990,
+"name": "Protection Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 991,
+"name": "DivineProtectJwl",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 992,
+"name": "Earplug Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 993,
+"name": "Alarm Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 994,
+"name": "Friendship Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 995,
+"name": "Backpacker Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 996,
+"name": "Impervious Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 997,
+"name": "Inferno Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 998,
+"name": "Crimson Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 999,
+"name": "Stream Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1000,
+"name": "Torrent Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1001,
+"name": "Freeze Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1002,
+"name": "Glacier Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1003,
+"name": "Lightning Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1004,
+"name": "Thunder Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1005,
+"name": "Slayer Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1006,
+"name": "DragonslyrJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1007,
+"name": "CoolBreeze Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1008,
+"name": "ColdBreezeJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1009,
+"name": "WarmBreeze Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1010,
+"name": "HotBreezeJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1011,
+"name": "PaperweightJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1012,
+"name": "Map Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1013,
+"name": "Gathering Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1014,
+"name": "Grab'n'DashJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1015,
+"name": "Good Luck Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1016,
+"name": "Blessing Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1017,
+"name": "Fate Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1018,
+"name": "Fisher Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1019,
+"name": "Psychic Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1020,
+"name": "Curing Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1021,
+"name": "Professor Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1022,
+"name": "Armory Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1023,
+"name": "SecretArts Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1024,
+"name": "Evade Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1025,
+"name": "Danger Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1026,
+"name": "StayingPwr Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1027,
+"name": "Marathon Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1028,
+"name": "Ammo Box Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1029,
+"name": "Sniper Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1030,
+"name": "SharpshootrJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1031,
+"name": "QuickEaterJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1032,
+"name": "HideCutter Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1033,
+"name": "Melt-Proof Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1034,
+"name": "Anchor Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1035,
+"name": "BBQ Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1036,
+"name": "Small Arms Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1037,
+"name": "Howitzer Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1038,
+"name": "Fife Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1039,
+"name": "Tireless Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1040,
+"name": "Jumping Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1041,
+"name": "Sword Draw Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1042,
+"name": "Cat Guide Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1043,
+"name": "Cat Attack Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1044,
+"name": "CatDefenseJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1045,
+"name": "TrapMasterJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1046,
+"name": "PoisonCoatJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1047,
+"name": "ParalysCoatJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1048,
+"name": "Sleep Coat Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1049,
+"name": "Power Coat Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1050,
+"name": "Combo Coat Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1051,
+"name": "Guts Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1052,
+"name": "ConstitutnJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1053,
+"name": "Tranq Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1054,
+"name": "Perceive Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1055,
+"name": "ShortChargeJewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1056,
+"name": "Cont. Fire Jewel",
+"rarity": 4,
+"stack": 99,
+"value": 40
+},
+{
+"id": 1057,
+"name": "AntiParalyzJewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1058,
+"name": "Anti-Faint Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1059,
+"name": "Antivenin Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1060,
+"name": "Snowplow Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1061,
+"name": "SpeedyRecvrJewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1062,
+"name": "Celebrity Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1063,
+"name": "IronCurtainJewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1064,
+"name": "Wall Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1065,
+"name": "High Speed Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1066,
+"name": "SpecialAtkJewel+",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1067,
+"name": "Fasting Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1068,
+"name": "Fierce Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1069,
+"name": "Turtle Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1070,
+"name": "Beloved Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1071,
+"name": "Omnipotent Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1072,
+"name": "Extinction Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1073,
+"name": "Cold Wind Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1074,
+"name": "Hot Wind Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1075,
+"name": "HeavyMetal Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1076,
+"name": "Destiny Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1077,
+"name": "Cure All Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1078,
+"name": "Cure All Jewel+",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1079,
+"name": "Dodge Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1080,
+"name": "Pinch Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1081,
+"name": "Permanence Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1082,
+"name": "Eternal Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1083,
+"name": "Fast Food Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1084,
+"name": "Anti-Thaw Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1085,
+"name": "Tectonic Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1086,
+"name": "UnsheathingJewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1087,
+"name": "ParalysisCAddJwl",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1088,
+"name": "PowerCAddJewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1089,
+"name": "More Guts Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1090,
+"name": "Health Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1091,
+"name": "Knockout Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 75
+},
+{
+"id": 1092,
+"name": "Cutter Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1093,
+"name": "Master Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1094,
+"name": "Swordsman Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1095,
+"name": "Hermit Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1096,
+"name": "StrongWall Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1097,
+"name": "Shockless Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1098,
+"name": "StrongShotJewel+",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1099,
+"name": "Pierce Jewel+",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1100,
+"name": "Pellet Jewel+",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1101,
+"name": "Element Jewel+",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1102,
+"name": "Strongest Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1103,
+"name": "Silencer Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1104,
+"name": "Tenderness Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1105,
+"name": "TrueResistJewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1106,
+"name": "Solid Rock Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1107,
+"name": "Crisis Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1108,
+"name": "Sprinter Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1109,
+"name": "Magazine Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1110,
+"name": "Scarfing Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1111,
+"name": "Carving Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1112,
+"name": "Flying Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1113,
+"name": "RapidChargeJewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1114,
+"name": "Barrage Jewel",
+"rarity": 5,
+"stack": 99,
+"value": 90
+},
+{
+"id": 1115,
+"name": "Giadrome Jewel",
+"rarity": 8,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1116,
+"name": "Kut-Ku Jewel",
+"rarity": 8,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1117,
+"name": "Daimyo Jewel",
+"rarity": 8,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1118,
+"name": "Congalala Jewel",
+"rarity": 8,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1119,
+"name": "Rathalos Jewel",
+"rarity": 8,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1120,
+"name": "Gravios Jewel",
+"rarity": 8,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1121,
+"name": "Garuga Jewel",
+"rarity": 8,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1122,
+"name": "Eldr Drgn Tears",
+"rarity": 7,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1123,
+"name": "Lao-Shan Melon",
+"rarity": 7,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1124,
+"name": "Eldr Drgn Fossil",
+"rarity": 7,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1125,
+"name": "Gypceros Crystal",
+"rarity": 7,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1126,
+"name": "Rathian Jewel",
+"rarity": 7,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1127,
+"name": "Teostra Meteor",
+"rarity": 7,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1128,
+"name": "ThsandYearForest",
+"rarity": 7,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1129,
+"name": "Frozen Meatball",
+"rarity": 6,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1130,
+"name": "Buckshot Acorn",
+"rarity": 6,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1131,
+"name": "Cephadrome Melon",
+"rarity": 6,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1132,
+"name": "Golden Cocoon",
+"rarity": 6,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1133,
+"name": "Amber Egg",
+"rarity": 6,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1134,
+"name": "Graviscus Bulb",
+"rarity": 6,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1135,
+"name": "Century Walnut",
+"rarity": 6,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1136,
+"name": "Hard Dragonrock",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1137,
+"name": "Dragonrock+",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1138,
+"name": "Dragonrock",
+"rarity": 5,
+"stack": 1,
+"value": 0
+},
+{
+"id": 1139,
+"name": "Green Fin",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1140,
+"name": "Kut-Ku Cartilage",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1141,
+"name": "Hermitaur Brains",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1142,
+"name": "Congalala Stomch",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1143,
+"name": "Rathalos Liver",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1144,
+"name": "Gravios Giblets",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1145,
+"name": "Garuga Drumstick",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1146,
+"name": "Giadrome Thigh",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1147,
+"name": "Kut-Ku Gizzards",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1148,
+"name": "Daimyo Legs",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1149,
+"name": "Congalala Innrds",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1150,
+"name": "Rathalos Tongue",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1151,
+"name": "Gravios Wingtip",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1152,
+"name": "GarugaClavclMeat",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1153,
+"name": "Blango Bacon",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1154,
+"name": "Kut-Ku Skin",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1155,
+"name": "Cephalos Roe",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1156,
+"name": "Twstd Bldrm Tsk",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1157,
+"name": "Rathian Chops",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1158,
+"name": "Purple Crest",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1159,
+"name": "GarugaWhiteLiver",
+"rarity": 5,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1160,
+"name": "Dragonite (L)",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1161,
+"name": "Dragonite (M)",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1162,
+"name": "Dragonite (S)",
+"rarity": 3,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1163,
+"name": "Pokke Snowman",
+"rarity": 7,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1164,
+"name": "Felyne Crown",
+"rarity": 7,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1165,
+"name": "GldFlynJewelSwd",
+"rarity": 7,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1166,
+"name": "Dynasty Vase",
+"rarity": 7,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1167,
+"name": "Mysterious Mask",
+"rarity": 7,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1168,
+"name": "Eldr Drgn Rfrnc",
+"rarity": 7,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1169,
+"name": "AncntCatKingStat",
+"rarity": 7,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1170,
+"name": "Blngo Blzrd Ball",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1171,
+"name": "Blngo Flrry Ball",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1172,
+"name": "Inferior FlynCrn",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1173,
+"name": "Flyn Crwn Frgmnt",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1174,
+"name": "Hndlelss Gld Bld",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1175,
+"name": "GldBladelessHndl",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1176,
+"name": "Bttmlss Old Vase",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1177,
+"name": "Old Vase Bottom",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1178,
+"name": "Holed Shaka Mask",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1179,
+"name": "Shakalaka Stone",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1180,
+"name": "Torn Old Book",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1181,
+"name": "Old Book Scrap",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1182,
+"name": "TaillessCatStatu",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1183,
+"name": "BrokenStoneTail",
+"rarity": 3,
+"stack": 10,
+"value": 0
+},
+{
+"id": 1184,
+"name": "Popo Dandelion",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1185,
+"name": "Velociprey Lily",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1186,
+"name": "Monoblos Rose",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1187,
+"name": "Chameleos' Purse",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1188,
+"name": "Peach Clover",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1189,
+"name": "Gravibiscus",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1190,
+"name": "Shakalaka Ranka",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1191,
+"name": "Wyvern Grass",
+"rarity": 3,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1192,
+"name": "Glitter Mushroom",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1193,
+"name": "Shining Jellyfsh",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1194,
+"name": "Bright Mushroom",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1195,
+"name": "Glittr Capshroom",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1196,
+"name": "Skin Care Shroom",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1197,
+"name": "Beauty Shroom",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1198,
+"name": "ShimmeringShroom",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1199,
+"name": "Wyvernshroom",
+"rarity": 3,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1200,
+"name": "Blangonga Apple",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1201,
+"name": "Kelbi Nuts",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1202,
+"name": "Cephalos Wtrmeln",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1203,
+"name": "Khezu Seed",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1204,
+"name": "Writhe Nut",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1205,
+"name": "Basarios Peach",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1206,
+"name": "Shakalaka Squash",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1207,
+"name": "Lady Mackerel",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1208,
+"name": "Angler Snapper",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1209,
+"name": "Yokotuna",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1210,
+"name": "Nobunaga Bonito",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1211,
+"name": "Goldendrome",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1212,
+"name": "Amateratuna",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1213,
+"name": "Brilliant Aji",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1214,
+"name": "Chuck Mackerel",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1215,
+"name": "Victory Fish",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1216,
+"name": "Plump Goldenfish",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1217,
+"name": "Hideyoshi Ambrjk",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1218,
+"name": "Silverdrome",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1219,
+"name": "Susanofish",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1220,
+"name": "Pharr Yellowtail",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1221,
+"name": "Large Wyvernfish",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1222,
+"name": "Med Wyvernfish",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1223,
+"name": "Small Wyvernfish",
+"rarity": 3,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1224,
+"name": "Pickaxe Fish",
+"rarity": 3,
+"stack": 5,
+"value": 0
+},
+{
+"id": 1225,
+"name": "Bugnet Fish",
+"rarity": 3,
+"stack": 5,
+"value": 0
+},
+{
+"id": 1226,
+"name": "Cooler Fish",
+"rarity": 3,
+"stack": 5,
+"value": 0
+},
+{
+"id": 1227,
+"name": "Pokke Quartz",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1228,
+"name": "Telos Stone",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1229,
+"name": "Sekumaeya Pearl",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1230,
+"name": "Schradite",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1231,
+"name": "Minegarde Night",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1232,
+"name": "Lateobrium",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1233,
+"name": "Mezeporter Topaz",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1234,
+"name": "Furiamond",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1235,
+"name": "Jumboite",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1236,
+"name": "Dragokurium",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1237,
+"name": "Liber Ruby",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1238,
+"name": "Kokotoite",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1239,
+"name": "Dondorumin",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1240,
+"name": "GrtForestCrystal",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1241,
+"name": "Wyvern Ore",
+"rarity": 3,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1242,
+"name": "Pure Wyvern Ore",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1243,
+"name": "Pillow Bug",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1244,
+"name": "Cleopatris",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1245,
+"name": "GiantStagBeetle",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1246,
+"name": "Ghostly Cicada",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1247,
+"name": "Celeb Cicada",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1248,
+"name": "Athena Beetle",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1249,
+"name": "Hornfly Princess",
+"rarity": 6,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1250,
+"name": "Princess Scarab",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1251,
+"name": "Marilyn Btterfly",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1252,
+"name": "Cricket of Troy",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1253,
+"name": "Cutie Crawler",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1254,
+"name": "Lovely Locust",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1255,
+"name": "Killer Venus",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1256,
+"name": "Hornfly Prince",
+"rarity": 5,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1257,
+"name": "Rathian Fly",
+"rarity": 4,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1258,
+"name": "Rathalos Fly",
+"rarity": 3,
+"stack": 20,
+"value": 0
+},
+{
+"id": 1259,
+"name": "Embroidered Flag",
+"rarity": 3,
+"stack": 1,
+"value": 0
+}
+]

@@ -20,6 +20,3 @@ src/MhfuLookup.App/Assets/Items.bak-mh4g/
 src/MhfuLookup.App/Assets/Locations.bak-prev/
 src/MhfuLookup.App/Assets/Awards.bak-wiki/
 src/MhfuLookup.App/Assets/WeaponTypes.bak-wiki/
-
-# MSIX build output
-AppPackages/

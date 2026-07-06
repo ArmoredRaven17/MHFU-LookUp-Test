@@ -27,7 +27,7 @@ export default function AwardsPage() {
       {/* ── List panel ── */}
       <div style={{
         width: 240, minWidth: 240,
-        background: 'var(--surface)', borderRight: '1px solid var(--border)',
+        backgroundColor: 'var(--surface)', backgroundImage: `linear-gradient(rgba(var(--surface-rgb), 0.96), rgba(var(--surface-rgb), 0.96)), url(${BASE}/assets/Textures/surface_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         <SearchBox value={search} onChange={v => { setSearch(v); setSelected(null) }} placeholder="Search awards…" />
@@ -64,7 +64,7 @@ export default function AwardsPage() {
       </div>
 
       {/* ── Detail panel ── */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'var(--bg)' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
         {!selected
           ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 }}>Select an award from the list.</p>
           : <AwardDetail award={selected} />

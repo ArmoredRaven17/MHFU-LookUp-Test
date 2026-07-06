@@ -3,32 +3,45 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadDecorations } from '../data/loaders'
 import type { Decoration } from '../types'
 import SearchBox from '../components/SearchBox'
+import BookmarkButton from '../components/BookmarkButton'
+import MaterialList from '../components/MaterialList'
+import { BASE } from '../utils/assets'
 
-function signColor(n: number) {
-  return n > 0 ? 'var(--positive)' : n < 0 ? 'var(--negative)' : 'var(--muted)'
+const signStr = (n: number) => (n > 0 ? `+${n}` : `${n}`)
+const signColor = (n: number) => (n > 0 ? 'var(--positive)' : n < 0 ? 'var(--negative)' : 'var(--muted)')
+const decoIcon = (color: string) => `${BASE}/assets/Decorations/${color}.png`
+const slotBar = (n: number) => {
+  const k = Math.min(Math.max(n, 0), 3)
+  return 'O'.repeat(k) + '-'.repeat(3 - k)
 }
-function signStr(n: number) { return n > 0 ? `+${n}` : `${n}` }
 
-const SLOT_COLORS: Record<number, string> = { 1: '#6a8fbf', 2: '#9b6abf', 3: '#bf6a6a' }
+// Skill-name form for the "By skill" list: "<first positive skill> <slots> Jewel".
+function skillName(d: Decoration) {
+  const pos = d.skill_effects.find(s => s.points > 0)
+  return pos ? `${pos.skill_name} ${d.slot_cost} Jewel` : d.name
+}
+const skillsText = (d: Decoration) => d.skill_effects.map(s => `${s.skill_name} ${signStr(s.points)}`).join(', ')
 
 export default function DecorationsPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const [decos, setDecos] = useState<Decoration[]>([])
   const [search, setSearch] = useState('')
-  const [slotFilter, setSlotFilter] = useState(0)
+  const [bySkill, setBySkill] = useState(false)
 
   useEffect(() => { loadDecorations().then(setDecos) }, [])
 
+  const display = (d: Decoration) => (bySkill ? skillName(d) : d.name)
+
   const filtered = useMemo(() => {
-    let q = [...decos].sort((a, b) => a.name.localeCompare(b.name))
-    if (slotFilter > 0) q = q.filter(d => d.slot_cost === slotFilter)
-    if (search) q = q.filter(d =>
-      d.name.toLowerCase().includes(search.toLowerCase()) ||
-      d.skill_effects.some(s => s.skill_name.toLowerCase().includes(search.toLowerCase()))
-    )
-    return q
-  }, [decos, search, slotFilter])
+    const q = search.trim().toLowerCase()
+    return decos
+      .filter(d => !q
+        || d.name.toLowerCase().includes(q)
+        || skillName(d).toLowerCase().includes(q)
+        || skillsText(d).toLowerCase().includes(q))
+      .sort((a, b) => display(a).localeCompare(display(b)))
+  }, [decos, search, bySkill]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const selected = useMemo(() => decos.find(d => d.id === id) ?? null, [decos, id])
 
@@ -37,25 +50,21 @@ export default function DecorationsPage() {
       {/* ── List panel ── */}
       <div style={{
         width: 240, minWidth: 240,
-        background: 'var(--surface)', borderRight: '1px solid var(--border)',
+        backgroundColor: 'var(--surface)', backgroundImage: `linear-gradient(rgba(var(--surface-rgb), 0.96), rgba(var(--surface-rgb), 0.96)), url(${BASE}/assets/Textures/surface_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
-        {/* Slot filter tabs */}
-        <div style={{ display: 'flex', borderBottom: '1px solid var(--border)' }}>
-          {[0, 1, 2, 3].map(s => (
-            <button key={s} onClick={() => setSlotFilter(s)} style={{
-              flex: 1, padding: '4px 0', fontSize: 11, border: 'none', cursor: 'pointer',
-              background: slotFilter === s ? 'rgba(200,168,75,0.15)' : 'transparent',
-              color: slotFilter === s ? 'var(--accent)' : 'var(--muted)',
-              borderBottom: slotFilter === s ? '2px solid var(--accent)' : '2px solid transparent',
-              fontWeight: slotFilter === s ? 600 : 400,
-            }}>
-              {s === 0 ? 'All' : `${s}◇`}
-            </button>
-          ))}
-        </div>
-
         <SearchBox value={search} onChange={setSearch} placeholder="Search decorations…" />
+        <div style={{ padding: '0 8px 6px' }}>
+          <div style={{ display: 'flex', border: '1px solid var(--border)', borderRadius: 4, overflow: 'hidden' }}>
+            {['By name', 'By skill'].map((o, i) => (
+              <button key={o} onClick={() => setBySkill(i === 1)} style={{
+                flex: 1, padding: '3px 0', fontSize: 11, border: 'none', cursor: 'pointer',
+                background: (bySkill ? 1 : 0) === i ? 'var(--accent)' : 'transparent',
+                color: (bySkill ? 1 : 0) === i ? '#111' : 'var(--muted)', fontWeight: (bySkill ? 1 : 0) === i ? 600 : 400,
+              }}>{o}</button>
+            ))}
+          </div>
+        </div>
 
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {filtered.map(d => {
@@ -69,9 +78,11 @@ export default function DecorationsPage() {
                 color: active ? 'var(--accent)' : 'var(--text)',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13,
               }}>
-                <SlotDot slots={d.slot_cost} />
+                <img src={decoIcon(d.color)} alt="" width={20} height={20}
+                     style={{ objectFit: 'contain', flexShrink: 0 }}
+                     onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                 <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  {d.name}
+                  {display(d)}
                 </span>
               </button>
             )
@@ -83,9 +94,9 @@ export default function DecorationsPage() {
       </div>
 
       {/* ── Detail panel ── */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'var(--bg)' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
         {!selected
-          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 }}>Select a decoration from the list.</p>
+          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 }}>Select a decoration.</p>
           : <DecoDetail deco={selected} />
         }
       </div>
@@ -98,74 +109,50 @@ export default function DecorationsPage() {
 function DecoDetail({ deco: d }: { deco: Decoration }) {
   return (
     <div style={{ maxWidth: 600 }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-        <SlotDot slots={d.slot_cost} size={18} />
-        <div>
-          <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>{d.name}</h2>
-          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 12 }}>
-            {d.slot_cost}◇ slot · {d.color} · {d.cost}z
-          </p>
-        </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+        <img src={decoIcon(d.color)} alt="" width={32} height={32} style={{ objectFit: 'contain' }}
+             onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
+        <h2 style={{ margin: 0, color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>{d.name}</h2>
+        <BookmarkButton bookmark={{ type: 'decoration', id: d.id, name: d.name, path: `/decorations/${d.id}`, icon: decoIcon(d.color) }} />
       </div>
 
-      {/* Skill effects */}
-      <Section title="Skill Effects">
-        <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 400 }}>
-          <thead>
-            <tr>
-              <th className="tbl-header" style={{ textAlign: 'left' }}>Skill</th>
-              <th className="tbl-header" style={{ textAlign: 'right', width: 60 }}>Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            {d.skill_effects.map((sk, i) => (
-              <tr key={i} className="tbl-row">
-                <td className="tbl-cell">{sk.skill_name}</td>
-                <td className="tbl-cell" style={{
-                  textAlign: 'right', color: signColor(sk.points), fontWeight: 600,
-                }}>
-                  {signStr(sk.points)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Section>
+      {/* Skill effects (signed, coloured) */}
+      {d.skill_effects.length > 0 && (
+        <p style={{ margin: '0 0 6px' }}>
+          {d.skill_effects.map((s, i) => (
+            <span key={i} style={{ color: signColor(s.points) }}>
+              {i > 0 && <span style={{ color: 'var(--muted)' }}>, </span>}
+              {s.skill_name} {signStr(s.points)}
+            </span>
+          ))}
+        </p>
+      )}
+
+      {/* Slot badge */}
+      <span style={{
+        display: 'inline-block', background: 'var(--accent)', color: '#111', borderRadius: 3,
+        padding: '2px 8px', fontSize: 12, marginBottom: 12,
+      }}>
+        <span style={{ fontFamily: 'ui-monospace, monospace' }}>{slotBar(d.slot_cost)}</span>
+        {'  '}{d.slot_cost}-Slot Decoration
+      </span>
 
       {/* Recipes */}
       {d.recipes.length > 0 && (
-        <Section title={d.recipes.length > 1 ? `Recipes (${d.recipes.length})` : 'Recipe'}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <Section title="Recipes">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {d.recipes.map((recipe, ri) => (
-              <div key={ri} style={{
-                background: 'var(--surface)', borderRadius: 4, padding: '8px 10px',
-                border: '1px solid var(--border)',
-              }}>
-                {ri > 0 && <p style={{ margin: '0 0 4px', color: 'var(--muted)', fontSize: 10,
-                                       fontWeight: 600, textTransform: 'uppercase' }}>
-                  Alt Recipe {ri + 1}
-                </p>}
-                {recipe.map((mat, mi) => (
-                  <p key={mi} style={{ margin: 0, fontSize: 13 }}>{mat}</p>
-                ))}
+              <div key={ri}>
+                {d.recipes.length > 1 && (
+                  <p style={{ margin: '0 0 2px', color: 'var(--muted)', fontSize: 11 }}>Recipe {ri + 1}</p>
+                )}
+                <MaterialList csv={recipe.join(', ')} vertical />
               </div>
             ))}
           </div>
         </Section>
       )}
     </div>
-  )
-}
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-function SlotDot({ slots, size = 12 }: { slots: number; size?: number }) {
-  const color = SLOT_COLORS[slots] ?? 'var(--muted)'
-  return (
-    <span style={{
-      display: 'inline-block', width: size, height: size, borderRadius: '50%',
-      background: color, flexShrink: 0,
-    }} />
   )
 }
 

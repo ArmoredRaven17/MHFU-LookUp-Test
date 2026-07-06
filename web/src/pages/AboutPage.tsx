@@ -2,7 +2,7 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 export default function AboutPage() {
   return (
-    <div style={{ overflowY: 'auto', height: '100%', background: 'var(--bg)' }}>
+    <div style={{ overflowY: 'auto', height: '100%', background: 'transparent' }}>
       <div style={{ maxWidth: 720, padding: '24px 24px 40px', margin: '0 auto' }}>
 
         {/* Header */}

@@ -1,0 +1,8710 @@
+{
+"0": {
+"name": "Book of Combos 1",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1": {
+"name": "Book of Combos 2",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"2": {
+"name": "Book of Combos 3",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"3": {
+"name": "Book of Combos 4",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"4": {
+"name": "Book of Combos 5",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"5": {
+"name": "Alchemy Guide",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"6": {
+"name": "Potion",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 2,
+"color_name": "green"
+},
+"7": {
+"name": "Mega Potion",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 2,
+"color_name": "green"
+},
+"8": {
+"name": "Nutrients",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 6,
+"color_name": "cyan"
+},
+"9": {
+"name": "Mega Nutrients",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 6,
+"color_name": "cyan"
+},
+"10": {
+"name": "Antidote",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 3,
+"color_name": "blue"
+},
+"11": {
+"name": "Immunizer",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"12": {
+"name": "Power Juice",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"13": {
+"name": "Mega Juice",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"14": {
+"name": "Demondrug",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 1,
+"color_name": "red"
+},
+"15": {
+"name": "Mega Demondrug",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 1,
+"color_name": "red"
+},
+"16": {
+"name": "Power Pill",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"17": {
+"name": "Armorskin",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 7,
+"color_name": "purple"
+},
+"18": {
+"name": "Mega Armorskin",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 7,
+"color_name": "purple"
+},
+"19": {
+"name": "Armor Pill",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 7,
+"color_name": "purple"
+},
+"20": {
+"name": "Cool Drink",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 0,
+"color_name": "white/clear"
+},
+"21": {
+"name": "Hot Drink",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 1,
+"color_name": "red"
+},
+"22": {
+"name": "Thawing Agent",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 6,
+"color_name": "cyan"
+},
+"23": {
+"name": "Psychoserum",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 7,
+"color_name": "purple"
+},
+"24": {
+"name": "Monster Fluid",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 6,
+"color_name": "cyan"
+},
+"25": {
+"name": "Monster Broth",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 3,
+"color_name": "blue"
+},
+"26": {
+"name": "Monster Essence",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 3,
+"color_name": "blue"
+},
+"27": {
+"name": "Thunderbug Juice",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"28": {
+"name": "Thunderbug Jelly",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"29": {
+"name": "Herbal Medicine",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 0,
+"color_name": "white/clear"
+},
+"30": {
+"name": "Max Potion",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"31": {
+"name": "Ancient Potion",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"32": {
+"name": "Catalyst",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"33": {
+"name": "Energy Drink",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"34": {
+"name": "Gunpowder",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"35": {
+"name": "Lifecrystals",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 0,
+"color_name": "white/clear"
+},
+"36": {
+"name": "Lifepowder",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 0,
+"color_name": "white/clear"
+},
+"37": {
+"name": "Powercharm",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"38": {
+"name": "Powertalon",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"39": {
+"name": "Armorcharm",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 7,
+"color_name": "purple"
+},
+"40": {
+"name": "Armortalon",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 7,
+"color_name": "purple"
+},
+"41": {
+"name": "Tranquilizer",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 1,
+"color_name": "red"
+},
+"42": {
+"name": "Raw Meat",
+"shape": 3,
+"shape_name": "Meat",
+"color": 1,
+"color_name": "red"
+},
+"43": {
+"name": "Poisoned Meat",
+"shape": 3,
+"shape_name": "Meat",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"44": {
+"name": "Tainted Meat",
+"shape": 3,
+"shape_name": "Meat",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"45": {
+"name": "Drugged Meat",
+"shape": 3,
+"shape_name": "Meat",
+"color": 6,
+"color_name": "cyan"
+},
+"46": {
+"name": "Rare Steak",
+"shape": 3,
+"shape_name": "Meat",
+"color": 7,
+"color_name": "purple"
+},
+"47": {
+"name": "Well-Done Steak",
+"shape": 3,
+"shape_name": "Meat",
+"color": 7,
+"color_name": "purple"
+},
+"48": {
+"name": "Gourmet Steak",
+"shape": 3,
+"shape_name": "Meat",
+"color": 7,
+"color_name": "purple"
+},
+"49": {
+"name": "Burnt Meat",
+"shape": 3,
+"shape_name": "Meat",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"50": {
+"name": "Hot Meat",
+"shape": 3,
+"shape_name": "Meat",
+"color": 1,
+"color_name": "red"
+},
+"51": {
+"name": "Cold Meat",
+"shape": 3,
+"shape_name": "Meat",
+"color": 6,
+"color_name": "cyan"
+},
+"52": {
+"name": "Rare Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 6,
+"color_name": "cyan"
+},
+"53": {
+"name": "Gourmet Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 7,
+"color_name": "purple"
+},
+"54": {
+"name": "Gourmet Fish+",
+"shape": 5,
+"shape_name": "Fish",
+"color": 7,
+"color_name": "purple"
+},
+"55": {
+"name": "Burnt Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"56": {
+"name": "Boomerang",
+"shape": 49,
+"shape_name": "Boomerang",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"57": {
+"name": "Throwing Knife",
+"shape": 38,
+"shape_name": "Throwing Knife",
+"color": 0,
+"color_name": "white/clear"
+},
+"58": {
+"name": "Poison Thrw Knf",
+"shape": 38,
+"shape_name": "Throwing Knife",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"59": {
+"name": "Sleeping Thr Knf",
+"shape": 38,
+"shape_name": "Throwing Knife",
+"color": 6,
+"color_name": "cyan"
+},
+"60": {
+"name": "Paralyze Thr Knf",
+"shape": 38,
+"shape_name": "Throwing Knife",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"61": {
+"name": "Tranq Thrwng Knf",
+"shape": 38,
+"shape_name": "Throwing Knife",
+"color": 1,
+"color_name": "red"
+},
+"62": {
+"name": "Bomb Material",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 0,
+"color_name": "white/clear"
+},
+"63": {
+"name": "Paintball",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"64": {
+"name": "Flash Bomb",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"65": {
+"name": "Sonic Bomb",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"66": {
+"name": "Dung",
+"shape": 8,
+"shape_name": "Dung",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"67": {
+"name": "Wyvern Droppings",
+"shape": 8,
+"shape_name": "Dung",
+"color": 7,
+"color_name": "purple"
+},
+"68": {
+"name": "Dung Bomb",
+"shape": 8,
+"shape_name": "Dung",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"69": {
+"name": "Smoke Bomb",
+"shape": 0,
+"shape_name": "Smoke/Deodorant",
+"color": 0,
+"color_name": "white/clear"
+},
+"70": {
+"name": "Poison Smoke Bmb",
+"shape": 0,
+"shape_name": "Smoke/Deodorant",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"71": {
+"name": "Farcaster",
+"shape": 0,
+"shape_name": "Smoke/Deodorant",
+"color": 2,
+"color_name": "green"
+},
+"72": {
+"name": "Deodorant",
+"shape": 0,
+"shape_name": "Smoke/Deodorant",
+"color": 6,
+"color_name": "cyan"
+},
+"73": {
+"name": "Tranq Bomb",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 1,
+"color_name": "red"
+},
+"74": {
+"name": "Spiderweb",
+"shape": 22,
+"shape_name": "Web/Net",
+"color": 0,
+"color_name": "white/clear"
+},
+"75": {
+"name": "Net",
+"shape": 22,
+"shape_name": "Web/Net",
+"color": 0,
+"color_name": "white/clear"
+},
+"76": {
+"name": "Trap Tool",
+"shape": 6,
+"shape_name": "Trap Tool",
+"color": 2,
+"color_name": "green"
+},
+"77": {
+"name": "Pitfall Trap",
+"shape": 21,
+"shape_name": "Trap",
+"color": 2,
+"color_name": "green"
+},
+"78": {
+"name": "Shock Trap",
+"shape": 21,
+"shape_name": "Trap",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"79": {
+"name": "Lightning Rod",
+"shape": 21,
+"shape_name": "Trap",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"80": {
+"name": "Barrel Lid",
+"shape": 17,
+"shape_name": "Barrel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"81": {
+"name": "Small Barrel",
+"shape": 17,
+"shape_name": "Barrel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"82": {
+"name": "Large Barrel",
+"shape": 17,
+"shape_name": "Barrel",
+"color": 1,
+"color_name": "red"
+},
+"83": {
+"name": "Sm Barrel-Bomb",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"84": {
+"name": "Sm Barrel-Bomb+",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"85": {
+"name": "Lg Barrel-Bomb",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 1,
+"color_name": "red"
+},
+"86": {
+"name": "Lg Barrel-Bomb+",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 1,
+"color_name": "red"
+},
+"87": {
+"name": "Bounce Bomb",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 3,
+"color_name": "blue"
+},
+"88": {
+"name": "Bounce Bomb+",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 3,
+"color_name": "blue"
+},
+"89": {
+"name": "Anti-Dragon Bomb",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"92": {
+"name": "Huskberry",
+"shape": 28,
+"shape_name": "Husk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"93": {
+"name": "Sm Bone Husk",
+"shape": 28,
+"shape_name": "Husk",
+"color": 0,
+"color_name": "white/clear"
+},
+"94": {
+"name": "Lg Bone Husk",
+"shape": 28,
+"shape_name": "Husk",
+"color": 0,
+"color_name": "white/clear"
+},
+"95": {
+"name": "Normal S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"96": {
+"name": "Normal S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"97": {
+"name": "Normal S Lv3",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"98": {
+"name": "Pierce S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"99": {
+"name": "Pierce S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"100": {
+"name": "Pierce S Lv3",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"101": {
+"name": "Pellet S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"102": {
+"name": "Pellet S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"103": {
+"name": "Pellet S Lv3",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"104": {
+"name": "Crag S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"105": {
+"name": "Crag S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"106": {
+"name": "Crag S Lv3",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"107": {
+"name": "Clust S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"108": {
+"name": "Clust S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"109": {
+"name": "Clust S Lv3",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 0,
+"color_name": "white/clear"
+},
+"110": {
+"name": "Flaming S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 1,
+"color_name": "red"
+},
+"111": {
+"name": "Water S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 6,
+"color_name": "cyan"
+},
+"112": {
+"name": "Thunder S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"113": {
+"name": "Freeze S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 3,
+"color_name": "blue"
+},
+"114": {
+"name": "Dragon S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 1,
+"color_name": "red"
+},
+"115": {
+"name": "Recov S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 2,
+"color_name": "green"
+},
+"116": {
+"name": "Recov S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 2,
+"color_name": "green"
+},
+"117": {
+"name": "Poison S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"118": {
+"name": "Poison S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"119": {
+"name": "Para S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"120": {
+"name": "Para S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"121": {
+"name": "Sleep S Lv1",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 6,
+"color_name": "cyan"
+},
+"122": {
+"name": "Sleep S Lv2",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 6,
+"color_name": "cyan"
+},
+"123": {
+"name": "Tranq S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 1,
+"color_name": "red"
+},
+"124": {
+"name": "Paint S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"125": {
+"name": "Demon S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 1,
+"color_name": "red"
+},
+"126": {
+"name": "Armor S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 7,
+"color_name": "purple"
+},
+"127": {
+"name": "No Coating",
+"shape": 51,
+"shape_name": "Bottle",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"128": {
+"name": "Empty Bottle",
+"shape": 51,
+"shape_name": "Bottle",
+"color": 0,
+"color_name": "white/clear"
+},
+"129": {
+"name": "Power Coating",
+"shape": 50,
+"shape_name": "Coating",
+"color": 1,
+"color_name": "red"
+},
+"130": {
+"name": "Poison Coating",
+"shape": 50,
+"shape_name": "Coating",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"131": {
+"name": "ParalysisCoating",
+"shape": 50,
+"shape_name": "Coating",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"132": {
+"name": "Sleep Coating",
+"shape": 50,
+"shape_name": "Coating",
+"color": 6,
+"color_name": "cyan"
+},
+"133": {
+"name": "CloseRngCoating",
+"shape": 50,
+"shape_name": "Coating",
+"color": 0,
+"color_name": "white/clear"
+},
+"134": {
+"name": "Paint Coating",
+"shape": 50,
+"shape_name": "Coating",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"135": {
+"name": "Cricket",
+"shape": 4,
+"shape_name": "Bait",
+"color": 2,
+"color_name": "green"
+},
+"136": {
+"name": "Worm",
+"shape": 4,
+"shape_name": "Bait",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"137": {
+"name": "Firefly",
+"shape": 4,
+"shape_name": "Bait",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"138": {
+"name": "Frog",
+"shape": 4,
+"shape_name": "Bait",
+"color": 3,
+"color_name": "blue"
+},
+"139": {
+"name": "Tuna Bait",
+"shape": 4,
+"shape_name": "Bait",
+"color": 6,
+"color_name": "cyan"
+},
+"140": {
+"name": "Arrowana Bait",
+"shape": 4,
+"shape_name": "Bait",
+"color": 0,
+"color_name": "white/clear"
+},
+"141": {
+"name": "Goldenfish Bait",
+"shape": 4,
+"shape_name": "Bait",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"142": {
+"name": "Mega Fishing Fly",
+"shape": 4,
+"shape_name": "Bait",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"143": {
+"name": "Old Pickaxe",
+"shape": 16,
+"shape_name": "Pickaxe",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"144": {
+"name": "Iron Pickaxe",
+"shape": 16,
+"shape_name": "Pickaxe",
+"color": 0,
+"color_name": "white/clear"
+},
+"145": {
+"name": "Mega Pickaxe",
+"shape": 16,
+"shape_name": "Pickaxe",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"146": {
+"name": "Expand Pickaxe",
+"shape": 16,
+"shape_name": "Pickaxe",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"147": {
+"name": "Old Bugnet",
+"shape": 13,
+"shape_name": "Bugnet",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"148": {
+"name": "Bugnet",
+"shape": 13,
+"shape_name": "Bugnet",
+"color": 0,
+"color_name": "white/clear"
+},
+"149": {
+"name": "Mega Bugnet",
+"shape": 13,
+"shape_name": "Bugnet",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"150": {
+"name": "BBQ Spit",
+"shape": 19,
+"shape_name": "BBQ Spit",
+"color": 1,
+"color_name": "red"
+},
+"151": {
+"name": "Gourmet BBQ Spit",
+"shape": 19,
+"shape_name": "BBQ Spit",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"152": {
+"name": "Whetstone",
+"shape": 7,
+"shape_name": "Whetstone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"153": {
+"name": "Binoculars",
+"shape": 11,
+"shape_name": "Binoculars",
+"color": 0,
+"color_name": "white/clear"
+},
+"154": {
+"name": "Garbage",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"155": {
+"name": "Flute",
+"shape": 30,
+"shape_name": "Flute",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"156": {
+"name": "Health Flute",
+"shape": 30,
+"shape_name": "Flute",
+"color": 2,
+"color_name": "green"
+},
+"157": {
+"name": "Antidote Flute",
+"shape": 30,
+"shape_name": "Flute",
+"color": 3,
+"color_name": "blue"
+},
+"158": {
+"name": "Demon Flute",
+"shape": 30,
+"shape_name": "Flute",
+"color": 1,
+"color_name": "red"
+},
+"159": {
+"name": "Armor Flute",
+"shape": 30,
+"shape_name": "Flute",
+"color": 7,
+"color_name": "purple"
+},
+"160": {
+"name": "Honey",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 7,
+"color_name": "purple"
+},
+"161": {
+"name": "Sunset Herb",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"162": {
+"name": "Herb",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 2,
+"color_name": "green"
+},
+"163": {
+"name": "Antidote Herb",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 3,
+"color_name": "blue"
+},
+"164": {
+"name": "Fire Herb",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 1,
+"color_name": "red"
+},
+"165": {
+"name": "Ivy",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 2,
+"color_name": "green"
+},
+"166": {
+"name": "Sleep Herb",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 6,
+"color_name": "cyan"
+},
+"167": {
+"name": "Sap Plant",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 0,
+"color_name": "white/clear"
+},
+"168": {
+"name": "Felvine",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"169": {
+"name": "Cactus Flower",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"170": {
+"name": "Hot Pepper",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 1,
+"color_name": "red"
+},
+"171": {
+"name": "Dosbiscus",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 1,
+"color_name": "red"
+},
+"172": {
+"name": "Mountain Herbs",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 0,
+"color_name": "white/clear"
+},
+"173": {
+"name": "Giant Corn",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"174": {
+"name": "Special Mushroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 0,
+"color_name": "white/clear"
+},
+"175": {
+"name": "Select Mushroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 0,
+"color_name": "white/clear"
+},
+"176": {
+"name": "Blue Mushroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 3,
+"color_name": "blue"
+},
+"177": {
+"name": "Nitroshroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 1,
+"color_name": "red"
+},
+"178": {
+"name": "Parashroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"179": {
+"name": "Toadstool",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"180": {
+"name": "Exciteshroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"181": {
+"name": "Dragon Toadstool",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 1,
+"color_name": "red"
+},
+"182": {
+"name": "Spicy Mushroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 7,
+"color_name": "purple"
+},
+"183": {
+"name": "Chaos Mushroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"184": {
+"name": "Paintberry",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"185": {
+"name": "Power Seed",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 1,
+"color_name": "red"
+},
+"186": {
+"name": "Armor Seed",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 7,
+"color_name": "purple"
+},
+"187": {
+"name": "Dragon Seed",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 1,
+"color_name": "red"
+},
+"188": {
+"name": "Scatternut",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"189": {
+"name": "Needleberry",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"190": {
+"name": "Bomberry",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"191": {
+"name": "Tropical Berry",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 1,
+"color_name": "red"
+},
+"192": {
+"name": "Frozen Berry",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"193": {
+"name": "Red Seed",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 1,
+"color_name": "red"
+},
+"194": {
+"name": "Green Seed",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 2,
+"color_name": "green"
+},
+"195": {
+"name": "Yellow Seed",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"196": {
+"name": "Beautiful Shell",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"197": {
+"name": "Black Pearl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"198": {
+"name": "Giant Blk Pearl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"199": {
+"name": "Stone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"200": {
+"name": "Disk Stone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"201": {
+"name": "Iron Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"202": {
+"name": "Earth Crystal",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"203": {
+"name": "Machalite Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 3,
+"color_name": "blue"
+},
+"204": {
+"name": "Dragonite Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 2,
+"color_name": "green"
+},
+"205": {
+"name": "Carbalite Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"206": {
+"name": "Eltalite Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 1,
+"color_name": "red"
+},
+"207": {
+"name": "Union Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"208": {
+"name": "Mellanje Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"209": {
+"name": "Firestone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 1,
+"color_name": "red"
+},
+"210": {
+"name": "Firecell Stone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 7,
+"color_name": "purple"
+},
+"211": {
+"name": "Coal",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"212": {
+"name": "Goldstone Piece",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"213": {
+"name": "Goldstone Hunk",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"214": {
+"name": "Lightcrystal",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"215": {
+"name": "Novacrystal",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"216": {
+"name": "Purecrystal",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 6,
+"color_name": "cyan"
+},
+"217": {
+"name": "Antiseptic Stone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"218": {
+"name": "Ice Crystal",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 6,
+"color_name": "cyan"
+},
+"219": {
+"name": "Rainbow Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"220": {
+"name": "Great Stone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"221": {
+"name": "Armor Stone",
+"shape": 55,
+"shape_name": "Armor Sphere",
+"color": 0,
+"color_name": "white/clear"
+},
+"222": {
+"name": "Armor Sphere",
+"shape": 55,
+"shape_name": "Armor Sphere",
+"color": 3,
+"color_name": "blue"
+},
+"223": {
+"name": "Armor Sphere+",
+"shape": 55,
+"shape_name": "Armor Sphere",
+"color": 2,
+"color_name": "green"
+},
+"224": {
+"name": "Hrd Armor Sphere",
+"shape": 55,
+"shape_name": "Armor Sphere",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"225": {
+"name": "Hvy Armor Sphere",
+"shape": 55,
+"shape_name": "Armor Sphere",
+"color": 1,
+"color_name": "red"
+},
+"226": {
+"name": "Ryl Armor Sphere",
+"shape": 55,
+"shape_name": "Armor Sphere",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"227": {
+"name": "Tru Armor Sphere",
+"shape": 55,
+"shape_name": "Armor Sphere",
+"color": 6,
+"color_name": "cyan"
+},
+"228": {
+"name": "Knife Mackerel",
+"shape": 5,
+"shape_name": "Fish",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"229": {
+"name": "Sushifish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 7,
+"color_name": "purple"
+},
+"230": {
+"name": "Sleepyfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 6,
+"color_name": "cyan"
+},
+"231": {
+"name": "Pin Tuna",
+"shape": 5,
+"shape_name": "Fish",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"232": {
+"name": "Rumblefish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"233": {
+"name": "Scatterfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"234": {
+"name": "Burst Arrowana",
+"shape": 5,
+"shape_name": "Fish",
+"color": 2,
+"color_name": "green"
+},
+"235": {
+"name": "Bomb Arrowana",
+"shape": 5,
+"shape_name": "Fish",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"236": {
+"name": "Glutton Tuna",
+"shape": 5,
+"shape_name": "Fish",
+"color": 7,
+"color_name": "purple"
+},
+"237": {
+"name": "Gastronome Tuna",
+"shape": 5,
+"shape_name": "Fish",
+"color": 7,
+"color_name": "purple"
+},
+"238": {
+"name": "Speartuna",
+"shape": 5,
+"shape_name": "Fish",
+"color": 3,
+"color_name": "blue"
+},
+"239": {
+"name": "Small Goldenfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"240": {
+"name": "Goldenfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"241": {
+"name": "Silverfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 0,
+"color_name": "white/clear"
+},
+"242": {
+"name": "Ancient Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"243": {
+"name": "Springnight Carp",
+"shape": 5,
+"shape_name": "Fish",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"244": {
+"name": "Tailed Frog",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 6,
+"color_name": "cyan"
+},
+"245": {
+"name": "Insect Husk",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"246": {
+"name": "Yambug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 3,
+"color_name": "blue"
+},
+"247": {
+"name": "Bughopper",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 0,
+"color_name": "white/clear"
+},
+"248": {
+"name": "Snakebee Larva",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 7,
+"color_name": "purple"
+},
+"249": {
+"name": "Godbug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 0,
+"color_name": "white/clear"
+},
+"250": {
+"name": "Bitterbug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 3,
+"color_name": "blue"
+},
+"251": {
+"name": "Flashbug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"252": {
+"name": "Thunderbug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"253": {
+"name": "Carpenterbug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"254": {
+"name": "King Scarab",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"255": {
+"name": "Emperor Cricket",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 7,
+"color_name": "purple"
+},
+"256": {
+"name": "Killer Beetle",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 2,
+"color_name": "green"
+},
+"257": {
+"name": "Hercudrome",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 1,
+"color_name": "red"
+},
+"258": {
+"name": "Rare Scarab",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"259": {
+"name": "PhantomButterfly",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 0,
+"color_name": "white/clear"
+},
+"260": {
+"name": "Royal Rhino",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 6,
+"color_name": "cyan"
+},
+"261": {
+"name": "Divine Rhino",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 6,
+"color_name": "cyan"
+},
+"262": {
+"name": "Rainbow Insect",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"263": {
+"name": "Great Hornfly",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"264": {
+"name": "Great Ladybug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 1,
+"color_name": "red"
+},
+"265": {
+"name": "Screamer",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"266": {
+"name": "Poison Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"267": {
+"name": "Toxin Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"268": {
+"name": "DeadlyPoisonSac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"269": {
+"name": "Paralysis Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"270": {
+"name": "Sleep Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 3,
+"color_name": "blue"
+},
+"271": {
+"name": "Coma Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 3,
+"color_name": "blue"
+},
+"272": {
+"name": "Flame Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"273": {
+"name": "Inferno Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"274": {
+"name": "Blazing Fire Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"275": {
+"name": "Electro Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"276": {
+"name": "Thunder Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"277": {
+"name": "Lightning Sac",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"278": {
+"name": "Power Extract",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 3,
+"color_name": "blue"
+},
+"279": {
+"name": "Pale Extract",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 3,
+"color_name": "blue"
+},
+"280": {
+"name": "Sm Monster Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"281": {
+"name": "Med Monster Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"282": {
+"name": "Lg Monster Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"283": {
+"name": "Monster Bone+",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 7,
+"color_name": "purple"
+},
+"284": {
+"name": "Hrd Monster Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 1,
+"color_name": "red"
+},
+"285": {
+"name": "Hvy Monster Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"286": {
+"name": "Eldr Dragon Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"287": {
+"name": "BigEDragonBone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"288": {
+"name": "Mystery Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"289": {
+"name": "Unknown Skull",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"290": {
+"name": "Master's Skull",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 0,
+"color_name": "white/clear"
+},
+"291": {
+"name": "Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 0,
+"color_name": "white/clear"
+},
+"292": {
+"name": "RobustWyvernBone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 6,
+"color_name": "cyan"
+},
+"293": {
+"name": "Brute Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 0,
+"color_name": "white/clear"
+},
+"294": {
+"name": "Giant Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 0,
+"color_name": "white/clear"
+},
+"295": {
+"name": "Stout Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 0,
+"color_name": "white/clear"
+},
+"296": {
+"name": "Massive Bone",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 0,
+"color_name": "white/clear"
+},
+"297": {
+"name": "Wyvern Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"298": {
+"name": "Wyvern Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"299": {
+"name": "Wyvern Stone",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 6,
+"color_name": "cyan"
+},
+"300": {
+"name": "Big Wyvern Stone",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 3,
+"color_name": "blue"
+},
+"301": {
+"name": "BigEDragonJewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"302": {
+"name": "White Liver",
+"shape": 3,
+"shape_name": "Meat",
+"color": 0,
+"color_name": "white/clear"
+},
+"303": {
+"name": "Popo Tongue",
+"shape": 3,
+"shape_name": "Meat",
+"color": 1,
+"color_name": "red"
+},
+"304": {
+"name": "Secret Pouch",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 2,
+"color_name": "green"
+},
+"305": {
+"name": "CarapaceonBrains",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 7,
+"color_name": "purple"
+},
+"306": {
+"name": "CarapaceonBrain+",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 7,
+"color_name": "purple"
+},
+"307": {
+"name": "Piscine Liver",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"308": {
+"name": "Wyvern Tears",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"309": {
+"name": "Wyvern Sobs",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"310": {
+"name": "Territorial Dung",
+"shape": 8,
+"shape_name": "Dung",
+"color": 7,
+"color_name": "purple"
+},
+"311": {
+"name": "TerritorialDung+",
+"shape": 8,
+"shape_name": "Dung",
+"color": 7,
+"color_name": "purple"
+},
+"312": {
+"name": "Crab Pearl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"313": {
+"name": "Crab Pearl+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"314": {
+"name": "Dragon Treasure",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"315": {
+"name": "Anc Drgn Treasre",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"316": {
+"name": "Decayed Drgn Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"317": {
+"name": "Dragon Herb",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"318": {
+"name": "Felyne Fur Ruby",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"319": {
+"name": "Mosswine Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"320": {
+"name": "Bullfango Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 7,
+"color_name": "purple"
+},
+"321": {
+"name": "ThkBullfangoPelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 7,
+"color_name": "purple"
+},
+"322": {
+"name": "Bullfango Head",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 7,
+"color_name": "purple"
+},
+"323": {
+"name": "Bulldrome Tusk",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"324": {
+"name": "Bulldrome Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"325": {
+"name": "Bulldrome Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"326": {
+"name": "Kelbi Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"327": {
+"name": "Kelbi Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 3,
+"color_name": "blue"
+},
+"328": {
+"name": "Anteka Antlers",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 7,
+"color_name": "purple"
+},
+"329": {
+"name": "Anteka Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 7,
+"color_name": "purple"
+},
+"330": {
+"name": "High Qualty Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 7,
+"color_name": "purple"
+},
+"331": {
+"name": "Remobra Skin",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"332": {
+"name": "Remobra Skin+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"333": {
+"name": "SpecRemobraSkin+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"334": {
+"name": "Striped Skin",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"335": {
+"name": "Remobra Skull",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"336": {
+"name": "ShakalakaTreasre",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 7,
+"color_name": "purple"
+},
+"337": {
+"name": "ShakalakaTreasr+",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 7,
+"color_name": "purple"
+},
+"338": {
+"name": "ShakaInheritance",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 7,
+"color_name": "purple"
+},
+"339": {
+"name": "Giaprey Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 0,
+"color_name": "white/clear"
+},
+"340": {
+"name": "Giaprey Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 0,
+"color_name": "white/clear"
+},
+"341": {
+"name": "Giaprey Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"342": {
+"name": "Giaprey Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"343": {
+"name": "Giadrome Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"344": {
+"name": "Giadrome Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"345": {
+"name": "Giadrome Claw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"346": {
+"name": "Giadrome Skull",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"347": {
+"name": "Velociprey Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"348": {
+"name": "Velociprey Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"349": {
+"name": "Velociprey Scle+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"350": {
+"name": "Velociprey Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 3,
+"color_name": "blue"
+},
+"351": {
+"name": "Velociprey Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 3,
+"color_name": "blue"
+},
+"352": {
+"name": "Velocidrome Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 3,
+"color_name": "blue"
+},
+"353": {
+"name": "Velocidrome Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"354": {
+"name": "Velocidrome Clw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"355": {
+"name": "Velocidrome Head",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"356": {
+"name": "Genprey Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 2,
+"color_name": "green"
+},
+"357": {
+"name": "Genprey Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"358": {
+"name": "Genprey Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"359": {
+"name": "Genprey Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 2,
+"color_name": "green"
+},
+"360": {
+"name": "Genprey Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 2,
+"color_name": "green"
+},
+"361": {
+"name": "Gendrome Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 2,
+"color_name": "green"
+},
+"362": {
+"name": "Gendrome Tail",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 2,
+"color_name": "green"
+},
+"363": {
+"name": "Gendrome Skull",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"364": {
+"name": "Ioprey Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"365": {
+"name": "Ioprey Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"366": {
+"name": "Ioprey Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"367": {
+"name": "Ioprey Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 1,
+"color_name": "red"
+},
+"368": {
+"name": "Ioprey Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 1,
+"color_name": "red"
+},
+"369": {
+"name": "Iodrome Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 1,
+"color_name": "red"
+},
+"370": {
+"name": "Iodrome Skull",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"371": {
+"name": "OrangeHypnoPelt",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 7,
+"color_name": "purple"
+},
+"372": {
+"name": "OrangeHypnoPelt+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 7,
+"color_name": "purple"
+},
+"373": {
+"name": "Top-GrdHypnoClaw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 7,
+"color_name": "purple"
+},
+"374": {
+"name": "Hypno Claw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 7,
+"color_name": "purple"
+},
+"375": {
+"name": "Hypno Bezoar",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"376": {
+"name": "Hypno Bezoar+",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"377": {
+"name": "Hypno Beak",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 7,
+"color_name": "purple"
+},
+"378": {
+"name": "Hypno Fang",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 7,
+"color_name": "purple"
+},
+"379": {
+"name": "RainbowTailFeath",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 7,
+"color_name": "purple"
+},
+"380": {
+"name": "Hypno Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 7,
+"color_name": "purple"
+},
+"381": {
+"name": "Kut-Ku Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"382": {
+"name": "Kut-Ku Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"383": {
+"name": "Thick Kut-Ku Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"384": {
+"name": "Kut-Ku Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"385": {
+"name": "Kut-Ku Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"386": {
+"name": "Hvy Kut-Ku Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"387": {
+"name": "Kut-Ku Ear",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"388": {
+"name": "Long Kut-Ku Ear",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"389": {
+"name": "Lucky Kut-Ku Ear",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"390": {
+"name": "Giant Beak",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"391": {
+"name": "Splendid Beak",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"392": {
+"name": "Kut-Ku Webbing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"393": {
+"name": "Str Kut-Ku Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"394": {
+"name": "Blue Kut-Ku Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"395": {
+"name": "Blue Kut-Ku Scl+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"396": {
+"name": "ThkBlueKut-KuScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"397": {
+"name": "Blue Kut-Ku Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"398": {
+"name": "Blue Kut-Ku Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"399": {
+"name": "HvyBlueKut-KuShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"400": {
+"name": "Rubbery Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 3,
+"color_name": "blue"
+},
+"401": {
+"name": "Rubbery Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 3,
+"color_name": "blue"
+},
+"402": {
+"name": "SpecRubberyHide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 3,
+"color_name": "blue"
+},
+"403": {
+"name": "Gypceros Head",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"404": {
+"name": "HardGypcerosHead",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"405": {
+"name": "Pur Rubbery Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"406": {
+"name": "Pur Gypceros Wng",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"407": {
+"name": "HrdPuGypcerosWng",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"408": {
+"name": "Garuga Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"409": {
+"name": "Garuga Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"410": {
+"name": "ThickGarugaScale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"411": {
+"name": "Garuga Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"412": {
+"name": "Garuga Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"413": {
+"name": "Hvy Garuga Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"414": {
+"name": "Garuga Ear",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"415": {
+"name": "Long Garuga Ear",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"416": {
+"name": "Sharpened Beak",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"417": {
+"name": "Rejuvenated Beak",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"418": {
+"name": "Garuga Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"419": {
+"name": "Str Garuga Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"420": {
+"name": "Garuga Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"421": {
+"name": "LethrGarugaTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"422": {
+"name": "Garuga Mane",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"423": {
+"name": "SilverGarugaPelt",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"424": {
+"name": "Blango Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"425": {
+"name": "Blango Pelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"426": {
+"name": "Sharp Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"427": {
+"name": "Piercing Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"428": {
+"name": "Blangonga Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"429": {
+"name": "Blangonga Fang+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"430": {
+"name": "HvyBlangongaFang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"431": {
+"name": "Blangonga Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"432": {
+"name": "Blangonga Pelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"433": {
+"name": "HrdBlangongaPlt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"434": {
+"name": "Blangonga Whiskr",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"435": {
+"name": "Lthr Pelagus Plt",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"436": {
+"name": "Blangonga Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"437": {
+"name": "LeathrBlangoTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"438": {
+"name": "C.BlangongaPelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 7,
+"color_name": "purple"
+},
+"439": {
+"name": "HvyC.BlangoFang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 7,
+"color_name": "purple"
+},
+"440": {
+"name": "LthrC.BlangoTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 7,
+"color_name": "purple"
+},
+"441": {
+"name": "Conga Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"442": {
+"name": "Conga Pelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"443": {
+"name": "Congalala Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"444": {
+"name": "Congalala Pelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"445": {
+"name": "HrdCongalalaPlt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"446": {
+"name": "Vibrant Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"447": {
+"name": "Congalala Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"448": {
+"name": "Congalala Claw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"449": {
+"name": "HrdCongalalaClw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"450": {
+"name": "Congalala Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"451": {
+"name": "Lg Pelagus Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"452": {
+"name": "E.CongalalaPelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 2,
+"color_name": "green"
+},
+"453": {
+"name": "HrdE.CongaClaw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 2,
+"color_name": "green"
+},
+"454": {
+"name": "Vibrant Comb",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 7,
+"color_name": "purple"
+},
+"455": {
+"name": "Rajang Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"456": {
+"name": "Hard Rajang Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"457": {
+"name": "Rajang Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"458": {
+"name": "Hvy Rajang Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"459": {
+"name": "Blk Rajang Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"460": {
+"name": "Blk Rajang Pelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"461": {
+"name": "Rajang Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"462": {
+"name": "Hard Rajang Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"463": {
+"name": "Rajang Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"465": {
+"name": "Gold Rajang Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"466": {
+"name": "GoldRajangPelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"467": {
+"name": "Piscine Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"468": {
+"name": "HvyPiscineFang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"469": {
+"name": "Plesioth Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"470": {
+"name": "Plesioth Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"471": {
+"name": "ThckPlesiothScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"472": {
+"name": "Plesioth Fin",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"473": {
+"name": "Plesioth Fin+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"474": {
+"name": "SpecPlesiothFin+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"475": {
+"name": "Grn Plesioth Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"476": {
+"name": "Grn Plsioth Scl+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"477": {
+"name": "ThckGrnPlesioScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"478": {
+"name": "Grn Plesioth Fin",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"479": {
+"name": "Grn Plsioth Fin+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"480": {
+"name": "SpecGrnPlesioFn+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"481": {
+"name": "Cephalos Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 6,
+"color_name": "cyan"
+},
+"482": {
+"name": "Cephalos Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 6,
+"color_name": "cyan"
+},
+"483": {
+"name": "Cephalos Fin",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 6,
+"color_name": "cyan"
+},
+"484": {
+"name": "Cephalos Fin+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 6,
+"color_name": "cyan"
+},
+"485": {
+"name": "Coral Cphlos Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"486": {
+"name": "Coral Cphlos Fin",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"487": {
+"name": "ThckLavasiothScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"488": {
+"name": "HvyLavasiothShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"489": {
+"name": "HvyLavasiothFang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"490": {
+"name": "SpecLavasioFin+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"491": {
+"name": "Lavasioth Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"492": {
+"name": "Wyvern Skull Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"493": {
+"name": "Sm Hermitaur Shl",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 1,
+"color_name": "red"
+},
+"494": {
+"name": "Hermitaur Shell",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 1,
+"color_name": "red"
+},
+"495": {
+"name": "Hermitaur Carpce",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 1,
+"color_name": "red"
+},
+"496": {
+"name": "HvyHermitaurShl",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 1,
+"color_name": "red"
+},
+"497": {
+"name": "Hermitaur Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"498": {
+"name": "Hermitaur Claw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"499": {
+"name": "HrdHermitaurClaw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"500": {
+"name": "PlumD.HermitrShl",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"501": {
+"name": "PlumD.HermitrClw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"502": {
+"name": "Sm Ceanataur Shl",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 3,
+"color_name": "blue"
+},
+"503": {
+"name": "Ceanataur Shell",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 3,
+"color_name": "blue"
+},
+"504": {
+"name": "Ceanataur Carpce",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 3,
+"color_name": "blue"
+},
+"505": {
+"name": "HvyCeanataurShl",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 3,
+"color_name": "blue"
+},
+"506": {
+"name": "Ceanataur Leg",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 3,
+"color_name": "blue"
+},
+"507": {
+"name": "HvyCeanataurLeg",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 3,
+"color_name": "blue"
+},
+"508": {
+"name": "Ceanataur Pincer",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 3,
+"color_name": "blue"
+},
+"509": {
+"name": "Ceanataur Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"510": {
+"name": "Ceanataur Claw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"511": {
+"name": "HrdCeanataurClaw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"512": {
+"name": "TerraCeanatrShl",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 7,
+"color_name": "purple"
+},
+"513": {
+"name": "TerraCeanatrClaw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 7,
+"color_name": "purple"
+},
+"514": {
+"name": "Sm Lobstershell",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"515": {
+"name": "Lg Lobstershell",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"516": {
+"name": "Gt Lobstershell",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"519": {
+"name": "Rathian Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"520": {
+"name": "Rathian Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"521": {
+"name": "ThckRathianScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"522": {
+"name": "Rathian Plate",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 2,
+"color_name": "green"
+},
+"523": {
+"name": "Rathian Ruby",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 2,
+"color_name": "green"
+},
+"524": {
+"name": "HvnlyRathianScl",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 2,
+"color_name": "green"
+},
+"525": {
+"name": "Rathian Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"526": {
+"name": "Rathian Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"527": {
+"name": "HvyRathianShell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"528": {
+"name": "Rathian Spike",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"529": {
+"name": "Rathian Spike+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"530": {
+"name": "Rathian Thorn",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"531": {
+"name": "Pnk Rathian Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"532": {
+"name": "Pnk Rathian Scl+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"533": {
+"name": "ThckPnkRathnScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"534": {
+"name": "Pnk Rathian Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"535": {
+"name": "Pnk Rathian Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"536": {
+"name": "HvyPnkRathianShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"537": {
+"name": "Gld Rathian Scl+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"538": {
+"name": "ThckGldRathnScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"539": {
+"name": "Gld Rathian Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"540": {
+"name": "HvyGldRathianShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"541": {
+"name": "GoldRathianThorn",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"542": {
+"name": "Fire Wyvern Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"543": {
+"name": "HrdFireWyvernClw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"544": {
+"name": "FireWyvern Fluid",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"545": {
+"name": "FireWyvrn Marrow",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"546": {
+"name": "FireWyvrn BrnStm",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"547": {
+"name": "Rathalos Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"548": {
+"name": "Rathalos Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"549": {
+"name": "Hrd Rathalos Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"550": {
+"name": "Rathalos Plate",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"551": {
+"name": "Rathalos Ruby",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 1,
+"color_name": "red"
+},
+"552": {
+"name": "HvnlyRathalosScl",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 1,
+"color_name": "red"
+},
+"553": {
+"name": "Rathalos Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"554": {
+"name": "Rathalos Carpace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"555": {
+"name": "HvyRathalosShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"556": {
+"name": "Rathalos Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"557": {
+"name": "LthrRathalosTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"558": {
+"name": "Rathalos Webbing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 1,
+"color_name": "red"
+},
+"559": {
+"name": "Rathalos Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"560": {
+"name": "StrRathalosWing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"561": {
+"name": "Azure Rthlos Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"562": {
+"name": "Azre Rthlos Scl+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"563": {
+"name": "ThckAzurRthlsScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 3,
+"color_name": "blue"
+},
+"564": {
+"name": "Azure Rthlos Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"565": {
+"name": "Azure Rthlos Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"566": {
+"name": "HvyAzurRthlsShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"567": {
+"name": "Azur Rthlos Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"568": {
+"name": "LthrAzrRthlsTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"569": {
+"name": "Azur Rthlos Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"570": {
+"name": "Slvr Rthlos Scl+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 0,
+"color_name": "white/clear"
+},
+"571": {
+"name": "ThckSlvrRthlsScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 0,
+"color_name": "white/clear"
+},
+"572": {
+"name": "Slvr Rthlos Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"573": {
+"name": "HvySlvrRthlsShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"574": {
+"name": "Slvr Rthlos Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"575": {
+"name": "LthrSlvrRthlsTal",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"576": {
+"name": "Slvr Rthlos Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"577": {
+"name": "Flabby Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"578": {
+"name": "Khezu Hide - Tan",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"579": {
+"name": "KhezuHide-Cream",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"580": {
+"name": "Pale Bone",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"581": {
+"name": "Pale Khezu Steak",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"582": {
+"name": "KhezuSpecialCut",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"583": {
+"name": "Alluring Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"584": {
+"name": "Alluring Webbing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"585": {
+"name": "StrAlluringWing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"586": {
+"name": "Basarios Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"587": {
+"name": "Basarios Carpace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"588": {
+"name": "HvyBasariosShell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"589": {
+"name": "Basarios Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"590": {
+"name": "StrBasariosWing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"591": {
+"name": "Basarios Tears",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"592": {
+"name": "Tigrex Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"593": {
+"name": "Tigrex Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"594": {
+"name": "ThickTigrexScale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"595": {
+"name": "HvnlyTigrexScale",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"596": {
+"name": "Tigrex Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"597": {
+"name": "Tigrex Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"598": {
+"name": "Hvy Tigrex Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"599": {
+"name": "Tigrex Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"600": {
+"name": "LeathrTigrexTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"601": {
+"name": "Tigrex Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"602": {
+"name": "Tigrex Claw+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"603": {
+"name": "Hard Tigrex Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"604": {
+"name": "Tigrex Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"605": {
+"name": "Tigrex Fang+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"606": {
+"name": "Hvy Tigrex Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"607": {
+"name": "Tigrex Skull Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"608": {
+"name": "Narga Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"609": {
+"name": "ThickNargaScale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"610": {
+"name": "HvnlyNargaScale",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"611": {
+"name": "Black Narga Pelt",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"612": {
+"name": "BlackNargaPelt+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"613": {
+"name": "Nargacuga Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"614": {
+"name": "LeatherNargaTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"615": {
+"name": "Narga Tail Spike",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"616": {
+"name": "HvyNargaTailSpik",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"617": {
+"name": "NargaCuttingWing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"618": {
+"name": "StrNargaCttngWng",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"619": {
+"name": "Nargacuga Fang+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"620": {
+"name": "HvyNargacugaFang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"621": {
+"name": "Narga Brain Stem",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"622": {
+"name": "Gravios Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"623": {
+"name": "Gravios Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"624": {
+"name": "HvyGraviosShell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"625": {
+"name": "HvnlyGraviosShl",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 0,
+"color_name": "white/clear"
+},
+"626": {
+"name": "Gravios Skl Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"627": {
+"name": "Gravios BrainStm",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"628": {
+"name": "Blk Gravios Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"629": {
+"name": "Blk Gravios Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"630": {
+"name": "HvyBlkGraviosShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"631": {
+"name": "HvnlyBlkGraviShl",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"632": {
+"name": "Blk Gravios Skl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"633": {
+"name": "Twisted Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"634": {
+"name": "Majestic Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"635": {
+"name": "StoutWarpedHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"636": {
+"name": "Diablos Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"637": {
+"name": "Diablos Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"638": {
+"name": "HvyDiablosShell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"639": {
+"name": "Diablos Spine",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"640": {
+"name": "Diablos Thoracic",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"641": {
+"name": "HvyDiablosSpine",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"642": {
+"name": "Diablos Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"643": {
+"name": "LthrDiablosTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"644": {
+"name": "Blos Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"645": {
+"name": "TwstBlkBlosHrn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"646": {
+"name": "StoutBlkTwstdHrn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"647": {
+"name": "Black Blos Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"648": {
+"name": "Black Blos Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"649": {
+"name": "HvyBlkBlosShell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"650": {
+"name": "Black Blos Spine",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"651": {
+"name": "Blk Blos Thracic",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"652": {
+"name": "HvyBlkBlosSpine",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"653": {
+"name": "Black Blos Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"654": {
+"name": "LthrBlkBlosTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"655": {
+"name": "Vespoid Abdomen",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"656": {
+"name": "VespoidQn'sCrown",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"657": {
+"name": "Vespoid Shell",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"658": {
+"name": "Vespoid Carapace",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"659": {
+"name": "Vespoid Wing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"660": {
+"name": "Vespoid InnrWng",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"661": {
+"name": "Vspoid Razorwing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"662": {
+"name": "Hornetaur Shell",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"663": {
+"name": "Hornetaur Crapce",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"664": {
+"name": "Hornetaur Head",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"665": {
+"name": "Hornetaur Wing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"666": {
+"name": "HornetaurInnrWng",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"667": {
+"name": "Hornet Razorwing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"668": {
+"name": "Blood Red Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"669": {
+"name": "Top-GrdRedHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"670": {
+"name": "Monoblos Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"671": {
+"name": "MonoblosCarapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"672": {
+"name": "Monoblos Spine",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"673": {
+"name": "MonoblosThoracic",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"674": {
+"name": "Monoblos Heart",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"675": {
+"name": "Wht Monoblos Hrn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"676": {
+"name": "Top-GrdPlatHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"677": {
+"name": "Wht Monoblos Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"678": {
+"name": "Wht Monoblos Cpc",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"679": {
+"name": "Wht Monoblos Spn",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"680": {
+"name": "WhtMonoblosThora",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"681": {
+"name": "Kirin Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"682": {
+"name": "Kirin Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"683": {
+"name": "Kirin Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"684": {
+"name": "SpecialKirinHide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 0,
+"color_name": "white/clear"
+},
+"685": {
+"name": "Kirin Mane",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"686": {
+"name": "Platinum Mane",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"687": {
+"name": "Kirin Thndr Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"688": {
+"name": "LthrKirinThndrTl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"689": {
+"name": "Kirin Azure Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"690": {
+"name": "Lao-Shan's Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"691": {
+"name": "Lao-Shan's Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"692": {
+"name": "Lao-Shan's Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"693": {
+"name": "Lao-Shan Scale+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"694": {
+"name": "Lao-Shan'sThkScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"695": {
+"name": "Lao-Shan's Ruby",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 1,
+"color_name": "red"
+},
+"696": {
+"name": "Lao-ShanHvnlyScl",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 1,
+"color_name": "red"
+},
+"697": {
+"name": "Lao-Shan's Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"698": {
+"name": "Lao-ShanCarapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"699": {
+"name": "Lao-Shan'sHvyShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"700": {
+"name": "Azure LaoS Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"701": {
+"name": "Azure LaoS Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"702": {
+"name": "Azure LaoS Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"703": {
+"name": "Gaoren Shell",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"704": {
+"name": "Gaoren Carapace",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"705": {
+"name": "HvyGaorenShell",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"706": {
+"name": "HvnlyGaorenShell",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"707": {
+"name": "Gaoren Spine",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"708": {
+"name": "Gaoren Thoracic",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"709": {
+"name": "Hvy Gaoren Spine",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"710": {
+"name": "Gaoren Pincer",
+"shape": 52,
+"shape_name": "Carapace",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"711": {
+"name": "Gaoren Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"712": {
+"name": "Hard Gaoren Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"713": {
+"name": "Daora Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"714": {
+"name": "Daora Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"715": {
+"name": "Hvy Daora Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"716": {
+"name": "DaoraDragonScale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"717": {
+"name": "DaoraDragonScal+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"718": {
+"name": "ThckDaoraDrgnScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"719": {
+"name": "Daora Webbing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"720": {
+"name": "Str Daora Wing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"721": {
+"name": "Daora Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"722": {
+"name": "Hard Daora Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"723": {
+"name": "Daora Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"724": {
+"name": "Lthr Daora Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"725": {
+"name": "Daora Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"726": {
+"name": "Daora Sharp Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"727": {
+"name": "Daora Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"728": {
+"name": "Chameleos Hide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"729": {
+"name": "Chameleos Hide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"730": {
+"name": "SpecChameleHide+",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"731": {
+"name": "Chameleos Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"732": {
+"name": "Chameleos Spike",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"733": {
+"name": "HrdChameleosHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"734": {
+"name": "Chameleos Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"735": {
+"name": "ChameleosWebbing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"736": {
+"name": "StrChameleosWing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"737": {
+"name": "Chameleos Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"738": {
+"name": "LthrChameleoTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"739": {
+"name": "Chameleos Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"740": {
+"name": "Fire Dragon Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"741": {
+"name": "Fire Drgn Scl+",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"742": {
+"name": "ThckFireDrgnScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"743": {
+"name": "Fire Dragon Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"744": {
+"name": "HrdFireDrgnClaw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"745": {
+"name": "Fire Drgn Webbng",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 1,
+"color_name": "red"
+},
+"746": {
+"name": "Fire Dragon Pwdr",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 1,
+"color_name": "red"
+},
+"747": {
+"name": "Fire Drgn Jwl",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 1,
+"color_name": "red"
+},
+"748": {
+"name": "ElderDragonBlood",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"749": {
+"name": "Lunastra Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"750": {
+"name": "LunastraCarapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"751": {
+"name": "Lunastra Mane",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"752": {
+"name": "Lunastra Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 3,
+"color_name": "blue"
+},
+"753": {
+"name": "Lunastra Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"754": {
+"name": "Lunastra Spike",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 3,
+"color_name": "blue"
+},
+"755": {
+"name": "Teostra Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"756": {
+"name": "Teostra Carapace",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"757": {
+"name": "HvyTeostraShell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"758": {
+"name": "Teostra Mane",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"759": {
+"name": "Teostra Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"760": {
+"name": "LthrTeostraTail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"761": {
+"name": "Teostra Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"762": {
+"name": "Teostra Horn+",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"763": {
+"name": "HardTeostraHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"764": {
+"name": "Dragonmoss",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"765": {
+"name": "Dragonmoss+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"766": {
+"name": "AncientDrgnmoss",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"767": {
+"name": "Dragonwood",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"768": {
+"name": "Dragonwood+",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"769": {
+"name": "AncientDrgnwood",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"770": {
+"name": "YamaTsukamiHide",
+"shape": 14,
+"shape_name": "Hide/Pelt",
+"color": 2,
+"color_name": "green"
+},
+"771": {
+"name": "YamaTsukaFillet",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"772": {
+"name": "YamaTsukamiFluid",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 2,
+"color_name": "green"
+},
+"773": {
+"name": "Dark Piece",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"774": {
+"name": "Dark Stone",
+"shape": 25,
+"shape_name": "Egg",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"775": {
+"name": "Fatalis Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"776": {
+"name": "HardFatalisHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"777": {
+"name": "Fatalis Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"778": {
+"name": "ThckFatalisScale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"779": {
+"name": "Fatalis Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"780": {
+"name": "Hvy Fatalis Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"781": {
+"name": "Fatalis Eye",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"782": {
+"name": "Fatalis Evil Eye",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"783": {
+"name": "Fatalis Webbing",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"784": {
+"name": "Str Fatalis Wng",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"785": {
+"name": "Fatalis CrmsnHrn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"786": {
+"name": "HrdFatlisCrmHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 1,
+"color_name": "red"
+},
+"787": {
+"name": "Fatalis CrmsnScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"788": {
+"name": "ThckFatlisCrmScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 1,
+"color_name": "red"
+},
+"789": {
+"name": "Fatalis CrmsnShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"790": {
+"name": "HvyFatalisCrmShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"791": {
+"name": "Fatalis DevilEye",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"792": {
+"name": "Fatalis CrmsnWng",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"793": {
+"name": "StrFatlisCrmWing",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"794": {
+"name": "Wht Fatalis Scl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 0,
+"color_name": "white/clear"
+},
+"795": {
+"name": "ThckWhtFatlisScl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 0,
+"color_name": "white/clear"
+},
+"796": {
+"name": "Wht Fatalis Shl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"797": {
+"name": "HvyWhtFatalisShl",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"798": {
+"name": "Wht Fatalis Wbng",
+"shape": 32,
+"shape_name": "Webbing/Wing",
+"color": 0,
+"color_name": "white/clear"
+},
+"799": {
+"name": "StrWhtFatalisWng",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"800": {
+"name": "Wht Fatalis Horn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"801": {
+"name": "HrdWhtFatlisHorn",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"802": {
+"name": "Akantor Scale",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"803": {
+"name": "Akantor Shell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"804": {
+"name": "Akantor Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"805": {
+"name": "Akantor Claw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"806": {
+"name": "Akantor Fang",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"807": {
+"name": "Akantor Spike",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"808": {
+"name": "HvyUkanlosShell",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"809": {
+"name": "UkanlosUnderscl",
+"shape": 23,
+"shape_name": "Shell/Scale/Pearl",
+"color": 0,
+"color_name": "white/clear"
+},
+"810": {
+"name": "Hvy Ukanlos Tail",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"811": {
+"name": "UkanlosDiggngClw",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"812": {
+"name": "UkanlosShovelJaw",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"813": {
+"name": "StrongUkanlosFin",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"814": {
+"name": "Ukanlos Stone",
+"shape": 54,
+"shape_name": "Heavenly Scale",
+"color": 0,
+"color_name": "white/clear"
+},
+"815": {
+"name": "Wyverian Harp",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 6,
+"color_name": "cyan"
+},
+"816": {
+"name": "Sinister Cloth",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"817": {
+"name": "Lost Umbrella",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 7,
+"color_name": "purple"
+},
+"818": {
+"name": "Ruststone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"819": {
+"name": "Flat Ruststone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"820": {
+"name": "Large Ruststone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"821": {
+"name": "Small Ruststone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"822": {
+"name": "Ruststone Rod",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"823": {
+"name": "Ancient Stone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"824": {
+"name": "AncientFlatstone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"825": {
+"name": "Lg Ancient Stone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"826": {
+"name": "Sm Ancient Stone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"827": {
+"name": "Ancient StoneRod",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"828": {
+"name": "Organizer Guide",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 3,
+"color_name": "blue"
+},
+"829": {
+"name": "Backpacker Guide",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 1,
+"color_name": "red"
+},
+"830": {
+"name": "Lynian Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"831": {
+"name": "Shakalaka Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"832": {
+"name": "Neopteron Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"833": {
+"name": "GrtThundrbugInfo",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"834": {
+"name": "Herbivore Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"835": {
+"name": "Bird Wyvern Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"836": {
+"name": "HypnocatriceInfo",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"837": {
+"name": "Yian Garuga Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"838": {
+"name": "FlyingWyvernInfo",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"839": {
+"name": "Remobra Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"840": {
+"name": "Tigrex Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"841": {
+"name": "Nargacuga Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"842": {
+"name": "Akantor Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"843": {
+"name": "Ukanlos Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"844": {
+"name": "Piscine Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"845": {
+"name": "Lavasioth Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"846": {
+"name": "Carapaceon Info1",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"847": {
+"name": "Carapaceon Info2",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"848": {
+"name": "Shen Gaoren Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"849": {
+"name": "Pelagus Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"850": {
+"name": "Rajang Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"851": {
+"name": "Kirin Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"852": {
+"name": "KushalaDaoraInfo",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"853": {
+"name": "Chameleos Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"854": {
+"name": "Lunastra Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"855": {
+"name": "Teostra Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"856": {
+"name": "Lao-Shan Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"857": {
+"name": "YamaTsukamiInfo",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"858": {
+"name": "Fatalis Info",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 0,
+"color_name": "white/clear"
+},
+"859": {
+"name": "Steel Egg",
+"shape": 25,
+"shape_name": "Egg",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"860": {
+"name": "Silver Egg",
+"shape": 25,
+"shape_name": "Egg",
+"color": 0,
+"color_name": "white/clear"
+},
+"861": {
+"name": "Golden Egg",
+"shape": 25,
+"shape_name": "Egg",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"862": {
+"name": "Map",
+"shape": 29,
+"shape_name": "Map/Flag",
+"color": 0,
+"color_name": "white/clear"
+},
+"863": {
+"name": "First-Aid Med",
+"shape": 24,
+"shape_name": "Medicine (bottle)",
+"color": 2,
+"color_name": "green"
+},
+"864": {
+"name": "Ration",
+"shape": 3,
+"shape_name": "Meat",
+"color": 7,
+"color_name": "purple"
+},
+"865": {
+"name": "Portable Spit",
+"shape": 19,
+"shape_name": "BBQ Spit",
+"color": 7,
+"color_name": "purple"
+},
+"866": {
+"name": "Mini Whetstone",
+"shape": 7,
+"shape_name": "Whetstone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"867": {
+"name": "Prtbl Shock Trap",
+"shape": 21,
+"shape_name": "Trap",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"868": {
+"name": "Supply Flash Bmb",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 3,
+"color_name": "blue"
+},
+"869": {
+"name": "Sply Max Potion",
+"shape": 35,
+"shape_name": "Pill/Agent",
+"color": 3,
+"color_name": "blue"
+},
+"870": {
+"name": "Sply Pitfall Trp",
+"shape": 21,
+"shape_name": "Trap",
+"color": 3,
+"color_name": "blue"
+},
+"871": {
+"name": "Sply Lg Brrl Bmb",
+"shape": 2,
+"shape_name": "Barrel Bomb",
+"color": 3,
+"color_name": "blue"
+},
+"872": {
+"name": "Ballista S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"873": {
+"name": "Cannon S",
+"shape": 26,
+"shape_name": "Bowgun Ammo",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"874": {
+"name": "Wyvern",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"875": {
+"name": "Wyvern Egg",
+"shape": 25,
+"shape_name": "Egg",
+"color": 0,
+"color_name": "white/clear"
+},
+"876": {
+"name": "Herbivore Egg",
+"shape": 25,
+"shape_name": "Egg",
+"color": 7,
+"color_name": "purple"
+},
+"877": {
+"name": "Carnivore Egg",
+"shape": 25,
+"shape_name": "Egg",
+"color": 7,
+"color_name": "purple"
+},
+"878": {
+"name": "Sootstone Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"879": {
+"name": "Quartz Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"880": {
+"name": "Powderstone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 1,
+"color_name": "red"
+},
+"881": {
+"name": "Khezu Whelp",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"882": {
+"name": "Khz Whlp Ice Crm",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 0,
+"color_name": "white/clear"
+},
+"883": {
+"name": "Kut-Ku Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"884": {
+"name": "Congalala Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"885": {
+"name": "Khezu Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 0,
+"color_name": "white/clear"
+},
+"886": {
+"name": "Daimyo Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 1,
+"color_name": "red"
+},
+"887": {
+"name": "Blangonga Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 0,
+"color_name": "white/clear"
+},
+"888": {
+"name": "Yian Garuga Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"889": {
+"name": "Tigrex Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"890": {
+"name": "Diablos Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"891": {
+"name": "Gravios Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 0,
+"color_name": "white/clear"
+},
+"892": {
+"name": "Kirin Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 0,
+"color_name": "white/clear"
+},
+"893": {
+"name": "Cephadrome Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 6,
+"color_name": "cyan"
+},
+"894": {
+"name": "Plesioth Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 3,
+"color_name": "blue"
+},
+"895": {
+"name": "Shogun Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 3,
+"color_name": "blue"
+},
+"896": {
+"name": "Fire Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 1,
+"color_name": "red"
+},
+"897": {
+"name": "Rajang Coin",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"898": {
+"name": "BlackBeltCoinG",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"899": {
+"name": "Expert Coin G",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"900": {
+"name": "Warrior Coin G",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 6,
+"color_name": "cyan"
+},
+"901": {
+"name": "Legend Coin G",
+"shape": 34,
+"shape_name": "Coin/Medal",
+"color": 1,
+"color_name": "red"
+},
+"902": {
+"name": "Commendation",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"903": {
+"name": "Commendation G",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"904": {
+"name": "Commendation S",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"905": {
+"name": "Pawprint Stamp",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"906": {
+"name": "Pokke Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 6,
+"color_name": "cyan"
+},
+"907": {
+"name": "Pokke Ticket+",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 3,
+"color_name": "blue"
+},
+"908": {
+"name": "Normal Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"909": {
+"name": "Hard Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 2,
+"color_name": "green"
+},
+"910": {
+"name": "Plus Class Tcket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 3,
+"color_name": "blue"
+},
+"911": {
+"name": "Hero of Kkto Bio",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"912": {
+"name": "Hero of JumboBio",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"913": {
+"name": "Elder Thank You",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"914": {
+"name": "Elder Thnk You+",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"915": {
+"name": "FlynMealPassReg",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"916": {
+"name": "FlynMealPassPlus",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"917": {
+"name": "Comrade Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 3,
+"color_name": "blue"
+},
+"918": {
+"name": "VeggieElderTcket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 2,
+"color_name": "green"
+},
+"919": {
+"name": "VeggieElderTckt+",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 2,
+"color_name": "green"
+},
+"920": {
+"name": "VegElderTcktBrz",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"921": {
+"name": "VegElderTcktSlv",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"922": {
+"name": "VegElderTcktGld",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"923": {
+"name": "VegElderTcktSky",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 6,
+"color_name": "cyan"
+},
+"924": {
+"name": "Blackbelt Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 2,
+"color_name": "green"
+},
+"925": {
+"name": "Expert Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 2,
+"color_name": "green"
+},
+"926": {
+"name": "Paw Pass Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"927": {
+"name": "Limited Paw Pass",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"939": {
+"name": "Hunter's Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 6,
+"color_name": "cyan"
+},
+"940": {
+"name": "Hunter Soul Tkt",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 6,
+"color_name": "cyan"
+},
+"941": {
+"name": "Puppet Ticket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"942": {
+"name": "SpecPuppetTicket",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 0,
+"color_name": "white/clear"
+},
+"943": {
+"name": "Suiko Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"944": {
+"name": "Akito Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"945": {
+"name": "BattlefieldJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"946": {
+"name": "LapisLazuliJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"947": {
+"name": "Paralysis Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"948": {
+"name": "Paralysis Jewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"949": {
+"name": "Pep Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"950": {
+"name": "Jolt Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"951": {
+"name": "Steadfast Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"952": {
+"name": "Steadfast Jewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"953": {
+"name": "Antidote Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"954": {
+"name": "Antidote Jewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"955": {
+"name": "Retroviral Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"956": {
+"name": "Antiviral Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"957": {
+"name": "Snowblower Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"958": {
+"name": "SnowblowerJewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"959": {
+"name": "Tip Toe Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"960": {
+"name": "Ninja Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"961": {
+"name": "Strength Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"962": {
+"name": "Feel Good Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"963": {
+"name": "Razor Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"964": {
+"name": "Artisan Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"965": {
+"name": "Fencer Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"966": {
+"name": "Expert Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"967": {
+"name": "Grinder Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"968": {
+"name": "Stone Wall Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"969": {
+"name": "Hard Wall Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"970": {
+"name": "HvnlyShieldJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"971": {
+"name": "Hardball Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"972": {
+"name": "Early Bird Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"973": {
+"name": "Recoilless Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"974": {
+"name": "StrongShot Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"975": {
+"name": "Pierce Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"976": {
+"name": "Pellet Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"977": {
+"name": "Shot Bonus Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"978": {
+"name": "PierceBonusJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"979": {
+"name": "PelletBonusJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"980": {
+"name": "Crag Bonus Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"981": {
+"name": "ScattrBonusJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"982": {
+"name": "SpecialAtk Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"983": {
+"name": "Element Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"984": {
+"name": "Bombardier Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"985": {
+"name": "PickyEater Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"986": {
+"name": "No Food Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"987": {
+"name": "Fatso Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"988": {
+"name": "Attack Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"989": {
+"name": "Defense Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"990": {
+"name": "Protection Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"991": {
+"name": "DivineProtectJwl",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"992": {
+"name": "Earplug Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"993": {
+"name": "Alarm Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"994": {
+"name": "Friendship Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"995": {
+"name": "Backpacker Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"996": {
+"name": "Impervious Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"997": {
+"name": "Inferno Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"998": {
+"name": "Crimson Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"999": {
+"name": "Stream Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1000": {
+"name": "Torrent Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1001": {
+"name": "Freeze Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1002": {
+"name": "Glacier Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1003": {
+"name": "Lightning Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1004": {
+"name": "Thunder Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1005": {
+"name": "Slayer Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1006": {
+"name": "DragonslyrJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1007": {
+"name": "CoolBreeze Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1008": {
+"name": "ColdBreezeJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1009": {
+"name": "WarmBreeze Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1010": {
+"name": "HotBreezeJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1011": {
+"name": "PaperweightJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1012": {
+"name": "Map Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1013": {
+"name": "Gathering Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1014": {
+"name": "Grab'n'DashJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1015": {
+"name": "Good Luck Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1016": {
+"name": "Blessing Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1017": {
+"name": "Fate Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1018": {
+"name": "Fisher Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1019": {
+"name": "Psychic Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1020": {
+"name": "Curing Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1021": {
+"name": "Professor Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1022": {
+"name": "Armory Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1023": {
+"name": "SecretArts Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1024": {
+"name": "Evade Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1025": {
+"name": "Danger Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1026": {
+"name": "StayingPwr Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1027": {
+"name": "Marathon Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1028": {
+"name": "Ammo Box Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1029": {
+"name": "Sniper Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1030": {
+"name": "SharpshootrJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1031": {
+"name": "QuickEaterJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1032": {
+"name": "HideCutter Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1033": {
+"name": "Melt-Proof Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1034": {
+"name": "Anchor Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1035": {
+"name": "BBQ Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1036": {
+"name": "Small Arms Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1037": {
+"name": "Howitzer Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1038": {
+"name": "Fife Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1039": {
+"name": "Tireless Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1040": {
+"name": "Jumping Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1041": {
+"name": "Sword Draw Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1042": {
+"name": "Cat Guide Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1043": {
+"name": "Cat Attack Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1044": {
+"name": "CatDefenseJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1045": {
+"name": "TrapMasterJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1046": {
+"name": "PoisonCoatJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1047": {
+"name": "ParalysCoatJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1048": {
+"name": "Sleep Coat Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1049": {
+"name": "Power Coat Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1050": {
+"name": "Combo Coat Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1051": {
+"name": "Guts Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1052": {
+"name": "ConstitutnJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1053": {
+"name": "Tranq Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1054": {
+"name": "Perceive Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1055": {
+"name": "ShortChargeJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1056": {
+"name": "Cont. Fire Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1057": {
+"name": "AntiParalyzJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1058": {
+"name": "Anti-Faint Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1059": {
+"name": "Antivenin Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1060": {
+"name": "Snowplow Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1061": {
+"name": "SpeedyRecvrJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1062": {
+"name": "Celebrity Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1063": {
+"name": "IronCurtainJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1064": {
+"name": "Wall Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1065": {
+"name": "High Speed Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1066": {
+"name": "SpecialAtkJewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1067": {
+"name": "Fasting Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1068": {
+"name": "Fierce Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1069": {
+"name": "Turtle Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1070": {
+"name": "Beloved Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1071": {
+"name": "Omnipotent Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1072": {
+"name": "Extinction Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1073": {
+"name": "Cold Wind Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1074": {
+"name": "Hot Wind Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1075": {
+"name": "HeavyMetal Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1076": {
+"name": "Destiny Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1077": {
+"name": "Cure All Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1078": {
+"name": "Cure All Jewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1079": {
+"name": "Dodge Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1080": {
+"name": "Pinch Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1081": {
+"name": "Permanence Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1082": {
+"name": "Eternal Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1083": {
+"name": "Fast Food Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1084": {
+"name": "Anti-Thaw Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1085": {
+"name": "Tectonic Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1086": {
+"name": "UnsheathingJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1087": {
+"name": "ParalysisCAddJwl",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1088": {
+"name": "PowerCAddJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1089": {
+"name": "More Guts Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1090": {
+"name": "Health Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1091": {
+"name": "Knockout Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1092": {
+"name": "Cutter Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1093": {
+"name": "Master Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1094": {
+"name": "Swordsman Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 6,
+"color_name": "cyan"
+},
+"1095": {
+"name": "Hermit Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1096": {
+"name": "StrongWall Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1097": {
+"name": "Shockless Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1098": {
+"name": "StrongShotJewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1099": {
+"name": "Pierce Jewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1100": {
+"name": "Pellet Jewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 0,
+"color_name": "white/clear"
+},
+"1101": {
+"name": "Element Jewel+",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1102": {
+"name": "Strongest Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1103": {
+"name": "Silencer Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1104": {
+"name": "Tenderness Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1105": {
+"name": "TrueResistJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 2,
+"color_name": "green"
+},
+"1106": {
+"name": "Solid Rock Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1107": {
+"name": "Crisis Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 1,
+"color_name": "red"
+},
+"1108": {
+"name": "Sprinter Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1109": {
+"name": "Magazine Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1110": {
+"name": "Scarfing Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1111": {
+"name": "Carving Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1112": {
+"name": "Flying Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 3,
+"color_name": "blue"
+},
+"1113": {
+"name": "RapidChargeJewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 7,
+"color_name": "purple"
+},
+"1114": {
+"name": "Barrage Jewel",
+"shape": 43,
+"shape_name": "Jewel",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1115": {
+"name": "Giadrome Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 3,
+"color_name": "blue"
+},
+"1116": {
+"name": "Kut-Ku Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 7,
+"color_name": "purple"
+},
+"1117": {
+"name": "Daimyo Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 0,
+"color_name": "white/clear"
+},
+"1118": {
+"name": "Congalala Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1119": {
+"name": "Rathalos Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 1,
+"color_name": "red"
+},
+"1120": {
+"name": "Gravios Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1121": {
+"name": "Garuga Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1122": {
+"name": "Eldr Drgn Tears",
+"shape": 25,
+"shape_name": "Egg",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1123": {
+"name": "Lao-Shan Melon",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 2,
+"color_name": "green"
+},
+"1124": {
+"name": "Eldr Drgn Fossil",
+"shape": 10,
+"shape_name": "Monster Bone",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1125": {
+"name": "Gypceros Crystal",
+"shape": 25,
+"shape_name": "Egg",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1126": {
+"name": "Rathian Jewel",
+"shape": 1,
+"shape_name": "Throwable Bomb",
+"color": 2,
+"color_name": "green"
+},
+"1127": {
+"name": "Teostra Meteor",
+"shape": 25,
+"shape_name": "Egg",
+"color": 1,
+"color_name": "red"
+},
+"1128": {
+"name": "ThsandYearForest",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 2,
+"color_name": "green"
+},
+"1129": {
+"name": "Frozen Meatball",
+"shape": 3,
+"shape_name": "Meat",
+"color": 6,
+"color_name": "cyan"
+},
+"1130": {
+"name": "Buckshot Acorn",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 7,
+"color_name": "purple"
+},
+"1131": {
+"name": "Cephadrome Melon",
+"shape": 25,
+"shape_name": "Egg",
+"color": 2,
+"color_name": "green"
+},
+"1132": {
+"name": "Golden Cocoon",
+"shape": 25,
+"shape_name": "Egg",
+"color": 7,
+"color_name": "purple"
+},
+"1133": {
+"name": "Amber Egg",
+"shape": 25,
+"shape_name": "Egg",
+"color": 7,
+"color_name": "purple"
+},
+"1134": {
+"name": "Graviscus Bulb",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1135": {
+"name": "Century Walnut",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 7,
+"color_name": "purple"
+},
+"1136": {
+"name": "Hard Dragonrock",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 1,
+"color_name": "red"
+},
+"1137": {
+"name": "Dragonrock+",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 7,
+"color_name": "purple"
+},
+"1138": {
+"name": "Dragonrock",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1139": {
+"name": "Green Fin",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"1140": {
+"name": "Kut-Ku Cartilage",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1141": {
+"name": "Hermitaur Brains",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"1142": {
+"name": "Congalala Stomch",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1143": {
+"name": "Rathalos Liver",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"1144": {
+"name": "Gravios Giblets",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1145": {
+"name": "Garuga Drumstick",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1146": {
+"name": "Giadrome Thigh",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"1147": {
+"name": "Kut-Ku Gizzards",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1148": {
+"name": "Daimyo Legs",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"1149": {
+"name": "Congalala Innrds",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1150": {
+"name": "Rathalos Tongue",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"1151": {
+"name": "Gravios Wingtip",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1152": {
+"name": "GarugaClavclMeat",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 1,
+"color_name": "red"
+},
+"1153": {
+"name": "Blango Bacon",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"1154": {
+"name": "Kut-Ku Skin",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1155": {
+"name": "Cephalos Roe",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"1156": {
+"name": "Twstd Bldrm Tsk",
+"shape": 31,
+"shape_name": "Fang/Claw/Talon",
+"color": 0,
+"color_name": "white/clear"
+},
+"1157": {
+"name": "Rathian Chops",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 2,
+"color_name": "green"
+},
+"1158": {
+"name": "Purple Crest",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1159": {
+"name": "GarugaWhiteLiver",
+"shape": 9,
+"shape_name": "Material (generic)",
+"color": 0,
+"color_name": "white/clear"
+},
+"1160": {
+"name": "Dragonite (L)",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1161": {
+"name": "Dragonite (M)",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1162": {
+"name": "Dragonite (S)",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1163": {
+"name": "Pokke Snowman",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 6,
+"color_name": "cyan"
+},
+"1164": {
+"name": "Felyne Crown",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 7,
+"color_name": "purple"
+},
+"1165": {
+"name": "GldFlynJewelSwd",
+"shape": 38,
+"shape_name": "Throwing Knife",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1166": {
+"name": "Dynasty Vase",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1167": {
+"name": "Mysterious Mask",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 1,
+"color_name": "red"
+},
+"1168": {
+"name": "Eldr Drgn Rfrnc",
+"shape": 36,
+"shape_name": "Book/Manual",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1169": {
+"name": "AncntCatKingStat",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1170": {
+"name": "Blngo Blzrd Ball",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 6,
+"color_name": "cyan"
+},
+"1171": {
+"name": "Blngo Flrry Ball",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 6,
+"color_name": "cyan"
+},
+"1172": {
+"name": "Inferior FlynCrn",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 7,
+"color_name": "purple"
+},
+"1173": {
+"name": "Flyn Crwn Frgmnt",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 7,
+"color_name": "purple"
+},
+"1174": {
+"name": "Hndlelss Gld Bld",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1175": {
+"name": "GldBladelessHndl",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1176": {
+"name": "Bttmlss Old Vase",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1177": {
+"name": "Old Vase Bottom",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1178": {
+"name": "Holed Shaka Mask",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 1,
+"color_name": "red"
+},
+"1179": {
+"name": "Shakalaka Stone",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 1,
+"color_name": "red"
+},
+"1180": {
+"name": "Torn Old Book",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1181": {
+"name": "Old Book Scrap",
+"shape": 37,
+"shape_name": "Ticket/Commendation",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1182": {
+"name": "TaillessCatStatu",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1183": {
+"name": "BrokenStoneTail",
+"shape": 33,
+"shape_name": "Misc/Junk",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1184": {
+"name": "Popo Dandelion",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1185": {
+"name": "Velociprey Lily",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 3,
+"color_name": "blue"
+},
+"1186": {
+"name": "Monoblos Rose",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 1,
+"color_name": "red"
+},
+"1187": {
+"name": "Chameleos' Purse",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1188": {
+"name": "Peach Clover",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 2,
+"color_name": "green"
+},
+"1189": {
+"name": "Gravibiscus",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1190": {
+"name": "Shakalaka Ranka",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 0,
+"color_name": "white/clear"
+},
+"1191": {
+"name": "Wyvern Grass",
+"shape": 15,
+"shape_name": "Herb/Plant",
+"color": 0,
+"color_name": "white/clear"
+},
+"1192": {
+"name": "Glitter Mushroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 7,
+"color_name": "purple"
+},
+"1193": {
+"name": "Shining Jellyfsh",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1194": {
+"name": "Bright Mushroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 7,
+"color_name": "purple"
+},
+"1195": {
+"name": "Glittr Capshroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1196": {
+"name": "Skin Care Shroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 0,
+"color_name": "white/clear"
+},
+"1197": {
+"name": "Beauty Shroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 6,
+"color_name": "cyan"
+},
+"1198": {
+"name": "ShimmeringShroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1199": {
+"name": "Wyvernshroom",
+"shape": 12,
+"shape_name": "Mushroom",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1200": {
+"name": "Blangonga Apple",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 0,
+"color_name": "white/clear"
+},
+"1201": {
+"name": "Kelbi Nuts",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1202": {
+"name": "Cephalos Wtrmeln",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 7,
+"color_name": "purple"
+},
+"1203": {
+"name": "Khezu Seed",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 0,
+"color_name": "white/clear"
+},
+"1204": {
+"name": "Writhe Nut",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 7,
+"color_name": "purple"
+},
+"1205": {
+"name": "Basarios Peach",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1206": {
+"name": "Shakalaka Squash",
+"shape": 18,
+"shape_name": "Seed/Nut",
+"color": 7,
+"color_name": "purple"
+},
+"1207": {
+"name": "Lady Mackerel",
+"shape": 5,
+"shape_name": "Fish",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1208": {
+"name": "Angler Snapper",
+"shape": 5,
+"shape_name": "Fish",
+"color": 1,
+"color_name": "red"
+},
+"1209": {
+"name": "Yokotuna",
+"shape": 5,
+"shape_name": "Fish",
+"color": 1,
+"color_name": "red"
+},
+"1210": {
+"name": "Nobunaga Bonito",
+"shape": 5,
+"shape_name": "Fish",
+"color": 1,
+"color_name": "red"
+},
+"1211": {
+"name": "Goldendrome",
+"shape": 5,
+"shape_name": "Fish",
+"color": 1,
+"color_name": "red"
+},
+"1212": {
+"name": "Amateratuna",
+"shape": 5,
+"shape_name": "Fish",
+"color": 1,
+"color_name": "red"
+},
+"1213": {
+"name": "Brilliant Aji",
+"shape": 5,
+"shape_name": "Fish",
+"color": 3,
+"color_name": "blue"
+},
+"1214": {
+"name": "Chuck Mackerel",
+"shape": 5,
+"shape_name": "Fish",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1215": {
+"name": "Victory Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 2,
+"color_name": "green"
+},
+"1216": {
+"name": "Plump Goldenfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 2,
+"color_name": "green"
+},
+"1217": {
+"name": "Hideyoshi Ambrjk",
+"shape": 5,
+"shape_name": "Fish",
+"color": 2,
+"color_name": "green"
+},
+"1218": {
+"name": "Silverdrome",
+"shape": 5,
+"shape_name": "Fish",
+"color": 0,
+"color_name": "white/clear"
+},
+"1219": {
+"name": "Susanofish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 2,
+"color_name": "green"
+},
+"1220": {
+"name": "Pharr Yellowtail",
+"shape": 5,
+"shape_name": "Fish",
+"color": 2,
+"color_name": "green"
+},
+"1221": {
+"name": "Large Wyvernfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 0,
+"color_name": "white/clear"
+},
+"1222": {
+"name": "Med Wyvernfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 0,
+"color_name": "white/clear"
+},
+"1223": {
+"name": "Small Wyvernfish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 3,
+"color_name": "blue"
+},
+"1224": {
+"name": "Pickaxe Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 1,
+"color_name": "red"
+},
+"1225": {
+"name": "Bugnet Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 3,
+"color_name": "blue"
+},
+"1226": {
+"name": "Cooler Fish",
+"shape": 5,
+"shape_name": "Fish",
+"color": 0,
+"color_name": "white/clear"
+},
+"1227": {
+"name": "Pokke Quartz",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 3,
+"color_name": "blue"
+},
+"1228": {
+"name": "Telos Stone",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1229": {
+"name": "Sekumaeya Pearl",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"1230": {
+"name": "Schradite",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 10,
+"color_name": "grey/neutral"
+},
+"1231": {
+"name": "Minegarde Night",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 3,
+"color_name": "blue"
+},
+"1232": {
+"name": "Lateobrium",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 2,
+"color_name": "green"
+},
+"1233": {
+"name": "Mezeporter Topaz",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 7,
+"color_name": "purple"
+},
+"1234": {
+"name": "Furiamond",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 6,
+"color_name": "cyan"
+},
+"1235": {
+"name": "Jumboite",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 7,
+"color_name": "purple"
+},
+"1236": {
+"name": "Dragokurium",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1237": {
+"name": "Liber Ruby",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 1,
+"color_name": "red"
+},
+"1238": {
+"name": "Kokotoite",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1239": {
+"name": "Dondorumin",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 3,
+"color_name": "blue"
+},
+"1240": {
+"name": "GrtForestCrystal",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 2,
+"color_name": "green"
+},
+"1241": {
+"name": "Wyvern Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 0,
+"color_name": "white/clear"
+},
+"1242": {
+"name": "Pure Wyvern Ore",
+"shape": 27,
+"shape_name": "Ore/Stone",
+"color": 6,
+"color_name": "cyan"
+},
+"1243": {
+"name": "Pillow Bug",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1244": {
+"name": "Cleopatris",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 5,
+"color_name": "orange/purple?"
+},
+"1245": {
+"name": "GiantStagBeetle",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 8,
+"color_name": "rainbow/multi?"
+},
+"1246": {
+"name": "Ghostly Cicada",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 6,
+"color_name": "cyan"
+},
+"1247": {
+"name": "Celeb Cicada",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 2,
+"color_name": "green"
+},
+"1248": {
+"name": "Athena Beetle",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1249": {
+"name": "Hornfly Princess",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1250": {
+"name": "Princess Scarab",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1251": {
+"name": "Marilyn Btterfly",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 0,
+"color_name": "white/clear"
+},
+"1252": {
+"name": "Cricket of Troy",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 2,
+"color_name": "green"
+},
+"1253": {
+"name": "Cutie Crawler",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 7,
+"color_name": "purple"
+},
+"1254": {
+"name": "Lovely Locust",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 4,
+"color_name": "gold/yellow"
+},
+"1255": {
+"name": "Killer Venus",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 1,
+"color_name": "red"
+},
+"1256": {
+"name": "Hornfly Prince",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 3,
+"color_name": "blue"
+},
+"1257": {
+"name": "Rathian Fly",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 2,
+"color_name": "green"
+},
+"1258": {
+"name": "Rathalos Fly",
+"shape": 20,
+"shape_name": "Insect/Bug",
+"color": 1,
+"color_name": "red"
+},
+"1259": {
+"name": "Embroidered Flag",
+"shape": 29,
+"shape_name": "Map/Flag",
+"color": 4,
+"color_name": "gold/yellow"
+}
+}

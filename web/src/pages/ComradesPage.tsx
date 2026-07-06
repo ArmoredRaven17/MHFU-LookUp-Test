@@ -1,157 +1,175 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { loadComrades } from '../data/loaders'
-import type { ComradeSection, ComradeWeapon, ComradeSkill, ComradeTemperament } from '../types'
+import type { ComradeWeapon, ComradeSkill, ComradeTemperament, ComradesData } from '../types'
+import { BASE } from '../utils/assets'
 
-interface ComradesData {
-  sections: ComradeSection[]
-  weapons: ComradeWeapon[]
-  skills: ComradeSkill[]
-  temperaments: ComradeTemperament[]
+// ── Temperament cell colours (mirrors the desktop viewmodel) ─────────────────
+const prefColor = (s: string) =>
+  s.includes('Bomb') ? '#E0A040'
+  : s.includes('Melee') || s.includes('Weapon') ? '#D87070'
+  : s.includes('No Attack') ? 'var(--muted)'
+  : 'var(--text)'
+const healColor = (s: string) =>
+  s.includes('VryFast') ? '#4CD964'
+  : s.includes('Fast') ? '#7FC97F'
+  : s.includes('VrySlow') ? 'var(--negative)'
+  : s.includes('Slow') ? '#E0A040'
+  : 'var(--text)'
+const targetColor = (s: string) =>
+  s.includes('Lg') ? '#D87070'
+  : s.includes('Sm') ? '#4A9EFF'
+  : s.includes('No Attack') ? 'var(--muted)'
+  : 'var(--text)'
+
+// ── Prose parsing: paragraphs, UPPERCASE sub-headers, and "• " bullet runs → tables ──
+type Block =
+  | { kind: 'p'; text: string }
+  | { kind: 'h'; text: string }
+  | { kind: 'table'; twoCol: boolean; rows: { label: string; value: string }[] }
+
+function parseBody(body: string): Block[] {
+  const blocks: Block[] = []
+  let bullets: string[] = []
+  const flush = () => {
+    if (bullets.length === 0) return
+    const twoCol = bullets.every(b => b.includes(': '))
+    const rows = bullets.map(b => {
+      if (!twoCol) return { label: b, value: '' }
+      const idx = b.indexOf(': ')
+      return { label: b.slice(0, idx), value: b.slice(idx + 2) }
+    })
+    blocks.push({ kind: 'table', twoCol, rows })
+    bullets = []
+  }
+  for (const raw of (body ?? '').split('\n')) {
+    const line = raw.trim()
+    if (line.length === 0) continue
+    if (line.startsWith('• ')) { bullets.push(line.slice(2).trim()); continue }
+    flush()
+    if (line === line.toUpperCase() && /[A-Za-z]/.test(line)) blocks.push({ kind: 'h', text: line })
+    else blocks.push({ kind: 'p', text: line })
+  }
+  flush()
+  return blocks
 }
 
 export default function ComradesPage() {
   const [data, setData] = useState<ComradesData | null>(null)
-  const [sectionId, setSectionId] = useState(1)
+  const [sectionId, setSectionId] = useState<number | null>(null)
 
   useEffect(() => { loadComrades().then(setData) }, [])
 
-  if (!data) return <p style={{ padding: 16, color: 'var(--muted)', fontSize: 13 }}>Loading…</p>
+  const section = useMemo(
+    () => data ? (data.sections.find(s => s.id === sectionId) ?? data.sections[0]) : null,
+    [data, sectionId])
+  const blocks = useMemo(() => parseBody(section?.body ?? ''), [section])
 
-  const section = data.sections.find(s => s.id === sectionId) ?? data.sections[0]
+  if (!data || !section) return <p style={{ padding: 16, color: 'var(--muted)', fontSize: 13 }}>Loading…</p>
 
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
-      {/* ── List panel ── */}
+      {/* ── Section selector ── */}
       <div style={{
-        width: 180, minWidth: 180,
-        background: 'var(--surface)', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
+        width: 240, minWidth: 240,
+        backgroundColor: 'var(--surface)', backgroundImage: `linear-gradient(rgba(var(--surface-rgb), 0.96), rgba(var(--surface-rgb), 0.96)), url(${BASE}/assets/Textures/surface_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)', overflowY: 'auto',
       }}>
-        <div style={{ overflowY: 'auto', flex: 1 }}>
-          {data.sections.map(s => {
-            const active = s.id === sectionId
-            return (
-              <button key={s.id} onClick={() => setSectionId(s.id)} style={{
-                display: 'block', width: '100%', padding: '6px 12px',
-                background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
-                border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
-                color: active ? 'var(--accent)' : 'var(--text)',
-                cursor: 'pointer', textAlign: 'left', fontSize: 13,
-              }}>
-                {s.title}
-              </button>
-            )
-          })}
-        </div>
+        {data.sections.map(s => {
+          const active = s.id === section.id
+          return (
+            <button key={s.id} onClick={() => setSectionId(s.id)} style={{
+              display: 'block', width: '100%', padding: '7px 12px',
+              background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+              border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
+              color: active ? 'var(--accent)' : 'var(--text)',
+              cursor: 'pointer', textAlign: 'left', fontSize: 13,
+            }}>{s.title}</button>
+          )
+        })}
       </div>
 
-      {/* ── Content panel ── */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'var(--bg)' }}>
-        <div style={{ maxWidth: 760 }}>
-          <h2 style={{ margin: '0 0 12px', color: 'var(--accent)', fontSize: 20, fontWeight: 600 }}>
-            {section.title}
-          </h2>
+      {/* ── Section content ── */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
+        <h2 style={{ margin: 0, padding: '12px 16px 6px', fontSize: 18, fontWeight: 700, color: 'var(--text)' }}>{section.title}</h2>
 
+        <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {/* Prose body */}
-          {section.body && (
-            <div style={{ marginBottom: 18 }}>
-              {section.body.split('\n').map((line, i) => (
-                <p key={i} style={{ margin: '0 0 4px', fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
-                  {line || <br />}
-                </p>
-              ))}
-            </div>
-          )}
+          {blocks.map((b, i) => {
+            if (b.kind === 'h') return <p key={i} style={{ margin: '8px 0 4px', fontWeight: 600, color: 'var(--accent)', fontSize: 13 }}>{b.text}</p>
+            if (b.kind === 'p') return <p key={i} style={{ margin: '0 0 8px', color: 'var(--text)', fontSize: 13, lineHeight: 1.5 }}>{b.text}</p>
+            return (
+              <div key={i} style={{ marginBottom: 10, maxWidth: 640 }}>
+                {b.rows.map((r, j) => (
+                  <div key={j} className="tbl-row" style={{ display: b.twoCol ? 'grid' : 'block', gridTemplateColumns: b.twoCol ? '200px 1fr' : undefined, padding: '4px 0', fontSize: 13 }}>
+                    <span style={{ fontWeight: b.twoCol ? 600 : 400, color: 'var(--text)', paddingRight: 12 }}>{r.label}</span>
+                    {b.twoCol && <span style={{ color: 'var(--muted)' }}>{r.value}</span>}
+                  </div>
+                ))}
+              </div>
+            )
+          })}
 
-          {/* Weapons table */}
-          {section.table_kind === 'weapons' && (
-            <Section title="Weapon Upgrades">
-              <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 500 }}>
-                <thead>
-                  <tr>
-                    <th className="tbl-header" style={{ textAlign: 'left' }}>Attack Power</th>
-                    <th className="tbl-header" style={{ textAlign: 'left' }}>Slash Weapon</th>
-                    <th className="tbl-header" style={{ textAlign: 'left' }}>Impact Weapon</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.weapons.map(w => (
-                    <tr key={w.id} className="tbl-row">
-                      <td className="tbl-cell" style={{ color: 'var(--muted)', fontFamily: 'monospace' }}>{w.attack_power}</td>
-                      <td className="tbl-cell">{w.slash}</td>
-                      <td className="tbl-cell">{w.impact}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Section>
-          )}
-
-          {/* Skills table */}
-          {section.table_kind === 'skills' && (
-            <Section title="Skills (36)">
-              <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-                <thead>
-                  <tr>
-                    <th className="tbl-header" style={{ textAlign: 'left', width: 130 }}>Skill</th>
-                    <th className="tbl-header" style={{ textAlign: 'right', width: 50 }}>Cost</th>
-                    <th className="tbl-header" style={{ textAlign: 'left' }}>Description</th>
-                    <th className="tbl-header" style={{ textAlign: 'left', width: 180 }}>How to Unlock</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.skills.map(sk => (
-                    <tr key={sk.id} className="tbl-row">
-                      <td className="tbl-cell" style={{ fontWeight: 500 }}>{sk.skill}</td>
-                      <td className="tbl-cell" style={{ textAlign: 'right', color: 'var(--positive)' }}>{sk.cost}</td>
-                      <td className="tbl-cell" style={{ fontSize: 12, color: 'var(--muted)' }}>{sk.description}</td>
-                      <td className="tbl-cell" style={{ fontSize: 11, color: 'var(--muted)' }}>{sk.unlock}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Section>
-          )}
-
-          {/* Temperaments table */}
-          {section.table_kind === 'temperaments' && (
-            <Section title="Temperaments">
-              <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-                <thead>
-                  <tr>
-                    <th className="tbl-header" style={{ textAlign: 'left', width: 110 }}>Character</th>
-                    <th className="tbl-header" style={{ textAlign: 'left' }}>Attack Preference</th>
-                    <th className="tbl-header" style={{ textAlign: 'left', width: 120 }}>Healing Rate</th>
-                    <th className="tbl-header" style={{ textAlign: 'left' }}>Attacking Target</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.temperaments.map(t => (
-                    <tr key={t.id} className="tbl-row">
-                      <td className="tbl-cell" style={{ fontWeight: 500 }}>{t.character}</td>
-                      <td className="tbl-cell" style={{ fontSize: 12 }}>{t.attack_pref}</td>
-                      <td className="tbl-cell" style={{ fontSize: 12, color: 'var(--muted)' }}>{t.healing}</td>
-                      <td className="tbl-cell" style={{ fontSize: 12, color: 'var(--muted)' }}>{t.target}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Section>
-          )}
+          {section.table_kind === 'weapons' && <WeaponsTable weapons={data.weapons} />}
+          {section.table_kind === 'skills' && <SkillsTable skills={data.skills} />}
+          {section.table_kind === 'temperaments' && <TemperamentsTable temps={data.temperaments} />}
         </div>
       </div>
     </div>
   )
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function WeaponsTable({ weapons }: { weapons: ComradeWeapon[] }) {
+  const GRID = '110px 150px 150px 240px'
   return (
-    <div style={{ marginTop: 6, marginBottom: 16 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--accent)', fontSize: 13,
-                   fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-        {title}
-      </h3>
-      {children}
+    <div style={{ marginTop: 4 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--accent)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
+        <span>Attack Power</span><span>Slash Weapon</span><span>Impact Weapon</span><span>Weapon Divider (Smaller is better)</span>
+      </div>
+      {weapons.map(w => (
+        <div key={w.id} className="tbl-row" style={{ display: 'grid', gridTemplateColumns: GRID, padding: '4px 0', fontSize: 13 }}>
+          <span style={{ color: 'var(--muted)' }}>{w.attack_power}</span>
+          <span style={{ color: 'var(--text)' }}>{w.slash}</span>
+          <span style={{ color: 'var(--text)' }}>{w.impact}</span>
+          <span style={{ color: 'var(--muted)' }}>{w.divider}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function SkillsTable({ skills }: { skills: ComradeSkill[] }) {
+  const GRID = '160px 60px 2fr 2fr'
+  return (
+    <div style={{ marginTop: 4 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--accent)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
+        <span>Skill</span><span>Cost</span><span>Description</span><span>How To Unlock</span>
+      </div>
+      {skills.map(s => (
+        <div key={s.id} className="tbl-row" style={{ display: 'grid', gridTemplateColumns: GRID, gap: 8, padding: '4px 0', fontSize: 13, alignItems: 'start' }}>
+          <span style={{ fontWeight: 600, color: 'var(--text)' }}>{s.skill}</span>
+          <span style={{ color: 'var(--text)' }}>{s.cost}</span>
+          <span style={{ color: 'var(--muted)' }}>{s.description}</span>
+          <span style={{ color: 'var(--muted)' }}>{s.unlock}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function TemperamentsTable({ temps }: { temps: ComradeTemperament[] }) {
+  const GRID = '1fr 1fr 1fr 1fr'
+  return (
+    <div style={{ marginTop: 4 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: GRID, fontSize: 12, fontWeight: 600, color: 'var(--accent)', padding: '0 0 3px', borderBottom: '1px solid var(--border)' }}>
+        <span>Character</span><span>Attack Preference</span><span>Healing Rate</span><span>Attacking Target</span>
+      </div>
+      {temps.map(t => (
+        <div key={t.id} className="tbl-row" style={{ display: 'grid', gridTemplateColumns: GRID, gap: 8, padding: '4px 0', fontSize: 13 }}>
+          <span style={{ fontWeight: 600, color: 'var(--text)' }}>{t.character}</span>
+          <span style={{ color: prefColor(t.attack_pref) }}>{t.attack_pref}</span>
+          <span style={{ color: healColor(t.healing) }}>{t.healing}</span>
+          <span style={{ color: targetColor(t.target) }}>{t.target}</span>
+        </div>
+      ))}
     </div>
   )
 }

@@ -1,75 +1,92 @@
 import { useEffect, useMemo, useState } from 'react'
-import { loadGranny } from '../data/loaders'
-import type { GrannyItem } from '../types'
-import SearchBox from '../components/SearchBox'
+import { loadGranny, loadItems, loadTreasures } from '../data/loaders'
+import type { GrannyItem, Item, Treasure } from '../types'
+import { BASE } from '../utils/assets'
 
-const SECTIONS = [
-  'Regular Inventory 1', 'Regular Inventory 2',
-  'Discount Inventory 1', 'Discount Inventory 2',
-  'DLC Inventory',
-]
+const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
+
+// Resolve a ware to its icon URL (items ∪ treasures; exact, then normalised).
+function makeIconResolver(items: Item[], treasures: Treasure[]) {
+  const exact = new Map<string, string>()
+  const norm = new Map<string, string>()
+  for (const { name, icon } of [...items, ...treasures] as { name: string; icon: string }[]) {
+    if (!icon) continue
+    if (!exact.has(name)) exact.set(name, icon)
+    const nk = normName(name); if (!norm.has(nk)) norm.set(nk, icon)
+  }
+  return (name: string) => {
+    const b = exact.get(name) ?? norm.get(normName(name)) ?? ''
+    return b ? `${BASE}/assets/Items/${b}.png` : ''
+  }
+}
 
 export default function GrannyPage() {
-  const [items, setItems] = useState<GrannyItem[]>([])
-  const [section, setSection] = useState(SECTIONS[0])
-  const [search, setSearch] = useState('')
+  const [rows, setRows] = useState<GrannyItem[]>([])
+  const [items, setItems] = useState<Item[]>([])
+  const [treasures, setTreasures] = useState<Treasure[]>([])
+  const [selected, setSelected] = useState<string | null>(null)
 
-  useEffect(() => { loadGranny().then(setItems) }, [])
+  useEffect(() => {
+    loadGranny().then(setRows)
+    loadItems().then(setItems)
+    loadTreasures().then(setTreasures)
+  }, [])
 
-  const filtered = useMemo(() => {
-    let q = items.filter(i => i.section === section)
-    if (search) q = q.filter(i => i.item.toLowerCase().includes(search.toLowerCase()))
-    return q
-  }, [items, section, search])
+  const resolveIcon = useMemo(() => makeIconResolver(items, treasures), [items, treasures])
+
+  const inventories = useMemo(() => [...new Set(rows.map(r => r.section))], [rows])
+  const inventory = selected && inventories.includes(selected) ? selected : (inventories[0] ?? '')
+  const isDiscount = inventory.toLowerCase().startsWith('discount')
+  const wares = useMemo(() => rows.filter(r => r.section === inventory), [rows, inventory])
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', background: 'var(--bg)' }}>
-      {/* ── Toolbar ── */}
+    <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
+      {/* ── Rotating inventories ── */}
       <div style={{
-        background: 'var(--surface)', borderBottom: '1px solid var(--border)',
-        padding: '6px 12px', display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap',
+        width: 240, minWidth: 240,
+        backgroundColor: 'var(--surface)', backgroundImage: `linear-gradient(rgba(var(--surface-rgb), 0.96), rgba(var(--surface-rgb), 0.96)), url(${BASE}/assets/Textures/surface_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)', overflowY: 'auto',
       }}>
-        {SECTIONS.map(s => (
-          <button key={s} onClick={() => { setSection(s); setSearch('') }} style={{
-            padding: '3px 10px', fontSize: 11, border: '1px solid var(--border)',
-            borderRadius: 3, cursor: 'pointer',
-            background: section === s ? 'var(--accent)' : 'var(--surface)',
-            color: section === s ? '#111' : 'var(--muted)',
-            fontWeight: section === s ? 600 : 400,
-            whiteSpace: 'nowrap',
-          }}>
-            {s}
-          </button>
-        ))}
-        <div style={{ flex: 1, maxWidth: 240 }}>
-          <SearchBox value={search} onChange={setSearch} placeholder="Search items…" />
-        </div>
-        <span style={{ color: 'var(--muted)', fontSize: 12 }}>{filtered.length} items</span>
+        {inventories.map(inv => {
+          const active = inv === inventory
+          return (
+            <button key={inv} onClick={() => setSelected(inv)} style={{
+              display: 'block', width: '100%', padding: '7px 12px',
+              background: active ? 'rgba(200,168,75,0.15)' : 'transparent',
+              border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
+              color: active ? 'var(--accent)' : 'var(--text)',
+              cursor: 'pointer', textAlign: 'left', fontSize: 13,
+            }}>{inv}</button>
+          )
+        })}
       </div>
 
-      {/* ── Table ── */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: '0 12px 12px' }}>
-        <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 500, marginTop: 8 }}>
-          <thead style={{ position: 'sticky', top: 0, zIndex: 1 }}>
-            <tr>
-              <th className="tbl-header" style={{ textAlign: 'left' }}>Item</th>
-              <th className="tbl-header" style={{ textAlign: 'right', width: 80 }}>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((it, i) => (
-              <tr key={i} className="tbl-row">
-                <td className="tbl-cell">{it.item}</td>
-                <td className="tbl-cell" style={{ textAlign: 'right', color: 'var(--positive)', fontWeight: 500 }}>
-                  {it.price}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {filtered.length === 0 && (
-          <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No items found.</p>
-        )}
+      {/* ── Wares ── */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
+        <div style={{ padding: '12px 16px 6px' }}>
+          <h2 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: 'var(--text)' }}>{inventory}</h2>
+          <p style={{ margin: '2px 0 0', fontSize: 12, color: 'var(--muted)' }}>
+            The Peddling Granny sells from a rotating stock — her inventory changes over time.
+          </p>
+          {isDiscount && (
+            <p style={{ margin: '2px 0 0', fontSize: 12, color: 'var(--positive)' }}>Discount stock — these prices are reduced.</p>
+          )}
+        </div>
+
+        <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
+          {wares.map((it, i) => {
+            const icon = resolveIcon(it.item)
+            return (
+              <div key={i} style={{ display: 'grid', gridTemplateColumns: '28px 180px 80px', alignItems: 'center', marginBottom: 3 }}>
+                {icon
+                  ? <img src={icon} alt="" width={24} height={24} style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
+                      onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
+                  : <span />}
+                <span style={{ color: 'var(--text)', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: 8 }}>{it.item}</span>
+                <span style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 600, textAlign: 'right' }}>{it.price}</span>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

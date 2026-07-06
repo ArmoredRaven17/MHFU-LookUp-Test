@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 
 export interface Bookmark {
-  type: string   // 'monster' | 'weapon' | 'item' | etc.
+  type: string   // 'monster' | 'weapon' | 'item' | etc. (matches desktop Bookmarks keys)
   id: string
   name: string
   path: string   // full route path e.g. '/monsters/rathalos'
+  icon?: string  // full asset url resolved at bookmark time (falls back to the tab icon)
 }
 
 const KEY = 'mhfu-bookmarks'

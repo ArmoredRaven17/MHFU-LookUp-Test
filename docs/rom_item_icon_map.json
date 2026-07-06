@@ -1,0 +1,107 @@
+{
+"shape2sprite": {
+"Smoke": 0,
+"Ball": 1,
+"Bomb": 2,
+"Meat": 3,
+"Bait": 4,
+"Fish": 5,
+"Trap_Tool": 6,
+"Whetstone": 7,
+"Dung": 8,
+"Monster_Parts": 9,
+"Bone": 10,
+"Binoculars": 11,
+"Mushroom": 12,
+"Bugnet": 13,
+"Hide": 14,
+"Herb": 15,
+"Pickaxe": 16,
+"Barrel": 17,
+"Seed": 18,
+"BBQ": 19,
+"Bug": 20,
+"Trap": 21,
+"Spiderweb": 22,
+"Scale": 23,
+"Medicine": 24,
+"Egg": 25,
+"Shot": 26,
+"Ore": 27,
+"Husk": 28,
+"Map": 29,
+"Horn": 30,
+"Claw": 31,
+"Webbing": 32,
+"Question_Mark": 33,
+"Coin": 34,
+"Sac": 35,
+"Book": 36,
+"Ticket": 37,
+"Knife": 38,
+"Jewel": 54,
+"Boomerang": 56,
+"Coating": 57,
+"Empty_Bottle": 58,
+"Shell": 59,
+"Mantle": 65,
+"Armor_Sphere": 64
+},
+"palette": {
+"White": [
+255,
+255,
+255
+],
+"Red": [
+255,
+93,
+93
+],
+"Green": [
+115,
+203,
+141
+],
+"Blue": [
+150,
+181,
+253
+],
+"Yellow": [
+255,
+211,
+93
+],
+"Purple": [
+184,
+149,
+198
+],
+"Light_Blue": [
+155,
+223,
+240
+],
+"Orange": [
+255,
+152,
+93
+],
+"Pink": [
+237,
+147,
+164
+],
+"Grey": [
+160,
+160,
+160
+],
+"Brown": [
+255,
+211,
+93
+]
+}
+}

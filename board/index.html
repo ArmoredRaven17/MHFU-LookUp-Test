@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MHFU Gather Extraction — Kanban</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f5f4f0;color:#1a1a1a;padding:1.5rem;min-height:100vh}
+h1{font-size:16px;font-weight:500;margin-bottom:4px}
+.sub{font-size:13px;color:#666;margin-bottom:1rem}
+.prog-bar{height:6px;background:#ddd;border-radius:99px;overflow:hidden;margin-bottom:1.5rem}
+.prog-fill{height:100%;background:#2d8c4e;width:0%;transition:width .25s}
+.board{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:start}
+.col{background:#eae9e4;border-radius:12px;padding:10px;min-height:80px}
+.col-title{font-size:12px;font-weight:500;color:#555;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.col-count{background:#fff;border-radius:99px;min-width:18px;text-align:center;padding:1px 7px;font-size:11px}
+.card{background:#fff;border:0.5px solid #ddd;border-radius:8px;padding:10px;margin-bottom:8px}
+.card-name{font-size:13px;font-weight:500;margin-bottom:8px}
+.chips{display:flex;gap:5px}
+.chip{flex:1;text-align:center;font-size:11px;font-weight:500;padding:4px 0;border-radius:6px;cursor:pointer;border:0.5px solid #ddd;user-select:none;transition:background .12s}
+.chip.done{background:#d4edda;color:#1a6630;border-color:transparent}
+.chip.todo{background:#f0f0ee;color:#888}
+.chip.na{background:transparent;color:#aaa;text-decoration:line-through;opacity:.55}
+.prog-text{font-size:13px;color:#555;margin-bottom:6px}
+.hint{font-size:11px;color:#aaa;margin-top:14px}
+@media(prefers-color-scheme:dark){
+  body{background:#1c1c1a;color:#e8e6e0}
+  .col{background:#2a2a28}
+  .col-title{color:#aaa}
+  .col-count{background:#3a3a38;color:#ccc}
+  .card{background:#2e2e2c;border-color:#444}
+  .card-name{color:#e0ddd6}
+  .chip.todo{background:#333;color:#777;border-color:#444}
+  .chip.done{background:#1a3d25;color:#6dbf85;border-color:transparent}
+  .prog-bar{background:#333}
+  .sub{color:#888}
+  .prog-text{color:#888}
+  .hint{color:#555}
+}
+</style>
+</head>
+<body>
+<h1>Gather-table extraction</h1>
+<p class="sub">Click a rank chip to cycle: to-do → done → N/A</p>
+<p class="prog-text" id="prog-text"></p>
+<div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+<div class="board">
+  <div class="col"><div class="col-title">Not started <span class="col-count" id="c0">0</span></div><div id="col0"></div></div>
+  <div class="col"><div class="col-title">In progress <span class="col-count" id="c1">0</span></div><div id="col1"></div></div>
+  <div class="col"><div class="col-title">Complete <span class="col-count" id="c2">0</span></div><div id="col2"></div></div>
+</div>
+<p class="hint">Green = dump banked in gather_dumps/. Strikethrough = map doesn't exist at that rank. Normal quests only — Training &amp; Treasure quests tracked separately.</p>
+<script>
+var MAPS=[
+  {name:'Forest and Hills',r:{LR:'todo',HR:'todo',GR:'todo'}},
+  {name:'Snowy Mountains',r:{LR:'done',HR:'done',GR:'done'}},
+  {name:'Snowy Mtns Peak',r:{LR:'na',HR:'na',GR:'todo'}},
+  {name:'Swamp',r:{LR:'todo',HR:'todo',GR:'todo'}},
+  {name:'Volcano',r:{LR:'todo',HR:'todo',GR:'todo'}},
+  {name:'Jungle',r:{LR:'done',HR:'done',GR:'done'}},
+  {name:'Desert (?)',r:{LR:'done',HR:'done',GR:'done'}},
+  {name:'Great Forest',r:{LR:'na',HR:'todo',GR:'todo'}},
+  {name:'Old Jungle',r:{LR:'na',HR:'todo',GR:'todo'}},
+  {name:'Old Desert',r:{LR:'na',HR:'todo',GR:'todo'}},
+  {name:'Old Swamp',r:{LR:'na',HR:'todo',GR:'todo'}},
+  {name:'Old Volcano',r:{LR:'na',HR:'todo',GR:'todo'}},
+  {name:'Tower',r:{LR:'todo',HR:'todo',GR:'todo'}},
+  {name:'Tower 2',r:{LR:'na',HR:'na',GR:'todo'}},
+  {name:'Tower 3',r:{LR:'na',HR:'todo',GR:'todo'}},
+  {name:'Town',r:{LR:'na',HR:'todo',GR:'na'}},
+  {name:'Fortress',r:{LR:'na',HR:'todo',GR:'na'}},
+  {name:'Castle Schrade',r:{LR:'na',HR:'todo',GR:'na'}},
+  {name:'Battleground',r:{LR:'na',HR:'todo',GR:'na'}},
+  {name:'Great Arena',r:{LR:'na',HR:'todo',GR:'na'}},
+  {name:'Moat Arena',r:{LR:'na',HR:'todo',GR:'na'}}
+];
+var RANKS=['LR','HR','GR'];
+var CYCLE={todo:'done',done:'na',na:'todo'};
+function bucket(m){var d=0,t=0;RANKS.forEach(function(k){if(m.r[k]==='done')d++;else if(m.r[k]==='todo')t++;});if(d===0)return 0;if(t===0)return 2;return 1;}
+function save(){try{localStorage.setItem('mhfu_board_v3',JSON.stringify(MAPS.map(function(m){return m.r;})));}catch(e){}}
+function load(){try{var s=JSON.parse(localStorage.getItem('mhfu_board_v3'));if(s&&s.length===MAPS.length)MAPS.forEach(function(m,i){m.r=s[i];});}catch(e){}}
+function render(){
+  [0,1,2].forEach(function(i){document.getElementById('col'+i).innerHTML='';});
+  var counts=[0,0,0],tot=0,done=0;
+  MAPS.forEach(function(m){
+    var b=bucket(m);counts[b]++;
+    var card=document.createElement('div');card.className='card';
+    var nm=document.createElement('div');nm.className='card-name';nm.textContent=m.name;card.appendChild(nm);
+    var chips=document.createElement('div');chips.className='chips';
+    RANKS.forEach(function(k){
+      if(m.r[k]!=='na')tot++;
+      if(m.r[k]==='done')done++;
+      var c=document.createElement('div');c.className='chip '+m.r[k];c.textContent=k;
+      c.onclick=(function(mm,kk){return function(){mm.r[kk]=CYCLE[mm.r[kk]];save();render();};})(m,k);
+      chips.appendChild(c);
+    });
+    card.appendChild(chips);
+    document.getElementById('col'+b).appendChild(card);
+  });
+  [0,1,2].forEach(function(i){document.getElementById('c'+i).textContent=counts[i];});
+  document.getElementById('prog-text').textContent=done+' / '+tot+' rank dumps banked';
+  document.getElementById('prog-fill').style.width=(tot?Math.round(done/tot*100):0)+'%';
+}
+load();render();
+</script>
+</body>
+</html>

@@ -1,30 +1,36 @@
-import { existsSync } from 'fs'
+import { existsSync, copyFileSync } from 'fs'
 import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-const ASSET_DIRS = [
-  'Armor', 'Awards', 'Decorations', 'Elements', 'Fonts',
-  'Items', 'Locations', 'Materials', 'Misc', 'Monsters', 'Notes', 'WeaponTypes',
-]
+// Emit dist/404.html as a copy of dist/index.html so GitHub Pages (and any
+// static host without SPA rewrites) serves the app for deep links / refreshes
+// on client-side routes like /monsters instead of a 404.
+function spa404Fallback(): Plugin {
+  return {
+    name: 'spa-404-fallback',
+    apply: 'build',
+    closeBundle() {
+      const outDir = resolve(__dirname, 'dist')
+      const index = resolve(outDir, 'index.html')
+      if (existsSync(index)) copyFileSync(index, resolve(outDir, '404.html'))
+    },
+  }
+}
 
-// Skip the copy when assets are already committed to web/public/assets/
-// (web-only repo). Use the copy when running from the monorepo where assets
-// live alongside the desktop app source.
-const needsCopy = !existsSync(resolve(__dirname, 'public/assets/Monsters'))
+// Game icons live in web/public/assets/ and are served/copied natively by Vite
+// (dev + build). They are mirrored from the desktop app's
+// src/MhfuLookup.App/Assets/ folders; re-run the mirror if those source icons
+// change. (We used to pull them in via vite-plugin-static-copy, but that plugin
+// is broken under Vite 8 — it silently produces an asset-less build — so
+// public/assets/ is now the single source of truth.)
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    ...(needsCopy ? [viteStaticCopy({
-      targets: ASSET_DIRS.map(dir => ({
-        src: `../src/MhfuLookup.App/Assets/${dir}`,
-        dest: 'assets',
-      })),
-    })] : []),
+    spa404Fallback(),
   ],
   base: process.env.VITE_BASE ?? '/',
 })

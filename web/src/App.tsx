@@ -21,6 +21,8 @@ import AwardsPage from './pages/AwardsPage'
 import BookmarksPage from './pages/BookmarksPage'
 import NotesPage from './pages/NotesPage'
 import AboutPage from './pages/AboutPage'
+import SettingsPage from './pages/SettingsPage'
+import HelpPage from './pages/HelpPage'
 
 export default function App() {
   return (
@@ -39,15 +41,19 @@ export default function App() {
           <Route path="decorations" element={<DecorationsPage />} />
           <Route path="decorations/:id" element={<DecorationsPage />} />
           <Route path="quests"      element={<QuestsPage />} />
+          <Route path="quests/:id"  element={<QuestsPage />} />
           <Route path="training"    element={<TrainingSchoolPage />} />
+          <Route path="training/:id" element={<TrainingSchoolPage />} />
           <Route path="gathering"   element={<GatheringPage />} />
           <Route path="gathering/:slug" element={<GatheringPage />} />
           <Route path="items"       element={<ItemsPage />} />
           <Route path="items/:name" element={<ItemsPage />} />
           <Route path="combolist"   element={<ComboListPage />} />
           <Route path="treasures"   element={<TreasuresPage />} />
+          <Route path="treasures/:id" element={<TreasuresPage />} />
           <Route path="kitchen"     element={<KitchenPage />} />
           <Route path="trenya"      element={<TrenyaPage />} />
+          <Route path="trenya/:loc" element={<TrenyaPage />} />
           <Route path="pokke"       element={<PokkePage />} />
           <Route path="pokke/:area" element={<PokkePage />} />
           <Route path="granny"      element={<GrannyPage />} />
@@ -57,6 +63,8 @@ export default function App() {
           <Route path="bookmarks"   element={<BookmarksPage />} />
           <Route path="notes"       element={<NotesPage />} />
           <Route path="about"       element={<AboutPage />} />
+          <Route path="settings"    element={<SettingsPage />} />
+          <Route path="help"        element={<HelpPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
