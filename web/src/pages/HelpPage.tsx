@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { BASE } from '../utils/assets'
 
@@ -150,7 +151,14 @@ const TIPS: ReactNode[] = [
   <><B>Saved in your browser</B> — your bookmarks, notes and appearance settings are kept in this browser, so they're remembered per device.</>,
 ]
 
+const SECTION_OPTIONS = ['All', ...TABS.map(t => t.title), 'Tips']
+
 export default function HelpPage() {
+  const [section, setSection] = useState('All')
+  const showAll = section === 'All'
+  const showTips = showAll || section === 'Tips'
+  const tabs = showAll ? TABS : TABS.filter(t => t.title === section)
+
   return (
     <div style={{ flex: 1, overflowY: 'auto', padding: 24, background: 'transparent' }}>
       <div style={{ maxWidth: 760 }}>
@@ -167,19 +175,37 @@ export default function HelpPage() {
           have a search box at the top. Here's what each tab covers.
         </p>
 
+        {/* Section jump — pick a specific tab's help instead of scrolling through all of them */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
+          <select value={section} onChange={e => setSection(e.target.value)} style={{
+            background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
+            color: 'var(--text)', padding: '5px 10px', fontSize: 13, minWidth: 200,
+          }}>
+            {SECTION_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+
         {/* The Tabs */}
-        <SectionTitle>The Tabs</SectionTitle>
-        {TABS.map((t, i) => (
-          <div key={t.title}>
-            <h3 style={{ margin: '0 0 3px', fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>{t.title}</h3>
-            {t.bullets.map((b, j) => <Bullet key={j}>{b}</Bullet>)}
-            {i < TABS.length - 1 && <div style={{ height: 1, background: 'var(--border)', margin: '10px 0' }} />}
-          </div>
-        ))}
+        {tabs.length > 0 && (
+          <>
+            {showAll && <SectionTitle>The Tabs</SectionTitle>}
+            {tabs.map((t, i) => (
+              <div key={t.title}>
+                <h3 style={{ margin: '0 0 3px', fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>{t.title}</h3>
+                {t.bullets.map((b, j) => <Bullet key={j}>{b}</Bullet>)}
+                {showAll && i < tabs.length - 1 && <div style={{ height: 1, background: 'var(--border)', margin: '10px 0' }} />}
+              </div>
+            ))}
+          </>
+        )}
 
         {/* Tips */}
-        <SectionTitle style={{ marginTop: 20 }}>Tips</SectionTitle>
-        {TIPS.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+        {showTips && (
+          <>
+            <SectionTitle style={{ marginTop: tabs.length > 0 ? 20 : 0 }}>Tips</SectionTitle>
+            {TIPS.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+          </>
+        )}
       </div>
     </div>
   )
