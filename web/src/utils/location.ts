@@ -18,9 +18,13 @@ export function locationIconUrl(area: string) {
   return `${BASE}/assets/Locations/${ICON_OVERRIDE[key] ?? key}.png`
 }
 
+// Areas with no dedicated art of their own — all fall back to the same generic flag icon.
+const FLAG_ICON_AREAS = new Set(['arena', 'battleground', 'great_arena', 'moat_arena', 'castle_schrade', 'fortress', 'town'])
+
 // Thematic colour per locale, derived from each location icon's dominant colour
 // (lightened where the raw icon colour was too dark to read as flat text).
 export function locationColor(area: string) {
+  if (FLAG_ICON_AREAS.has(locKey(area))) return '#9E8EA4'
   const l = area.toLowerCase()
   if (l.includes('old volcano')) return '#FA8E8D'
   if (l.includes('old jungle')) return '#67D55D'
@@ -34,6 +38,5 @@ export function locationColor(area: string) {
   if (l.includes('swamp')) return '#A088AA'
   if (l.includes('volcano')) return '#8FA397'
   if (l.includes('desert')) return '#AE9B84'
-  if (l.includes('arena') || l.includes('battleground')) return '#9E8EA4'
   return 'var(--text)'
 }
