@@ -76,6 +76,9 @@
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Gathering area structure</Run> — the per‑node drop rates are extracted from the ROM, but the gathering‑map layout (which nodes belong to which area, and the Secret Area) was structured with the help of the MHFU <Run FontStyle="Italic">Guide and Walkthrough (PSP)</Run> by ryin77, published on GameFAQs:</TextBlock>
                     <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
 
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Pokke Farm structure</Run> — the Bomb Mining splits and tier tables (and the other farm‑node rates) are extracted from the ROM, but the Pokke Farm tab's structure and early direction for decoding it came from the <Run FontStyle="Italic">Pokke Farm Guide (PSP)</Run> by VioletKIRA, published on GameFAQs:</TextBlock>
+                    <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
+
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Bow damage formula (verification)</Run> — cross‑confirmed by Armored_Raven against two community FAQs published on GameFAQs: the MHFU <Run FontStyle="Italic">Bow Damage Formula FAQ</Run> by Boldrin (2009) and the Monster Hunter Freedom 2 <Run FontStyle="Italic">Bow Damage Formula FAQ</Run> by Deathslayer31 / Brian VanWulfen (2007):</TextBlock>
                     <HyperlinkButton Content="https://gamefaqs.gamespot.com" NavigateUri="https://gamefaqs.gamespot.com" Padding="14,0,0,4" />
 

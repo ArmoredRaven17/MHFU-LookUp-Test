@@ -20,11 +20,12 @@ public static class WeaponColors
         ["Sle"] = "#B0CCE8",
     };
 
+    // Bows are raw or elemental only — coating boosts (PoisonC/ParaC/SleepC) are not a status
+    // attribute, so those bows keep the default (raw) colour rather than a status tint.
     private static readonly Dictionary<string, string> Bow = new()
     {
         ["Fir"] = "#FF4D2E", ["Wtr"] = "#4A9EFF", ["Thn"] = "#F5C400", ["Ice"] = "#7FD8F0",
-        ["Drg"] = "#B060E0", ["Def"] = "#E87820", ["PoisonC"] = "#C040C8",
-        ["ParaC"] = "#D4960A", ["SleepC"] = "#B0CCE8",
+        ["Drg"] = "#B060E0", ["Def"] = "#E87820",
     };
 
     private static readonly HashSet<string> Melee = new()

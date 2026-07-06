@@ -10,6 +10,7 @@
     <local:NullToVisibilityConverter x:Key="NullToVis" />
     <local:NullToVisibleConverter x:Key="NullToVisible" />
     <local:StringToVisibilityConverter x:Key="StringToVis" />
+    <local:StringEmptyToVisibilityConverter x:Key="StringEmptyToVis" />
     <local:SignedIntConverter x:Key="SignedInt" />
     <local:SignBrushConverter x:Key="SignBrush" />
     <local:HexToBrushConverter x:Key="HexToBrush" />

@@ -69,7 +69,7 @@
                     <TextBlock Text="Armor Sets" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Search by set name, a skill you want points in (e.g. “Sneak”), or an activated skill (e.g. “Stealth”).</TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Per-piece defense, resistances, slots and skill points.</TextBlock>
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Skills that activate when the set is worn — <Run Foreground="{StaticResource PositiveBrush}">green</Run> = beneficial, <Run Foreground="{StaticResource NegativeBrush}">red</Run> = detrimental.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Skills that activate when the set is worn (<Run Foreground="{StaticResource PositiveBrush}">Green</Run> = Positive Skills, <Run Foreground="{StaticResource NegativeBrush}">Red</Run> = Negative Skills).</TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Blademaster / Gunner toggle to switch the variant.</TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Male / Female toggle for set and piece names.</TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  <Run FontWeight="SemiBold">Notes</Run> — your own editable notes for each set; they save automatically.</TextBlock>
@@ -107,7 +107,7 @@
                     <TextBlock Text="Training School" FontWeight="SemiBold" FontSize="15" Foreground="{StaticResource TextBrush}" />
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  The Training School quests, selectable by category.</TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Per quest: danger rating, objective and item sets.</TextBlock>
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Weapon Selection — each loaner weapon &amp; armor loadout with its instructor notes and active skills (<Run Foreground="{StaticResource PositiveBrush}">green</Run> = helpful, <Run Foreground="{StaticResource NegativeBrush}">red</Run> = avoid).</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{StaticResource TextBrush}">•  Weapon Selection — each loaner weapon &amp; armor loadout with its instructor notes and active skills (<Run Foreground="{StaticResource PositiveBrush}">Green</Run> = Positive Skills, <Run Foreground="{StaticResource NegativeBrush}">Red</Run> = Negative Skills).</TextBlock>
                 </StackPanel>
                 <Border Height="1" Background="{StaticResource BorderBrush}" Margin="0,10" />
 

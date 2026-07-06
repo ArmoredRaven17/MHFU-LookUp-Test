@@ -96,6 +96,45 @@
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Rarity" Style="{StaticResource HeaderCell}" />
                         <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind ViewModel.Selected.Rarity, Mode=OneWay}" Style="{StaticResource BodyCell}" />
                     </Grid>
+
+                    <!-- Which monsters the treasure can be obtained from (Treasure-Hunt quests) -->
+                    <StackPanel Margin="0,12,0,0"
+                                Visibility="{x:Bind ViewModel.HasMonsterSources, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                        <TextBlock Text="Obtained From Monsters" Style="{StaticResource SectionTitle}" />
+                        <Grid Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160" /><ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="130" /><ColumnDefinition Width="60" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Monster" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="1" Text="Source" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="2" Text="Rank" Style="{StaticResource HeaderCell}" />
+                            <TextBlock Grid.Column="3" Text="Rate" Style="{StaticResource HeaderCell}" />
+                        </Grid>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.MonsterSources, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:MonsterSource">
+                                    <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}" CornerRadius="3" Padding="0,2">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="160" /><ColumnDefinition Width="150" />
+                                                <ColumnDefinition Width="130" /><ColumnDefinition Width="60" />
+                                            </Grid.ColumnDefinitions>
+                                            <HyperlinkButton Grid.Column="0" Content="{x:Bind Monster}" Tag="{x:Bind MonsterId}"
+                                                             Click="MonsterLink_Click" ToolTipService.ToolTip="View this monster"
+                                                             Visibility="{x:Bind Monster, Converter={StaticResource StringToVis}}"
+                                                             Padding="6,3" MinWidth="0" MinHeight="0"
+                                                             HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                             FontWeight="SemiBold" FontSize="12" />
+                                            <TextBlock Grid.Column="1" Text="{x:Bind Source}" Style="{StaticResource BodyCell}" />
+                                            <TextBlock Grid.Column="2" Text="{x:Bind Rank}" Style="{StaticResource BodyCell}" />
+                                            <TextBlock Grid.Column="3" Text="{x:Bind Rate}" Style="{StaticResource BodyCell}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

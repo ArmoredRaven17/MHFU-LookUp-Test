@@ -19,7 +19,8 @@ public sealed class ArmorRarityGroup : List<ArmorSetSummary>
 
 public sealed record PieceStatRow(
     string Slot, string Name, string Defense, string Slots,
-    int Fire, int Water, int Thunder, int Ice, int Dragon, bool IsTotal);
+    int Fire, int Water, int Thunder, int Ice, int Dragon, bool IsTotal,
+    string Icon = "");
 
 public sealed record SkillPointRow(
     string Skill, string Head, string Chest, string Arms, string Waist, string Legs, int Total);
@@ -45,7 +46,7 @@ public sealed class VariantView
 public sealed class ArmorSetView
 {
     public string Name { get; init; } = "";
-    public string Rank { get; init; } = "";
+    public int Rarity { get; init; }
     public IReadOnlyList<VariantView> Variants { get; init; } = Array.Empty<VariantView>();
 }
 
@@ -145,8 +146,8 @@ public sealed partial class ArmorSetViewModel : ObservableObject
             .ToList();
         if (chosen.Count == 0) return null;   // not equippable by the selected class
 
-        var variants = chosen.Select(v => BuildVariant(v, detail.ClassSplit)).ToList();
-        return new ArmorSetView { Name = ResolveSetName(detail.Name, IsFemale, IsGunner), Rank = detail.Rank, Variants = variants };
+        var variants = chosen.Select(v => BuildVariant(v, detail.ClassSplit, detail.Rarity)).ToList();
+        return new ArmorSetView { Name = ResolveSetName(detail.Name, IsFemale, IsGunner), Rarity = detail.Rarity, Variants = variants };
     }
 
     private static string SlotCircles(int n) => SlotDisplay.Bar(n);
@@ -230,14 +231,18 @@ public sealed partial class ArmorSetViewModel : ObservableObject
         return string.IsNullOrEmpty(n) ? (IsFemale ? p.NameMale : p.NameFemale) : n;
     }
 
-    private VariantView BuildVariant(ArmorVariant v, bool split)
+    private static string ArmorIcon(string slot, int rarity) =>
+        $"ms-appx:///Assets/Armor/{slot.ToLowerInvariant()}_R{rarity}.png";
+
+    private VariantView BuildVariant(ArmorVariant v, bool split, int rarity)
     {
         var rows = new List<PieceStatRow>();
         int dSum = 0, dMaxSum = 0, fSum = 0, wSum = 0, tSum = 0, iSum = 0, drSum = 0;
         foreach (var p in v.Pieces)
         {
             rows.Add(new PieceStatRow(Cap(p.Slot), PieceName(p), DefRange(p.Defense, p.MaxDefense), SlotCircles(p.DecoSlots),
-                p.FireRes, p.WaterRes, p.ThunderRes, p.IceRes, p.DragonRes, false));
+                p.FireRes, p.WaterRes, p.ThunderRes, p.IceRes, p.DragonRes, false,
+                ArmorIcon(p.Slot, rarity)));
             dSum += p.Defense; dMaxSum += p.MaxDefense; fSum += p.FireRes; wSum += p.WaterRes;
             tSum += p.ThunderRes; iSum += p.IceRes; drSum += p.DragonRes;
         }

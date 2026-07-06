@@ -1,3 +1,4 @@
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Navigation;
@@ -47,5 +48,12 @@ public sealed partial class ItemsPage : Page
             ViewModel.Selected = item;
             ItemStar.SetTarget(Bookmarks.Item, item.Name, item.Name);
         }
+    }
+
+    // Jump to the clicked monster's Monsters-tab entry (Tag carries the monster id).
+    private void MonsterLink_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is FrameworkElement { Tag: string id } && id.Length > 0 && App.Window is MainWindow mw)
+            mw.NavigateToMonster(id);
     }
 }

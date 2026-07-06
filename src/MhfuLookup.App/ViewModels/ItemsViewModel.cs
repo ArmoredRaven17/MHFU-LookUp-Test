@@ -68,10 +68,19 @@ public sealed partial class ItemsViewModel : ObservableObject
 
     public bool HasGathering => GatherSources.Count > 0;
 
+    /// <summary>Which monsters the selected item can be carved / broken / captured / shiny-dropped from,
+    /// with the rank and rate for each; empty when the item has no monster source.</summary>
+    public IReadOnlyList<MonsterSource> MonsterSources =>
+        Selected is { } s ? MonsterSourceIndex.For(s.Name) : System.Array.Empty<MonsterSource>();
+
+    public bool HasMonsterSources => MonsterSources.Count > 0;
+
     partial void OnSelectedChanged(ItemRow? value)
     {
         OnPropertyChanged(nameof(GatherSources));
         OnPropertyChanged(nameof(HasGathering));
+        OnPropertyChanged(nameof(MonsterSources));
+        OnPropertyChanged(nameof(HasMonsterSources));
     }
 
     // Scan every gathering location's Low/High/G data once, mapping each item to the

@@ -71,8 +71,9 @@
                                    VerticalAlignment="Center" />
                         <ctl:BookmarkStar x:Name="ArmorStar" />
                     </StackPanel>
-                    <TextBlock Text="{x:Bind ViewModel.Selected.Rank, Mode=OneWay}"
-                               Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,8" />
+                    <TextBlock Foreground="{StaticResource MutedTextBrush}" Margin="0,0,0,8">
+                        <Run Text="Rarity " /><Run Text="{x:Bind ViewModel.Selected.Rarity, Mode=OneWay}" />
+                    </TextBlock>
 
                     <ItemsControl ItemsSource="{x:Bind ViewModel.Selected.Variants, Mode=OneWay}">
                         <ItemsControl.ItemTemplate>
@@ -87,40 +88,42 @@
                                     <StackPanel>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="60" /><ColumnDefinition Width="160" />
+                                            <ColumnDefinition Width="28" /><ColumnDefinition Width="60" /><ColumnDefinition Width="160" />
                                             <ColumnDefinition Width="74" /><ColumnDefinition Width="56" />
                                             <ColumnDefinition Width="46" /><ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
                                             <ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" Text="Slot" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="1" Text="Name" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="2" Text="Def" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="3" Text="Slots" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="4" Text="Fire" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="5" Text="Watr" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="6" Text="Thndr" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="7" Text="Ice" Style="{StaticResource HeaderCell}" />
-                                        <TextBlock Grid.Column="8" Text="Drgn" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="1" Text="Slot" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="2" Text="Name" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="3" Text="Def" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="4" Text="Slots" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="5" Text="Fire" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="6" Text="Watr" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="7" Text="Thndr" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="8" Text="Ice" Style="{StaticResource HeaderCell}" />
+                                        <TextBlock Grid.Column="9" Text="Drgn" Style="{StaticResource HeaderCell}" />
                                     </Grid>
                                     <ItemsControl ItemsSource="{x:Bind Pieces}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate x:DataType="vm:PieceStatRow">
                                                 <Grid>
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="60" /><ColumnDefinition Width="160" />
+                                                        <ColumnDefinition Width="28" /><ColumnDefinition Width="60" /><ColumnDefinition Width="160" />
                                                         <ColumnDefinition Width="74" /><ColumnDefinition Width="56" />
                                                         <ColumnDefinition Width="46" /><ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
                                                         <ColumnDefinition Width="46" /><ColumnDefinition Width="56" />
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBlock Grid.Column="0" Text="{x:Bind Slot}" Style="{StaticResource BodyCell}" />
-                                                    <TextBlock Grid.Column="1" Text="{x:Bind Name}" Style="{StaticResource BodyCell}" />
-                                                    <TextBlock Grid.Column="2" Text="{x:Bind Defense}" Style="{StaticResource BodyCell}" />
-                                                    <TextBlock Grid.Column="3" Text="{x:Bind Slots}" Style="{StaticResource BodyCell}" />
-                                                    <TextBlock Grid.Column="4" Text="{x:Bind Fire}" Foreground="{x:Bind Fire, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
-                                                    <TextBlock Grid.Column="5" Text="{x:Bind Water}" Foreground="{x:Bind Water, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
-                                                    <TextBlock Grid.Column="6" Text="{x:Bind Thunder}" Foreground="{x:Bind Thunder, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
-                                                    <TextBlock Grid.Column="7" Text="{x:Bind Ice}" Foreground="{x:Bind Ice, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
-                                                    <TextBlock Grid.Column="8" Text="{x:Bind Dragon}" Foreground="{x:Bind Dragon, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <Image Grid.Column="0" Width="24" Height="24" Stretch="Uniform" VerticalAlignment="Center"
+                                                           Source="{x:Bind Icon, Converter={StaticResource ImageUri}}" />
+                                                    <TextBlock Grid.Column="1" Text="{x:Bind Slot}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="2" Text="{x:Bind Name}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="3" Text="{x:Bind Defense}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="4" Text="{x:Bind Slots}" Style="{StaticResource BodyCell}" />
+                                                    <TextBlock Grid.Column="5" Text="{x:Bind Fire}" Foreground="{x:Bind Fire, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="6" Text="{x:Bind Water}" Foreground="{x:Bind Water, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="7" Text="{x:Bind Thunder}" Foreground="{x:Bind Thunder, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="8" Text="{x:Bind Ice}" Foreground="{x:Bind Ice, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
+                                                    <TextBlock Grid.Column="9" Text="{x:Bind Dragon}" Foreground="{x:Bind Dragon, Converter={StaticResource SignBrush}}" FontSize="12" Padding="6,3" />
                                                 </Grid>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>

@@ -49,8 +49,10 @@ public sealed record AmmoGroup(string Header, IReadOnlyList<AmmoLine> Lines);
 // Hunting Horn: a note-colour icon (ms-appx uri) and one playable song row.
 public sealed record NoteIcon(string Uri);
 
-// One crafting-material entry: the full "5 Iron Ore" text and the resolved item-icon basename ("" if none).
-public sealed record MaterialItem(string Text, string Icon);
+// One crafting-material entry: the full "5 Iron Ore" text, the resolved item-icon basename ("" if none),
+// and the canonical Items/Treasures name to deep-link to ("" if the material isn't a known item/treasure;
+// LinkIsTreasure routes to the Treasures tab instead of the Items tab).
+public sealed record MaterialItem(string Text, string Icon, string LinkName = "", bool LinkIsTreasure = false);
 public sealed record SongRow(
     string Title, string EncoreText, bool HasEncore, IReadOnlyList<NoteIcon> Sequence);
 
@@ -660,30 +662,46 @@ public sealed partial class WeaponViewModel : ObservableObject
     // Crafting-material name → icon basename (exact, then normalised), over items ∪ treasures.
     private static readonly Dictionary<string, string> IconExact = new(StringComparer.OrdinalIgnoreCase);
     private static readonly Dictionary<string, string> IconNorm = new();
+    // Crafting-material name → its canonical Items/Treasures name + which tab, for deep-linking.
+    private static readonly Dictionary<string, (string Name, bool Treasure)> LinkExact = new(StringComparer.OrdinalIgnoreCase);
+    private static readonly Dictionary<string, (string Name, bool Treasure)> LinkNorm = new();
     private static string NormName(string s) => Regex.Replace(s.ToLowerInvariant(), "[^a-z0-9]", "");
 
     static WeaponViewModel()
     {
-        var named = AppDb.Instance.GetItems().Select(i => (i.Name, i.Icon))
-            .Concat(AppDb.Instance.GetTreasures().Select(t => (t.Name, t.Icon)))
-            .Where(x => x.Icon.Length > 0);
-        foreach (var (name, icon) in named)
+        // Items first, then treasures — TryAdd keeps the first, so a name that is both links to the item.
+        var items = AppDb.Instance.GetItems().Select(i => (i.Name, i.Icon, Treasure: false));
+        var treasures = AppDb.Instance.GetTreasures().Select(t => (t.Name, t.Icon, Treasure: true));
+        foreach (var (name, icon, treasure) in items.Concat(treasures))
         {
-            IconExact.TryAdd(name, icon);
-            IconNorm.TryAdd(NormName(name), icon);
+            if (icon.Length > 0) { IconExact.TryAdd(name, icon); IconNorm.TryAdd(NormName(name), icon); }
+            LinkExact.TryAdd(name, (name, treasure));
+            LinkNorm.TryAdd(NormName(name), (name, treasure));
         }
     }
 
-    // "5 Iron Ore, 1 Machalite Ore, …" → one MaterialItem per entry, each with its resolved icon.
+    // "5 Iron Ore, 1 Machalite Ore, …" → one MaterialItem per entry, each with its resolved icon + link.
     private static List<MaterialItem> ParseMaterials(string csv)
     {
         var outp = new List<MaterialItem>();
         foreach (var raw in csv.Split(',', StringSplitOptions.RemoveEmptyEntries))
         {
             var text = raw.Trim();
-            if (text.Length > 0) outp.Add(new MaterialItem(text, MaterialIcon(text)));
+            if (text.Length == 0) continue;
+            var (linkName, treasure) = MaterialLink(text);
+            outp.Add(new MaterialItem(text, MaterialIcon(text), linkName, treasure));
         }
         return outp;
+    }
+
+    // Resolve a material entry (minus its leading quantity) to a canonical Items/Treasures name to
+    // link to; ("", false) when it isn't a known item/treasure (e.g. an ammo-level line).
+    private static (string Name, bool Treasure) MaterialLink(string entry)
+    {
+        var name = Regex.Replace(entry, @"^\d+\s+", "");
+        if (LinkExact.TryGetValue(name, out var e)) return e;
+        if (LinkNorm.TryGetValue(NormName(name), out var n)) return n;
+        return ("", false);
     }
 
     // A material entry's icon: drop the leading quantity, resolve the name against items

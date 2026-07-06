@@ -10,16 +10,13 @@ namespace MhfuLookup.App.ViewModels;
 public sealed record PokkeArea(string Name, string IconUri);
 
 /// <summary>One obtainable item: name, an optional note (qty / rate / "Exclusive"), and its icon URI.</summary>
-public sealed record PokkeEntry(string Name, string Note, string Icon)
-{
-    /// <summary>Parenthesised note for display next to the name ("" when there's no note).</summary>
-    public string NoteText => Note.Length > 0 ? $"({Note})" : "";
-}
+public sealed record PokkeEntry(string Name, string Note, string Icon, bool Alt = false);
 
 /// <summary>An upgrade tier / bomb type / hammer, with the items it yields.</summary>
 public sealed record PokkeGroup(string Label, string Note, IReadOnlyList<PokkeEntry> Items)
 {
-    public bool HasNote => Note.Length > 0;
+    public bool HasNote  => Note.Length > 0;
+    public bool HasNotes => Items.Any(e => e.Note.Length > 0);
 }
 
 public sealed partial class PokkeViewModel : ObservableObject
@@ -47,6 +44,20 @@ public sealed partial class PokkeViewModel : ObservableObject
         ["Great Sword Cave"] = "Dark Piece",
     };
 
+    private static readonly Dictionary<string, int> AreaOrder = new()
+    {
+        ["Field Rows"] = 0,
+        ["Fishing Pier"] = 1,
+        ["Casting Machine"] = 2,
+        ["Mining Points"] = 3,
+        ["Bomb Mining"] = 4,
+        ["Insect Thicket"] = 5,
+        ["Bug Tree"] = 6,
+        ["Mushroom Tree"] = 7,
+        ["Bee Hive"] = 8,
+        ["Great Sword Cave"] = 9,
+    };
+
     public List<PokkeArea> Areas { get; }
     public ObservableCollection<PokkeGroup> Groups { get; } = new();
 
@@ -68,6 +79,7 @@ public sealed partial class PokkeViewModel : ObservableObject
             _jewelColor.TryAdd(NormName(d.Name), d.Color);
 
         Areas = _all.Select(r => r.Area).Distinct()
+            .OrderBy(a => AreaOrder.TryGetValue(a, out var o) ? o : 99)
             .Select(a => new PokkeArea(a,
                 AreaRepItem.TryGetValue(a, out var rep) ? ResolveIconUri(rep) : ""))
             .ToList();
@@ -84,6 +96,11 @@ public sealed partial class PokkeViewModel : ObservableObject
         foreach (var c in new[] { name, name + " Jewel" })
             if (_jewelColor.TryGetValue(NormName(c), out var color))
                 return $"ms-appx:///Assets/Decorations/{color}.png";
+
+        // Strip a trailing " ×N" quantity suffix (e.g. "Yambug ×2" → "Yambug") and retry once.
+        var baseName = Regex.Replace(name, @"\s*×\d+$", "");
+        if (baseName != name) return ResolveIconUri(baseName);
+
         return "";
     }
 
@@ -94,13 +111,16 @@ public sealed partial class PokkeViewModel : ObservableObject
         return "";
     }
 
+    private static string FormatNote(string note) =>
+        note.Replace("  —  perfect swing: ", "\nPerfect: ");
+
     partial void OnSelectedAreaChanged(PokkeArea? value)
     {
         Groups.Clear();
         if (value is null) return;
         foreach (var g in _all.Where(r => r.Area == value.Name).GroupBy(r => r.GroupLabel))
         {
-            var items = g.Select(r => new PokkeEntry(r.Item, r.ItemNote, ResolveIconUri(r.Item))).ToList();
+            var items = g.Select((r, i) => new PokkeEntry(r.Item, FormatNote(r.ItemNote), ResolveIconUri(r.Item), i % 2 == 1)).ToList();
             Groups.Add(new PokkeGroup(g.Key, g.First().GroupNote, items));
         }
     }

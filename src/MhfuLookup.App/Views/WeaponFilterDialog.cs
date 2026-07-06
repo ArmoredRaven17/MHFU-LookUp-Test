@@ -7,11 +7,17 @@ namespace MhfuLookup.App.Views;
 /// <summary>Multi-criteria weapon filter dialog (port of app/weapon_filter.py FilterDialog).</summary>
 public sealed class WeaponFilterDialog : ContentDialog
 {
-    private static readonly (string Key, string Label)[] ElementDefs =
+    // Statuses (Poison/Para/Sleep) are Blademaster-only; bows are raw or elemental,
+    // with status delivered via coatings (filtered in their own section below).
+    private static readonly (string Key, string Label)[] ElementOnlyDefs =
     {
         ("Raw", "Raw"), ("Fir", "Fire"), ("Wtr", "Water"), ("Thn", "Thunder"), ("Ice", "Ice"),
-        ("Drg", "Dragon"), ("Poi", "Poison"), ("Par", "Para"), ("Slp", "Sleep"),
+        ("Drg", "Dragon"),
     };
+    private static readonly (string Key, string Label)[] ElementDefs = ElementOnlyDefs.Concat(new[]
+    {
+        ("Poi", "Poison"), ("Par", "Para"), ("Slp", "Sleep"),
+    }).ToArray();
     private static readonly (string Key, string Label)[] CoatingDefs =
     {
         ("Pwr", "Power"), ("Poi", "Poison"), ("Par", "Para"), ("Slp", "Sleep"), ("Pnt", "Paint"), ("Cls", "Close-range"),
@@ -46,6 +52,7 @@ public sealed class WeaponFilterDialog : ContentDialog
     private readonly ComboBox? _sharpness;
     private readonly Dictionary<string, CheckBox>? _coatings;
     private readonly Dictionary<string, (CheckBox Cb, ComboBox Lvl)>? _shots;
+    private readonly ComboBox? _shotChargeLevel;
     private readonly Dictionary<string, CheckBox>? _ammoRaw;
     private readonly Dictionary<string, CheckBox>? _ammoSupport;
     private readonly Dictionary<string, CheckBox>? _ammoElement;
@@ -82,8 +89,11 @@ public sealed class WeaponFilterDialog : ContentDialog
         _name = new TextBox { PlaceholderText = "Substring match…", Text = current.Name };
         root.Children.Add(Section("Name", _name));
 
-        (var elemPanel, _elements) = CheckGroup(ElementDefs, current.Elements);
-        root.Children.Add(Section("Element  (any checked must match)", elemPanel));
+        // Bowguns have no element attribute (element comes from ammo, filtered below).
+        (var elemPanel, _elements) = CheckGroup(isBow ? ElementOnlyDefs : ElementDefs,
+            isBowgun ? new HashSet<string>() : current.Elements);
+        if (!isBowgun)
+            root.Children.Add(Section("Element  (any checked must match)", elemPanel));
 
         _minAtk = new NumberBox { Minimum = 0, Value = current.MinAtk, SpinButtonPlacementMode = NumberBoxSpinButtonPlacementMode.Compact };
         _minSlots = Combo(new[] { "Any", "1+", "2+", "3" }, current.MinSlots);
@@ -149,7 +159,7 @@ public sealed class WeaponFilterDialog : ContentDialog
             root.Children.Add(Section("Coatings  (any checked must be supported)", coatPanel));
 
             _shots = new();
-            var shotPanel = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 12 };
+            var shotRow = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 12 };
             foreach (var st in ShotTypeDefs)
             {
                 var has = current.ShotTypes.TryGetValue(st, out var lvl);
@@ -161,10 +171,23 @@ public sealed class WeaponFilterDialog : ContentDialog
                 var pair = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 4 };
                 pair.Children.Add(cb);
                 pair.Children.Add(combo);
-                shotPanel.Children.Add(pair);
+                shotRow.Children.Add(pair);
                 _shots[st] = (cb, combo);
             }
-            root.Children.Add(Section("Shot Types  (each checked must be present at/above level)", shotPanel));
+
+            // Desired Charge Level, on its own row so it reads separately from the three shot-type
+            // level selects. "Any" = aggregate across all charge slots; 1..4 = require a checked
+            // shot type at that specific charge slot (at that level or higher).
+            _shotChargeLevel = Combo(new[] { "Any", "1", "2", "3", "4" }, Math.Clamp(current.ShotChargeLevel, 0, 4));
+            var clRow = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 8 };
+            clRow.Children.Add(new TextBlock { Text = "Desired Charge Level:", VerticalAlignment = VerticalAlignment.Center });
+            clRow.Children.Add(_shotChargeLevel);
+
+            var shotPanel = new StackPanel { Spacing = 8 };
+            shotPanel.Children.Add(shotRow);
+            shotPanel.Children.Add(clRow);
+
+            root.Children.Add(Section("Shot Types  (checked shot must reach its level; Charge Level requires that shot at that charge slot, at its level or higher)", shotPanel));
         }
 
         if (isBowgun)
@@ -212,6 +235,7 @@ public sealed class WeaponFilterDialog : ContentDialog
         if (_shots is not null)
             f.ShotTypes = _shots.Where(kv => kv.Value.Cb.IsChecked == true)
                 .ToDictionary(kv => kv.Key, kv => kv.Value.Lvl.SelectedIndex + 1);
+        if (_shotChargeLevel is not null) f.ShotChargeLevel = Math.Max(0, _shotChargeLevel.SelectedIndex); // 0=Any, else 1..4
         if (_ammoRaw is not null) f.AmmoRaw = Checked(_ammoRaw);
         if (_ammoSupport is not null) f.AmmoSupport = Checked(_ammoSupport);
         if (_ammoElement is not null) f.AmmoElement = Checked(_ammoElement);

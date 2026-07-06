@@ -166,6 +166,16 @@ public sealed class StringToVisibilityConverter : IValueConverter
         throw new NotSupportedException();
 }
 
+/// <summary>Empty/whitespace string → Visible, otherwise Collapsed (inverse of StringToVis).</summary>
+public sealed class StringEmptyToVisibilityConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, string language) =>
+        string.IsNullOrWhiteSpace(value as string) ? Visibility.Visible : Visibility.Collapsed;
+
+    public object ConvertBack(object value, Type targetType, object parameter, string language) =>
+        throw new NotSupportedException();
+}
+
 /// <summary>Signed integer → "+10" / "-10" / "0".</summary>
 public sealed class SignedIntConverter : IValueConverter
 {

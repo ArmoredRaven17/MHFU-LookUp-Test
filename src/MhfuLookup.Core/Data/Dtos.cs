@@ -32,7 +32,7 @@ public sealed record BookmarkRow(string EntityType, string EntityId, string Name
 
 /// <summary>A user note resolved for the Notes tab: the entity kind + its id (for edit/delete/deep-link),
 /// the entity's display name and category/type, and the note text.</summary>
-public sealed record UserNoteRow(string EntityType, string EntityId, string Name, string Category, string Note);
+public sealed record UserNoteRow(string EntityType, string EntityId, string Name, string Category, string Note, int Rarity = 0);
 
 public sealed record ItemRow(
     string Category, string Name, string Icon, string Rarity, string Capacity, string Value,
@@ -64,14 +64,14 @@ public sealed record WeaponRow(
     int Atk, int Affinity, int Slots, int Price, string? UpgradesFrom, JsonObject Doc);
 
 public sealed record ArmorSetSummary(
-    string Id, string Name, string Rank, int Rarity, bool ClassSplit, int SortOrder, string Classes);
+    string Id, string Name, int Rarity, bool ClassSplit, int SortOrder, string Classes);
 
 /// <summary>One class variant of a set with its activated skills and 5 pieces.</summary>
 public sealed record ArmorVariant(
     string ClassType, IReadOnlyList<string> ActivatedSkills, IReadOnlyList<ArmorPiece> Pieces);
 
 public sealed record ArmorSetDetail(
-    string Id, string Name, string Rank, int Rarity, bool ClassSplit,
+    string Id, string Name, int Rarity, bool ClassSplit,
     IReadOnlyList<ArmorVariant> Variants);
 
 public sealed record NamedDoc(string Slug, string Title);

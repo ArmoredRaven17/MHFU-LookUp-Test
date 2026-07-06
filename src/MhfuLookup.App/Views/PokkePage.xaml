@@ -41,27 +41,54 @@
             <ItemsControl ItemsSource="{x:Bind ViewModel.Groups}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="vm:PokkeGroup">
-                        <StackPanel Margin="0,0,0,14">
+                        <StackPanel Margin="0,0,0,18">
                             <!-- Tier header -->
-                            <TextBlock Margin="0,0,0,4">
+                            <TextBlock Margin="0,0,0,2">
                                 <Run Text="{x:Bind Label}" FontWeight="SemiBold"
                                      Foreground="{StaticResource HeaderBrush}" />
                             </TextBlock>
-                            <TextBlock Text="{x:Bind Note}" FontSize="12" Margin="0,-4,0,4"
-                                       Foreground="{StaticResource MutedTextBrush}"
+                            <TextBlock Text="{x:Bind Note}" FontSize="12" Margin="0,0,0,2"
+                                       Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap"
                                        Visibility="{x:Bind HasNote, Converter={StaticResource BoolToVis}}" />
-                            <!-- Items -->
+
+                            <!-- Column headers — only shown for groups that have rate/note data -->
+                            <Grid Margin="0,2,0,0"
+                                  Visibility="{x:Bind HasNotes, Converter={StaticResource BoolToVis}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="210" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="1" Text="Item" Style="{StaticResource HeaderCell}" />
+                                <TextBlock Grid.Column="2" Text="Rate" Style="{StaticResource HeaderCell}" />
+                            </Grid>
+                            <Border Height="1" Background="{StaticResource BorderBrush}"
+                                    Visibility="{x:Bind HasNotes, Converter={StaticResource BoolToVis}}"
+                                    Margin="0,0,0,1" />
+
+                            <!-- Items table -->
                             <ItemsControl ItemsSource="{x:Bind Items}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="vm:PokkeEntry">
-                                        <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,2">
-                                            <Image Width="24" Height="24" Stretch="Uniform" VerticalAlignment="Center"
-                                                   Source="{x:Bind Icon, Converter={StaticResource ImageUri}}" />
-                                            <TextBlock VerticalAlignment="Center" TextWrapping="Wrap">
-                                                <Run Text="{x:Bind Name}" Foreground="{StaticResource TextBrush}" />
-                                                <Run Text="{x:Bind NoteText}" Foreground="{StaticResource MutedTextBrush}" />
-                                            </TextBlock>
-                                        </StackPanel>
+                                        <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}"
+                                                CornerRadius="2" Padding="0,3">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="210" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Grid.Column="0" Width="24" Height="24" Stretch="Uniform"
+                                                       VerticalAlignment="Center"
+                                                       Source="{x:Bind Icon, Converter={StaticResource ImageUri}}" />
+                                                <TextBlock Grid.Column="1" Text="{x:Bind Name}"
+                                                           VerticalAlignment="Center" TextWrapping="Wrap"
+                                                           Foreground="{StaticResource TextBrush}" />
+                                                <TextBlock Grid.Column="2" Text="{x:Bind Note}"
+                                                           VerticalAlignment="Center" TextWrapping="Wrap"
+                                                           Foreground="{StaticResource MutedTextBrush}" />
+                                            </Grid>
+                                        </Border>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>

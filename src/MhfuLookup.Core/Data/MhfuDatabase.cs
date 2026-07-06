@@ -286,6 +286,26 @@ public sealed class MhfuDatabase : IDisposable
         return outp;
     }
 
+    /// <summary>All armor pieces contributing points to a skill, deduplicated across BM/Gunner
+    /// variants of the same set, ordered by points descending then set name.</summary>
+    public List<(string SetName, string PieceName, string Slot, int Points, int Rarity)> GetSkillPieces(string skillId)
+    {
+        var outp = new List<(string, string, string, int, int)>();
+        using var c = Cmd(
+            "SELECT a.name, COALESCE(NULLIF(ap.name_male,''),ap.name_female,ap.slot), ap.slot, sp.points, a.rarity " +
+            "FROM armor_piece_skill_points sp " +
+            "JOIN armor_pieces ap ON ap.piece_id = sp.piece_id " +
+            "JOIN armor_sets a ON a.id = ap.set_id " +
+            "WHERE sp.skill_id = $id " +
+            "GROUP BY a.id, ap.slot " +
+            "ORDER BY a.rarity, sp.points DESC, a.name, " +
+            "CASE ap.slot WHEN 'head' THEN 0 WHEN 'chest' THEN 1 WHEN 'arms' THEN 2 WHEN 'waist' THEN 3 WHEN 'legs' THEN 4 ELSE 5 END");
+        P(c, "$id", skillId);
+        using var r = c.ExecuteReader();
+        while (r.Read()) outp.Add((r.GetString(0), r.GetString(1), r.GetString(2), r.GetInt32(3), r.IsDBNull(4) ? 0 : r.GetInt32(4)));
+        return outp;
+    }
+
     // ── Decorations ───────────────────────────────────────────────────────────
     public List<Decoration> GetDecorations()
     {
@@ -334,13 +354,13 @@ public sealed class MhfuDatabase : IDisposable
     public List<ArmorSetSummary> GetArmorSets()
     {
         var outp = new List<ArmorSetSummary>();
-        using var c = Cmd("SELECT s.id,s.name,s.rank,s.rarity,s.class_split,s.sort_order, " +
+        using var c = Cmd("SELECT s.id,s.name,s.rarity,s.class_split,s.sort_order, " +
                           "(SELECT GROUP_CONCAT(DISTINCT v.class_type) FROM armor_variants v WHERE v.set_id=s.id) " +
                           "FROM armor_sets s ORDER BY s.sort_order");
         using var r = c.ExecuteReader();
         while (r.Read())
-            outp.Add(new ArmorSetSummary(r.GetString(0), r.GetString(1), r.GetString(2),
-                r.GetInt32(3), r.GetInt32(4) != 0, r.GetInt32(5), r.IsDBNull(6) ? "" : r.GetString(6)));
+            outp.Add(new ArmorSetSummary(r.GetString(0), r.GetString(1),
+                r.GetInt32(2), r.GetInt32(3) != 0, r.GetInt32(4), r.IsDBNull(5) ? "" : r.GetString(5)));
         return outp;
     }
 
@@ -374,12 +394,12 @@ public sealed class MhfuDatabase : IDisposable
 
     public ArmorSetDetail? GetArmorSet(string setId)
     {
-        string name = "", rank = ""; int rarity = 1; bool classSplit = false; bool found = false;
-        using (var sc = Cmd("SELECT name,rank,rarity,class_split FROM armor_sets WHERE id=$k"))
+        string name = ""; int rarity = 1; bool classSplit = false; bool found = false;
+        using (var sc = Cmd("SELECT name,rarity,class_split FROM armor_sets WHERE id=$k"))
         {
             P(sc, "$k", setId);
             using var sr = sc.ExecuteReader();
-            if (sr.Read()) { name = sr.GetString(0); rank = sr.GetString(1); rarity = sr.GetInt32(2); classSplit = sr.GetInt32(3) != 0; found = true; }
+            if (sr.Read()) { name = sr.GetString(0); rarity = sr.GetInt32(1); classSplit = sr.GetInt32(2) != 0; found = true; }
         }
         if (!found) return null;
 
@@ -403,7 +423,7 @@ public sealed class MhfuDatabase : IDisposable
                 variants.Add(new ArmorVariant(ct, activatedByClass.GetValueOrDefault(ct) ?? new List<string>(),
                     OrderBySlot(ps)));
 
-        return new ArmorSetDetail(setId, name, rank, rarity, classSplit, variants);
+        return new ArmorSetDetail(setId, name, rarity, classSplit, variants);
     }
 
     /// <summary>All pieces (used to rehydrate ArmorPiece models, e.g. for the engine).</summary>
@@ -668,15 +688,16 @@ public sealed class MhfuDatabase : IDisposable
             + "JOIN monsters m ON m.id = n.entity_id WHERE n.entity_type='monster' ORDER BY m.name"))
         using (var r = c.ExecuteReader())
             while (r.Read()) outp.Add(new UserNoteRow("monster", r.GetString(0), r.GetString(1), r.GetString(2), r.GetString(3)));
-        using (var c = Cmd("SELECT n.entity_id, w.name, w.type, n.note FROM user_notes n "
+        using (var c = Cmd("SELECT n.entity_id, w.name, w.type, n.note, "
+            + "CAST(json_extract(w.doc_json, '$.rarity') AS INTEGER) FROM user_notes n "
             + "JOIN weapons w ON w.weapon_pk = CAST(n.entity_id AS INTEGER) WHERE n.entity_type='weapon' "
             + "ORDER BY w.type, w.name"))
         using (var r = c.ExecuteReader())
-            while (r.Read()) outp.Add(new UserNoteRow("weapon", r.GetString(0), r.GetString(1), r.GetString(2), r.GetString(3)));
-        using (var c = Cmd("SELECT n.entity_id, a.name, a.rank, n.note FROM user_notes n "
+            while (r.Read()) outp.Add(new UserNoteRow("weapon", r.GetString(0), r.GetString(1), r.GetString(2), r.GetString(3), r.IsDBNull(4) ? 0 : r.GetInt32(4)));
+        using (var c = Cmd("SELECT n.entity_id, a.name, a.rank, n.note, a.rarity FROM user_notes n "
             + "JOIN armor_sets a ON a.id = n.entity_id WHERE n.entity_type='armorset' ORDER BY a.name"))
         using (var r = c.ExecuteReader())
-            while (r.Read()) outp.Add(new UserNoteRow("armorset", r.GetString(0), r.GetString(1), r.GetString(2), r.GetString(3)));
+            while (r.Read()) outp.Add(new UserNoteRow("armorset", r.GetString(0), r.GetString(1), r.GetString(2), r.GetString(3), r.IsDBNull(4) ? 0 : r.GetInt32(4)));
         return outp;
     }
 
@@ -690,6 +711,37 @@ public sealed class MhfuDatabase : IDisposable
         using var r = c.ExecuteReader();
         while (r.Read()) outp.Add((r.GetString(0), r.GetString(1)));
         return outp;
+    }
+
+    /// <summary>Returns the id of the first target monster for a quest (category slug + quest name),
+    /// or "" if the quest has no monsters array or the name isn't in the monsters table.</summary>
+    public string GetQuestFirstMonsterId(string slug, string questName)
+    {
+        string? json = null;
+        using (var c = Cmd("SELECT doc_json FROM quest_categories WHERE slug=$s"))
+        {
+            P(c, "$s", slug);
+            using var r = c.ExecuteReader();
+            if (r.Read() && !r.IsDBNull(0)) json = r.GetString(0);
+        }
+        if (json is null) return "";
+        try
+        {
+            var doc = JsonNode.Parse(json);
+            foreach (var rank in doc?["ranks"]?.AsArray() ?? new JsonArray())
+            foreach (var quest in rank?["quests"]?.AsArray() ?? new JsonArray())
+            {
+                if (quest?["name"]?.ToString() != questName) continue;
+                var firstName = quest["monsters"]?.AsArray().FirstOrDefault()?.ToString();
+                if (string.IsNullOrEmpty(firstName)) return "";
+                using var c2 = Cmd("SELECT id FROM monsters WHERE name=$n LIMIT 1");
+                P(c2, "$n", firstName);
+                using var r2 = c2.ExecuteReader();
+                return r2.Read() ? r2.GetString(0) : "";
+            }
+        }
+        catch { }
+        return "";
     }
 
     // ── Bookmarks (per monster / weapon / item / armor set / decoration / quest / treasure) ────

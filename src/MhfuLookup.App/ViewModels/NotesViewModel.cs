@@ -60,14 +60,17 @@ public sealed partial class NotesViewModel : ObservableObject
         // Quests carry their name in the (slug-encoded) id, so resolve them here.
         foreach (var (id, note) in AppDb.Instance.GetUserNotesByType(Bookmarks.Quest))
         {
-            var (_, name, training) = Bookmarks.DecodeQuest(id);
+            var (slug, name, training) = Bookmarks.DecodeQuest(id);
+            var monsterId = AppDb.Instance.GetQuestFirstMonsterId(slug, name);
             entries.Add(new NoteEntry
             {
                 EntityType = Bookmarks.Quest,
                 EntityId = id,
                 Name = name,
                 Category = training ? "Training School" : "Quest",
-                IconUri = TabIcons.IconUri("quest").ToString(),
+                IconUri = monsterId.Length > 0
+                    ? $"ms-appx:///Assets/Monsters/{monsterId}.png"
+                    : TabIcons.IconUri("quest").ToString(),
                 Note = note,
             });
         }
@@ -83,8 +86,15 @@ public sealed partial class NotesViewModel : ObservableObject
     private static string IconFor(Core.Data.UserNoteRow n) => n.EntityType switch
     {
         "monster" => $"ms-appx:///Assets/Monsters/{n.EntityId}.png",
-        "weapon" => WeaponTypeIcons.Base(n.Category),       // Category = weapon type
-        "armorset" => TabIcons.IconUri("armorset").ToString(),  // no per-set icon → the tab icon
+        "weapon" => WeaponTypeIcons.ForRarity(n.Category, n.Rarity),
+        "armorset" => ArmorChestIcon(n.Rarity),
         _ => "",
     };
+
+    private static string ArmorChestIcon(int rarity)
+    {
+        if (rarity <= 0) return TabIcons.IconUri("armorset").ToString();
+        var tier = rarity >= 4 ? Math.Min(rarity, 10) : 1;
+        return $"ms-appx:///Assets/Armor/chest_R{tier}.png";
+    }
 }

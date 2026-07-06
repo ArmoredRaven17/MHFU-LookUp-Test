@@ -26,10 +26,11 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <!-- Wide enough to fit the deepest/longest tree row (incl. cross-type leaves like
-                 "Liquid Fire Blade (Long Sword)" ~10 levels deep) without horizontal scrolling. -->
-            <ColumnDefinition Width="440" />
-            <ColumnDefinition Width="*" />
+            <!-- Tree pane: capped at 440px so deep rows fit without horizontal scrolling at normal
+                 DPI, but proportional (3*) so it shrinks gracefully at high DPI / narrow windows
+                 rather than overflowing and pushing the detail pane to zero width. -->
+            <ColumnDefinition Width="3*" MaxWidth="440" />
+            <ColumnDefinition Width="2*" MinWidth="180" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="{StaticResource PanelBgBrush}">
@@ -48,6 +49,7 @@
                 <Button Content="Expand" Click="ExpandAll_Click" />
                 <Button Content="Collapse" Click="CollapseAll_Click" />
                 <Button x:Name="FilterButton" Content="Filter…" Click="Filter_Click" />
+                <Button x:Name="SharpnessButton" Content="Sharpness…" Click="Sharpness_Click" Visibility="Collapsed" />
                 <Button x:Name="SongsButton" Content="Songs…" Click="Songs_Click" Visibility="Collapsed" />
                 <Button x:Name="AmmoButton" Content="Ammo…" Click="Ammo_Click" Visibility="Collapsed" />
                 <Button x:Name="ShotTypesButton" Content="Shot Types…" Click="ShotTypes_Click" Visibility="Collapsed" />
@@ -354,7 +356,15 @@
                                         <Grid.ColumnDefinitions><ColumnDefinition Width="26" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
                                         <Image Grid.Column="0" Width="20" Height="20" Stretch="Uniform" VerticalAlignment="Center"
                                                Source="{x:Bind Icon, Converter={StaticResource ItemIcon}}" />
-                                        <TextBlock Grid.Column="1" Text="{x:Bind Text}" Style="{StaticResource WValue}" VerticalAlignment="Center" />
+                                        <Grid Grid.Column="1">
+                                            <HyperlinkButton Content="{x:Bind Text}" Click="MaterialLink_Click"
+                                                             ToolTipService.ToolTip="View this material"
+                                                             Visibility="{x:Bind LinkName, Converter={StaticResource StringToVis}}"
+                                                             Padding="0,3" MinWidth="0" MinHeight="0"
+                                                             HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                                            <TextBlock Text="{x:Bind Text}" Style="{StaticResource WValue}" VerticalAlignment="Center"
+                                                       Visibility="{x:Bind LinkName, Converter={StaticResource StringEmptyToVis}}" />
+                                        </Grid>
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -372,7 +382,15 @@
                                         <Grid.ColumnDefinitions><ColumnDefinition Width="26" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
                                         <Image Grid.Column="0" Width="20" Height="20" Stretch="Uniform" VerticalAlignment="Center"
                                                Source="{x:Bind Icon, Converter={StaticResource ItemIcon}}" />
-                                        <TextBlock Grid.Column="1" Text="{x:Bind Text}" Style="{StaticResource WValue}" VerticalAlignment="Center" />
+                                        <Grid Grid.Column="1">
+                                            <HyperlinkButton Content="{x:Bind Text}" Click="MaterialLink_Click"
+                                                             ToolTipService.ToolTip="View this material"
+                                                             Visibility="{x:Bind LinkName, Converter={StaticResource StringToVis}}"
+                                                             Padding="0,3" MinWidth="0" MinHeight="0"
+                                                             HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                                            <TextBlock Text="{x:Bind Text}" Style="{StaticResource WValue}" VerticalAlignment="Center"
+                                                       Visibility="{x:Bind LinkName, Converter={StaticResource StringEmptyToVis}}" />
+                                        </Grid>
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>

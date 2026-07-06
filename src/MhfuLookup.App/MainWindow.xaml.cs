@@ -75,6 +75,10 @@ public sealed partial class MainWindow : Window
     }
 
     private bool _forceClose;
+    // Set while SelectNavByTag is running so that the resulting SelectionChanged event does not
+    // trigger a second Frame.Navigate — the deep-link helpers call Navigate directly with the
+    // correct parameter immediately after updating the nav highlight.
+    private bool _suppressNavigation;
 
     // Intercept the window close: if the user is mid-edit on a note, offer to save / discard / cancel.
     private async void OnWindowClosing(AppWindow sender, AppWindowClosingEventArgs args)
@@ -168,8 +172,13 @@ public sealed partial class MainWindow : Window
     // frame with a page-specific parameter the target page's OnNavigatedTo re-selects from.
     private void SelectNavByTag(string tag)
     {
-        foreach (var item in Nav.MenuItems.OfType<NavigationViewItem>())
-            if (item.Tag as string == tag) { Nav.SelectedItem = item; return; }
+        _suppressNavigation = true;
+        try
+        {
+            foreach (var item in Nav.MenuItems.OfType<NavigationViewItem>())
+                if (item.Tag as string == tag) { Nav.SelectedItem = item; return; }
+        }
+        finally { _suppressNavigation = false; }
     }
 
     public void NavigateToMonster(string monsterId)
@@ -235,11 +244,16 @@ public sealed partial class MainWindow : Window
 
     private void Nav_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
     {
+        if (_suppressNavigation) return;
         if (args.SelectedItem is NavigationViewItem { Tag: string tag } && Pages.TryGetValue(tag, out var page))
         {
             // The Training tab reuses QuestPage, showing the Training School categories.
             object? param = tag == "training" ? "training" : null;
-            ContentFrame.Navigate(page, param);
+            // Frame.Navigate can return false if a previous navigation is still in progress
+            // (e.g. during the outgoing page's transition animation). Retry on the next
+            // dispatcher cycle so the Frame is idle before we ask it to navigate again.
+            if (!ContentFrame.Navigate(page, param))
+                DispatcherQueue.TryEnqueue(() => ContentFrame.Navigate(page, param));
         }
     }
 }

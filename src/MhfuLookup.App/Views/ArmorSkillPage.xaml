@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:models="using:MhfuLookup.Core.Models"
+    xmlns:vm="using:MhfuLookup.App.ViewModels"
     xmlns:ctl="using:MhfuLookup.App.Controls"
     xmlns:toolkit="using:AK.Toolkit.WinUI3"
     Background="Transparent">
@@ -77,6 +78,41 @@
                                     <TextBlock Grid.Column="1" Text="{x:Bind Name}" Style="{StaticResource BodyCell}" />
                                     <TextBlock Grid.Column="2" Text="{x:Bind Description}" Style="{StaticResource BodyCell}" />
                                 </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- Armor pieces that contribute points to this skill -->
+                    <TextBlock Text="Armor Pieces" Style="{StaticResource SectionTitle}"
+                               Visibility="{x:Bind ViewModel.HasPieces, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
+                    <Grid Margin="0,2,0,0"
+                          Visibility="{x:Bind ViewModel.HasPieces, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="28" /><ColumnDefinition Width="*" /><ColumnDefinition Width="60" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="1" Text="Piece" Style="{StaticResource HeaderCell}" />
+                        <TextBlock Grid.Column="2" Text="Points" Style="{StaticResource HeaderCell}" />
+                    </Grid>
+                    <Border Height="1" Background="{StaticResource BorderBrush}"
+                            Visibility="{x:Bind ViewModel.HasPieces, Mode=OneWay, Converter={StaticResource BoolToVis}}"
+                            Margin="0,0,0,1" />
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Pieces, Mode=OneWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:SkillPieceRow">
+                                <Border Background="{x:Bind Alt, Converter={StaticResource AltRowBrush}}"
+                                        CornerRadius="2" Padding="0,3">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="28" /><ColumnDefinition Width="*" /><ColumnDefinition Width="60" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="0" Width="24" Height="24" Stretch="Uniform" VerticalAlignment="Center"
+                                               Source="{x:Bind Icon, Converter={StaticResource ImageUri}}" />
+                                        <TextBlock Grid.Column="1" Text="{x:Bind PieceName}" Style="{StaticResource BodyCell}" TextWrapping="Wrap" />
+                                        <TextBlock Grid.Column="2" Text="{x:Bind Points, Converter={StaticResource SignedInt}}"
+                                                   Foreground="{x:Bind Points, Converter={StaticResource SignBrush}}"
+                                                   FontSize="12" Padding="6,3" />
+                                    </Grid>
+                                </Border>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>

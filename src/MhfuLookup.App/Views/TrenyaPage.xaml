@@ -40,16 +40,20 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!-- Tier picker: how many Pokke Points to fund Trenya with -->
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12" Margin="16,12,16,8" VerticalAlignment="Center">
-                <TextBlock Text="{x:Bind ViewModel.SelectedLocationName, Mode=OneWay}" FontSize="16" FontWeight="Bold"
-                           Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
-                <ctl:BookmarkStar x:Name="TrenyaStar" VerticalAlignment="Center" />
-                <TextBlock Text="Pokke Points" FontSize="16" FontWeight="SemiBold"
-                           Foreground="{StaticResource HeaderBrush}" VerticalAlignment="Center" Margin="8,0,0,0" />
-                <ComboBox Width="200" VerticalAlignment="Center"
-                          ItemsSource="{x:Bind ViewModel.Tiers}" DisplayMemberPath="Label"
-                          SelectedItem="{x:Bind ViewModel.SelectedTier, Mode=TwoWay}" />
+            <!-- Tier picker: how many Pokke Points to fund Trenya with, + mechanic note -->
+            <StackPanel Grid.Row="0" Spacing="4" Margin="16,12,16,8">
+                <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind ViewModel.SelectedLocationName, Mode=OneWay}" FontSize="16" FontWeight="Bold"
+                               Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                    <ctl:BookmarkStar x:Name="TrenyaStar" VerticalAlignment="Center" />
+                    <TextBlock Text="Pokke Points" FontSize="16" FontWeight="SemiBold"
+                               Foreground="{StaticResource HeaderBrush}" VerticalAlignment="Center" Margin="8,0,0,0" />
+                    <ComboBox Width="200" VerticalAlignment="Center"
+                              ItemsSource="{x:Bind ViewModel.Tiers}" DisplayMemberPath="Label"
+                              SelectedItem="{x:Bind ViewModel.SelectedTier, Mode=TwoWay}" />
+                </StackPanel>
+                <TextBlock TextWrapping="Wrap" FontSize="12" Opacity="0.75" Foreground="{StaticResource TextBrush}"
+                           Text="Each return brings several items (more at higher Pokke Points). Within a category, items are drawn uniformly at random — every item listed is equally likely, so Trenya has no per-item drop rates." />
             </StackPanel>
 
             <!-- Category → items Trenya brings back at the selected tier -->

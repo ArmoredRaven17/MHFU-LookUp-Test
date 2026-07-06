@@ -5,6 +5,8 @@ using MhfuLookup.Core.Models;
 
 namespace MhfuLookup.App.ViewModels;
 
+public sealed record SkillPieceRow(string PieceName, string SetName, string Slot, int Points, string Icon, bool Alt = false);
+
 public sealed partial class ArmorSkillViewModel : ObservableObject
 {
     public const string AllSkills = "All Skills";
@@ -22,10 +24,12 @@ public sealed partial class ArmorSkillViewModel : ObservableObject
 
     public ObservableCollection<string> Categories { get; } = new();
     public ObservableCollection<Skill> Items { get; } = new();
+    public ObservableCollection<SkillPieceRow> Pieces { get; } = new();
 
     [ObservableProperty] private string searchText = "";
     [ObservableProperty] private string selectedCategory = AllSkills;
     [ObservableProperty] private Skill? selected;
+    [ObservableProperty] private bool hasPieces;
 
     public ArmorSkillViewModel()
     {
@@ -51,7 +55,21 @@ public sealed partial class ArmorSkillViewModel : ObservableObject
 
     partial void OnSearchTextChanged(string value) => Build();
     partial void OnSelectedCategoryChanged(string value) => Build();
-    partial void OnSelectedChanged(Skill? value) => OnPropertyChanged(nameof(SelectedCategoriesText));
+    partial void OnSelectedChanged(Skill? value)
+    {
+        OnPropertyChanged(nameof(SelectedCategoriesText));
+        Pieces.Clear();
+        if (value is null) { HasPieces = false; return; }
+        var rows = AppDb.Instance.GetSkillPieces(value.Id);
+        for (int i = 0; i < rows.Count; i++)
+        {
+            var (setName, pieceName, slot, points, rarity) = rows[i];
+            var tier = rarity >= 4 ? Math.Min(rarity, 10) : rarity > 0 ? 1 : 0;
+            var icon = tier > 0 ? $"ms-appx:///Assets/Armor/{slot}_R{tier}.png" : "";
+            Pieces.Add(new SkillPieceRow(pieceName, setName, slot, points, icon, i % 2 == 1));
+        }
+        HasPieces = Pieces.Count > 0;
+    }
 
     /// <summary>The categories the selected skill belongs to (shown in the detail pane); "" if none.</summary>
     public string SelectedCategoriesText =>

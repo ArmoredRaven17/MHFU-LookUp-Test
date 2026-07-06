@@ -26,14 +26,23 @@ public sealed partial class WeaponPage : Page
         UpdateToolButtons();
     }
 
-    // Type-specific reference buttons: Songs… on Hunting Horns, Ammo… on the bowguns.
+    // Type-specific reference buttons: Sharpness… on blademaster, Songs… on Hunting Horns, Ammo… on the bowguns.
     private void UpdateToolButtons()
     {
         var t = ViewModel.SelectedType;
+        // Blademaster = every melee type (has a sharpness bar); gunners (Bow / bowguns) don't.
+        var gunner = t is "Bow" or "Light Bowgun" or "Heavy Bowgun";
+        SharpnessButton.Visibility = gunner ? Visibility.Collapsed : Visibility.Visible;
         SongsButton.Visibility = t == "Hunting Horn" ? Visibility.Visible : Visibility.Collapsed;
         AmmoButton.Visibility = t is "Light Bowgun" or "Heavy Bowgun" ? Visibility.Visible : Visibility.Collapsed;
         ShotTypesButton.Visibility = t == "Bow" ? Visibility.Visible : Visibility.Collapsed;
         ShellsButton.Visibility = t == "Gunlance" ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    private async void Sharpness_Click(object sender, RoutedEventArgs e)
+    {
+        var dialog = new SharpnessDialog { XamlRoot = Content.XamlRoot };
+        await dialog.ShowAsync();
     }
 
     private async void Songs_Click(object sender, RoutedEventArgs e)
@@ -70,7 +79,7 @@ public sealed partial class WeaponPage : Page
         foreach (var root in ViewModel.Roots)
             Tree.RootNodes.Add(MakeNode(root));
         if (ViewModel.ConsumePendingNav() is { } name)
-            DispatcherQueue.TryEnqueue(() => SelectAndShowByName(name));
+            DispatcherQueue.TryEnqueue(() => { if (IsLoaded) SelectAndShowByName(name); });
     }
 
     private static TreeViewNode MakeNode(WeaponNode wn)
@@ -234,6 +243,16 @@ public sealed partial class WeaponPage : Page
     private void WeaponNotesBox_LostFocus(object sender, RoutedEventArgs e) => SaveNote();
 
     // The full node tree is built eagerly, so a single recursive pass expands everything.
+    // Deep-link a crafting material to its Items (or Treasures) tab entry.
+    private void MaterialLink_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is FrameworkElement { DataContext: MaterialItem mi } && mi.LinkName.Length > 0 && App.Window is MainWindow mw)
+        {
+            if (mi.LinkIsTreasure) mw.NavigateToTreasure(mi.LinkName);
+            else mw.NavigateToItem(mi.LinkName);
+        }
+    }
+
     private void ExpandAll_Click(object sender, RoutedEventArgs e) => SetAll(Tree.RootNodes, true);
     private void CollapseAll_Click(object sender, RoutedEventArgs e) => SetAll(Tree.RootNodes, false);
 

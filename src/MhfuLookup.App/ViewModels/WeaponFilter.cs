@@ -15,6 +15,9 @@ public sealed class WeaponFilter
     public string MinSharpness = "Any";              // Any | Yellow | Green | Blue | White | Purple
     public HashSet<string> Coatings = new();
     public Dictionary<string, int> ShotTypes = new(); // type -> min level
+    // Bow desired charge level: 0 = any (aggregate across all charge slots); 1..4 = require a
+    // checked shot type at that specific charge slot (charges are stored positionally, slot = index+1).
+    public int ShotChargeLevel;
     public HashSet<string> AmmoRaw = new();
     public HashSet<string> AmmoSupport = new();
     public HashSet<string> AmmoElement = new();
@@ -47,7 +50,7 @@ public sealed class WeaponFilter
         if (Affinity == "positive" && w.Affinity <= 0) return false;
         if (Affinity == "negative" && w.Affinity >= 0) return false;
         if (w.Slots < MinSlots) return false;
-        if (DefBonus && AsInt(d["def_bonus"]) == 0) return false;
+        if (DefBonus && AsInt(d["def_bonus"]) == 0 && !SpecialHasDef(d)) return false;
 
         if (MeleeTypes.Contains(type) && MinSharpness != "Any")
         {
@@ -68,16 +71,32 @@ public sealed class WeaponFilter
 
         if (ShotTypes.Count > 0)
         {
-            var weaponMax = new Dictionary<string, int>();
-            if (d["charges"] is JsonArray ch)
-                foreach (var c in ch)
-                {
-                    var parts = (c?.ToString() ?? "").Split(' ');
-                    if (parts.Length == 2 && int.TryParse(parts[1], out var lvl) && lvl > weaponMax.GetValueOrDefault(parts[0]))
-                        weaponMax[parts[0]] = lvl;
-                }
-            foreach (var (st, min) in ShotTypes)
-                if (weaponMax.GetValueOrDefault(st) < min) return false;
+            var charges = d["charges"] as JsonArray;
+            if (ShotChargeLevel > 0)
+            {
+                // Require the shot type AT a specific charge slot: charges[level-1] must be one of
+                // the checked types and reach that type's minimum power level.
+                var idx = ShotChargeLevel - 1;
+                if (charges is null || idx >= charges.Count) return false;
+                var parts = (charges[idx]?.ToString() ?? "").Split(' ');
+                var slotType = parts.Length > 0 ? parts[0] : "";
+                var slotLvl = parts.Length == 2 && int.TryParse(parts[1], out var l) ? l : 0;
+                if (!ShotTypes.TryGetValue(slotType, out var slotMin) || slotLvl < slotMin) return false;
+            }
+            else
+            {
+                // Aggregate: each checked shot type must appear at/above its level across any slot.
+                var weaponMax = new Dictionary<string, int>();
+                if (charges is not null)
+                    foreach (var c in charges)
+                    {
+                        var parts = (c?.ToString() ?? "").Split(' ');
+                        if (parts.Length == 2 && int.TryParse(parts[1], out var lvl) && lvl > weaponMax.GetValueOrDefault(parts[0]))
+                            weaponMax[parts[0]] = lvl;
+                    }
+                foreach (var (st, min) in ShotTypes)
+                    if (weaponMax.GetValueOrDefault(st) < min) return false;
+            }
         }
 
         if (AmmoRaw.Count > 0 && !AmmoMatches(AmmoRaw, d["ammo_raw"] as JsonObject)) return false;
@@ -111,6 +130,12 @@ public sealed class WeaponFilter
         return true;
     }
 
+    private static readonly HashSet<string> ElementTokens = new() { "Fir", "Wtr", "Thn", "Ice", "Drg" };
+
+    // Bows carry their defense bonus as a "Def +N" segment of `special` rather than def_bonus.
+    private static bool SpecialHasDef(JsonObject d) =>
+        (d["special"]?.ToString() ?? "").Split('/').Any(s => s.Trim().StartsWith("Def"));
+
     private static HashSet<string> WeaponElements(JsonObject d)
     {
         var e = new HashSet<string>();
@@ -125,8 +150,14 @@ public sealed class WeaponFilter
             var parts = es.Split(' ');
             for (var i = 0; i + 1 < parts.Length; i += 2) e.Add(parts[i]);
         }
+        // Bow `special` mixes elements with non-element tokens ("Def +20", coating boosts
+        // like "PoisonC"). Only true elements count — a coating-boost bow is Raw.
         var sp = d["special"]?.ToString() ?? "";
-        if (sp.Length > 0) e.Add(sp.Split(' ')[0]);
+        foreach (var seg in sp.Split('/', StringSplitOptions.RemoveEmptyEntries))
+        {
+            var token = seg.Trim().Split(' ')[0];
+            if (ElementTokens.Contains(token)) e.Add(token);
+        }
         return e.Count > 0 ? e : new HashSet<string> { "Raw" };
     }
 
