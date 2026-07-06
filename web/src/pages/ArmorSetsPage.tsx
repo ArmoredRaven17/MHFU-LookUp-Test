@@ -88,6 +88,7 @@ export default function ArmorSetsPage() {
   const [search, setSearch] = useState('')
   const [gunner, setGunner] = useState(false)
   const [female, setFemale] = useState(false)
+  const [rarityFilter, setRarityFilter] = useState('All')
 
   useEffect(() => {
     loadArmorSets().then(setSets)
@@ -128,6 +129,10 @@ export default function ArmorSetsPage() {
     return [...byR.keys()].sort((a, b) => a - b).map(r => ({ rarity: r, sets: byR.get(r)! }))
   }, [sets, search, selectedClass, searchTerms])
 
+  // All rarities present (unfiltered by the rarity dropdown itself, so its options stay stable).
+  const rarityOptions = useMemo(() => [...new Set(groups.map(g => g.rarity))].sort((a, b) => a - b), [groups])
+  const visibleGroups = rarityFilter === 'All' ? groups : groups.filter(g => String(g.rarity) === rarityFilter)
+
   const selected = useMemo(() => sets.find(s => s.id === id) ?? null, [sets, id])
 
   return (
@@ -143,10 +148,17 @@ export default function ArmorSetsPage() {
           <p style={{ margin: 0, fontSize: 10, color: 'var(--muted)' }}>Searches set, skill &amp; activated skill</p>
           <Segmented options={['Blademaster', 'Gunner']} value={gunner ? 1 : 0} onChange={i => setGunner(i === 1)} />
           <Segmented options={['Male', 'Female']} value={female ? 1 : 0} onChange={i => setFemale(i === 1)} />
+          <select value={rarityFilter} onChange={e => setRarityFilter(e.target.value)} style={{
+            background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
+            color: 'var(--text)', padding: '4px 8px', fontSize: 12,
+          }}>
+            <option value="All">All Rarities</option>
+            {rarityOptions.map(r => <option key={r} value={String(r)}>Rarity {r}</option>)}
+          </select>
         </div>
 
         <div style={{ overflowY: 'auto', flex: 1 }}>
-          {groups.map(g => (
+          {visibleGroups.map(g => (
             <div key={g.rarity}>
               <div style={{ fontWeight: 700, color: rarityColor(g.rarity), fontSize: 12, padding: '6px 10px 2px' }}>
                 Rarity {g.rarity}
@@ -166,7 +178,7 @@ export default function ArmorSetsPage() {
               })}
             </div>
           ))}
-          {groups.length === 0 && (
+          {visibleGroups.length === 0 && (
             <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No armor sets found.</p>
           )}
         </div>
