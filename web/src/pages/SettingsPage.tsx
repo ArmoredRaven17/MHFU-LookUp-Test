@@ -34,7 +34,7 @@ export default function SettingsPage() {
 
   const effectiveTabIcon = (tag: string) => tabIcons[tag] ?? TABS.find(t => t.path === tag)!.icon
   const surfaceSwatch = (COLOR_PRESETS.find(p => p.key === surface) ?? COLOR_PRESETS[0]).swatch
-  const accentSelectValue = COLOR_PRESETS.find(p => p.swatch.toLowerCase() === accent.toLowerCase())?.swatch ?? 'custom'
+  const accentSelectValue = (COLOR_PRESETS.find(p => p.swatch.toLowerCase() === accent.toLowerCase()) ?? COLOR_PRESETS[0]).swatch
 
   return (
     <div style={{ flex: 1, overflowY: 'auto', padding: 24, background: 'transparent' }}>
@@ -61,12 +61,9 @@ export default function SettingsPage() {
         <Label>Accent colour (highlights)</Label>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 4 }}>
           <span style={{ width: 24, height: 24, borderRadius: 4, flexShrink: 0, background: accent, border: '1px solid rgba(255,255,255,0.15)' }} />
-          <select value={accentSelectValue} onChange={e => { if (e.target.value !== 'custom') chooseAccent(e.target.value) }} style={selStyle}>
-            <option value="custom">Custom…</option>
+          <select value={accentSelectValue} onChange={e => chooseAccent(e.target.value)} style={selStyle}>
             {COLOR_PRESETS.map(p => <option key={p.key} value={p.swatch}>{p.name}</option>)}
           </select>
-          <input type="color" value={accent} onChange={e => chooseAccent(e.target.value)} title="Custom accent colour"
-                 style={{ width: 42, height: 30, padding: 0, border: '1px solid var(--border)', borderRadius: 4, background: 'var(--surface)', cursor: 'pointer' }} />
         </div>
         <Hint>Colour and accent apply immediately and are remembered on this device.</Hint>
 
