@@ -8,6 +8,7 @@ import NotesBox from '../components/NotesBox'
 import MaterialList from '../components/MaterialList'
 import WeaponReference from '../components/WeaponReference'
 import WeaponFilterModal from '../components/WeaponFilterModal'
+import Dropdown from '../components/Dropdown'
 import { defaultWeaponFilter, isWeaponFilterActive, matchesWeaponFilter } from '../utils/weaponFilter'
 
 // ── Constants ────────────────────────────────────────────────────────────────
@@ -356,12 +357,11 @@ export default function WeaponsPage() {
   const navigate = useNavigate()
   const [weapons, setWeapons] = useState<Weapon[]>([])
   const [hhSongs, setHhSongs] = useState<HhSongData | null>(null)
-  const [typesCollapsed, setTypesCollapsed] = useState(false)
   const [type, setType] = useState('Great Sword')
 
   // Fixed tree panel width — wide enough that every weapon type's deepest tree
   // (longest names/nesting, e.g. Great Sword) shows in full without horizontal scrolling.
-  const TREE_WIDTH = 420
+  const TREE_WIDTH = 460
 
   useEffect(() => {
     loadWeapons().then(setWeapons)
@@ -475,40 +475,10 @@ export default function WeaponsPage() {
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
-        {/* Type selector */}
-        <div style={{ borderBottom: '1px solid var(--border)' }}>
-          <button onClick={() => setTypesCollapsed(c => !c)} style={{
-            display: 'flex', alignItems: 'center', gap: 6, width: '100%',
-            background: 'none', border: 'none', cursor: 'pointer',
-            padding: '5px 8px', fontSize: 11, fontWeight: 600, color: 'var(--muted)',
-            textTransform: 'uppercase', letterSpacing: '0.04em',
-          }}>
-            <span style={{ width: 10, flexShrink: 0 }}>{typesCollapsed ? '▸' : '▾'}</span>
-            <span style={{ flex: 1, textAlign: 'left' }}>Weapon Type</span>
-            <img src={typeIcon(type)} alt="" width={14} height={14} style={{ objectFit: 'contain', flexShrink: 0 }} />
-            <span style={{ color: 'var(--text)', textTransform: 'none', fontWeight: 400 }}>{type}</span>
-          </button>
-          {!typesCollapsed && (
-            <div style={{
-              padding: '0 6px 6px',
-              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 3,
-            }}>
-              {TYPE_ORDER.map(t => (
-                <button key={t} onClick={() => setType(t)} style={{
-                  display: 'flex', alignItems: 'center', gap: 5,
-                  padding: '3px 6px', borderRadius: 3, cursor: 'pointer',
-                  background: type === t ? 'var(--header-bg)' : 'transparent',
-                  border: type === t ? '1px solid var(--accent)' : '1px solid transparent',
-                  color: type === t ? 'var(--accent)' : 'var(--muted)',
-                  fontSize: 11, whiteSpace: 'nowrap', overflow: 'hidden',
-                }}>
-                  <img src={typeIcon(t)} alt="" width={16} height={16}
-                       style={{ objectFit: 'contain', flexShrink: 0 }} />
-                  {t}
-                </button>
-              ))}
-            </div>
-          )}
+        {/* Weapon type dropdown */}
+        <div style={{ padding: '6px', borderBottom: '1px solid var(--border)' }}>
+          <Dropdown value={type} onChange={setType} style={{ width: '100%' }}
+                    options={TYPE_ORDER.map(t => ({ value: t, label: t, icon: typeIcon(t) }))} />
         </div>
 
         {/* Name search */}
@@ -519,24 +489,22 @@ export default function WeaponsPage() {
           }} />
         </div>
 
-        {/* Type-specific reference sheets for the selected weapon type */}
-        <div style={{ padding: '6px', borderBottom: '1px solid var(--border)' }}>
+        {/* Buttons: type-specific reference sheets + expand/collapse/filter, all one row */}
+        <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', padding: '6px', borderBottom: '1px solid var(--border)' }}>
           <WeaponReference type={type} hhSongs={hhSongs} />
-        </div>
-
-        {/* Expand / collapse / filter */}
-        <div style={{ display: 'flex', gap: 6, padding: '4px 6px', borderBottom: '1px solid var(--border)' }}>
-          {([['Expand All', () => setCollapsed(new Set())], ['Collapse All', () => setCollapsed(new Set(collapsibleKeys))]] as const).map(([label, fn]) => (
-            <button key={label} onClick={fn} style={{
-              flex: 1, padding: '3px 6px', fontSize: 11, cursor: 'pointer',
-              background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 3, color: 'var(--muted)',
-            }}>{label}</button>
-          ))}
+          <button onClick={() => setCollapsed(new Set())} style={{
+            padding: '3px 8px', fontSize: 12, cursor: 'pointer',
+            background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, color: 'var(--text)',
+          }}>Expand All</button>
+          <button onClick={() => setCollapsed(new Set(collapsibleKeys))} style={{
+            padding: '3px 8px', fontSize: 12, cursor: 'pointer',
+            background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, color: 'var(--text)',
+          }}>Collapse All</button>
           <button onClick={() => setFilterOpen(true)} style={{
-            flex: 1, padding: '3px 6px', fontSize: 11, cursor: 'pointer',
+            padding: '3px 8px', fontSize: 12, cursor: 'pointer',
             background: filterActive ? 'var(--header-bg)' : 'var(--surface)',
             border: filterActive ? '1px solid var(--accent)' : '1px solid var(--border)',
-            borderRadius: 3, color: filterActive ? 'var(--accent)' : 'var(--muted)', fontWeight: filterActive ? 600 : 400,
+            borderRadius: 4, color: filterActive ? 'var(--accent)' : 'var(--text)', fontWeight: filterActive ? 600 : 400,
           }}>Filter…</button>
         </div>
 

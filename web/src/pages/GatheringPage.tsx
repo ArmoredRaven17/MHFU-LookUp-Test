@@ -168,7 +168,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
                 }
                 const mat = resolveMaterial(ln.name)[0]
                 return (
-                  <span key={j} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+                  <span key={j} style={{ display: 'grid', gridTemplateColumns: '200px 46px', alignItems: 'center' }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, minWidth: 0 }}>
                       {mat?.icon && <img src={mat.icon} alt="" width={16} height={16}
                         style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
@@ -180,7 +180,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
                           }}>{ln.name}</button>
                         : <span style={{ color: 'var(--text)' }}>{ln.name}</span>}
                     </span>
-                    {ln.rate && <span style={{ color: 'var(--muted)', flexShrink: 0 }}>{ln.rate}</span>}
+                    {ln.rate && <span style={{ color: 'var(--muted)' }}>{ln.rate}</span>}
                   </span>
                 )
               })}

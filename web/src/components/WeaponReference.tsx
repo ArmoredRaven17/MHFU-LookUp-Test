@@ -25,11 +25,11 @@ export default function WeaponReference({ type, hhSongs }: { type: string; hhSon
   if (buttons.length === 0) return null
 
   return (
-    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+    <>
       {buttons.map(([label, key]) => (
         <button key={key} onClick={() => setOpen(key)} style={{
           background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-          color: 'var(--text)', padding: '3px 10px', fontSize: 12, cursor: 'pointer',
+          color: 'var(--text)', padding: '3px 8px', fontSize: 12, cursor: 'pointer',
         }}>{label}</button>
       ))}
       {open === 'sharpness' && <Modal title="Sharpness Modifiers" onClose={() => setOpen(null)}><SharpnessSheet /></Modal>}
@@ -38,7 +38,7 @@ export default function WeaponReference({ type, hhSongs }: { type: string; hhSon
       {open === 'ammo' && <Modal title="Bowgun Ammo" onClose={() => setOpen(null)}><AmmoSheet /></Modal>}
       {open === 'recoilreload' && <Modal title="Recoil & Reload" onClose={() => setOpen(null)}><RecoilReloadSheet /></Modal>}
       {open === 'shottypes' && <Modal title="Bow Shot Types" onClose={() => setOpen(null)}><ShotTypesSheet /></Modal>}
-    </div>
+    </>
   )
 }
 

@@ -32,11 +32,11 @@ export function locationColor(area: string) {
   if (l.includes('old desert')) return '#D3BB98'
   if (l.includes('snow')) return '#B8BFC4'
   if (l.includes('great forest')) return '#78BAAB'
-  if (l.includes('forest') || l.includes('hills')) return '#AE9B84'
+  if (l.includes('forest') || l.includes('hills')) return '#9CA494'
   if (l.includes('jungle')) return '#8FA397'
   if (l.includes('tower')) return '#8F97A3'
   if (l.includes('swamp')) return '#A088AA'
-  if (l.includes('volcano')) return '#8FA397'
+  if (l.includes('volcano')) return '#AC9494'
   if (l.includes('desert')) return '#AE9B84'
   return 'var(--text)'
 }
