@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useNotes, type NoteRecord } from '../hooks/useNotes'
-import { useNoteOrderIndex, useNoteEntity } from '../utils/noteOrder'
+import { useNoteOrderIndex, useNoteEntity, useNoteImportLookup } from '../utils/noteOrder'
 import { formatEntityBlock, parseImportedNotes, EXPORT_SIGNATURE, type ExportLevel } from '../utils/noteExport'
 import { loadWeapons } from '../data/loaders'
 import { BASE } from '../utils/assets'
@@ -47,12 +47,11 @@ async function exportNotes(
     lines.push('', `## ${g.header}`)
     for (const n of g.entries) {
       lines.push('', `### ${n.name} (${n.category})`)
-      lines.push(`<!--MHFU-NOTE type="${n.type}" id="${escapeAttr(n.id)}" name="${escapeAttr(n.name)}" category="${escapeAttr(n.category)}" path="${escapeAttr(n.path)}"${n.icon ? ` icon="${escapeAttr(n.icon)}"` : ''}-->`)
       if (level !== 'notes') {
         const block = formatEntityBlock(n, getEntity(n), level, allWeapons)
         if (block.length) lines.push(...block, '')
       }
-      lines.push('>>> NOTE >>>', n.note, '<<< NOTE <<<')
+      lines.push(`Notes: ${n.note}`)
     }
   }
   const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' })
@@ -64,15 +63,12 @@ async function exportNotes(
   URL.revokeObjectURL(url)
 }
 
-function escapeAttr(s: string) {
-  return s.replace(/"/g, '&quot;')
-}
-
 export default function NotesPage() {
   const { notes, setNote, remove, importNotes } = useNotes()
   const navigate = useNavigate()
   const orderIndex = useNoteOrderIndex()
   const getEntity = useNoteEntity()
+  const importLookup = useNoteImportLookup()
   const [message, setMessage] = useState('')
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -89,17 +85,20 @@ export default function NotesPage() {
 
   const handleImportFile = async (file: File) => {
     const text = await file.text()
-    const parsed = parseImportedNotes(text)
+    const parsed = parseImportedNotes(text, importLookup)
     if (!parsed) {
       setMessage('That file doesn\'t look like an MHFU Notes export — nothing was imported.')
       return
     }
-    if (parsed.length === 0) {
-      setMessage('No notes found in that file.')
+    if (parsed.notes.length === 0) {
+      setMessage(parsed.unresolved > 0
+        ? `Couldn't match any notes to a current entity (${parsed.unresolved} skipped).`
+        : 'No notes found in that file.')
       return
     }
-    const count = importNotes(parsed)
-    setMessage(`Imported ${count} note${count === 1 ? '' : 's'}.`)
+    const count = importNotes(parsed.notes)
+    const skipped = parsed.unresolved > 0 ? `, ${parsed.unresolved} skipped (entity not found)` : ''
+    setMessage(`Imported ${count} note${count === 1 ? '' : 's'}${skipped}.`)
   }
 
   return (

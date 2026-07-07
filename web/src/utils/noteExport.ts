@@ -354,42 +354,61 @@ export function formatEntityBlock(
 }
 
 // ── Import parsing ────────────────────────────────────────────────────────────
-// Reads back only what an export written by this app can produce: a per-note metadata
-// comment (type/id/name/category/path/icon) followed by a >>> NOTE >>> / <<< NOTE <<<
-// delimited block holding the user's own note text, verbatim. Ignores everything else
-// (banner, group headers, human-readable entity-info blocks) — those aren't reconstructed.
+// Reads back only the existing human-readable structure every export already has —
+// no hidden metadata needed. "## <Section>" tells us the type (Monsters/Weapons/
+// Armor Sets/Quests), "### <Name> (<Category>)" starts an entry, and a "Notes:" line
+// marks where the user's own note text begins (running to the next ###/##/EOF).
+// The entity's id/path are reconstructed by looking the name back up in the
+// currently-loaded data (see useNoteImportLookup in noteOrder.ts) — the entity-info
+// block that Detailed/Simple may have printed in between is simply skipped over.
 
-const META_RE = /^<!--MHFU-NOTE (.*)-->$/
-const ATTR_RE = /(\w+)="([^"]*)"/g
-const unescapeAttr = (s: string) => s.replace(/&quot;/g, '"')
+const HEADER_TYPES: Record<string, string> = {
+  Monsters: 'monster', Weapons: 'weapon', 'Armor Sets': 'armorset', Quests: 'quest',
+}
+const ITEM_RE = /^### (.+) \(([^)]*)\)$/
+const NOTES_RE = /^Notes: ?(.*)$/
 
-export function parseImportedNotes(text: string): NoteRecord[] | null {
+export interface ImportResult { notes: NoteRecord[]; unresolved: number }
+
+export function parseImportedNotes(
+  text: string,
+  lookup: (type: string, name: string, category: string) => { id: string; path: string } | undefined,
+): ImportResult | null {
   if (!text.includes(EXPORT_SIGNATURE)) return null
 
   const lines = text.split(/\r?\n/)
   const notes: NoteRecord[] = []
+  let unresolved = 0
+  let currentType: string | null = null
+
   for (let i = 0; i < lines.length; i++) {
-    const m = lines[i].match(META_RE)
-    if (!m) continue
-    const attrs: Record<string, string> = {}
-    for (const am of m[1].matchAll(ATTR_RE)) attrs[am[1]] = unescapeAttr(am[2])
-    if (!attrs.type || !attrs.id) continue
-
-    // Find the note-text delimiters somewhere after this metadata line.
-    let start = -1, end = -1
-    for (let j = i + 1; j < lines.length; j++) {
-      if (lines[j] === '>>> NOTE >>>') { start = j + 1; continue }
-      if (start !== -1 && lines[j] === '<<< NOTE <<<') { end = j; break }
+    const line = lines[i]
+    if (line.startsWith('## ')) {
+      currentType = HEADER_TYPES[line.slice(3).trim()] ?? null
+      continue
     }
-    if (start === -1 || end === -1) continue
+    if (!currentType) continue
+    const m = line.match(ITEM_RE)
+    if (!m) continue
+    const [, name, category] = m
+    const type = currentType
 
-    notes.push({
-      type: attrs.type, id: attrs.id, name: attrs.name ?? attrs.id,
-      category: attrs.category ?? '', path: attrs.path ?? '',
-      icon: attrs.icon || undefined,
-      note: lines.slice(start, end).join('\n'),
-    })
-    i = end
+    // This entry's block runs until the next "### "/"## " header or EOF.
+    let end = i + 1
+    while (end < lines.length && !lines[end].startsWith('### ') && !lines[end].startsWith('## ')) end++
+
+    let noteStart = -1, firstLine = ''
+    for (let j = i + 1; j < end; j++) {
+      const nm = lines[j].match(NOTES_RE)
+      if (nm) { noteStart = j; firstLine = nm[1]; break }
+    }
+    if (noteStart !== -1) {
+      const noteText = [firstLine, ...lines.slice(noteStart + 1, end)].join('\n').replace(/\n+$/, '')
+      const target = lookup(type, name, category)
+      if (target) notes.push({ type, id: target.id, name, category, path: target.path, note: noteText })
+      else unresolved++
+    }
+    i = end - 1
   }
-  return notes
+  return { notes, unresolved }
 }
