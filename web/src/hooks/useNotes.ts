@@ -60,5 +60,17 @@ export function useNotes() {
     dispatch(read().filter(n => !(n.type === type && n.id === id)))
   }, [dispatch])
 
-  return { notes, getNote, setNote, remove }
+  /** Merge imported notes in: overwrites any existing note for the same (type, id),
+   *  leaves notes for entities not present in `imported` untouched. Returns the count merged. */
+  const importNotes = useCallback((imported: NoteRecord[]) => {
+    const current = read()
+    const merged = [
+      ...current.filter(n => !imported.some(i => i.type === n.type && i.id === n.id)),
+      ...imported,
+    ]
+    dispatch(merged)
+    return imported.length
+  }, [dispatch])
+
+  return { notes, getNote, setNote, remove, importNotes }
 }

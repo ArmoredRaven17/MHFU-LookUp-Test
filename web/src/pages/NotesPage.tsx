@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useNotes, type NoteRecord } from '../hooks/useNotes'
-import { useNoteOrderIndex } from '../utils/noteOrder'
+import { useNoteOrderIndex, useNoteEntity } from '../utils/noteOrder'
+import { formatEntityBlock, parseImportedNotes, EXPORT_SIGNATURE, type ExportLevel } from '../utils/noteExport'
+import { loadWeapons } from '../data/loaders'
 import { BASE } from '../utils/assets'
 
 // Group order, header, and fallback tab icon per type — mirrors desktop
@@ -28,11 +30,30 @@ const EXPORT_BANNER = `=========================================================
 
 interface Group { type: string; header: string; fallbackIcon: string; entries: NoteRecord[] }
 
-function exportNotes(groups: Group[]) {
-  const lines = [EXPORT_BANNER, '', `My Notes  —  exported ${new Date().toLocaleString()}`]
+const LEVEL_LABELS: [ExportLevel, string][] = [
+  ['detailed', 'Detailed'],
+  ['simple', 'Simple'],
+  ['notes', 'Just the Notes'],
+]
+
+async function exportNotes(
+  groups: Group[],
+  level: ExportLevel,
+  getEntity: ReturnType<typeof useNoteEntity>,
+) {
+  const allWeapons = level === 'detailed' ? await loadWeapons() : []
+  const lines = [EXPORT_BANNER, EXPORT_SIGNATURE, '', `My Notes  —  exported ${new Date().toLocaleString()}`]
   for (const g of groups) {
     lines.push('', `## ${g.header}`)
-    for (const n of g.entries) lines.push('', `### ${n.name} (${n.category})`, n.note)
+    for (const n of g.entries) {
+      lines.push('', `### ${n.name} (${n.category})`)
+      lines.push(`<!--MHFU-NOTE type="${n.type}" id="${escapeAttr(n.id)}" name="${escapeAttr(n.name)}" category="${escapeAttr(n.category)}" path="${escapeAttr(n.path)}"${n.icon ? ` icon="${escapeAttr(n.icon)}"` : ''}-->`)
+      if (level !== 'notes') {
+        const block = formatEntityBlock(n, getEntity(n), level, allWeapons)
+        if (block.length) lines.push(...block, '')
+      }
+      lines.push('>>> NOTE >>>', n.note, '<<< NOTE <<<')
+    }
   }
   const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' })
   const url = URL.createObjectURL(blob)
@@ -43,10 +64,17 @@ function exportNotes(groups: Group[]) {
   URL.revokeObjectURL(url)
 }
 
+function escapeAttr(s: string) {
+  return s.replace(/"/g, '&quot;')
+}
+
 export default function NotesPage() {
-  const { notes, setNote, remove } = useNotes()
+  const { notes, setNote, remove, importNotes } = useNotes()
   const navigate = useNavigate()
   const orderIndex = useNoteOrderIndex()
+  const getEntity = useNoteEntity()
+  const [message, setMessage] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const groups: Group[] = SECTIONS
     .map(s => ({ ...s, entries: notes.filter(n => n.type === s.type) }))
@@ -59,6 +87,21 @@ export default function NotesPage() {
       }),
     }))
 
+  const handleImportFile = async (file: File) => {
+    const text = await file.text()
+    const parsed = parseImportedNotes(text)
+    if (!parsed) {
+      setMessage('That file doesn\'t look like an MHFU Notes export — nothing was imported.')
+      return
+    }
+    if (parsed.length === 0) {
+      setMessage('No notes found in that file.')
+      return
+    }
+    const count = importNotes(parsed)
+    setMessage(`Imported ${count} note${count === 1 ? '' : 's'}.`)
+  }
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', background: 'transparent' }}>
       {/* Header */}
@@ -69,18 +112,33 @@ export default function NotesPage() {
             Every note you've added to a monster, weapon or armor set. Edit it here,
             click the name to open its page, or remove it with ✕.
           </p>
+          {message && (
+            <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--accent)' }}>{message}</p>
+          )}
         </div>
-        {groups.length > 0 && (
+        <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".txt"
+            style={{ display: 'none' }}
+            onChange={e => {
+              const file = e.target.files?.[0]
+              if (file) void handleImportFile(file)
+              e.target.value = ''
+            }}
+          />
           <button
-            onClick={() => exportNotes(groups)}
+            onClick={() => fileInputRef.current?.click()}
             style={{
-              flexShrink: 0, background: 'var(--surface)', border: '1px solid var(--border)',
+              background: 'var(--surface)', border: '1px solid var(--border)',
               borderRadius: 4, color: 'var(--text)', padding: '5px 12px', fontSize: 12, cursor: 'pointer',
             }}
           >
-            Export Notes…
+            Import Notes…
           </button>
-        )}
+          {groups.length > 0 && <ExportMenu groups={groups} getEntity={getEntity} />}
+        </div>
       </div>
 
       {groups.length === 0 ? (
@@ -104,6 +162,58 @@ export default function NotesPage() {
                   onDelete={() => remove(n.type, n.id)}
                 />
               ))}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ExportMenu({ groups, getEntity }: { groups: Group[]; getEntity: ReturnType<typeof useNoteEntity> }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    const onDown = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false) }
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('mousedown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => { document.removeEventListener('mousedown', onDown); document.removeEventListener('keydown', onKey) }
+  }, [open])
+
+  const choose = (level: ExportLevel) => {
+    setOpen(false)
+    void exportNotes(groups, level, getEntity)
+  }
+
+  return (
+    <div ref={ref} style={{ position: 'relative' }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          borderRadius: 4, color: 'var(--text)', padding: '5px 12px', fontSize: 12, cursor: 'pointer',
+        }}
+      >
+        Export Notes…
+      </button>
+      {open && (
+        <div style={{
+          position: 'absolute', top: '100%', right: 0, marginTop: 2, zIndex: 30,
+          minWidth: 160, background: 'var(--surface)', border: '1px solid var(--border)',
+          borderRadius: 4, boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
+        }}>
+          {LEVEL_LABELS.map(([level, label]) => (
+            <div
+              key={level}
+              onClick={() => choose(level)}
+              style={{ padding: '7px 12px', fontSize: 13, cursor: 'pointer', color: 'var(--text)', whiteSpace: 'nowrap' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'var(--row-alt)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
+            >
+              {label}
             </div>
           ))}
         </div>
