@@ -101,7 +101,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── List panel ── */}
       <div style={{
-        width: 280, minWidth: 280,
+        width: 280 * scale + (scale > 1 ? 12 : 0), minWidth: 280 * scale + (scale > 1 ? 12 : 0),
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>

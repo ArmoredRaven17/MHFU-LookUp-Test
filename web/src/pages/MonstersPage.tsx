@@ -65,7 +65,7 @@ export default function MonstersPage() {
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── List panel ── */}
       <div style={{
-        width: 220, minWidth: 220,
+        width: 220 * scale + (scale > 1 ? 12 : 0), minWidth: 220 * scale + (scale > 1 ? 12 : 0),
         background: 'var(--surface)',
         borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',

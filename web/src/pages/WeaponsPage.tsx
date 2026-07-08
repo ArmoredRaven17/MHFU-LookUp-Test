@@ -363,7 +363,8 @@ export default function WeaponsPage() {
 
   // Fixed tree panel width — wide enough that every weapon type's deepest tree
   // (longest names/nesting, e.g. Great Sword) shows in full without horizontal scrolling.
-  const TREE_WIDTH = 460
+  // Scales with text size so it stays wide enough as the tree's text grows.
+  const TREE_WIDTH = 460 * scale + (scale > 1 ? 12 : 0)
 
   useEffect(() => {
     loadWeapons().then(setWeapons)

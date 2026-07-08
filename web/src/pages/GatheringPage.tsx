@@ -41,7 +41,7 @@ export default function GatheringPage() {
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Area list ── */}
       <div style={{
-        width: 220, minWidth: 220,
+        width: 220 * scale + (scale > 1 ? 12 : 0), minWidth: 220 * scale + (scale > 1 ? 12 : 0),
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>

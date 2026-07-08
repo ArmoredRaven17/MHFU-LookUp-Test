@@ -91,7 +91,7 @@ export default function PokkePage() {
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Farm areas ── */}
       <div style={{
-        width: 240, minWidth: 240,
+        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)', overflowY: 'auto',
       }}>
         {areas.map(a => {

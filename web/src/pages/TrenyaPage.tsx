@@ -95,7 +95,7 @@ export default function TrenyaPage() {
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Destinations ── */}
       <div style={{
-        width: 240, minWidth: 240,
+        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)', overflowY: 'auto',
       }}>
         {locations.map(l => {
@@ -144,7 +144,7 @@ export default function TrenyaPage() {
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {categories.map(g => (
             <div key={g.category} style={{ display: 'flex', gap: 12, borderBottom: '1px solid var(--border)', padding: '8px 0' }}>
-              <div style={{ width: 140, minWidth: 140, color: 'var(--text)', fontSize: 12 * scale, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{g.category}</div>
+              <div style={{ width: 140 * scale + (scale > 1 ? 12 : 0), minWidth: 140 * scale + (scale > 1 ? 12 : 0), color: 'var(--text)', fontSize: 12 * scale, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{g.category}</div>
               <div style={{ flex: 1 }}>
                 {g.items.map((it, i) => {
                   const icon = resolveIcon(it.item, it.category)
