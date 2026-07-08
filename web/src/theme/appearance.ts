@@ -50,7 +50,7 @@ export const COLOR_PRESETS: ColorPreset[] = [
   { key: 'crimson',     name: 'Crimson',     window: '#260F15', base: '#2E151C', panel: '#2B1218', border: '#50303C', swatch: '#C03052' },
 ]
 
-export const DEFAULT_SURFACE = 'charcoal'
+export const DEFAULT_SURFACE = 'silver'
 export const DEFAULT_ACCENT = '#C04040'
 export const DEFAULT_ICON = 'nargacuga'
 
