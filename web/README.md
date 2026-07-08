@@ -1,32 +1,27 @@
-# React + TypeScript + Vite
+# MHFU LookUp — Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A static React 19 + TypeScript + Vite reference tool for **Monster Hunter Freedom Unite (MHP2G)** —
+weapons, armor, monsters, quests, items, gathering data, and more. This is the primary front end for
+the project (see the [repo root README](../README.md) for the full picture, including the companion
+WinUI desktop app).
 
-Currently, two official plugins are available:
+Full documentation — tech stack, the data pipeline, directory structure, feature highlights (Notes
+export/import, Bookmarks, personalization), and how it's deployed — lives in
+[`../docs/web-app.md`](../docs/web-app.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Quick start
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev       # http://localhost:5173, with HMR
+npm run build     # tsc -b && vite build -> dist/
+npm run preview   # serve the production build locally
+npm run lint      # oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+No backend or database is involved — the app reads static JSON already committed under
+`public/data/`, exported from the shared `mhfu.db` by [`../export_to_json.py`](../export_to_json.py).
+Re-run that script (from the repo root) after regenerating `mhfu.db` to pick up data changes.
+
+Deploys to GitHub Pages automatically on push to `master` via
+[`../.github/workflows/deploy-web.yml`](../.github/workflows/deploy-web.yml).

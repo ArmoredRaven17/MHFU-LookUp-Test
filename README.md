@@ -1,8 +1,14 @@
-# MHFU Lookup (C# / WinUI 3)
+# MHFU Lookup
 
-An offline reference app for **Monster Hunter Freedom Unite (MHP2G)**, built in C# with WinUI 3.
-Look up weapons, armor, monsters, quests, items, gathering data, and more — no internet connection
-required.
+A reference app for **Monster Hunter Freedom Unite (MHP2G)** — look up weapons, armor, monsters,
+quests, items, gathering data, and more. Ships as two front ends sharing one data pipeline:
+
+- **[`web/`](web/)** — a React/Vite web app, deployed to GitHub Pages. This is the **primary
+  target**: the intended audience wants a browser link, not a Windows install, so active feature work
+  happens here. See [`docs/web-app.md`](docs/web-app.md).
+- **[`src/MhfuLookup.App`](src/MhfuLookup.App/)** — the original C# / WinUI 3 desktop app (below).
+  Fully offline, no internet connection required. Kept in sync with the web app where practical, but
+  no longer the focus of active development.
 
 Data is sourced from community wikis and, where possible, pulled directly from the game ROM:
 stats, icons, item palettes, weapon sprites, and award art are all ROM-extracted rather than
@@ -26,21 +32,25 @@ critical values against the originals before relying on them.
 
 Full guides live in [`docs/`](docs/README.md):
 
-- [Architecture & data flow](docs/architecture.md) — projects, pipeline, build/run.
-- [Database schema](docs/database-schema.md) — every table in `mhfu.db`.
+- [Web app](docs/web-app.md) — tech stack, the JSON data pipeline, directory structure, feature
+  highlights, build/run, and the GitHub Pages deploy. **Start here.**
+- [Architecture & data flow](docs/architecture.md) — desktop projects, pipeline, build/run.
+- [Database schema](docs/database-schema.md) — every table in `mhfu.db` (shared source for both apps).
 - [Core domain logic](docs/core-domain.md) — the ported game logic (incl. the Torso-Up trap).
-- [App structure & "add a tab"](docs/app-structure.md) — MVVM layout + extension guide.
-- [Deploying](docs/deploying.md) — publishing a portable build.
+- [App structure & "add a tab"](docs/app-structure.md) — desktop MVVM layout + extension guide.
+- [Deploying](docs/deploying.md) — publishing a portable desktop build.
 - [User guide](docs/user-guide.md) — what each tab does.
 
 ## Solution layout
 
 | Project | Type | Purpose |
 |---|---|---|
+| `web/` | React 19 + TS + Vite | **The web app** — static site, deployed to GitHub Pages. See [docs/web-app.md](docs/web-app.md). |
 | `src/MhfuLookup.Core` | classlib (net8.0) | Domain models, ported game logic, SQLite schema + repository facade |
 | `src/MhfuLookup.DataMigration` | console (net8.0) | One-time JSON → SQLite builder (`mhfu.db`) |
 | `src/MhfuLookup.App` | WinUI 3 (net8.0-windows) | The desktop UI (17 tabs, MVVM) |
 | `tests/MhfuLookup.Core.Tests` | xUnit (net8.0) | Ports the original pytest suite + DB end-to-end tests |
+| `export_to_json.py` | script | Exports `mhfu.db` → `web/public/data/*.json` for the web app |
 
 ### Core domain logic (faithful ports of the Python `src/`)
 
@@ -53,14 +63,27 @@ Full guides live in [`docs/`](docs/README.md):
 These are covered by tests that validate parity against the original JSON data
 (1900 armor pieces, 168 decorations, etc.).
 
-## Prerequisites
+## Web app: build & run
+
+```bash
+cd web
+npm install
+npm run dev     # http://localhost:5173, with HMR
+npm run build   # -> web/dist/ (static site)
+```
+
+No `.NET` SDK, database, or backend needed — the web app reads static JSON already committed under
+`web/public/data/`. See [docs/web-app.md](docs/web-app.md) for the full data pipeline, directory
+structure, and how it's deployed to GitHub Pages.
+
+## Desktop app: prerequisites
 
 - **.NET 8 SDK** (also builds with the .NET 10 SDK).
 - **Visual Studio 2022** with the **".NET Desktop Development"** workload and the
   **Windows App SDK / WinUI** component — needed for the WinUI 3 designer/tooling.
   (The solution also builds from the `dotnet` CLI.)
 
-## Build & run
+## Desktop app: build & run
 
 ```powershell
 # 1. Generate the database from the data/ tree (run once, or after data changes).
@@ -79,6 +102,9 @@ dotnet build src/MhfuLookup.App -r win-x64
 `mhfu.db` is copied next to the app on build; at runtime the app loads it from its own
 folder (falling back to `data/mhfu.db` during development).
 
+To pick up the same data changes in the web app, re-run `python export_to_json.py` from the repo
+root after regenerating `mhfu.db` — it re-exports every JSON file under `web/public/data/`.
+
 ## Database
 
 A **hybrid SQLite schema** (see `src/MhfuLookup.Core/Data/Schema.cs`):
@@ -96,6 +122,9 @@ re-run `MhfuLookup.DataMigration`.
 
 Monsters · Weapons · Armor Sets · Armor Skills · Decorations · Quests · Gathering · Items ·
 Combo List · Treasures · Kitchen · Trenya · Pokke Farm · Peddling Granny · Veggie Elder · Felyne Comrades · Awards · Settings · Help · About.
+
+The web app carries all of these plus two web-only tabs, **Bookmarks** and **Notes** (with per-note
+export/import — see [docs/web-app.md](docs/web-app.md#feature-highlights)).
 
 See the [user guide](docs/user-guide.md) for what each tab does.
 
@@ -138,7 +167,7 @@ See the [user guide](docs/user-guide.md) for what each tab does.
 
 This project is dual-licensed because it mixes original code with wiki-sourced data:
 
-- **Source code** (the C# app + the data-build scripts) — **MIT License**, © 2026 Armored_Raven.
+- **Source code** (the web app, the C# app, and the data-build scripts) — **MIT License**, © 2026 Armored_Raven.
   See [`LICENSE`](LICENSE).
 - **Game reference data** (`data/mhfu.db` and the JSON it's built from) — **CC BY-SA 4.0**, because it
   derives from CC BY-SA community wikis (share-alike). See [`LICENSE-DATA.md`](LICENSE-DATA.md).
@@ -149,7 +178,11 @@ This project is dual-licensed because it mixes original code with wiki-sourced d
 *Not legal advice — this is the conventional setup for a fan project combining original code with
 CC BY-SA wiki data.*
 
-## Known follow-ups (not yet ported)
+## Known follow-ups (desktop app; not yet ported)
+
+The web app already has all of these (weapon filter modal, bowgun ammo tables, bow charge/coating
+chips, per-entity notes) — this list is desktop-only technical debt from the original Python app
+port, kept here since the desktop app still lags behind:
 
 - Weapon **filter dialog** (multi-criteria search from the Python app).
 - **Material → monster** click-through from weapon materials.

@@ -1,10 +1,18 @@
 # MHFU LookUp — Documentation
 
-Reference docs for the C# / WinUI 3 port of the Monster Hunter Freedom Unite lookup tool.
-The top-level [`../README.md`](../README.md) is the quick overview (build & run); the guides below go
-deeper.
+Reference docs for the Monster Hunter Freedom Unite lookup tool, which ships as two front ends
+sharing one data pipeline: a **React/Vite web app** (the primary target — the intended audience wants
+a browser link, not a Windows install) and a **C# / WinUI 3** desktop app (kept in sync where
+practical, no longer the focus of active development). The top-level [`../README.md`](../README.md)
+is the quick overview (build & run); the guides below go deeper.
 
-## For developers
+## Web app
+
+| Doc | What it covers |
+|---|---|
+| [web-app.md](web-app.md) | Tech stack, the `mhfu.db` → JSON export pipeline, directory structure, feature highlights (Notes export/import, Bookmarks, personalization), build/run, and the GitHub Pages deploy. |
+
+## Desktop app (C# / WinUI 3)
 
 | Doc | What it covers |
 |---|---|
@@ -21,6 +29,11 @@ deeper.
 | [rom-data-extraction.md](rom-data-extraction.md) | Decrypting the `DATA.BIN` master archive; item/armor/reward tables; the Ghidra + PPSSPP toolchain. |
 | [rom-map.md](rom-map.md) | Structural map of the ROM: containers → file indices → record field-maps → RAM calibration. |
 | [gather-extraction.md](gather-extraction.md) | Per-node gather rate tables: format, the live PPSSPP method, and the **offline decryption** (round-robin Lehmer-LCG keystream) that yields every map/rank from disk. |
+| [rom-armor-stats-re.md](rom-armor-stats-re.md) | Walkthrough of decoding the armor stat tables from `BOOT.BIN` (5,067 corrections across all 5 slots) — written for RE beginners. |
+| [rom-armor-recipes.md](rom-armor-recipes.md) | Forge recipes for all 5 armor slots, extracted from `BOOT.BIN`'s static table. |
+| [rom-farm.md](rom-farm.md) | Pokke Farm gather-rate tables, found as a plaintext config block in `BOOT.BIN`. |
+| [rom-fishing.md](rom-fishing.md) | Fishing spawn mechanism and per-spot weights, decoded from the ROM. |
+| [rom-damage.md](rom-damage.md) | Damage formula constants (sharpness/element/crit) extracted from the ROM. |
 
 ## For users
 
@@ -30,11 +43,15 @@ deeper.
 
 ## Start here
 
-- **New to the codebase?** Read [architecture.md](architecture.md), then skim
+- **New to the codebase?** Read [web-app.md](web-app.md) — that's where active work happens. For the
+  desktop side, read [architecture.md](architecture.md), then skim
   [database-schema.md](database-schema.md).
 - **Changing game logic?** Read [core-domain.md](core-domain.md) first — especially the Torso-Up
-  section.
-- **Adding a feature/tab?** Jump to *"Add a new tab"* in [app-structure.md](app-structure.md).
+  section (desktop `MhfuLookup.Core`; the web app re-derives the same logic in TypeScript per-page).
+- **Adding a feature/tab to the web app?** See the directory structure and per-page conventions in
+  [web-app.md](web-app.md).
+- **Adding a feature/tab to the desktop app?** Jump to *"Add a new tab"* in
+  [app-structure.md](app-structure.md).
 - **Just using the app?** See [user-guide.md](user-guide.md).
 
 ## License
