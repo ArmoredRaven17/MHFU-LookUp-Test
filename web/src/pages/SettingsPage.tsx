@@ -58,7 +58,16 @@ export default function SettingsPage() {
         {/* ── Appearance ── */}
         <SectionTitle>Appearance</SectionTitle>
 
-        <Label>App colour (background theme)</Label>
+        <Label>Text size</Label>
+        <Dropdown value={String(textScale)} onChange={v => chooseTextScale(Number(v))}
+          options={SCALE_PRESETS.map(p => ({ value: String(p.value), label: p.label }))} />
+        <Hint>Grows text only — not a page zoom, so layout and icons stay put.</Hint>
+
+        <Label style={{ marginTop: 16 }}>App icon (browser tab)</Label>
+        <Dropdown value={icon} onChange={chooseIcon} options={monsterOptions(monsters)} />
+        <Hint>Sets the favicon shown in the browser tab.</Hint>
+
+        <Label style={{ marginTop: 16 }}>App colour (background theme)</Label>
         <div style={{ marginBottom: 12 }}>
           <Dropdown value={surface} onChange={chooseSurface} options={surfaceOptions} />
         </div>
@@ -68,15 +77,6 @@ export default function SettingsPage() {
           <Dropdown value={accentSelectValue} onChange={chooseAccent} options={accentOptions} />
         </div>
         <Hint>Colour and accent apply immediately and are remembered on this device.</Hint>
-
-        <Label style={{ marginTop: 16 }}>App icon (browser tab)</Label>
-        <Dropdown value={icon} onChange={chooseIcon} options={monsterOptions(monsters)} />
-        <Hint>Sets the favicon shown in the browser tab.</Hint>
-
-        <Label style={{ marginTop: 16 }}>Text size</Label>
-        <Dropdown value={String(textScale)} onChange={v => chooseTextScale(Number(v))}
-          options={SCALE_PRESETS.map(p => ({ value: String(p.value), label: p.label }))} />
-        <Hint>Grows text only — not a page zoom, so layout and icons stay put.</Hint>
 
         {/* ── Tab Icons ── */}
         <SectionTitle style={{ marginTop: 28 }}>Tab Icons</SectionTitle>
