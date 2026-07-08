@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTextScale } from '../theme/textScale'
 
 export interface DropdownOption {
   value: string
@@ -15,6 +16,7 @@ export default function Dropdown({ value, options, onChange, style }: {
   onChange: (value: string) => void
   style?: React.CSSProperties
 }) {
+  const scale = useTextScale()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const current = options.find(o => o.value === value)
@@ -33,12 +35,12 @@ export default function Dropdown({ value, options, onChange, style }: {
       <button type="button" onClick={() => setOpen(o => !o)} style={{
         display: 'flex', alignItems: 'center', gap: 8,
         background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-        color: 'var(--text)', padding: '4px 8px', fontSize: 13, cursor: 'pointer', textAlign: 'left',
+        color: 'var(--text)', padding: '4px 8px', fontSize: 13 * scale, cursor: 'pointer', textAlign: 'left',
         whiteSpace: 'nowrap',
       }}>
         <Swatch option={current} />
         <span>{current?.label ?? value}</span>
-        <span style={{ color: 'var(--muted)', fontSize: 11, flexShrink: 0 }}>{open ? '▴' : '▾'}</span>
+        <span style={{ color: 'var(--muted)', fontSize: 11 * scale, flexShrink: 0 }}>{open ? '▴' : '▾'}</span>
       </button>
 
       {open && (
@@ -50,7 +52,7 @@ export default function Dropdown({ value, options, onChange, style }: {
         }}>
           {options.map(o => (
             <div key={o.value} onClick={() => { onChange(o.value); setOpen(false) }} style={{
-              display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', cursor: 'pointer', fontSize: 13,
+              display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', cursor: 'pointer', fontSize: 13 * scale,
               whiteSpace: 'nowrap',
               background: o.value === value ? 'var(--header-bg)' : 'transparent',
               color: o.value === value ? 'var(--accent)' : 'var(--text)',

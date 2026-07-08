@@ -1,6 +1,9 @@
+import { useTextScale } from '../theme/textScale'
+
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 export default function AboutPage() {
+  const scale = useTextScale()
   return (
     <div style={{ overflowY: 'auto', height: '100%', background: 'transparent' }}>
       <div style={{ maxWidth: 720, padding: '24px 24px 40px', margin: '0 auto' }}>
@@ -10,9 +13,9 @@ export default function AboutPage() {
           <img src={`${BASE}/assets/Misc/about_icon.png`} alt="" width={52} height={52}
                style={{ objectFit: 'contain', flexShrink: 0 }}
                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
-          <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: 'var(--text)' }}>About</h2>
+          <h2 style={{ margin: 0, fontSize: 22 * scale, fontWeight: 700, color: 'var(--text)' }}>About</h2>
         </div>
-        <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: 14, margin: '0 0 20px' }}>
+        <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: 14 * scale, margin: '0 0 20px' }}>
           MHFU LookUp is an unofficial reference tool for Monster Hunter Freedom Unite (MHP2G).
         </p>
 
@@ -28,7 +31,7 @@ export default function AboutPage() {
 
         {/* ROM extraction — now the majority of the app's factual values */}
         <Section title="Extracted Directly from the ROM">
-          <p style={{ color: 'var(--muted)', fontSize: 13, margin: '0 0 10px', lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--muted)', fontSize: 13 * scale, margin: '0 0 10px', lineHeight: 1.6 }}>
             A large and growing share of this app's data no longer comes from any community source — it's
             decrypted and reverse-engineered straight out of MHFU's own game files, so it can't drift from
             what the game actually does.
@@ -44,12 +47,12 @@ export default function AboutPage() {
           <Li><strong>Pokke Farm rates</strong> for Mining Points, Insect Thicket, Mushroom Tree, Bee Hive, Bomb Mining, Bug Tree, Great Sword Cave, and the Casting Machine — plus confirmation that Trenya's returns are drawn uniformly at random, with no hidden per-item rates.</Li>
           <Li><strong>Weapon damage constants</strong> — sharpness modifiers, element/status multipliers, and the per-class "True Raw" divisor shown in the Weapons tab.</Li>
 
-          <p style={{ color: 'var(--muted)', fontSize: 12, margin: '4px 0 10px', lineHeight: 1.5 }}>
+          <p style={{ color: 'var(--muted)', fontSize: 12 * scale, margin: '4px 0 10px', lineHeight: 1.5 }}>
             Still open: Pokke Farm's Field Rows per-crop rates and the Fishing Pier's full per-spot catch
             pools haven't been fully extracted yet — those sections still reflect the best community
             information available.
           </p>
-          <p style={{ color: 'var(--text)', fontSize: 13, margin: 0 }}>
+          <p style={{ color: 'var(--text)', fontSize: 13 * scale, margin: 0 }}>
             The full method, tooling, and ROM addresses are documented for anyone who wants the details —
             see <code>docs/rom-data-extraction.md</code> in the source repository.
           </p>
@@ -59,7 +62,7 @@ export default function AboutPage() {
 
         {/* Data Sources still from community references */}
         <Section title="Data Sources & Attribution">
-          <p style={{ color: 'var(--muted)', fontSize: 13, margin: '0 0 10px', lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--muted)', fontSize: 13 * scale, margin: '0 0 10px', lineHeight: 1.6 }}>
             Everything not listed above as ROM-extracted is compiled from openly available community
             sources. The underlying values are factual game data; English names follow Capcom's official
             localization.
@@ -75,7 +78,7 @@ export default function AboutPage() {
           <Li><strong>Armor-skill category groupings</strong> — the skills and their data are the app's own; only the category sort order follows <em>Athena's Armor Set Search</em> for MHFU, so users of both tools see familiar groupings.</Li>
           <Li><strong>Bowgun ammo stats</strong> — from the <em>Bowgun Damage Guide (PSP)</em> by VampireCosmonaut, published on GameFAQs: <A href="https://gamefaqs.gamespot.com">gamefaqs.gamespot.com</A></Li>
 
-          <p style={{ color: 'var(--muted)', fontSize: 11, margin: '10px 0 0', lineHeight: 1.5 }}>
+          <p style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '10px 0 0', lineHeight: 1.5 }}>
             Reused Fandom wiki content is licensed CC BY-SA; the data set derived from it is shared under the same terms (attribution + share-alike).
           </p>
         </Section>
@@ -84,7 +87,7 @@ export default function AboutPage() {
 
         {/* Community guides used as references / cross-checks while decoding the ROM */}
         <Section title="Community Guides Used While Decoding the ROM">
-          <p style={{ color: 'var(--muted)', fontSize: 13, margin: '0 0 10px', lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--muted)', fontSize: 13 * scale, margin: '0 0 10px', lineHeight: 1.6 }}>
             These guides didn't supply the final numbers shown in the app, but were genuinely useful as
             references and cross-checks while reverse-engineering the ROM.
           </p>
@@ -119,7 +122,7 @@ export default function AboutPage() {
           <Li>This is an unofficial, non-commercial, fan-made tool, not affiliated with, sponsored by, or endorsed by Capcom.</Li>
         </Section>
 
-        <p style={{ color: 'var(--muted)', fontSize: 12, marginTop: 20 }}>
+        <p style={{ color: 'var(--muted)', fontSize: 12 * scale, marginTop: 20 }}>
           Built with React + TypeScript + Vite and SQLite.
         </p>
 
@@ -129,9 +132,10 @@ export default function AboutPage() {
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div style={{ marginBottom: 4 }}>
-      <h3 style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>{title}</h3>
+      <h3 style={{ margin: '0 0 8px', fontSize: 15 * scale, fontWeight: 600, color: 'var(--text)' }}>{title}</h3>
       {children}
     </div>
   )
@@ -142,8 +146,9 @@ function Divider() {
 }
 
 function Li({ children }: { children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
-    <p style={{ display: 'flex', gap: 8, margin: '0 0 6px', fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
+    <p style={{ display: 'flex', gap: 8, margin: '0 0 6px', fontSize: 13 * scale, color: 'var(--text)', lineHeight: 1.6 }}>
       <span style={{ flexShrink: 0, color: 'var(--text)' }}>•</span>
       <span>{children}</span>
     </p>

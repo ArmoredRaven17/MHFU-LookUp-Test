@@ -6,6 +6,7 @@ import { locationIconUrl, locationColor } from '../utils/location'
 import BookmarkButton from '../components/BookmarkButton'
 import { useMaterialResolver } from '../hooks/useMaterials'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 const RANK_DEFS: [keyof GatherNode & string, string][] = [
   ['low', 'Low Rank'], ['high', 'High Rank'], ['g_rank', 'G Rank'],
@@ -29,6 +30,7 @@ function toDrops(raw: (GatherItem | string)[] | undefined): Drop[] {
 export default function GatheringPage() {
   const { slug } = useParams()
   const navigate = useNavigate()
+  const scale = useTextScale()
   const [areas, setAreas] = useState<GatheringArea[]>([])
 
   useEffect(() => { loadGathering().then(a => setAreas([...a].sort((x, y) => x.area.localeCompare(y.area)))) }, [])
@@ -51,7 +53,7 @@ export default function GatheringPage() {
                 display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '5px 10px',
                 background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
-                cursor: 'pointer', textAlign: 'left', fontSize: 13,
+                cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
               }}>
                 <img src={locationIconUrl(a.area)} alt="" width={20} height={20} style={{ objectFit: 'contain', flexShrink: 0 }}
                      onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
@@ -65,7 +67,7 @@ export default function GatheringPage() {
       {/* ── Detail ── */}
       <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', background: 'transparent' }}>
         {!selected
-          ? <p style={{ color: 'var(--muted)', padding: 16, fontSize: 13 }}>Select an area from the list.</p>
+          ? <p style={{ color: 'var(--muted)', padding: 16, fontSize: 13 * scale }}>Select an area from the list.</p>
           : <AreaDetail area={selected} />
         }
       </div>
@@ -78,6 +80,7 @@ export default function GatheringPage() {
 function AreaDetail({ area }: { area: GatheringArea }) {
   const navigate = useNavigate()
   const resolveMaterial = useMaterialResolver()
+  const scale = useTextScale()
   const [rank, setRank] = useState('')
   const [search, setSearch] = useState('')
 
@@ -131,12 +134,12 @@ function AreaDetail({ area }: { area: GatheringArea }) {
     <>
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', padding: '10px 16px 6px' }}>
-        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>{area.area}</h2>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18 * scale, fontWeight: 600 }}>{area.area}</h2>
         <BookmarkButton bookmark={{ type: 'gathering', id: area.slug, name: area.area, path: `/gathering/${area.slug}`, icon: locationIconUrl(area.area) }} />
         {ranks.length > 1 && (
           <select value={effRank} onChange={e => setRank(e.target.value)} style={{
             background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-            color: 'var(--text)', padding: '3px 6px', fontSize: 12,
+            color: 'var(--text)', padding: '3px 6px', fontSize: 12 * scale,
           }}>
             {ranks.map(r => <option key={r} value={r}>{r}</option>)}
           </select>
@@ -144,12 +147,12 @@ function AreaDetail({ area }: { area: GatheringArea }) {
         <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search items in this area…"
           style={{
             flex: 1, maxWidth: 240, background: 'var(--surface)', border: '1px solid var(--border)',
-            borderRadius: 4, color: 'var(--text)', padding: '3px 8px', fontSize: 12, outline: 'none',
+            borderRadius: 4, color: 'var(--text)', padding: '3px 8px', fontSize: 12 * scale, outline: 'none',
           }} />
       </div>
 
       {/* Column header */}
-      <div style={{ display: 'grid', gridTemplateColumns: GRID, padding: '0 16px 2px', fontSize: 11,
+      <div style={{ display: 'grid', gridTemplateColumns: GRID, padding: '0 16px 2px', fontSize: 11 * scale,
                     color: 'var(--text)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
         <span>Zone</span><span>Node</span><span>Type</span><span>{effRank}</span>
       </div>
@@ -157,14 +160,14 @@ function AreaDetail({ area }: { area: GatheringArea }) {
       {/* Rows */}
       <div style={{ overflowY: 'auto', flex: 1, padding: '0 16px 16px' }}>
         {rows.map((r, i) => (
-          <div key={i} style={{ display: 'grid', gridTemplateColumns: GRID, borderBottom: '1px solid var(--border)', padding: '3px 0', fontSize: 12 }}>
+          <div key={i} style={{ display: 'grid', gridTemplateColumns: GRID, borderBottom: '1px solid var(--border)', padding: '3px 0', fontSize: 12 * scale }}>
             <span style={{ color: 'var(--muted)' }}>{r.zone}</span>
             <span style={{ color: 'var(--muted)' }}>{r.node}</span>
             <span style={{ color: 'var(--muted)' }}>{r.type}</span>
             <span>
               {r.lines.map((ln, j) => {
                 if (ln.isHeader) {
-                  return <span key={j} style={{ display: 'block', color: 'var(--text)', fontSize: 11, fontWeight: 600, margin: '3px 0 1px' }}>{ln.name}</span>
+                  return <span key={j} style={{ display: 'block', color: 'var(--text)', fontSize: 11 * scale, fontWeight: 600, margin: '3px 0 1px' }}>{ln.name}</span>
                 }
                 const mat = resolveMaterial(ln.name)[0]
                 return (
@@ -176,7 +179,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
                       {mat?.path
                         ? <button onClick={() => navigate(mat.path!)} style={{
                             background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-                            color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 12, textAlign: 'left',
+                            color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 12 * scale, textAlign: 'left',
                           }}>{ln.name}</button>
                         : <span style={{ color: 'var(--text)' }}>{ln.name}</span>}
                     </span>
@@ -188,7 +191,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
           </div>
         ))}
         {rows.length === 0 && (
-          <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No items found.</p>
+          <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No items found.</p>
         )}
       </div>
     </>

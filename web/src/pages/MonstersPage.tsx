@@ -6,6 +6,7 @@ import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
 import NotesBox from '../components/NotesBox'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 // Hitzone heat map — cell background per value tier (matches desktop HitzoneBrush).
 function hzBg(v: number) {
@@ -16,6 +17,7 @@ function hzBg(v: number) {
 }
 
 export default function MonstersPage() {
+  const scale = useTextScale()
   const { id } = useParams()
   const navigate = useNavigate()
   const [monsters, setMonsters] = useState<Monster[]>([])
@@ -73,7 +75,7 @@ export default function MonstersPage() {
           {groups.map(g => (
             <div key={g.type}>
               <div style={{
-                fontWeight: 700, color: 'var(--accent)', fontSize: 12,
+                fontWeight: 700, color: 'var(--accent)', fontSize: 12 * scale,
                 padding: '6px 10px 2px',
               }}>
                 {g.type}
@@ -88,7 +90,7 @@ export default function MonstersPage() {
                     background: m.id === id ? 'var(--header-bg)' : 'transparent',
                     border: 'none', borderLeft: m.id === id ? '2px solid var(--accent)' : '2px solid transparent',
                     color: m.id === id ? 'var(--accent)' : 'var(--text)',
-                    cursor: 'pointer', textAlign: 'left', fontSize: 13,
+                    cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
                   }}
                 >
                   <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt="" width={24} height={24}
@@ -99,7 +101,7 @@ export default function MonstersPage() {
             </div>
           ))}
           {groups.length === 0 && (
-            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No monsters found.</p>
+            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No monsters found.</p>
           )}
         </div>
       </div>
@@ -117,6 +119,7 @@ export default function MonstersPage() {
 }
 
 function MonsterDetail({ monster: m }: { monster: Monster }) {
+  const scale = useTextScale()
   return (
     <div style={{ maxWidth: 900 }}>
       {/* Header */}
@@ -124,8 +127,8 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
         <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt={m.name} width={48} height={48}
              style={{ objectFit: 'contain' }} />
         <div>
-          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 22, fontWeight: 600 }}>{m.name}</h2>
-          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 13 }}>{m.type}</p>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 22 * scale, fontWeight: 600 }}>{m.name}</h2>
+          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 13 * scale }}>{m.type}</p>
         </div>
         <BookmarkButton bookmark={{ type: 'monster', id: m.id, name: m.name, path: `/monsters/${m.id}`, icon: `${BASE}/assets/Monsters/${m.id}.png` }} />
       </div>
@@ -239,7 +242,7 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
       {/* Monster Facts (read-only lore) */}
       {m.quests?.notes && (
         <Section title="Monster Facts">
-          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 13, lineHeight: 1.6 }}>{m.quests.notes}</p>
+          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 13 * scale, lineHeight: 1.6 }}>{m.quests.notes}</p>
         </Section>
       )}
 
@@ -251,9 +254,10 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div style={{ marginBottom: 20 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 14,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 14 * scale,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>
@@ -300,29 +304,30 @@ function buildParts(section: unknown, kind: 'list' | 'object'): LootPartData[] {
 }
 
 function LootSection({ header, parts }: { header: string; parts: LootPartData[] }) {
+  const scale = useTextScale()
   if (parts.length === 0) return null
   return (
     <Section title={header}>
       {parts.map((p, i) => (
         <div key={i} style={{ marginBottom: 12 }}>
           {p.label && (
-            <p style={{ margin: '0 0 2px', fontWeight: 600, color: 'var(--text)', fontSize: 13 }}>{p.label}</p>
+            <p style={{ margin: '0 0 2px', fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{p.label}</p>
           )}
           {p.condition && (
-            <p style={{ margin: '0 0 4px', fontStyle: 'italic', fontSize: 11, color: 'var(--muted)' }}>
+            <p style={{ margin: '0 0 4px', fontStyle: 'italic', fontSize: 11 * scale, color: 'var(--muted)' }}>
               Condition: {p.condition}
             </p>
           )}
           <div style={{ display: 'flex', gap: 16, overflowX: 'auto', paddingBottom: 4 }}>
             {p.tiers.map((t, j) => (
               <div key={j} style={{ minWidth: 168 }}>
-                <p style={{ margin: '0 0 2px', fontSize: 11, color: 'var(--text)' }}>{t.label}</p>
+                <p style={{ margin: '0 0 2px', fontSize: 11 * scale, color: 'var(--text)' }}>{t.label}</p>
                 <table style={{ borderCollapse: 'collapse', width: '100%' }}>
                   <tbody>
                     {t.rows.map((r, k) => (
                       <tr key={k}>
-                        <td style={{ fontSize: 12, color: 'var(--text)', padding: '1px 8px 1px 0' }}>{r.item}</td>
-                        <td style={{ fontSize: 12, color: 'var(--muted)', textAlign: 'right', padding: '1px 0' }}>{r.pct}%</td>
+                        <td style={{ fontSize: 12 * scale, color: 'var(--text)', padding: '1px 8px 1px 0' }}>{r.item}</td>
+                        <td style={{ fontSize: 12 * scale, color: 'var(--muted)', textAlign: 'right', padding: '1px 0' }}>{r.pct}%</td>
                       </tr>
                     ))}
                   </tbody>

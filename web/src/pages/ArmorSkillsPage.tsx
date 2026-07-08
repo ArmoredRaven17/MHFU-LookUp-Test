@@ -5,6 +5,7 @@ import type { Skill, ArmorSet } from '../types'
 import SearchBox from '../components/SearchBox'
 import { BASE } from '../utils/assets'
 import BookmarkButton from '../components/BookmarkButton'
+import { useTextScale } from '../theme/textScale'
 
 const CATEGORY_ORDER = [
   'All Skills',
@@ -34,6 +35,7 @@ function signColor(n: number) {
 function signStr(n: number) { return n > 0 ? `+${n}` : `${n}` }
 
 export default function ArmorSkillsPage() {
+  const scale = useTextScale()
   const { id } = useParams()
   const navigate = useNavigate()
   const [skills, setSkills] = useState<Skill[]>([])
@@ -122,7 +124,7 @@ export default function ArmorSkillsPage() {
             onChange={e => setCategory(e.target.value)}
             style={{
               width: '100%', background: 'var(--surface)', border: '1px solid var(--border)',
-              borderRadius: 4, color: 'var(--text)', padding: '4px 6px', fontSize: 12,
+              borderRadius: 4, color: 'var(--text)', padding: '4px 6px', fontSize: 12 * scale,
             }}
           >
             {categories.map(c => <option key={c}>{c}</option>)}
@@ -140,14 +142,14 @@ export default function ArmorSkillsPage() {
                 background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
-                cursor: 'pointer', textAlign: 'left', fontSize: 13,
+                cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
               }}>
                 {s.name}
               </button>
             )
           })}
           {filtered.length === 0 && (
-            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No skills found.</p>
+            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No skills found.</p>
           )}
         </div>
       </div>
@@ -166,22 +168,23 @@ export default function ArmorSkillsPage() {
 // ── Detail ────────────────────────────────────────────────────────────────────
 
 function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] }) {
+  const scale = useTextScale()
   return (
     <div style={{ maxWidth: 720 }}>
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-        <h2 style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>
+        <h2 style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>
           {s.name}
         </h2>
         <BookmarkButton bookmark={{ type: 'armorskill', id: s.id, name: s.name, path: `/armorskills/${s.id}` }} />
       </div>
       {s.categories.length > 0 && (
-        <p style={{ margin: '0 0 6px', color: 'var(--muted)', fontSize: 12 }}>
+        <p style={{ margin: '0 0 6px', color: 'var(--muted)', fontSize: 12 * scale }}>
           {s.categories.join(' · ')}
         </p>
       )}
       {s.description && (
-        <p style={{ margin: '0 0 16px', color: 'var(--muted)', fontStyle: 'italic', fontSize: 13 }}>
+        <p style={{ margin: '0 0 16px', color: 'var(--muted)', fontStyle: 'italic', fontSize: 13 * scale }}>
           {s.description}
         </p>
       )}
@@ -207,7 +210,7 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
                 </td>
                 <td className="tbl-cell">{lv.name}</td>
                 {s.levels.length > 1 && (
-                  <td className="tbl-cell" style={{ color: 'var(--muted)', fontSize: 12 }}>
+                  <td className="tbl-cell" style={{ color: 'var(--muted)', fontSize: 12 * scale }}>
                     {lv.description}
                   </td>
                 )}
@@ -252,9 +255,10 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div style={{ marginBottom: 18 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13 * scale,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>

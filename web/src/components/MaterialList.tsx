@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { useMaterialResolver } from '../hooks/useMaterials'
+import { useTextScale } from '../theme/textScale'
 
 /**
  * Renders a crafting-material CSV as icon + name chips, deep-linking each known material to its
  * Items/Treasures page. Used by weapon (and armor) recipes.
  */
 export default function MaterialList({ csv, vertical }: { csv: string; vertical?: boolean }) {
+  const scale = useTextScale()
   const resolve = useMaterialResolver()
   const navigate = useNavigate()
   const mats = resolve(csv)
@@ -24,9 +26,9 @@ export default function MaterialList({ csv, vertical }: { csv: string; vertical?
           {m.path
             ? <button onClick={() => navigate(m.path!)} style={{
                 background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-                color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 13,
+                color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 13 * scale,
               }}>{m.text}</button>
-            : <span style={{ fontSize: 13, color: 'var(--text)' }}>{m.text}</span>}
+            : <span style={{ fontSize: 13 * scale, color: 'var(--text)' }}>{m.text}</span>}
         </span>
       ))}
     </span>

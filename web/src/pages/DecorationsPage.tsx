@@ -6,6 +6,7 @@ import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
 import MaterialList from '../components/MaterialList'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 const signStr = (n: number) => (n > 0 ? `+${n}` : `${n}`)
 const signColor = (n: number) => (n > 0 ? 'var(--positive)' : n < 0 ? 'var(--negative)' : 'var(--muted)')
@@ -23,6 +24,7 @@ function skillName(d: Decoration) {
 const skillsText = (d: Decoration) => d.skill_effects.map(s => `${s.skill_name} ${signStr(s.points)}`).join(', ')
 
 export default function DecorationsPage() {
+  const scale = useTextScale()
   const { id } = useParams()
   const navigate = useNavigate()
   const [decos, setDecos] = useState<Decoration[]>([])
@@ -58,7 +60,7 @@ export default function DecorationsPage() {
           <div style={{ display: 'flex', border: '1px solid var(--border)', borderRadius: 4, overflow: 'hidden' }}>
             {['By name', 'By skill'].map((o, i) => (
               <button key={o} onClick={() => setBySkill(i === 1)} style={{
-                flex: 1, padding: '3px 0', fontSize: 11, border: 'none', cursor: 'pointer',
+                flex: 1, padding: '3px 0', fontSize: 11 * scale, border: 'none', cursor: 'pointer',
                 background: (bySkill ? 1 : 0) === i ? 'var(--accent)' : 'transparent',
                 color: (bySkill ? 1 : 0) === i ? '#111' : 'var(--muted)', fontWeight: (bySkill ? 1 : 0) === i ? 600 : 400,
               }}>{o}</button>
@@ -76,7 +78,7 @@ export default function DecorationsPage() {
                 background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
-                cursor: 'pointer', textAlign: 'left', fontSize: 13,
+                cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
               }}>
                 <img src={decoIcon(d.color)} alt="" width={20} height={20}
                      style={{ objectFit: 'contain', flexShrink: 0 }}
@@ -88,7 +90,7 @@ export default function DecorationsPage() {
             )
           })}
           {filtered.length === 0 && (
-            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No decorations found.</p>
+            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No decorations found.</p>
           )}
         </div>
       </div>
@@ -96,7 +98,7 @@ export default function DecorationsPage() {
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
         {!selected
-          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 }}>Select a decoration.</p>
+          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 * scale }}>Select a decoration.</p>
           : <DecoDetail deco={selected} />
         }
       </div>
@@ -107,12 +109,13 @@ export default function DecorationsPage() {
 // ── Detail ────────────────────────────────────────────────────────────────────
 
 function DecoDetail({ deco: d }: { deco: Decoration }) {
+  const scale = useTextScale()
   return (
     <div style={{ maxWidth: 600 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
         <img src={decoIcon(d.color)} alt="" width={32} height={32} style={{ objectFit: 'contain' }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
-        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{d.name}</h2>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{d.name}</h2>
         <BookmarkButton bookmark={{ type: 'decoration', id: d.id, name: d.name, path: `/decorations/${d.id}`, icon: decoIcon(d.color) }} />
       </div>
 
@@ -131,7 +134,7 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
       {/* Slot badge */}
       <span style={{
         display: 'inline-block', background: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--text)', borderRadius: 3,
-        padding: '2px 8px', fontSize: 12, marginBottom: 12,
+        padding: '2px 8px', fontSize: 12 * scale, marginBottom: 12,
       }}>
         <span style={{ fontFamily: 'ui-monospace, monospace' }}>{slotBar(d.slot_cost)}</span>
         {'  '}{d.slot_cost}-Slot Decoration
@@ -144,7 +147,7 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
             {d.recipes.map((recipe, ri) => (
               <div key={ri}>
                 {d.recipes.length > 1 && (
-                  <p style={{ margin: '0 0 2px', color: 'var(--muted)', fontSize: 11 }}>Recipe {ri + 1}</p>
+                  <p style={{ margin: '0 0 2px', color: 'var(--muted)', fontSize: 11 * scale }}>Recipe {ri + 1}</p>
                 )}
                 <MaterialList csv={recipe.join(', ')} vertical />
               </div>
@@ -157,9 +160,10 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div style={{ marginBottom: 16 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13 * scale,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>

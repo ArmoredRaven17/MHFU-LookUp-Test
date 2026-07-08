@@ -2,6 +2,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BASE } from '../utils/assets'
 import { useTabIcons } from '../theme/tabIcons'
 import { useAppIcon } from '../theme/appearance'
+import { useTextScale } from '../theme/textScale'
 
 export interface NavItem {
   path: string
@@ -36,25 +37,27 @@ export const NAV: NavItem[] = [
   { path: 'about',      label: 'About',            icon: 'fatalis' },
 ]
 
-function NavRow({ item, iconId, active }: { item: NavItem; iconId: string; active: boolean }) {
+// Icon-only nav tab — the full label is a native title-attribute tooltip on hover, since 23 tabs
+// don't fit in one horizontal row with visible text.
+function NavIcon({ item, iconId, active }: { item: NavItem; iconId: string; active: boolean }) {
   return (
     <NavLink
       to={`/${item.path}`}
+      title={item.label}
       style={{
-        display: 'flex', alignItems: 'center', gap: 8, padding: '5px 12px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        width: 44, height: '100%', flexShrink: 0,
         textDecoration: 'none',
-        color: active ? 'var(--accent)' : 'var(--text)',
         background: active ? 'var(--header-bg)' : 'transparent',
-        borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
-        fontSize: 13, whiteSpace: 'nowrap', transition: 'background 0.1s',
+        borderBottom: active ? '2px solid var(--accent)' : '2px solid transparent',
+        boxSizing: 'border-box', transition: 'background 0.1s',
       }}
       onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)' }}
       onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.background = 'transparent' }}
     >
-      <img src={`${BASE}/assets/Monsters/${iconId}.png`} alt="" width={20} height={20}
+      <img src={`${BASE}/assets/Monsters/${iconId}.png`} alt={item.label} width={24} height={24}
            style={{ objectFit: 'contain', flexShrink: 0 }}
            onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
-      {item.label}
     </NavLink>
   )
 }
@@ -63,31 +66,32 @@ export default function Layout() {
   const loc = useLocation()
   const overrides = useTabIcons()
   const appIcon = useAppIcon()
+  const scale = useTextScale()
   const isActive = (path: string) => loc.pathname === `/${path}` || loc.pathname.startsWith(`/${path}/`)
 
   return (
-    <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
-      {/* ── Sidebar ── */}
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
+      {/* ── Top nav bar ── */}
       <nav style={{
-        width: 185, minWidth: 185,
+        height: 48, minHeight: 48,
         backgroundColor: 'var(--surface)',
         // Repeating texture under a translucent surface-coloured overlay (theme-aware, readable).
         backgroundImage: `linear-gradient(rgba(var(--surface-rgb), 0.93), rgba(var(--surface-rgb), 0.93)), url(${BASE}/assets/Textures/surface_bg.png)`,
         backgroundRepeat: 'no-repeat, repeat',
-        borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
+        borderBottom: '1px solid var(--border)',
+        display: 'flex', alignItems: 'center', overflow: 'hidden',
       }}>
-        {/* Title bar */}
-        <div style={{ padding: '10px 12px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <img src={`${BASE}/assets/Monsters/${appIcon}.png`} alt="" width={28} height={28} style={{ objectFit: 'contain' }}
+        {/* App title */}
+        <div style={{ padding: '0 12px', height: '100%', borderRight: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
+          <img src={`${BASE}/assets/Monsters/${appIcon}.png`} alt="" width={26} height={26} style={{ objectFit: 'contain' }}
                onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
-          <span style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 }}>MHFU LookUp</span>
+          <span style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 * scale, whiteSpace: 'nowrap' }}>MHFU LookUp</span>
         </div>
 
-        {/* Nav items */}
-        <div style={{ overflowY: 'auto', flex: 1 }}>
+        {/* Nav icons */}
+        <div style={{ display: 'flex', alignItems: 'stretch', height: '100%', flex: 1, overflowX: 'auto' }}>
           {NAV.map(item => (
-            <NavRow key={item.path} item={item} iconId={overrides[item.path] ?? item.icon} active={isActive(item.path)} />
+            <NavIcon key={item.path} item={item} iconId={overrides[item.path] ?? item.icon} active={isActive(item.path)} />
           ))}
         </div>
       </nav>

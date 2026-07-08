@@ -5,6 +5,7 @@ import { useNoteOrderIndex, useNoteEntity, useNoteImportLookup } from '../utils/
 import { formatEntityBlock, parseImportedNotes, EXPORT_SIGNATURE, type ExportLevel } from '../utils/noteExport'
 import { loadWeapons } from '../data/loaders'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 // Group order, header, and fallback tab icon per type — mirrors desktop
 // NotesViewModel.Sections (monster / weapon / armor set / quest).
@@ -66,6 +67,7 @@ async function exportNotes(
 export default function NotesPage() {
   const { notes, setNote, remove, importNotes } = useNotes()
   const navigate = useNavigate()
+  const scale = useTextScale()
   const orderIndex = useNoteOrderIndex()
   const getEntity = useNoteEntity()
   const importLookup = useNoteImportLookup()
@@ -106,13 +108,13 @@ export default function NotesPage() {
       {/* Header */}
       <div style={{ padding: '16px 16px 8px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12 }}>
         <div>
-          <h1 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: 'var(--text)' }}>Notes</h1>
-          <p style={{ margin: '2px 0 0', fontSize: 13, color: 'var(--muted)', maxWidth: 640 }}>
+          <h1 style={{ margin: 0, fontSize: 22 * scale, fontWeight: 700, color: 'var(--text)' }}>Notes</h1>
+          <p style={{ margin: '2px 0 0', fontSize: 13 * scale, color: 'var(--muted)', maxWidth: 640 }}>
             Every note you've added to a monster, weapon or armor set. Edit it here,
             click the name to open its page, or remove it with ✕.
           </p>
           {message && (
-            <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--accent)' }}>{message}</p>
+            <p style={{ margin: '4px 0 0', fontSize: 12 * scale, color: 'var(--accent)' }}>{message}</p>
           )}
         </div>
         <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
@@ -131,7 +133,7 @@ export default function NotesPage() {
             onClick={() => fileInputRef.current?.click()}
             style={{
               background: 'var(--surface)', border: '1px solid var(--border)',
-              borderRadius: 4, color: 'var(--text)', padding: '5px 12px', fontSize: 12, cursor: 'pointer',
+              borderRadius: 4, color: 'var(--text)', padding: '5px 12px', fontSize: 12 * scale, cursor: 'pointer',
             }}
           >
             Import Notes…
@@ -141,14 +143,14 @@ export default function NotesPage() {
       </div>
 
       {groups.length === 0 ? (
-        <p style={{ padding: '4px 16px', margin: 0, color: 'var(--muted)', fontSize: 13, maxWidth: 640 }}>
+        <p style={{ padding: '4px 16px', margin: 0, color: 'var(--muted)', fontSize: 13 * scale, maxWidth: 640 }}>
           {EMPTY_TEXT}
         </p>
       ) : (
         <div style={{ overflowY: 'auto', flex: 1, padding: '0 16px 16px' }}>
           {groups.map(g => (
             <div key={g.type}>
-              <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 13, margin: '12px 0 4px' }}>
+              <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 13 * scale, margin: '12px 0 4px' }}>
                 {g.header}
               </div>
               {g.entries.map(n => (
@@ -172,6 +174,7 @@ export default function NotesPage() {
 function ExportMenu({ groups, getEntity }: { groups: Group[]; getEntity: ReturnType<typeof useNoteEntity> }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const scale = useTextScale()
 
   useEffect(() => {
     if (!open) return
@@ -193,7 +196,7 @@ function ExportMenu({ groups, getEntity }: { groups: Group[]; getEntity: ReturnT
         onClick={() => setOpen(o => !o)}
         style={{
           background: 'var(--surface)', border: '1px solid var(--border)',
-          borderRadius: 4, color: 'var(--text)', padding: '5px 12px', fontSize: 12, cursor: 'pointer',
+          borderRadius: 4, color: 'var(--text)', padding: '5px 12px', fontSize: 12 * scale, cursor: 'pointer',
         }}
       >
         Export Notes…
@@ -208,7 +211,7 @@ function ExportMenu({ groups, getEntity }: { groups: Group[]; getEntity: ReturnT
             <div
               key={level}
               onClick={() => choose(level)}
-              style={{ padding: '7px 12px', fontSize: 13, cursor: 'pointer', color: 'var(--text)', whiteSpace: 'nowrap' }}
+              style={{ padding: '7px 12px', fontSize: 13 * scale, cursor: 'pointer', color: 'var(--text)', whiteSpace: 'nowrap' }}
               onMouseEnter={e => { e.currentTarget.style.background = 'var(--row-alt)' }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
             >
@@ -229,6 +232,7 @@ function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
   onDelete: () => void
 }) {
   const [text, setText] = useState(note.note)
+  const scale = useTextScale()
   useEffect(() => { setText(note.note) }, [note.note])
   const src = note.icon ?? `${BASE}/assets/Monsters/${fallbackIcon}.png`
 
@@ -245,8 +249,8 @@ function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
         >
           <img src={src} alt="" width={28} height={28} style={{ objectFit: 'contain', flexShrink: 0 }} />
           <span>
-            <span style={{ display: 'block', fontWeight: 600, color: 'var(--text)', fontSize: 13 }}>{note.name}</span>
-            <span style={{ display: 'block', fontSize: 11, color: 'var(--muted)' }}>{note.category}</span>
+            <span style={{ display: 'block', fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{note.name}</span>
+            <span style={{ display: 'block', fontSize: 11 * scale, color: 'var(--muted)' }}>{note.category}</span>
           </span>
         </button>
         <button
@@ -254,7 +258,7 @@ function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
           title="Delete note"
           style={{
             background: 'none', border: 'none', cursor: 'pointer',
-            color: 'var(--muted)', fontSize: 14, padding: '2px 6px', alignSelf: 'flex-start',
+            color: 'var(--muted)', fontSize: 14 * scale, padding: '2px 6px', alignSelf: 'flex-start',
           }}
         >
           ✕
@@ -268,7 +272,7 @@ function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
           width: '100%', minHeight: 56, maxHeight: 220, resize: 'vertical',
           boxSizing: 'border-box', fontFamily: 'inherit',
           background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 4,
-          color: 'var(--text)', padding: '8px 10px', fontSize: 13, lineHeight: 1.6, outline: 'none',
+          color: 'var(--text)', padding: '8px 10px', fontSize: 13 * scale, lineHeight: 1.6, outline: 'none',
         }}
       />
     </div>

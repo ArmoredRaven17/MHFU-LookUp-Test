@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { loadKitchen } from '../data/loaders'
 import type { FoodRecipe, FoodIngredient, WhimSkill } from '../types'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 const WHIM_PAGE = 0
 
@@ -25,6 +26,7 @@ export default function KitchenPage() {
   const [ingredients, setIngredients] = useState<FoodIngredient[]>([])
   const [whims, setWhims] = useState<WhimSkill[]>([])
   const [selected, setSelected] = useState<number | null>(null)
+  const scale = useTextScale()
 
   useEffect(() => {
     loadKitchen().then(d => { setRecipes(d.recipes); setIngredients(d.ingredients ?? []); setWhims(d.whim_skills) })
@@ -61,7 +63,7 @@ export default function KitchenPage() {
               background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               color: active ? 'var(--accent)' : 'var(--text)',
-              cursor: 'pointer', textAlign: 'left', fontSize: 13,
+              cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
             }}>{o.label}</button>
           )
         })}
@@ -69,7 +71,7 @@ export default function KitchenPage() {
 
       {/* ── Content ── */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
-        <h2 style={{ margin: 0, padding: '12px 16px 6px', fontSize: 18, fontWeight: 700, color: 'var(--text)' }}>{current?.label ?? ''}</h2>
+        <h2 style={{ margin: 0, padding: '12px 16px 6px', fontSize: 18 * scale, fontWeight: 700, color: 'var(--text)' }}>{current?.label ?? ''}</h2>
 
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {isWhim ? (
@@ -95,7 +97,7 @@ export default function KitchenPage() {
               {legend.length > 0 && (
                 <div style={{ marginBottom: 8 }}>
                   {legend.map((l, i) => (
-                    <p key={i} style={{ margin: '0 0 1px', fontSize: 12 }}>
+                    <p key={i} style={{ margin: '0 0 1px', fontSize: 12 * scale }}>
                       <span style={{ fontWeight: 600, color: ingredientColor(l.category) }}>{l.category}</span>
                       <span style={{ color: 'var(--muted)' }}>: {l.items}</span>
                     </p>

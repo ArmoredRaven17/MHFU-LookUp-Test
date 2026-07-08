@@ -58,7 +58,7 @@ html, body, #root {
 .tbl-header {
   background: var(--header-bg);
   color: var(--text);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -67,7 +67,7 @@ html, body, #root {
 
 .tbl-cell {
   padding: 3px 6px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   color: var(--text);
 }
 

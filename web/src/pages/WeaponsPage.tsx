@@ -10,6 +10,7 @@ import WeaponReference from '../components/WeaponReference'
 import WeaponFilterModal from '../components/WeaponFilterModal'
 import Dropdown from '../components/Dropdown'
 import { defaultWeaponFilter, isWeaponFilterActive, matchesWeaponFilter } from '../utils/weaponFilter'
+import { useTextScale } from '../theme/textScale'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -353,6 +354,7 @@ function scaleColor(scale: string[], value: string) {
 // ── Main page ─────────────────────────────────────────────────────────────────
 
 export default function WeaponsPage() {
+  const scale = useTextScale()
   const { id } = useParams()
   const navigate = useNavigate()
   const [weapons, setWeapons] = useState<Weapon[]>([])
@@ -485,7 +487,7 @@ export default function WeaponsPage() {
         <div style={{ padding: '6px', borderBottom: '1px solid var(--border)' }}>
           <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search weapons…" style={{
             width: '100%', boxSizing: 'border-box', background: 'var(--bg)', border: '1px solid var(--border)',
-            borderRadius: 4, color: 'var(--text)', padding: '4px 8px', fontSize: 12,
+            borderRadius: 4, color: 'var(--text)', padding: '4px 8px', fontSize: 12 * scale,
           }} />
         </div>
 
@@ -493,15 +495,15 @@ export default function WeaponsPage() {
         <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', padding: '6px', borderBottom: '1px solid var(--border)' }}>
           <WeaponReference type={type} hhSongs={hhSongs} />
           <button onClick={() => setCollapsed(new Set())} style={{
-            padding: '3px 8px', fontSize: 12, cursor: 'pointer',
+            padding: '3px 8px', fontSize: 12 * scale, cursor: 'pointer',
             background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, color: 'var(--text)',
           }}>Expand All</button>
           <button onClick={() => setCollapsed(new Set(collapsibleKeys))} style={{
-            padding: '3px 8px', fontSize: 12, cursor: 'pointer',
+            padding: '3px 8px', fontSize: 12 * scale, cursor: 'pointer',
             background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, color: 'var(--text)',
           }}>Collapse All</button>
           <button onClick={() => setFilterOpen(true)} style={{
-            padding: '3px 8px', fontSize: 12, cursor: 'pointer',
+            padding: '3px 8px', fontSize: 12 * scale, cursor: 'pointer',
             background: filterActive ? 'var(--header-bg)' : 'var(--surface)',
             border: filterActive ? '1px solid var(--accent)' : '1px solid var(--border)',
             borderRadius: 4, color: filterActive ? 'var(--accent)' : 'var(--text)', fontWeight: filterActive ? 600 : 400,
@@ -518,7 +520,7 @@ export default function WeaponsPage() {
                         onToggle={toggle} onNavigate={wid => navigate(`/weapons/${wid}`)} />
             ))}
             {flatMode && flatNodes.length === 0 && (
-              <p style={{ color: 'var(--muted)', padding: '8px 12px', fontSize: 12 }}>No weapons match.</p>
+              <p style={{ color: 'var(--muted)', padding: '8px 12px', fontSize: 12 * scale }}>No weapons match.</p>
             )}
           </div>
         </div>
@@ -550,6 +552,7 @@ function TreeNode({ node, selectedId, collapsed, onToggle, onNavigate }: {
   onToggle: (key: string) => void
   onNavigate: (weaponId: string) => void
 }) {
+  const scale = useTextScale()
   const hasChildren = node.children.length > 0
   const isCollapsed = collapsed.has(node.key)
   const active = !!node.weapon && node.weapon.id === selectedId
@@ -569,7 +572,7 @@ function TreeNode({ node, selectedId, collapsed, onToggle, onNavigate }: {
         display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px 3px 4px',
         background: active ? 'var(--header-bg)' : 'transparent',
         borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
-        cursor: clickable ? 'pointer' : 'default', fontSize: 12,
+        cursor: clickable ? 'pointer' : 'default', fontSize: 12 * scale,
       }}>
         {/* Branch-line guides */}
         {node.guides.map((g, i) => (
@@ -610,6 +613,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
   hhSongs: HhSongData | null
   onNavigate: (id: string) => void
 }) {
+  const scale = useTextScale()
   const doc = w.doc
   const isBowgun = w.type === 'Light Bowgun' || w.type === 'Heavy Bowgun'
   const isBow = w.type === 'Bow'
@@ -638,8 +642,8 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
         <img src={typeIcon(w.type, doc.rarity)} alt="" width={44} height={44}
              style={{ objectFit: 'contain' }} />
         <div>
-          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{w.name}</h2>
-          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 12 }}>{w.type}</p>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{w.name}</h2>
+          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 12 * scale }}>{w.type}</p>
         </div>
         <BookmarkButton bookmark={{ type: 'weapon', id: w.id, name: w.name, path: `/weapons/${w.id}` }} />
       </div>
@@ -693,7 +697,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
         {/* Hunting Horn note colours */}
         {isHH && doc.notes && doc.notes.length > 0 && (
           <div style={{ display: 'flex', gap: 6, marginTop: 10, alignItems: 'center' }}>
-            <span style={{ color: 'var(--muted)', fontSize: 12, marginRight: 2 }}>Notes:</span>
+            <span style={{ color: 'var(--muted)', fontSize: 12 * scale, marginRight: 2 }}>Notes:</span>
             {doc.notes.map((n, i) => (
               <img key={i} src={`${BASE}/assets/Notes/Note.${NOTE_COLOR[n] ?? 'white'}.png`}
                    alt={n} title={n} width={20} height={20} style={{ objectFit: 'contain' }} />
@@ -710,7 +714,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
           </div>
           {doc.sharpness_plus1 && (
             <div>
-              <span style={{ fontSize: 11, color: 'var(--muted)', marginBottom: 2, display: 'block' }}>+1 Handicraft</span>
+              <span style={{ fontSize: 11 * scale, color: 'var(--muted)', marginBottom: 2, display: 'block' }}>+1 Handicraft</span>
               <SharpBar values={doc.sharpness_plus1} />
             </div>
           )}
@@ -731,11 +735,11 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
                            alt={n} title={n} width={16} height={16} style={{ objectFit: 'contain' }} />
                     ))}
                   </span>
-                  <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13 }}>{s.name}</span>
-                  <span style={{ color: 'var(--muted)', fontSize: 12 }}>— {s.effect} ({s.duration})</span>
+                  <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{s.name}</span>
+                  <span style={{ color: 'var(--muted)', fontSize: 12 * scale }}>— {s.effect} ({s.duration})</span>
                 </div>
                 {s.encore_effect && (
-                  <p style={{ margin: '2px 0 0 4px', color: 'var(--muted)', fontSize: 11, fontStyle: 'italic' }}>
+                  <p style={{ margin: '2px 0 0 4px', color: 'var(--muted)', fontSize: 11 * scale, fontStyle: 'italic' }}>
                     Encore: {s.encore_effect} ({s.encore_duration})
                   </p>
                 )}
@@ -750,7 +754,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
         <Section title="Bow Details">
           {doc.charges && (
             <div style={{ marginBottom: 10 }}>
-              <p style={{ color: 'var(--muted)', fontSize: 11, margin: '0 0 4px' }}>Charges</p>
+              <p style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 0 4px' }}>Charges</p>
               <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
                 {doc.charges.map((c, i) => {
                   const [type, lvStr] = c.split(' ')
@@ -758,7 +762,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
                   return (
                     <span key={i} style={{
                       border: '1px solid var(--border)', borderRadius: 3, padding: '2px 8px',
-                      fontSize: 12, fontWeight: 600, color: chargeColor(type, lv),
+                      fontSize: 12 * scale, fontWeight: 600, color: chargeColor(type, lv),
                     }}>{c}</span>
                   )
                 })}
@@ -767,7 +771,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
           )}
           {doc.coatings && (
             <div>
-              <p style={{ color: 'var(--muted)', fontSize: 11, margin: '0 0 4px' }}>Coatings</p>
+              <p style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 0 4px' }}>Coatings</p>
               <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
                 {doc.coatings.map((c, i) => {
                   const def = COATING_DEFS[c] ?? { label: c, hex: '#D4D4D4' }
@@ -776,7 +780,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
                     <span key={i} title={boosted ? 'Boosted' : undefined} style={{
                       border: `1px solid ${boosted ? def.hex : 'var(--border)'}`,
                       background: boosted ? hexToRgba(def.hex, 0.22) : 'transparent',
-                      borderRadius: 3, padding: '2px 8px', fontSize: 12,
+                      borderRadius: 3, padding: '2px 8px', fontSize: 12 * scale,
                       fontWeight: boosted ? 700 : 600, color: def.hex,
                     }}>{def.label}</span>
                   )
@@ -795,13 +799,13 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
         <Section title="Materials">
           {doc.materials && (
             <div style={{ marginBottom: 8 }}>
-              <p style={{ margin: '0 0 2px', color: 'var(--muted)', fontSize: 11 }}>Upgrade</p>
+              <p style={{ margin: '0 0 2px', color: 'var(--muted)', fontSize: 11 * scale }}>Upgrade</p>
               <MaterialList csv={doc.materials} vertical />
             </div>
           )}
           {doc.materials_alt && (
             <div>
-              <p style={{ margin: '0 0 2px', color: 'var(--muted)', fontSize: 11 }}>Create</p>
+              <p style={{ margin: '0 0 2px', color: 'var(--muted)', fontSize: 11 * scale }}>Create</p>
               <MaterialList csv={doc.materials_alt} vertical />
             </div>
           )}
@@ -813,21 +817,21 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
         <Section title="Upgrade Path">
           {parent && (
             <div style={{ marginBottom: 6 }}>
-              <span style={{ color: 'var(--muted)', fontSize: 11 }}>Upgrades from: </span>
+              <span style={{ color: 'var(--muted)', fontSize: 11 * scale }}>Upgrades from: </span>
               <button onClick={() => onNavigate(parent.id)} style={{
                 background: 'none', border: 'none', color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600,
-                cursor: 'pointer', fontSize: 13, padding: 0,
+                cursor: 'pointer', fontSize: 13 * scale, padding: 0,
               }}>{parent.name}</button>
             </div>
           )}
           {children.length > 0 && (
             <div style={{ marginBottom: 6 }}>
-              <p style={{ color: 'var(--muted)', fontSize: 11, margin: '0 0 4px' }}>Upgrades into:</p>
+              <p style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 0 4px' }}>Upgrades into:</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8 }}>
                 {children.map(c => (
                   <button key={c.id} onClick={() => onNavigate(c.id)} style={{
                     background: 'none', border: 'none', color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600,
-                    cursor: 'pointer', fontSize: 13, padding: 0, textAlign: 'left',
+                    cursor: 'pointer', fontSize: 13 * scale, padding: 0, textAlign: 'left',
                   }}>└ {c.name}</button>
                 ))}
               </div>
@@ -835,9 +839,9 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
           )}
           {extUpgrades.length > 0 && (
             <div>
-              <p style={{ color: 'var(--muted)', fontSize: 11, margin: '0 0 4px' }}>Cross-type upgrades:</p>
+              <p style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 0 4px' }}>Cross-type upgrades:</p>
               {extUpgrades.map((e, i) => (
-                <p key={i} style={{ margin: 0, fontSize: 12, color: 'var(--text)' }}>
+                <p key={i} style={{ margin: 0, fontSize: 12 * scale, color: 'var(--text)' }}>
                   {e.name} <span style={{ color: 'var(--muted)' }}>({e.type})</span>
                 </p>
               ))}
@@ -856,9 +860,10 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
 // ── Helper components ─────────────────────────────────────────────────────────
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div style={{ marginBottom: 18 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13 * scale,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>
@@ -891,6 +896,7 @@ function SharpBar({ values }: { values: number[] }) {
 const AMMO_GRID = '150px 46px 46px 46px'
 
 function BowgunAmmo({ doc }: { doc: WeaponDoc }) {
+  const scale = useTextScale()
   const groups = buildAmmoGroups(doc)
   const rapid = doc.rapid ? parseRapid(doc.rapid) : []
 
@@ -901,7 +907,7 @@ function BowgunAmmo({ doc }: { doc: WeaponDoc }) {
         <Section title="Rapid Fire">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             {rapid.map((r, i) => (
-              <span key={i} style={{ color: r.color, fontSize: 13, fontWeight: 600 }}>{r.text}</span>
+              <span key={i} style={{ color: r.color, fontSize: 13 * scale, fontWeight: 600 }}>{r.text}</span>
             ))}
           </div>
         </Section>
@@ -910,15 +916,15 @@ function BowgunAmmo({ doc }: { doc: WeaponDoc }) {
       {/* Ammo loadout: colour-coded name + per-level clip sizes */}
       {groups.length > 0 && (
         <Section title="Ammo">
-          <div style={{ display: 'grid', gridTemplateColumns: AMMO_GRID, fontSize: 11, color: 'var(--text)', marginBottom: 2 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: AMMO_GRID, fontSize: 11 * scale, color: 'var(--text)', marginBottom: 2 }}>
             <span />
             {['Lv1','Lv2','Lv3'].map(h => <span key={h} style={{ textAlign: 'center' }}>{h}</span>)}
           </div>
           {groups.map(g => (
             <div key={g.header} style={{ marginBottom: 6 }}>
-              <p style={{ margin: '0 0 1px', color: 'var(--muted)', fontSize: 11, fontWeight: 600 }}>{g.header}</p>
+              <p style={{ margin: '0 0 1px', color: 'var(--muted)', fontSize: 11 * scale, fontWeight: 600 }}>{g.header}</p>
               {g.lines.map((ln, i) => (
-                <div key={i} style={{ display: 'grid', gridTemplateColumns: AMMO_GRID, fontSize: 13 }}>
+                <div key={i} style={{ display: 'grid', gridTemplateColumns: AMMO_GRID, fontSize: 13 * scale }}>
                   <span style={{ color: ln.color, fontWeight: 600 }}>{ln.name}</span>
                   {ln.cells.map((c, j) => (
                     <span key={j} style={{ textAlign: 'center', color: 'var(--text)' }}>{c}</span>

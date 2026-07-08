@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { loadCombos, loadItems, loadTreasures } from '../data/loaders'
 import type { Combo, Item, Treasure } from '../types'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 // Dropdown: [section value, friendly label]. 'All' shows every section.
 const SECTION_OPTIONS: [string, string][] = [
@@ -54,6 +55,7 @@ export default function ComboListPage() {
   const [treasures, setTreasures] = useState<Treasure[]>([])
   const [section, setSection] = useState('All')
   const [search, setSearch] = useState('')
+  const scale = useTextScale()
 
   useEffect(() => {
     loadCombos().then(setCombos)
@@ -85,13 +87,13 @@ export default function ComboListPage() {
       <div style={{ background: 'var(--surface)', borderBottom: '1px solid var(--border)', padding: '8px 16px', display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
         <select value={section} onChange={e => setSection(e.target.value)} style={{
           background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-          color: 'var(--text)', padding: '4px 8px', fontSize: 12,
+          color: 'var(--text)', padding: '4px 8px', fontSize: 12 * scale,
         }}>
           {SECTION_OPTIONS.map(([value, text]) => <option key={value} value={value}>{text}</option>)}
         </select>
         <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search Result…" style={{
           flex: 1, maxWidth: 300, background: 'var(--surface)', border: '1px solid var(--border)',
-          borderRadius: 4, color: 'var(--text)', padding: '4px 10px', fontSize: 12, outline: 'none',
+          borderRadius: 4, color: 'var(--text)', padding: '4px 10px', fontSize: 12 * scale, outline: 'none',
         }} />
       </div>
 
@@ -99,7 +101,7 @@ export default function ComboListPage() {
       <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
         {groups.map(g => (
           <div key={g.section} style={{ marginTop: 12 }}>
-            <h3 style={{ margin: '0 0 4px', color: 'var(--text)', fontSize: 14, fontWeight: 700 }}>{label(g.section)}</h3>
+            <h3 style={{ margin: '0 0 4px', color: 'var(--text)', fontSize: 14 * scale, fontWeight: 700 }}>{label(g.section)}</h3>
             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
               <thead>
                 <tr>
@@ -128,7 +130,7 @@ export default function ComboListPage() {
             </table>
           </div>
         ))}
-        {groups.length === 0 && <p style={{ color: 'var(--muted)', padding: 16, fontSize: 13 }}>No combinations found.</p>}
+        {groups.length === 0 && <p style={{ color: 'var(--muted)', padding: 16, fontSize: 13 * scale }}>No combinations found.</p>}
       </div>
     </div>
   )

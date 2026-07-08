@@ -5,6 +5,7 @@ import type { TrenyaItem, Item, Treasure, Decoration } from '../types'
 import { BASE } from '../utils/assets'
 import { locationIconUrl, locationColor } from '../utils/location'
 import BookmarkButton from '../components/BookmarkButton'
+import { useTextScale } from '../theme/textScale'
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -50,6 +51,7 @@ function makeIconResolver(items: Item[], treasures: Treasure[], decos: Decoratio
 export default function TrenyaPage() {
   const { loc } = useParams()
   const navigate = useNavigate()
+  const scale = useTextScale()
   const [rows, setRows] = useState<TrenyaItem[]>([])
   const [items, setItems] = useState<Item[]>([])
   const [treasures, setTreasures] = useState<Treasure[]>([])
@@ -103,7 +105,7 @@ export default function TrenyaPage() {
               display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '6px 12px',
               background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
-              cursor: 'pointer', textAlign: 'left', fontSize: 13,
+              cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
             }}>
               <img src={locationIconUrl(l)} alt="" width={20} height={20} style={{ objectFit: 'contain', flexShrink: 0 }}
                    onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
@@ -118,21 +120,21 @@ export default function TrenyaPage() {
         {/* Header: destination + bookmark + Pokke Points tier picker */}
         <div style={{ padding: '12px 16px 8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <h2 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: 'var(--text)' }}>{location}</h2>
+            <h2 style={{ margin: 0, fontSize: 16 * scale, fontWeight: 700, color: 'var(--text)' }}>{location}</h2>
             <BookmarkButton bookmark={{ type: 'trenya', id: location, name: location, path: `/trenya/${encodeURIComponent(location)}`, icon: locationIconUrl(location) }} />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginTop: 6 }}>
-            <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--text)' }}>Pokke Points</span>
+            <span style={{ fontSize: 16 * scale, fontWeight: 600, color: 'var(--text)' }}>Pokke Points</span>
             {effTier !== null && (
               <select value={effTier} onChange={e => setTier(Number(e.target.value))} style={{
                 background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-                color: 'var(--text)', padding: '3px 8px', fontSize: 12, minWidth: 160,
+                color: 'var(--text)', padding: '3px 8px', fontSize: 12 * scale, minWidth: 160,
               }}>
                 {tiers.map(t => <option key={t} value={t}>{t} Pokke Points</option>)}
               </select>
             )}
           </div>
-          <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--muted)', maxWidth: 720 }}>
+          <p style={{ margin: '6px 0 0', fontSize: 12 * scale, color: 'var(--muted)', maxWidth: 720 }}>
             Each return brings several items (more at higher Pokke Points). Within a category, items are drawn uniformly at
             random — every item listed is equally likely, so Trenya has no per-item drop rates.
           </p>
@@ -142,7 +144,7 @@ export default function TrenyaPage() {
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {categories.map(g => (
             <div key={g.category} style={{ display: 'flex', gap: 12, borderBottom: '1px solid var(--border)', padding: '8px 0' }}>
-              <div style={{ width: 140, minWidth: 140, color: 'var(--text)', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{g.category}</div>
+              <div style={{ width: 140, minWidth: 140, color: 'var(--text)', fontSize: 12 * scale, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{g.category}</div>
               <div style={{ flex: 1 }}>
                 {g.items.map((it, i) => {
                   const icon = resolveIcon(it.item, it.category)
@@ -151,14 +153,14 @@ export default function TrenyaPage() {
                       {icon && <img src={icon} alt="" width={24} height={24}
                         style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
-                      <span style={{ color: 'var(--text)', fontSize: 13 }}>{it.item}</span>
+                      <span style={{ color: 'var(--text)', fontSize: 13 * scale }}>{it.item}</span>
                     </div>
                   )
                 })}
               </div>
             </div>
           ))}
-          {categories.length === 0 && <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>Select a destination.</p>}
+          {categories.length === 0 && <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>Select a destination.</p>}
         </div>
       </div>
     </div>

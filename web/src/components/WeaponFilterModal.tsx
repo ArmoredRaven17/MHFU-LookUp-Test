@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { WeaponFilterState } from '../utils/weaponFilter'
 import { defaultWeaponFilter, MELEE_FILTER_TYPES } from '../utils/weaponFilter'
+import { useTextScale } from '../theme/textScale'
 
 const ELEMENT_ONLY_DEFS: [string, string][] = [
   ['Raw', 'Raw'], ['Fir', 'Fire'], ['Wtr', 'Water'], ['Thn', 'Thunder'], ['Ice', 'Ice'], ['Drg', 'Dragon'],
@@ -25,6 +26,7 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
   onClose: () => void
 }) {
   const [f, setF] = useState<WeaponFilterState>(() => cloneFilter(current))
+  const scale = useTextScale()
   const isMelee = MELEE_FILTER_TYPES.has(type)
   const isBow = type === 'Bow'
   const isBowgun = type === 'Light Bowgun' || type === 'Heavy Bowgun'
@@ -47,14 +49,14 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
         width: '100%', maxWidth: 720, maxHeight: '85vh', overflow: 'auto', padding: 20,
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>Weapon Filters — {type}</h2>
-          <button onClick={onClose} title="Close" style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: 20, cursor: 'pointer', lineHeight: 1 }}>✕</button>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18 * scale, fontWeight: 600 }}>Weapon Filters — {type}</h2>
+          <button onClick={onClose} title="Close" style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: 20 * scale, cursor: 'pointer', lineHeight: 1 }}>✕</button>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           <Section title="Name">
             <input value={f.name} onChange={e => setF({ ...f, name: e.target.value })} placeholder="Substring match…"
-              style={inputStyle} />
+              style={inputStyle(scale)} />
           </Section>
 
           {!isBowgun && (
@@ -66,24 +68,24 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
 
           <Section title="Stats">
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-              <label style={labelStyle}>Min Attack:</label>
+              <label style={labelStyle(scale)}>Min Attack:</label>
               <input type="number" min={0} value={f.minAtk || ''} placeholder="0"
                 onChange={e => setF({ ...f, minAtk: Math.max(0, parseInt(e.target.value, 10) || 0) })}
-                style={{ ...inputStyle, width: 80 }} />
-              <label style={labelStyle}>Min Slots:</label>
-              <select value={f.minSlots} onChange={e => setF({ ...f, minSlots: Number(e.target.value) })} style={selectStyle}>
+                style={{ ...inputStyle(scale), width: 80 }} />
+              <label style={labelStyle(scale)}>Min Slots:</label>
+              <select value={f.minSlots} onChange={e => setF({ ...f, minSlots: Number(e.target.value) })} style={selectStyle(scale)}>
                 <option value={0}>Any</option><option value={1}>1+</option><option value={2}>2+</option><option value={3}>3</option>
               </select>
             </div>
           </Section>
 
           <Section title="Affinity">
-            <select value={f.affinity} onChange={e => setF({ ...f, affinity: e.target.value as WeaponFilterState['affinity'] })} style={selectStyle}>
+            <select value={f.affinity} onChange={e => setF({ ...f, affinity: e.target.value as WeaponFilterState['affinity'] })} style={selectStyle(scale)}>
               <option value="any">Any</option><option value="positive">Positive only</option><option value="negative">Negative only</option>
             </select>
           </Section>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, color: 'var(--text)', cursor: 'pointer' }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13 * scale, color: 'var(--text)', cursor: 'pointer' }}>
             <input type="checkbox" checked={f.defBonus} onChange={e => setF({ ...f, defBonus: e.target.checked })} />
             Only weapons with a Defense bonus
           </label>
@@ -91,8 +93,8 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
           {isMelee && (
             <Section title="Sharpness">
               <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-                <label style={labelStyle}>Reaches at least:</label>
-                <select value={f.minSharpness} onChange={e => setF({ ...f, minSharpness: e.target.value })} style={selectStyle}>
+                <label style={labelStyle(scale)}>Reaches at least:</label>
+                <select value={f.minSharpness} onChange={e => setF({ ...f, minSharpness: e.target.value })} style={selectStyle(scale)}>
                   {SHARPNESS_LEVELS.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
               </div>
@@ -102,11 +104,11 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
           {isHH && (
             <Section title="Notes  (the horn must have these notes; 1st is White/Purple)">
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-                <label style={labelStyle}>1st:</label>
+                <label style={labelStyle(scale)}>1st:</label>
                 <NoteSelect defs={FIRST_NOTE_DEFS} value={f.notes[0]} onChange={v => setF({ ...f, notes: [v, f.notes[1], f.notes[2]] })} />
-                <label style={labelStyle}>2nd:</label>
+                <label style={labelStyle(scale)}>2nd:</label>
                 <NoteSelect defs={OTHER_NOTE_DEFS.filter(([l]) => l === '' || l !== f.notes[2])} value={f.notes[1]} onChange={v => setF({ ...f, notes: [f.notes[0], v, f.notes[2]] })} />
-                <label style={labelStyle}>3rd:</label>
+                <label style={labelStyle(scale)}>3rd:</label>
                 <NoteSelect defs={OTHER_NOTE_DEFS.filter(([l]) => l === '' || l !== f.notes[1])} value={f.notes[2]} onChange={v => setF({ ...f, notes: [f.notes[0], f.notes[1], v] })} />
               </div>
             </Section>
@@ -115,12 +117,12 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
           {isGL && (
             <Section title="Shells  (the gunlance's shelling type / minimum level)">
               <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-                <label style={labelStyle}>Type:</label>
-                <select value={f.shellType} onChange={e => setF({ ...f, shellType: e.target.value })} style={selectStyle}>
+                <label style={labelStyle(scale)}>Type:</label>
+                <select value={f.shellType} onChange={e => setF({ ...f, shellType: e.target.value })} style={selectStyle(scale)}>
                   <option value="">Any</option><option value="Normal">Normal</option><option value="Long">Long</option><option value="Spread">Spread</option>
                 </select>
-                <label style={labelStyle}>Level:</label>
-                <select value={f.shellLevelMin} onChange={e => setF({ ...f, shellLevelMin: Number(e.target.value) })} style={selectStyle}>
+                <label style={labelStyle(scale)}>Level:</label>
+                <select value={f.shellLevelMin} onChange={e => setF({ ...f, shellLevelMin: Number(e.target.value) })} style={selectStyle(scale)}>
                   <option value={0}>Any</option><option value={1}>1+</option><option value={2}>2+</option><option value={3}>3+</option><option value={4}>4+</option><option value={5}>5</option>
                 </select>
               </div>
@@ -140,7 +142,7 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
                       const lvl = f.shotTypes.get(st) ?? 1
                       return (
                         <div key={st} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                          <label style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 13, color: 'var(--text)', cursor: 'pointer' }}>
+                          <label style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 13 * scale, color: 'var(--text)', cursor: 'pointer' }}>
                             <input type="checkbox" checked={has} onChange={e => {
                               const next = new Map(f.shotTypes)
                               if (e.target.checked) next.set(st, lvl); else next.delete(st)
@@ -150,7 +152,7 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
                           </label>
                           <select disabled={!has} value={lvl} onChange={e => {
                             const next = new Map(f.shotTypes); next.set(st, Number(e.target.value)); setF({ ...f, shotTypes: next })
-                          }} style={{ ...selectStyle, opacity: has ? 1 : 0.5 }}>
+                          }} style={{ ...selectStyle(scale), opacity: has ? 1 : 0.5 }}>
                             {[1, 2, 3, 4, 5].map(n => <option key={n} value={n}>{n}</option>)}
                           </select>
                         </div>
@@ -158,8 +160,8 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
                     })}
                   </div>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                    <label style={labelStyle}>Desired Charge Level:</label>
-                    <select value={f.shotChargeLevel} onChange={e => setF({ ...f, shotChargeLevel: Number(e.target.value) })} style={selectStyle}>
+                    <label style={labelStyle(scale)}>Desired Charge Level:</label>
+                    <select value={f.shotChargeLevel} onChange={e => setF({ ...f, shotChargeLevel: Number(e.target.value) })} style={selectStyle(scale)}>
                       <option value={0}>Any</option><option value={1}>1</option><option value={2}>2</option><option value={3}>3</option><option value={4}>4</option>
                     </select>
                   </div>
@@ -187,8 +189,8 @@ export default function WeaponFilterModal({ type, current, onApply, onClose }: {
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8, marginTop: 18 }}>
-          <button onClick={() => setF(defaultWeaponFilter())} style={btnStyle}>Clear All</button>
-          <button onClick={onClose} style={btnStyle}>Cancel</button>
+          <button onClick={() => setF(defaultWeaponFilter())} style={btnStyle(scale)}>Clear All</button>
+          <button onClick={onClose} style={btnStyle(scale)}>Cancel</button>
           <button onClick={() => onApply(f)} style={{ ...btnStyle, border: '1px solid var(--text)', fontWeight: 600 }}>Apply</button>
         </div>
       </div>
@@ -206,19 +208,21 @@ function cloneFilter(f: WeaponFilterState): WeaponFilterState {
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div>
-      <p style={{ margin: '0 0 5px', fontSize: 13, fontWeight: 600, color: 'var(--text)' }}>{title}</p>
+      <p style={{ margin: '0 0 5px', fontSize: 13 * scale, fontWeight: 600, color: 'var(--text)' }}>{title}</p>
       {children}
     </div>
   )
 }
 
 function CheckRow({ defs, selected, onToggle }: { defs: [string, string][]; selected: Set<string>; onToggle: (k: string) => void }) {
+  const scale = useTextScale()
   return (
     <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
       {defs.map(([key, label]) => (
-        <label key={key} style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 13, color: 'var(--text)', cursor: 'pointer' }}>
+        <label key={key} style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 13 * scale, color: 'var(--text)', cursor: 'pointer' }}>
           <input type="checkbox" checked={selected.has(key)} onChange={() => onToggle(key)} />
           {label}
         </label>
@@ -228,23 +232,24 @@ function CheckRow({ defs, selected, onToggle }: { defs: [string, string][]; sele
 }
 
 function NoteSelect({ defs, value, onChange }: { defs: [string, string][]; value: string; onChange: (v: string) => void }) {
+  const scale = useTextScale()
   return (
-    <select value={value} onChange={e => onChange(e.target.value)} style={selectStyle}>
+    <select value={value} onChange={e => onChange(e.target.value)} style={selectStyle(scale)}>
       {defs.map(([letter, label]) => <option key={label} value={letter}>{label}</option>)}
     </select>
   )
 }
 
-const labelStyle: React.CSSProperties = { fontSize: 13, color: 'var(--muted)' }
-const inputStyle: React.CSSProperties = {
+const labelStyle = (scale: number): React.CSSProperties => ({ fontSize: 13 * scale, color: 'var(--muted)' })
+const inputStyle = (scale: number): React.CSSProperties => ({
   background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 4,
-  color: 'var(--text)', padding: '4px 8px', fontSize: 13,
-}
-const selectStyle: React.CSSProperties = {
+  color: 'var(--text)', padding: '4px 8px', fontSize: 13 * scale,
+})
+const selectStyle = (scale: number): React.CSSProperties => ({
   background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 4,
-  color: 'var(--text)', padding: '3px 6px', fontSize: 13,
-}
-const btnStyle: React.CSSProperties = {
+  color: 'var(--text)', padding: '3px 6px', fontSize: 13 * scale,
+})
+const btnStyle = (scale: number): React.CSSProperties => ({
   background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-  color: 'var(--text)', padding: '6px 14px', fontSize: 13, cursor: 'pointer',
-}
+  color: 'var(--text)', padding: '6px 14px', fontSize: 13 * scale, cursor: 'pointer',
+})

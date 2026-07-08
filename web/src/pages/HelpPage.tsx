@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 const B = ({ children }: { children: ReactNode }) => <span style={{ fontWeight: 600 }}>{children}</span>
 const Pos = ({ children }: { children: ReactNode }) => <span style={{ color: 'var(--positive)' }}>{children}</span>
@@ -153,6 +154,7 @@ const TIPS: ReactNode[] = [
 const SECTION_OPTIONS = ['All', ...TABS.map(t => t.title), 'Tips']
 
 export default function HelpPage() {
+  const scale = useTextScale()
   const [section, setSection] = useState('All')
   const showAll = section === 'All'
   const showTips = showAll || section === 'Tips'
@@ -165,11 +167,11 @@ export default function HelpPage() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginBottom: 6 }}>
           <img src={`${BASE}/assets/Misc/help_cat_black.png`} alt="" height={44} style={{ objectFit: 'contain' }}
                onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
-          <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, color: 'var(--text)' }}>Help for MHFU Look Up</h1>
+          <h1 style={{ margin: 0, fontSize: 24 * scale, fontWeight: 700, color: 'var(--text)' }}>Help for MHFU Look Up</h1>
           <img src={`${BASE}/assets/Misc/help_cat_tan.png`} alt="" height={44} style={{ objectFit: 'contain' }}
                onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
         </div>
-        <p style={{ margin: '0 auto 16px', maxWidth: 620, textAlign: 'center', fontSize: 14, color: 'var(--muted)', lineHeight: 1.5 }}>
+        <p style={{ margin: '0 auto 16px', maxWidth: 620, textAlign: 'center', fontSize: 14 * scale, color: 'var(--muted)', lineHeight: 1.5 }}>
           MHFU LookUp is a reference for Monster Hunter Freedom Unite (MHP2G). Pick a tab on the left — many
           have a search box at the top. Here's what each tab covers.
         </p>
@@ -178,7 +180,7 @@ export default function HelpPage() {
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
           <select value={section} onChange={e => setSection(e.target.value)} style={{
             background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-            color: 'var(--text)', padding: '5px 10px', fontSize: 13, minWidth: 200,
+            color: 'var(--text)', padding: '5px 10px', fontSize: 13 * scale, minWidth: 200,
           }}>
             {SECTION_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
@@ -190,7 +192,7 @@ export default function HelpPage() {
             {showAll && <SectionTitle>The Tabs</SectionTitle>}
             {tabs.map((t, i) => (
               <div key={t.title}>
-                <h3 style={{ margin: '0 0 3px', fontSize: 15, fontWeight: 600, color: 'var(--text)' }}>{t.title}</h3>
+                <h3 style={{ margin: '0 0 3px', fontSize: 15 * scale, fontWeight: 600, color: 'var(--text)' }}>{t.title}</h3>
                 {t.bullets.map((b, j) => <Bullet key={j}>{b}</Bullet>)}
                 {showAll && i < tabs.length - 1 && <div style={{ height: 1, background: 'var(--border)', margin: '10px 0' }} />}
               </div>
@@ -211,13 +213,15 @@ export default function HelpPage() {
 }
 
 function Bullet({ children }: { children: ReactNode }) {
+  const scale = useTextScale()
   return (
-    <p style={{ margin: '0 0 3px', fontSize: 14, color: 'var(--text)', lineHeight: 1.5, display: 'flex', gap: 8 }}>
+    <p style={{ margin: '0 0 3px', fontSize: 14 * scale, color: 'var(--text)', lineHeight: 1.5, display: 'flex', gap: 8 }}>
       <span style={{ color: 'var(--text)', flexShrink: 0 }}>•</span>
       <span>{children}</span>
     </p>
   )
 }
 function SectionTitle({ children, style }: { children: ReactNode; style?: React.CSSProperties }) {
-  return <h2 style={{ margin: '0 0 8px', fontSize: 18, fontWeight: 700, color: 'var(--text)', ...style }}>{children}</h2>
+  const scale = useTextScale()
+  return <h2 style={{ margin: '0 0 8px', fontSize: 18 * scale, fontWeight: 700, color: 'var(--text)', ...style }}>{children}</h2>
 }

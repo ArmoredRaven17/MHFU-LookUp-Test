@@ -7,6 +7,7 @@ import { locationIconUrl, locationColor } from '../utils/location'
 import BookmarkButton from '../components/BookmarkButton'
 import NotesBox from '../components/NotesBox'
 import MaterialList from '../components/MaterialList'
+import { useTextScale } from '../theme/textScale'
 
 const cleanMonster = (n: string) => n.replace(/[?!*]+\s*$/, '').trim()
 
@@ -30,6 +31,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
 }) {
   const { id } = useParams()
   const navigate = useNavigate()
+  const scale = useTextScale()
   const [categories, setCategories] = useState<QuestCategory[]>([])
   const [monsterId, setMonsterId] = useState<Map<string, string>>(new Map())
   const [itemsByLen, setItemsByLen] = useState<{ name: string; icon: string }[]>([])
@@ -106,7 +108,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
         <div style={{ padding: '8px', borderBottom: '1px solid var(--border)' }}>
           <select value={catSlug} onChange={e => { setCatSlug(e.target.value); navigate(routeBase) }} style={{
             width: '100%', background: 'var(--surface)', border: '1px solid var(--border)',
-            borderRadius: 4, color: 'var(--text)', padding: '4px 6px', fontSize: 12,
+            borderRadius: 4, color: 'var(--text)', padding: '4px 6px', fontSize: 12 * scale,
           }}>
             {categoryOrder.filter(([s]) => categories.some(c => c.slug === s)).map(([slug, label]) => (
               <option key={slug} value={slug}>{label}</option>
@@ -118,7 +120,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
           {cat?.ranks.map((rank, ri) => (
             <div key={ri}>
               {rank.label && (
-                <div style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 12, padding: '6px 10px 2px' }}>
+                <div style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 12 * scale, padding: '6px 10px 2px' }}>
                   {rank.label}
                 </div>
               )}
@@ -131,7 +133,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
                     background: active ? 'var(--header-bg)' : 'transparent',
                     border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                     color: active ? 'var(--accent)' : 'var(--text)',
-                    cursor: 'pointer', textAlign: 'left', fontSize: 13,
+                    cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
                   }}>
                     <span style={{ display: 'flex', gap: 2, flexShrink: 0 }}>
                       {targetIcons(q).map((src, i) => (
@@ -154,7 +156,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
         {!selected
-          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 }}>Select a quest.</p>
+          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 * scale }}>Select a quest.</p>
           : <QuestDetail quest={selected} slug={catSlug} icons={targetIcons(selected)} training={training}
                          path={questPath(catSlug, selected.name)} />
         }
@@ -168,6 +170,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
 function QuestDetail({ quest: q, slug, icons, training, path }: {
   quest: Quest; slug: string; icons: string[]; training: boolean; path: string
 }) {
+  const scale = useTextScale()
   const { location, timeOfDay } = splitArea(q.area)
   const bmIcon = icons[0]
   const desc = q.description && q.description !== ':' ? q.description : null
@@ -183,7 +186,7 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
               style={{ objectFit: 'contain' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
           ))}
         </span>
-        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{q.name}</h2>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{q.name}</h2>
         <BookmarkButton bookmark={{ type: 'quest', id, name: q.name, path, icon: bmIcon }} />
         {q.urgent
           ? <QuestBadge label="URGENT" bg="var(--negative)" big />
@@ -191,14 +194,14 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
       </div>
 
       {/* Field grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '110px 1fr', rowGap: 4, columnGap: 10, fontSize: 13, marginBottom: 14 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '110px 1fr', rowGap: 4, columnGap: 10, fontSize: 13 * scale, marginBottom: 14 }}>
         <Field label="Objective">{q.objective}</Field>
         {training && q.danger && <Field label="Danger"><span style={{ color: 'var(--text)', fontWeight: 600 }}>{q.danger}</span></Field>}
         {q.environment && (
           <Field label="Environment">
             <span style={{
               background: q.environment.toLowerCase() === 'stable' ? 'var(--positive)' : 'var(--negative)',
-              color: '#fff', fontSize: 11, fontWeight: 700, padding: '1px 7px', borderRadius: 3,
+              color: '#fff', fontSize: 11 * scale, fontWeight: 700, padding: '1px 7px', borderRadius: 3,
             }}>{q.environment}</span>
           </Field>
         )}
@@ -217,13 +220,13 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
 
       {q.monsters.length > 0 && (
         <Section title="Monsters">
-          <p style={{ margin: 0, fontSize: 13, color: 'var(--text)' }}>{q.monsters.join(', ')}</p>
+          <p style={{ margin: 0, fontSize: 13 * scale, color: 'var(--text)' }}>{q.monsters.join(', ')}</p>
         </Section>
       )}
 
       {desc && (
         <Section title="Description">
-          <p style={{ margin: 0, fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>{desc}</p>
+          <p style={{ margin: 0, fontSize: 13 * scale, color: 'var(--muted)', lineHeight: 1.6 }}>{desc}</p>
         </Section>
       )}
 
@@ -245,12 +248,12 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
       {/* Quest-author notes (read-only) */}
       {q.notes && (
         <Section title="Notes">
-          <p style={{ margin: 0, fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>{q.notes}</p>
+          <p style={{ margin: 0, fontSize: 13 * scale, color: 'var(--muted)', lineHeight: 1.6 }}>{q.notes}</p>
         </Section>
       )}
 
       {q.unlock && (
-        <p style={{ margin: '0 0 14px', fontSize: 12, color: 'var(--muted)', fontStyle: 'italic' }}>{q.unlock}</p>
+        <p style={{ margin: '0 0 14px', fontSize: 12 * scale, color: 'var(--muted)', fontStyle: 'italic' }}>{q.unlock}</p>
       )}
 
       <Section title="My Notes">
@@ -261,6 +264,7 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
 }
 
 function LoadoutCard({ loadout: lo }: { loadout: QuestLoadout }) {
+  const scale = useTextScale()
   const setText = lo.armor
     .filter(a => a.name && a.name.toLowerCase() !== 'nothing')
     .map(a => a.name).join(', ')
@@ -268,22 +272,22 @@ function LoadoutCard({ loadout: lo }: { loadout: QuestLoadout }) {
 
   return (
     <details style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, padding: '6px 10px' }}>
-      <summary style={{ cursor: 'pointer', fontSize: 13 }}>
+      <summary style={{ cursor: 'pointer', fontSize: 13 * scale }}>
         <span style={{ color: 'var(--text)', fontWeight: 600 }}>{lo.weapon_type}</span>
         {lo.weapon && <span style={{ color: 'var(--text)' }}> — {lo.weapon}</span>}
       </summary>
       <div style={{ marginTop: 6, display: 'flex', flexDirection: 'column', gap: 6 }}>
         {lo.description && (
-          <p style={{ margin: 0, fontSize: 12, color: 'var(--muted)', lineHeight: 1.6 }}>{lo.description}</p>
+          <p style={{ margin: 0, fontSize: 12 * scale, color: 'var(--muted)', lineHeight: 1.6 }}>{lo.description}</p>
         )}
         {setText && (
-          <div style={{ fontSize: 12 }}>
+          <div style={{ fontSize: 12 * scale }}>
             <span style={{ color: 'var(--text)', fontWeight: 600 }}>Set: </span>
             <span style={{ color: 'var(--text)' }}>{setText}</span>
           </div>
         )}
         {skills.length > 0 && (
-          <div style={{ fontSize: 12 }}>
+          <div style={{ fontSize: 12 * scale }}>
             <span style={{ color: 'var(--text)', fontWeight: 600 }}>Active Skills: </span>
             {skills.map((s, i) => (
               <span key={i} style={{ color: s.negative ? 'var(--negative)' : 'var(--positive)', fontWeight: 600 }}>
@@ -293,7 +297,7 @@ function LoadoutCard({ loadout: lo }: { loadout: QuestLoadout }) {
           </div>
         )}
         {lo.items.length > 0 && (
-          <div style={{ fontSize: 12 }}>
+          <div style={{ fontSize: 12 * scale }}>
             <span style={{ color: 'var(--text)', fontWeight: 600, display: 'block', marginBottom: 2 }}>Items</span>
             <MaterialList csv={lo.items.join(', ')} vertical />
           </div>
@@ -306,27 +310,30 @@ function LoadoutCard({ loadout: lo }: { loadout: QuestLoadout }) {
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function QuestBadge({ label, bg, big }: { label: string; bg: string; big?: boolean }) {
+  const scale = useTextScale()
   return (
     <span style={{
       background: bg, color: '#fff', fontWeight: 700, borderRadius: 3, letterSpacing: '0.04em',
-      fontSize: big ? 10 : 9, padding: big ? '2px 6px' : '1px 5px', flexShrink: 0,
+      fontSize: (big ? 10 : 9) * scale, padding: big ? '2px 6px' : '1px 5px', flexShrink: 0,
     }}>{label}</span>
   )
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <>
-      <span style={{ color: 'var(--muted)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.04em', paddingTop: 1 }}>{label}</span>
+      <span style={{ color: 'var(--muted)', fontSize: 11 * scale, textTransform: 'uppercase', letterSpacing: '0.04em', paddingTop: 1 }}>{label}</span>
       <span style={{ color: 'var(--text)' }}>{children}</span>
     </>
   )
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div style={{ marginBottom: 16 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13 * scale,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>

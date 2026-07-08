@@ -3,6 +3,7 @@ import { loadVeggie, loadItems, loadTreasures } from '../data/loaders'
 import type { VeggieItem, Item, Treasure } from '../types'
 import { BASE } from '../utils/assets'
 import SearchBox from '../components/SearchBox'
+import { useTextScale } from '../theme/textScale'
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -23,17 +24,19 @@ function makeIconResolver(items: Item[], treasures: Treasure[]) {
 }
 
 function Cell({ name, icon }: { name: string; icon: string }) {
+  const scale = useTextScale()
   if (!name) return <span />
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
       {icon && <img src={icon} alt="" width={24} height={24} style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
-      <span style={{ color: 'var(--text)', fontSize: 13 }}>{name}</span>
+      <span style={{ color: 'var(--text)', fontSize: 13 * scale }}>{name}</span>
     </span>
   )
 }
 
 export default function VeggiePage() {
+  const scale = useTextScale()
   const [rows, setRows] = useState<VeggieItem[]>([])
   const [items, setItems] = useState<Item[]>([])
   const [treasures, setTreasures] = useState<Treasure[]>([])
@@ -83,7 +86,7 @@ export default function VeggiePage() {
                 background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
-                cursor: 'pointer', textAlign: 'left', fontSize: 13, lineHeight: 1.3,
+                cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale, lineHeight: 1.3,
               }}>{z}</button>
             )
           })}
@@ -93,8 +96,8 @@ export default function VeggiePage() {
       {/* ── Trades ── */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
         <div style={{ padding: '12px 16px 6px' }}>
-          <h2 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: 'var(--text)' }}>{title}</h2>
-          <p style={{ margin: '2px 0 0', fontSize: 12, color: 'var(--muted)', maxWidth: 760 }}>
+          <h2 style={{ margin: 0, fontSize: 18 * scale, fontWeight: 700, color: 'var(--text)' }}>{title}</h2>
+          <p style={{ margin: '2px 0 0', fontSize: 12 * scale, color: 'var(--muted)', maxWidth: 760 }}>
             Hand the Veggie Elder an item and he returns another. He'll trade 1–6 times per visit (Felyne Charisma
             guarantees 6), and has a ~20% chance to give the Rare result instead of the Common one (Felyne Negotiation
             raises this).
@@ -102,14 +105,14 @@ export default function VeggiePage() {
         </div>
 
         {/* Column header */}
-        <div style={{ display: 'grid', gridTemplateColumns: GRID, padding: '4px 16px', fontSize: 12, fontWeight: 600, color: 'var(--text)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: GRID, padding: '4px 16px', fontSize: 12 * scale, fontWeight: 600, color: 'var(--text)' }}>
           <span>Item</span><span>Common Trade</span><span>Rare Trade</span>
         </div>
 
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 16px 16px' }}>
           {trades.map((t, i) => (
             <div key={i} className="tbl-row" style={{ padding: '4px 0' }}>
-              {searching && <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--text)', marginBottom: 1 }}>{t.zone}</div>}
+              {searching && <div style={{ fontSize: 11 * scale, fontWeight: 600, color: 'var(--text)', marginBottom: 1 }}>{t.zone}</div>}
               <div style={{ display: 'grid', gridTemplateColumns: GRID, alignItems: 'center', gap: 8 }}>
                 <Cell name={t.item} icon={resolveIcon(t.item)} />
                 <Cell name={t.common_trade} icon={resolveIcon(t.common_trade)} />
@@ -118,7 +121,7 @@ export default function VeggiePage() {
             </div>
           ))}
           {searching && trades.length === 0 && (
-            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No trades match your search.</p>
+            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No trades match your search.</p>
           )}
         </div>
       </div>

@@ -7,6 +7,7 @@ import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
 import NotesBox from '../components/NotesBox'
 import MaterialList from '../components/MaterialList'
+import { useTextScale } from '../theme/textScale'
 
 // ── Helpers ─────────────────────────────────────────────────────────────────────
 
@@ -81,6 +82,7 @@ function classHalf(side: string, gunner: boolean) {
 // ── Main page ─────────────────────────────────────────────────────────────────
 
 export default function ArmorSetsPage() {
+  const scale = useTextScale()
   const { id } = useParams()
   const navigate = useNavigate()
   const [sets, setSets] = useState<ArmorSet[]>([])
@@ -145,12 +147,12 @@ export default function ArmorSetsPage() {
       }}>
         <SearchBox value={search} onChange={setSearch} placeholder="Search Armor Sets…" />
         <div style={{ padding: '0 8px 6px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-          <p style={{ margin: 0, fontSize: 10, color: 'var(--muted)' }}>Searches set, skill &amp; activated skill</p>
+          <p style={{ margin: 0, fontSize: 10 * scale, color: 'var(--muted)' }}>Searches set, skill &amp; activated skill</p>
           <Segmented options={['Blademaster', 'Gunner']} value={gunner ? 1 : 0} onChange={i => setGunner(i === 1)} />
           <Segmented options={['Male', 'Female']} value={female ? 1 : 0} onChange={i => setFemale(i === 1)} />
           <select value={rarityFilter} onChange={e => setRarityFilter(e.target.value)} style={{
             background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-            color: 'var(--text)', padding: '4px 8px', fontSize: 12,
+            color: 'var(--text)', padding: '4px 8px', fontSize: 12 * scale,
           }}>
             <option value="All">All Rarities</option>
             {rarityOptions.map(r => <option key={r} value={String(r)}>Rarity {r}</option>)}
@@ -160,7 +162,7 @@ export default function ArmorSetsPage() {
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {visibleGroups.map(g => (
             <div key={g.rarity}>
-              <div style={{ fontWeight: 700, color: rarityColor(g.rarity), fontSize: 12, padding: '6px 10px 2px' }}>
+              <div style={{ fontWeight: 700, color: rarityColor(g.rarity), fontSize: 12 * scale, padding: '6px 10px 2px' }}>
                 Rarity {g.rarity}
               </div>
               {g.sets.map(s => {
@@ -170,7 +172,7 @@ export default function ArmorSetsPage() {
                     display: 'block', width: '100%', padding: '4px 10px', textAlign: 'left',
                     background: active ? 'var(--header-bg)' : 'transparent',
                     border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
-                    color: active ? 'var(--accent)' : 'var(--text)', cursor: 'pointer', fontSize: 13,
+                    color: active ? 'var(--accent)' : 'var(--text)', cursor: 'pointer', fontSize: 13 * scale,
                   }}>
                     {resolveSetName(s.name, female, gunner)}
                   </button>
@@ -179,7 +181,7 @@ export default function ArmorSetsPage() {
             </div>
           ))}
           {visibleGroups.length === 0 && (
-            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No armor sets found.</p>
+            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No armor sets found.</p>
           )}
         </div>
       </div>
@@ -196,11 +198,12 @@ export default function ArmorSetsPage() {
 }
 
 function Segmented({ options, value, onChange }: { options: string[]; value: number; onChange: (i: number) => void }) {
+  const scale = useTextScale()
   return (
     <div style={{ display: 'flex', border: '1px solid var(--border)', borderRadius: 4, overflow: 'hidden' }}>
       {options.map((o, i) => (
         <button key={o} onClick={() => onChange(i)} style={{
-          flex: 1, padding: '3px 0', fontSize: 11, cursor: 'pointer', border: 'none',
+          flex: 1, padding: '3px 0', fontSize: 11 * scale, cursor: 'pointer', border: 'none',
           background: value === i ? 'var(--accent)' : 'transparent',
           color: value === i ? '#111' : 'var(--muted)', fontWeight: value === i ? 600 : 400,
         }}>{o}</button>
@@ -218,16 +221,17 @@ function ArmorSetDetail({ set, selectedClass, female, gunner, negativeSet }: {
   gunner: boolean
   negativeSet: Set<string>
 }) {
+  const scale = useTextScale()
   const name = resolveSetName(set.name, female, gunner)
   const variants = set.variants.filter(v => v.class_type === selectedClass || v.class_type === 'Both')
 
   return (
     <div style={{ maxWidth: 900 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20, fontWeight: 600 }}>{name}</h2>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{name}</h2>
         <BookmarkButton bookmark={{ type: 'armorset', id: set.id, name, path: `/armorsets/${set.id}`, icon: chestIcon(set.rarity) }} />
       </div>
-      <p style={{ margin: '0 0 8px', color: 'var(--muted)', fontSize: 12 }}>Rarity {set.rarity}</p>
+      <p style={{ margin: '0 0 8px', color: 'var(--muted)', fontSize: 12 * scale }}>Rarity {set.rarity}</p>
 
       {variants.map((v, i) => (
         <VariantView key={i} variant={v} rarity={set.rarity} female={female}
@@ -248,6 +252,7 @@ function VariantView({ variant: v, rarity, female, showClassHeader, negativeSet 
   showClassHeader: boolean
   negativeSet: Set<string>
 }) {
+  const scale = useTextScale()
   const navigate = useNavigate()
   // Piece stat rows + a Total row.
   const totals = { def: 0, defMax: 0, fire: 0, water: 0, thunder: 0, ice: 0, dragon: 0 }
@@ -274,7 +279,7 @@ function VariantView({ variant: v, rarity, female, showClassHeader, negativeSet 
   return (
     <div style={{ marginBottom: 18 }}>
       {showClassHeader && (
-        <p style={{ margin: '4px 0 6px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>{v.class_type}</p>
+        <p style={{ margin: '4px 0 6px', color: 'var(--text)', fontSize: 14 * scale, fontWeight: 600 }}>{v.class_type}</p>
       )}
 
       {/* Piece stats */}
@@ -332,7 +337,7 @@ function VariantView({ variant: v, rarity, female, showClassHeader, negativeSet 
                     <td className="tbl-cell">
                       <button onClick={() => navigate(`/armorskills/${r.sid}`)} title="Open in Armor Skills" style={{
                         background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-                        color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 13, textAlign: 'left',
+                        color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 13 * scale, textAlign: 'left',
                       }}>{r.name}</button>
                     </td>
                     {r.cells.map((c, i) => (
@@ -354,7 +359,7 @@ function VariantView({ variant: v, rarity, female, showClassHeader, negativeSet 
         <Section title="Activated Skills">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             {v.activated_skills.map((a, i) => (
-              <span key={i} style={{ fontSize: 13, color: activatedColor(a, negativeSet) }}>{a}</span>
+              <span key={i} style={{ fontSize: 13 * scale, color: activatedColor(a, negativeSet) }}>{a}</span>
             ))}
           </div>
         </Section>
@@ -389,9 +394,10 @@ function activatedColor(name: string, negativeSet: Set<string>) {
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div style={{ marginBottom: 14 }}>
-      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13,
+      <h3 style={{ margin: '0 0 6px', color: 'var(--text)', fontSize: 13 * scale,
                    fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         {title}
       </h3>

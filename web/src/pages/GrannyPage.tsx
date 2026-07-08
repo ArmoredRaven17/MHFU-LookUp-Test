@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { loadGranny, loadItems, loadTreasures } from '../data/loaders'
 import type { GrannyItem, Item, Treasure } from '../types'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -21,6 +22,7 @@ function makeIconResolver(items: Item[], treasures: Treasure[]) {
 }
 
 export default function GrannyPage() {
+  const scale = useTextScale()
   const [rows, setRows] = useState<GrannyItem[]>([])
   const [items, setItems] = useState<Item[]>([])
   const [treasures, setTreasures] = useState<Treasure[]>([])
@@ -54,7 +56,7 @@ export default function GrannyPage() {
               background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               color: active ? 'var(--accent)' : 'var(--text)',
-              cursor: 'pointer', textAlign: 'left', fontSize: 13,
+              cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
             }}>{inv}</button>
           )
         })}
@@ -63,12 +65,12 @@ export default function GrannyPage() {
       {/* ── Wares ── */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>
         <div style={{ padding: '12px 16px 6px' }}>
-          <h2 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: 'var(--text)' }}>{inventory}</h2>
-          <p style={{ margin: '2px 0 0', fontSize: 12, color: 'var(--muted)' }}>
+          <h2 style={{ margin: 0, fontSize: 18 * scale, fontWeight: 700, color: 'var(--text)' }}>{inventory}</h2>
+          <p style={{ margin: '2px 0 0', fontSize: 12 * scale, color: 'var(--muted)' }}>
             The Peddling Granny sells from a rotating stock — her inventory changes over time.
           </p>
           {isDiscount && (
-            <p style={{ margin: '2px 0 0', fontSize: 12, color: 'var(--positive)' }}>Discount stock — these prices are reduced.</p>
+            <p style={{ margin: '2px 0 0', fontSize: 12 * scale, color: 'var(--positive)' }}>Discount stock — these prices are reduced.</p>
           )}
         </div>
 
@@ -81,8 +83,8 @@ export default function GrannyPage() {
                   ? <img src={icon} alt="" width={24} height={24} style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
                       onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                   : <span />}
-                <span style={{ color: 'var(--text)', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: 8 }}>{it.item}</span>
-                <span style={{ color: 'var(--text)', fontSize: 13, fontWeight: 600, textAlign: 'right' }}>{it.price}</span>
+                <span style={{ color: 'var(--text)', fontSize: 13 * scale, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: 8 }}>{it.item}</span>
+                <span style={{ color: 'var(--text)', fontSize: 13 * scale, fontWeight: 600, textAlign: 'right' }}>{it.price}</span>
               </div>
             )
           })}

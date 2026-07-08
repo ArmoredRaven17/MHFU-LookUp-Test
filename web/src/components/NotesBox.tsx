@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNotes, type NoteTarget } from '../hooks/useNotes'
+import { useTextScale } from '../theme/textScale'
 
 /**
  * The per-entity "Notes" editor shown on a detail page (monster/weapon/armor
@@ -7,6 +8,7 @@ import { useNotes, type NoteTarget } from '../hooks/useNotes'
  * Wrap it in the page's own <Section title="Notes"> for a matching heading.
  */
 export default function NotesBox({ target }: { target: NoteTarget }) {
+  const scale = useTextScale()
   const { getNote, setNote } = useNotes()
   const [text, setText] = useState(() => getNote(target.type, target.id))
 
@@ -26,7 +28,7 @@ export default function NotesBox({ target }: { target: NoteTarget }) {
         width: '100%', minHeight: 80, maxHeight: 240, resize: 'vertical',
         boxSizing: 'border-box', fontFamily: 'inherit',
         background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-        color: 'var(--text)', padding: '8px 10px', fontSize: 13, lineHeight: 1.6,
+        color: 'var(--text)', padding: '8px 10px', fontSize: 13 * scale, lineHeight: 1.6,
         outline: 'none',
       }}
     />

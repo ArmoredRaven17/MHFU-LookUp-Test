@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { HhSongData } from '../types'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 // ── Reference modal + type-specific trigger buttons ──────────────────────────
 
@@ -12,6 +13,7 @@ type Sheet = 'sharpness' | 'shells' | 'songs' | 'ammo' | 'shottypes' | 'recoilre
 
 export default function WeaponReference({ type, hhSongs }: { type: string; hhSongs: HhSongData | null }) {
   const [open, setOpen] = useState<Sheet | null>(null)
+  const scale = useTextScale()
 
   const isBowgun = type === 'Light Bowgun' || type === 'Heavy Bowgun'
   const isBow = type === 'Bow'
@@ -29,7 +31,7 @@ export default function WeaponReference({ type, hhSongs }: { type: string; hhSon
       {buttons.map(([label, key]) => (
         <button key={key} onClick={() => setOpen(key)} style={{
           background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-          color: 'var(--text)', padding: '3px 8px', fontSize: 12, cursor: 'pointer',
+          color: 'var(--text)', padding: '3px 8px', fontSize: 12 * scale, cursor: 'pointer',
         }}>{label}</button>
       ))}
       {open === 'sharpness' && <Modal title="Sharpness Modifiers" onClose={() => setOpen(null)}><SharpnessSheet /></Modal>}
@@ -43,6 +45,7 @@ export default function WeaponReference({ type, hhSongs }: { type: string; hhSon
 }
 
 function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
+  const scale = useTextScale()
   return (
     <div onClick={onClose} style={{
       position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 100,
@@ -53,9 +56,9 @@ function Modal({ title, onClose, children }: { title: string; onClose: () => voi
         width: '100%', maxWidth: 820, maxHeight: '85vh', overflow: 'auto', padding: 20,
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>{title}</h2>
+          <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18 * scale, fontWeight: 600 }}>{title}</h2>
           <button onClick={onClose} title="Close" style={{
-            background: 'none', border: 'none', color: 'var(--muted)', fontSize: 20, cursor: 'pointer', lineHeight: 1,
+            background: 'none', border: 'none', color: 'var(--muted)', fontSize: 20 * scale, cursor: 'pointer', lineHeight: 1,
           }}>✕</button>
         </div>
         {children}
@@ -77,9 +80,10 @@ const SHARP_ROWS: [string, string, string, string][] = [
 ]
 
 function SharpnessSheet() {
+  const scale = useTextScale()
   return (
     <div>
-      <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 13 * scale, marginTop: 0 }}>
         On blademaster weapons, sharpness scales how much damage lands. Each colour applies a
         multiplier — separately to Raw (physical) and Element damage — that rises as sharpness
         improves from Red to Purple. In the damage formula: damage = True Raw × Motion Value ×
@@ -103,7 +107,7 @@ function SharpnessSheet() {
           ))}
         </tbody>
       </table>
-      <p style={{ color: 'var(--muted)', fontSize: 11, fontStyle: 'italic', marginBottom: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 11 * scale, fontStyle: 'italic', marginBottom: 0 }}>
         Values extracted from the MHFU ROM damage table (f0076).
       </p>
     </div>
@@ -134,9 +138,10 @@ function shellCellColor(name: string, lv: number) {
 }
 
 function ShellsSheet() {
+  const scale = useTextScale()
   return (
     <div>
-      <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 13 * scale, marginTop: 0 }}>
         A gunlance fires shells whose power scales with its shell type and level (the Shelling stat).
         Normal, Long, and Spread differ in reach and spread; Wyvern Fire is the gunlance's big forward
         blast. Each entry is the shell's damage and its fire component, per shell level.
@@ -170,10 +175,11 @@ function ShellsSheet() {
 // ── Hunting Horn songs (full catalogue) ──────────────────────────────────────
 
 function SongsSheet({ data }: { data: HhSongData | null }) {
-  if (!data) return <p style={{ color: 'var(--muted)', fontSize: 13 }}>Loading…</p>
+  const scale = useTextScale()
+  if (!data) return <p style={{ color: 'var(--muted)', fontSize: 13 * scale }}>Loading…</p>
   return (
     <div>
-      <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 13 * scale, marginTop: 0 }}>
         The full Hunting Horn melody catalogue. A horn can play a song if it has all the notes in one
         of its sequences; alternate sequences are shown separated by “or”.
       </p>
@@ -184,7 +190,7 @@ function SongsSheet({ data }: { data: HhSongData | null }) {
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                 {s.note_sequences.map((seq, si) => (
                   <span key={si} style={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
-                    {si > 0 && <span style={{ color: 'var(--muted)', fontSize: 11, margin: '0 2px' }}>or</span>}
+                    {si > 0 && <span style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 2px' }}>or</span>}
                     {seq.map((n, i) => (
                       <img key={i} src={`${BASE}/assets/Notes/Note.${NOTE_COLOR[n] ?? 'white'}.png`}
                            alt={n} title={n} width={16} height={16} style={{ objectFit: 'contain' }} />
@@ -192,11 +198,11 @@ function SongsSheet({ data }: { data: HhSongData | null }) {
                   </span>
                 ))}
               </span>
-              <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13 }}>{s.name}</span>
-              <span style={{ color: 'var(--muted)', fontSize: 12 }}>— {s.effect} ({s.duration})</span>
+              <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{s.name}</span>
+              <span style={{ color: 'var(--muted)', fontSize: 12 * scale }}>— {s.effect} ({s.duration})</span>
             </div>
             {s.encore_effect && (
-              <p style={{ margin: '1px 0 0 4px', color: 'var(--muted)', fontSize: 11, fontStyle: 'italic' }}>
+              <p style={{ margin: '1px 0 0 4px', color: 'var(--muted)', fontSize: 11 * scale, fontStyle: 'italic' }}>
                 Encore: {s.encore_effect} ({s.encore_duration})
               </p>
             )}
@@ -264,15 +270,16 @@ const AMMO_CAT: { group: string; ammo: AmmoDef[] }[] = [
 ]
 
 function AmmoSheet() {
+  const scale = useTextScale()
   return (
     <div>
-      <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 13 * scale, marginTop: 0 }}>
         Every bowgun ammo type, what it does, and its per-level stats. Which rounds a gun can load —
         and to what level — is shown in each Light/Heavy Bowgun's own Ammo table.
       </p>
       {AMMO_CAT.map(g => (
         <div key={g.group} style={{ marginBottom: 14 }}>
-          <p style={{ margin: '0 0 4px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>{g.group}</p>
+          <p style={{ margin: '0 0 4px', color: 'var(--text)', fontSize: 14 * scale, fontWeight: 600 }}>{g.group}</p>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ borderCollapse: 'collapse', width: '100%', minWidth: 620 }}>
               <thead>
@@ -295,9 +302,9 @@ function AmmoSheet() {
                       {j === 0 && (
                         <td className="tbl-cell" rowSpan={a.levels.length} style={{ verticalAlign: 'top', minWidth: 150, ...sep }}>
                           <div style={{ color: AMMO_COLORS[a.key] ?? 'var(--text)', fontWeight: 600 }}>{a.name}</div>
-                          <div style={{ color: 'var(--muted)', fontSize: 11 }}>{a.desc}</div>
+                          <div style={{ color: 'var(--muted)', fontSize: 11 * scale }}>{a.desc}</div>
                           {a.footnote && (
-                            <div style={{ color: 'var(--muted)', fontSize: 10, fontStyle: 'italic', marginTop: 2 }}>{a.footnote}</div>
+                            <div style={{ color: 'var(--muted)', fontSize: 10 * scale, fontStyle: 'italic', marginTop: 2 }}>{a.footnote}</div>
                           )}
                         </td>
                       )}
@@ -315,7 +322,7 @@ function AmmoSheet() {
           </div>
         </div>
       ))}
-      <p style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 11 * scale, marginBottom: 0 }}>
         Stats from the Bowgun Damage Guide (PSP) by VampireCosmonaut (GameFAQs). Recoil and Reload
         are the raw scale values (lower is better).
       </p>
@@ -350,10 +357,10 @@ const RELOAD_BANDS: [string, string, string][] = [
   ['≤ 4', 'Fast', '2 s'], ['5 – 7', 'Medium', '2.5 s'], ['8 +', 'Slow', '3.5 s'],
 ]
 
-const codeStyle: React.CSSProperties = {
+const codeStyle = (scale: number): React.CSSProperties => ({
   display: 'inline-block', background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 4,
-  padding: '3px 8px', fontSize: 12, color: 'var(--text)', fontFamily: 'ui-monospace, monospace', margin: '2px 0 8px',
-}
+  padding: '3px 8px', fontSize: 12 * scale, color: 'var(--text)', fontFamily: 'ui-monospace, monospace', margin: '2px 0 8px',
+})
 
 function ValueTable({ header, rows }: { header: string; rows: [string, string][] }) {
   return (
@@ -396,28 +403,29 @@ function BandTable({ header, unit, rows }: { header: string; unit: string; rows:
 }
 
 function RecoilReloadSheet() {
+  const scale = useTextScale()
   return (
     <div>
-      <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 13 * scale, marginTop: 0 }}>
         Every round has a raw Recoil and Reload value (see the Bowgun Ammo sheet). Subtract the gun's
         own rating value, then read the effective rating from the band. Lower is better.
       </p>
 
-      <p style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>Recoil</p>
-      <div style={codeStyle}>Adjusted = Ammo Recoil − Bowgun Recoil Value</div>
+      <p style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 14 * scale, fontWeight: 600 }}>Recoil</p>
+      <div style={codeStyle(scale)}>Adjusted = Ammo Recoil − Bowgun Recoil Value</div>
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 16 }}>
         <ValueTable header="Gun Recoil" rows={RECOIL_VALUES} />
         <BandTable header="Rating" unit="Recovery" rows={RECOIL_BANDS} />
       </div>
 
-      <p style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 14, fontWeight: 600 }}>Reload</p>
-      <div style={codeStyle}>Adjusted = Ammo Reload − Bowgun Reload Value</div>
+      <p style={{ margin: '0 0 2px', color: 'var(--text)', fontSize: 14 * scale, fontWeight: 600 }}>Reload</p>
+      <div style={codeStyle(scale)}>Adjusted = Ammo Reload − Bowgun Reload Value</div>
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 12 }}>
         <ValueTable header="Gun Reload" rows={RELOAD_VALUES} />
         <BandTable header="Rating" unit="Reload Time" rows={RELOAD_BANDS} />
       </div>
 
-      <p style={{ color: 'var(--muted)', fontSize: 11, marginBottom: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 11 * scale, marginBottom: 0 }}>
         Skills (Recoil Reduction, Reloading Speed) shift the gun's rating before the subtraction.
         Community bowgun guide — not ROM-verified.
       </p>
@@ -435,16 +443,17 @@ function shotLevelColor(name: string, lv: number) {
 }
 
 function ShotTypesSheet() {
+  const scale = useTextScale()
   return (
     <div>
-      <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 0 }}>
+      <p style={{ color: 'var(--muted)', fontSize: 13 * scale, marginTop: 0 }}>
         Each charge level of a bow fires one of these shot types at a level. The pattern is the power
         of each arrow / hit; Raw damage scales with their sum, while element applies per arrow (every
         arrow carries the full element). Crit / Feeble is rolled per arrow.
       </p>
       {SHOT_TYPES.map(s => (
         <div key={s.name} style={{ marginBottom: 14 }}>
-          <p style={{ margin: '0 0 4px', fontSize: 14 }}>
+          <p style={{ margin: '0 0 4px', fontSize: 14 * scale }}>
             <span style={{ color: s.hex, fontWeight: 600 }}>{s.name}</span>
             <span style={{ color: 'var(--muted)' }}> — {s.behaviour}</span>
           </p>

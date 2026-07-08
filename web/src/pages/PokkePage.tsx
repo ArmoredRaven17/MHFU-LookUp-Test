@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { loadPokke, loadItems, loadTreasures, loadDecorations } from '../data/loaders'
 import type { PokkeItem, Item, Treasure, Decoration } from '../types'
 import { BASE } from '../utils/assets'
+import { useTextScale } from '../theme/textScale'
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -45,6 +46,7 @@ function makeIconResolver(items: Item[], treasures: Treasure[], decos: Decoratio
 export default function PokkePage() {
   const { area: areaParam } = useParams()
   const navigate = useNavigate()
+  const scale = useTextScale()
   const [rows, setRows] = useState<PokkeItem[]>([])
   const [items, setItems] = useState<Item[]>([])
   const [treasures, setTreasures] = useState<Treasure[]>([])
@@ -101,7 +103,7 @@ export default function PokkePage() {
               background: active ? 'var(--header-bg)' : 'transparent',
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               color: active ? 'var(--accent)' : 'var(--text)',
-              cursor: 'pointer', textAlign: 'left', fontSize: 13,
+              cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
             }}>
               {icon && <img src={icon} alt="" width={24} height={24}
                 style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
@@ -115,7 +117,7 @@ export default function PokkePage() {
       {/* ── Obtainable items (all tiers stacked) ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: '12px 16px 16px', background: 'transparent' }}>
         {!area || !effGroup
-          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 }}>Select a farm area.</p>
+          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 * scale }}>Select a farm area.</p>
           : (() => {
             const g = effGroup
             const hasNotes = g.items.some(it => it.item_note.length > 0)
@@ -125,16 +127,16 @@ export default function PokkePage() {
                 {groups.length > 1
                   ? <select value={g.label} onChange={e => setTierSel(e.target.value)} style={{
                       background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
-                      color: 'var(--text)', padding: '4px 8px', fontSize: 13, fontWeight: 600, marginBottom: 6, minWidth: 220,
+                      color: 'var(--text)', padding: '4px 8px', fontSize: 13 * scale, fontWeight: 600, marginBottom: 6, minWidth: 220,
                     }}>
                       {groups.map(x => <option key={x.label} value={x.label}>{x.label}</option>)}
                     </select>
-                  : <div style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13, marginBottom: 2 }}>{g.label}</div>}
+                  : <div style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale, marginBottom: 2 }}>{g.label}</div>}
 
-                {g.note && <p style={{ margin: '0 0 3px', fontSize: 12, color: 'var(--muted)' }}>{g.note}</p>}
+                {g.note && <p style={{ margin: '0 0 3px', fontSize: 12 * scale, color: 'var(--muted)' }}>{g.note}</p>}
 
                 {hasNotes && (
-                  <div style={{ display: 'grid', gridTemplateColumns: GRID, borderBottom: '1px solid var(--border)', padding: '0 0 2px', fontSize: 11, color: 'var(--text)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: GRID, borderBottom: '1px solid var(--border)', padding: '0 0 2px', fontSize: 11 * scale, color: 'var(--text)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     <span /><span>Item</span><span>Rate</span>
                   </div>
                 )}
@@ -145,8 +147,8 @@ export default function PokkePage() {
                       ? <img src={ic} alt="" width={24} height={24} style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
                           onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                       : <span /> })()}
-                    <span style={{ color: 'var(--text)', fontSize: 13 }}>{it.item}</span>
-                    <span style={{ color: 'var(--muted)', fontSize: 12, whiteSpace: 'pre-line' }}>{formatNote(it.item_note)}</span>
+                    <span style={{ color: 'var(--text)', fontSize: 13 * scale }}>{it.item}</span>
+                    <span style={{ color: 'var(--muted)', fontSize: 12 * scale, whiteSpace: 'pre-line' }}>{formatNote(it.item_note)}</span>
                   </div>
                 ))}
               </div>

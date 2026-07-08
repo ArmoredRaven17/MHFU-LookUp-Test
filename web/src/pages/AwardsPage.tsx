@@ -2,10 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { loadAwards } from '../data/loaders'
 import type { Award } from '../types'
 import SearchBox from '../components/SearchBox'
+import { useTextScale } from '../theme/textScale'
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 export default function AwardsPage() {
+  const scale = useTextScale()
   const [awards, setAwards] = useState<Award[]>([])
   const [search, setSearch] = useState('')
   const [selected, setSelected] = useState<Award | null>(null)
@@ -42,7 +44,7 @@ export default function AwardsPage() {
                 background: active ? 'var(--header-bg)' : 'transparent',
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 color: active ? 'var(--accent)' : 'var(--text)',
-                cursor: 'pointer', textAlign: 'left', fontSize: 13,
+                cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
               }}>
                 <img
                   src={`${BASE}/assets/Awards/${a.icon}.png`}
@@ -58,7 +60,7 @@ export default function AwardsPage() {
             )
           })}
           {filtered.length === 0 && (
-            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 }}>No awards found.</p>
+            <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No awards found.</p>
           )}
         </div>
       </div>
@@ -66,7 +68,7 @@ export default function AwardsPage() {
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
         {!selected
-          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 }}>Select an award from the list.</p>
+          ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 * scale }}>Select an award from the list.</p>
           : <AwardDetail award={selected} />
         }
       </div>
@@ -75,6 +77,7 @@ export default function AwardsPage() {
 }
 
 function AwardDetail({ award: a }: { award: Award }) {
+  const scale = useTextScale()
   return (
     <div style={{ maxWidth: 480 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 12 }}>
@@ -85,23 +88,23 @@ function AwardDetail({ award: a }: { award: Award }) {
           style={{ objectFit: 'contain', flexShrink: 0 }}
           onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
         />
-        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18, fontWeight: 600 }}>
+        <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 18 * scale, fontWeight: 600 }}>
           {a.name}
         </h2>
       </div>
 
       {a.description && (
-        <p style={{ margin: '0 0 14px', fontSize: 13, color: 'var(--text)', fontStyle: 'italic', lineHeight: 1.6 }}>
+        <p style={{ margin: '0 0 14px', fontSize: 13 * scale, color: 'var(--text)', fontStyle: 'italic', lineHeight: 1.6 }}>
           {a.description}
         </p>
       )}
 
       <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, padding: '10px 12px' }}>
-        <p style={{ margin: '0 0 4px', color: 'var(--muted)', fontSize: 10,
+        <p style={{ margin: '0 0 4px', color: 'var(--muted)', fontSize: 10 * scale,
                     fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
           How to Obtain
         </p>
-        <p style={{ margin: 0, fontSize: 13, color: 'var(--text)', lineHeight: 1.6 }}>
+        <p style={{ margin: 0, fontSize: 13 * scale, color: 'var(--text)', lineHeight: 1.6 }}>
           {a.condition}
         </p>
       </div>
