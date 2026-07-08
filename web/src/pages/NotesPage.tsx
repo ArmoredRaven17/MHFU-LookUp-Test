@@ -4,16 +4,15 @@ import { useNotes, type NoteRecord } from '../hooks/useNotes'
 import { useNoteOrderIndex, useNoteEntity, useNoteImportLookup } from '../utils/noteOrder'
 import { formatEntityBlock, parseImportedNotes, EXPORT_SIGNATURE, type ExportLevel } from '../utils/noteExport'
 import { loadWeapons } from '../data/loaders'
-import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
 
-// Group order, header, and fallback tab icon per type — mirrors desktop
-// NotesViewModel.Sections (monster / weapon / armor set / quest).
-const SECTIONS: { type: string; header: string; fallbackIcon: string }[] = [
-  { type: 'monster',  header: 'Monsters',    fallbackIcon: 'tigrex' },
-  { type: 'weapon',   header: 'Weapons',     fallbackIcon: 'rathalos' },
-  { type: 'armorset', header: 'Armor Sets',  fallbackIcon: 'rathian' },
-  { type: 'quest',    header: 'Quests',      fallbackIcon: 'yian_kut_ku' },
+// Group order + header per type — mirrors desktop NotesViewModel.Sections
+// (monster / weapon / armor set / quest).
+const SECTIONS: { type: string; header: string }[] = [
+  { type: 'monster',  header: 'Monsters' },
+  { type: 'weapon',   header: 'Weapons' },
+  { type: 'armorset', header: 'Armor Sets' },
+  { type: 'quest',    header: 'Quests' },
 ]
 
 const EMPTY_TEXT =
@@ -29,7 +28,7 @@ const EXPORT_BANNER = `=========================================================
                                        Unite  (MHP2G)
 ================================================================`
 
-interface Group { type: string; header: string; fallbackIcon: string; entries: NoteRecord[] }
+interface Group { type: string; header: string; entries: NoteRecord[] }
 
 const LEVEL_LABELS: [ExportLevel, string][] = [
   ['detailed', 'Detailed'],
@@ -157,7 +156,6 @@ export default function NotesPage() {
                 <NoteCard
                   key={`${n.type}:${n.id}`}
                   note={n}
-                  fallbackIcon={g.fallbackIcon}
                   onOpen={() => navigate(n.path)}
                   onSave={text => setNote(n, text)}
                   onDelete={() => remove(n.type, n.id)}
@@ -223,9 +221,8 @@ function ExportMenu({ groups, getEntity }: { groups: Group[]; getEntity: ReturnT
   )
 }
 
-function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
+function NoteCard({ note, onOpen, onSave, onDelete }: {
   note: NoteRecord
-  fallbackIcon: string
   onOpen: () => void
   onSave: (text: string) => void
   onDelete: () => void
@@ -233,7 +230,6 @@ function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
   const [text, setText] = useState(note.note)
   const scale = useTextScale()
   useEffect(() => { setText(note.note) }, [note.note])
-  const src = note.icon ?? `${BASE}/assets/Monsters/${fallbackIcon}.png`
 
   return (
     <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 6, padding: 10, marginBottom: 8 }}>
@@ -246,7 +242,6 @@ function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
             background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0,
           }}
         >
-          <img src={src} alt="" width={28 * scale} height={28 * scale} style={{ objectFit: 'contain', flexShrink: 0 }} />
           <span>
             <span style={{ display: 'block', fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{note.name}</span>
             <span style={{ display: 'block', fontSize: 11 * scale, color: 'var(--muted)' }}>{note.category}</span>

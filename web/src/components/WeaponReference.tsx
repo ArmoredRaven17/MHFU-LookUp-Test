@@ -174,6 +174,11 @@ function ShellsSheet() {
 
 // ── Hunting Horn songs (full catalogue) ──────────────────────────────────────
 
+// Wide enough for 4 note icons in a row (the longest sequence in the data) without wrapping;
+// rarer 2-alternate sequences ("or") wrap onto a second line within the cell instead of forcing
+// the column wider.
+const NOTES_COL_WIDTH = 84
+
 function SongsSheet({ data }: { data: HhSongData | null }) {
   const scale = useTextScale()
   if (!data) return <p style={{ color: 'var(--muted)', fontSize: 13 * scale }}>Loading…</p>
@@ -183,32 +188,43 @@ function SongsSheet({ data }: { data: HhSongData | null }) {
         The full Hunting Horn melody catalogue. A horn can play a song if it has all the notes in one
         of its sequences; alternate sequences are shown separated by “or”.
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {data.songs.map(s => (
-          <div key={s.id}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                {s.note_sequences.map((seq, si) => (
-                  <span key={si} style={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
-                    {si > 0 && <span style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 2px' }}>or</span>}
-                    {seq.map((n, i) => (
-                      <img key={i} src={`${BASE}/assets/Notes/Note.${NOTE_COLOR[n] ?? 'white'}.png`}
-                           alt={n} title={n} width={16 * scale} height={16 * scale} style={{ objectFit: 'contain' }} />
-                    ))}
-                  </span>
-                ))}
-              </span>
-              <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{s.name}</span>
-              <span style={{ color: 'var(--muted)', fontSize: 12 * scale }}>— {s.effect} ({s.duration})</span>
-            </div>
-            {s.encore_effect && (
-              <p style={{ margin: '1px 0 0 4px', color: 'var(--muted)', fontSize: 11 * scale, fontStyle: 'italic' }}>
-                Encore: {s.encore_effect} ({s.encore_duration})
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
+      <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+        <thead>
+          <tr>
+            <th className="tbl-header" style={{ textAlign: 'left', width: NOTES_COL_WIDTH * scale }}>Notes</th>
+            <th className="tbl-header" style={{ textAlign: 'left' }}>Song Name</th>
+            <th className="tbl-header" style={{ textAlign: 'left' }}>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.songs.map(s => (
+            <tr key={s.id} className="tbl-row">
+              <td className="tbl-cell">
+                <span style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+                  {s.note_sequences.map((seq, si) => (
+                    <span key={si} style={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
+                      {si > 0 && <span style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 2px' }}>or</span>}
+                      {seq.map((n, i) => (
+                        <img key={i} src={`${BASE}/assets/Notes/Note.${NOTE_COLOR[n] ?? 'white'}.png`}
+                             alt={n} title={n} width={16 * scale} height={16 * scale} style={{ objectFit: 'contain' }} />
+                      ))}
+                    </span>
+                  ))}
+                </span>
+              </td>
+              <td className="tbl-cell" style={{ fontWeight: 600, color: 'var(--text)' }}>{s.name}</td>
+              <td className="tbl-cell">
+                <div>{s.effect} ({s.duration})</div>
+                {s.encore_effect && (
+                  <div style={{ color: 'var(--muted)', fontStyle: 'italic', marginTop: 2 }}>
+                    Encore: {s.encore_effect} ({s.encore_duration})
+                  </div>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
