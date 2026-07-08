@@ -15,6 +15,13 @@ import { buildIconCatalog, describeIconValue, resolveIconSrc, type IconEntry } f
 
 const TABS = NAV
 
+// "Peddling Granny" -> "P. Granny" — keeps the label column's width uniform across text sizes
+// without falling back to an ellipsis; single-word labels are left as-is.
+function abbreviateLabel(label: string): string {
+  const i = label.indexOf(' ')
+  return i < 0 ? label : `${label[0]}.${label.slice(i)}`
+}
+
 export default function SettingsPage() {
   const scale = useTextScale()
   const [monsters, setMonsters] = useState<Monster[]>([])
@@ -54,7 +61,7 @@ export default function SettingsPage() {
   const monsterOptions = (list: Monster[]) => list.map(m => ({ value: m.id, label: m.name, icon: `${BASE}/assets/Monsters/${m.id}.png` }))
 
   return (
-    <div style={{ flex: 1, overflowY: 'auto', padding: 24, background: 'transparent' }}>
+    <div style={{ flex: 1, overflowY: 'auto', padding: 24, paddingBottom: 300, background: 'transparent' }}>
       <div style={{ maxWidth: 720 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
           <h1 style={{ margin: 0, fontSize: 22 * scale, fontWeight: 700, color: 'var(--text)' }}>Settings</h1>
@@ -99,7 +106,10 @@ export default function SettingsPage() {
             const usedByOthers = new Set(TABS.filter(o => o.path !== t.path).map(o => effectiveTabIcon(o.path)))
             return (
               <div key={t.path} style={{ display: 'grid', gridTemplateColumns: '150px 1fr', alignItems: 'center', gap: 8, padding: '3px 0' }}>
-                <span style={{ fontSize: 13 * scale, color: 'var(--text)' }}>{t.label}</span>
+                <span title={t.label} style={{
+                  fontSize: 11 * scale, color: 'var(--text)',
+                  whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                }}>{abbreviateLabel(t.label)}</span>
                 <TabIconPicker current={current} catalog={iconCatalog} usedElsewhere={usedByOthers}
                   onChange={id => chooseTabIcon(t.path, id)} />
               </div>
