@@ -320,7 +320,7 @@ function LootSection({ header, parts }: { header: string; parts: LootPartData[] 
           )}
           <div style={{ display: 'flex', gap: 16, overflowX: 'auto', paddingBottom: 4 }}>
             {p.tiers.map((t, j) => (
-              <div key={j} style={{ minWidth: 168 }}>
+              <div key={j} style={{ minWidth: 168 * scale }}>
                 <p style={{ margin: '0 0 2px', fontSize: 11 * scale, color: 'var(--text)' }}>{t.label}</p>
                 <table style={{ borderCollapse: 'collapse', width: '100%' }}>
                   <tbody>
