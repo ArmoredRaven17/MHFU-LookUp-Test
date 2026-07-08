@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BASE } from '../utils/assets'
 import { useTabIcons } from '../theme/tabIcons'
@@ -44,16 +45,12 @@ function NavIcon({ item, iconId, active }: { item: NavItem; iconId: string; acti
     <NavLink
       to={`/${item.path}`}
       title={item.label}
+      className={active ? 'nav-tab active' : 'nav-tab'}
       style={{
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         width: 44, height: '100%', flexShrink: 0,
         textDecoration: 'none',
-        background: active ? 'var(--header-bg)' : 'transparent',
-        borderBottom: active ? '2px solid var(--accent)' : '2px solid transparent',
-        boxSizing: 'border-box', transition: 'background 0.1s',
       }}
-      onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)' }}
-      onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.background = 'transparent' }}
     >
       <img src={`${BASE}/assets/Monsters/${iconId}.png`} alt={item.label} width={24} height={24}
            style={{ objectFit: 'contain', flexShrink: 0 }}
@@ -68,6 +65,15 @@ export default function Layout() {
   const appIcon = useAppIcon()
   const scale = useTextScale()
   const isActive = (path: string) => loc.pathname === `/${path}` || loc.pathname.startsWith(`/${path}/`)
+
+  // Touch devices can leave the just-tapped nav link in a lingering :focus/:active state after a
+  // client-side route change (no real blur fires the way a mouse click+release cycle would), which
+  // visually reads as "still selected" even once the route — and the real .active class — has moved
+  // on to a different tab. Explicitly deselect it on every navigation so nothing stays highlighted.
+  useEffect(() => {
+    const el = document.activeElement
+    if (el instanceof HTMLElement && el.closest('nav')) el.blur()
+  }, [loc.pathname])
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
