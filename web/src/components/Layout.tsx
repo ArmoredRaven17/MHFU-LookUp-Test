@@ -4,6 +4,7 @@ import { BASE } from '../utils/assets'
 import { useTabIcons } from '../theme/tabIcons'
 import { useAppIcon } from '../theme/appearance'
 import { useTextScale } from '../theme/textScale'
+import { resolveIconSrc } from '../theme/iconCatalog'
 
 export interface NavItem {
   path: string
@@ -12,30 +13,32 @@ export interface NavItem {
 }
 
 // Content tabs (order + default icons). Exported so Settings → Tab Icons reuses the list.
+// Icons are `category:id` values resolved via theme/iconCatalog.ts's resolveIconSrc() — these
+// are the user's own hand-picked defaults (baked in from their live Settings selections).
 export const NAV: NavItem[] = [
-  { path: 'bookmarks',  label: 'Bookmarks',       icon: 'anteka' },
-  { path: 'notes',      label: 'Notes',            icon: 'remobra' },
-  { path: 'monsters',   label: 'Monsters',         icon: 'tigrex' },
-  { path: 'weapons',    label: 'Weapons',          icon: 'rathalos' },
-  { path: 'armorsets',  label: 'Armor Sets',       icon: 'rathian' },
-  { path: 'armorskills',label: 'Armor Skills',     icon: 'daimyo_hermitaur' },
-  { path: 'decorations',label: 'Decorations',      icon: 'great_thunderbug' },
-  { path: 'quests',     label: 'Quests',           icon: 'yian_kut_ku' },
-  { path: 'training',   label: 'Training School',  icon: 'diablos' },
-  { path: 'gathering',  label: 'Gathering',        icon: 'kelbi' },
-  { path: 'items',      label: 'Items',            icon: 'melynx' },
-  { path: 'combolist',  label: 'Combo List',       icon: 'congalala' },
-  { path: 'treasures',  label: 'Treasures',        icon: 'bulldrome' },
-  { path: 'kitchen',    label: 'Kitchen',          icon: 'mosswine' },
-  { path: 'trenya',     label: 'Trenya',           icon: 'plesioth' },
-  { path: 'pokke',      label: 'Pokke Farm',       icon: 'basarios' },
-  { path: 'granny',     label: 'Peddling Granny',  icon: 'gypceros' },
-  { path: 'veggie',     label: 'Veggie Elder',     icon: 'shakalaka' },
-  { path: 'comrades',   label: 'Felyne Comrades',  icon: 'felyne' },
-  { path: 'awards',     label: 'Awards',           icon: 'kirin' },
-  { path: 'settings',   label: 'Settings',         icon: 'hypnocatrice' },
-  { path: 'help',       label: 'Help',             icon: 'khezu' },
-  { path: 'about',      label: 'About',            icon: 'fatalis' },
+  { path: 'bookmarks',  label: 'Bookmarks',       icon: 'item:MH4G-Book_Icon_Red' },
+  { path: 'notes',      label: 'Notes',            icon: 'item:MH4G-Book_Icon_Blue' },
+  { path: 'monsters',   label: 'Monsters',         icon: 'monster:nargacuga' },
+  { path: 'weapons',    label: 'Weapons',          icon: 'weapon:Great_Sword' },
+  { path: 'armorsets',  label: 'Armor Sets',       icon: 'armor:chest_R6' },
+  { path: 'armorskills',label: 'Armor Skills',     icon: 'monster:daimyo_hermitaur' },
+  { path: 'decorations',label: 'Decorations',      icon: 'decocolor:blue' },
+  { path: 'quests',     label: 'Quests',           icon: 'item:MH4G-Ticket_Icon_White' },
+  { path: 'training',   label: 'Training School',  icon: 'item:MH4G-Coin_Icon_Pink' },
+  { path: 'gathering',  label: 'Gathering',        icon: 'item:MH4G-Bugnet_Icon_Yellow' },
+  { path: 'items',      label: 'Items',            icon: 'item:MH4G-Medicine_Icon_Green' },
+  { path: 'combolist',  label: 'Combo List',       icon: 'item:MH4G-Book_Icon_Grey' },
+  { path: 'treasures',  label: 'Treasures',        icon: 'award:award_042' },
+  { path: 'kitchen',    label: 'Kitchen',          icon: 'item:MH4G-Meat_Icon_Orange' },
+  { path: 'trenya',     label: 'Trenya',           icon: 'award:award_043' },
+  { path: 'pokke',      label: 'Pokke Farm',       icon: 'item:MH4G-Webbing_Icon_Orange' },
+  { path: 'granny',     label: 'Peddling Granny',  icon: 'item:MH4G-Sac_Icon_Grey' },
+  { path: 'veggie',     label: 'Veggie Elder',     icon: 'item:MH4G-Ticket_Icon_Yellow' },
+  { path: 'comrades',   label: 'Felyne Comrades',  icon: 'monster:felyne' },
+  { path: 'awards',     label: 'Awards',           icon: 'award:award_011' },
+  { path: 'settings',   label: 'Settings',         icon: 'award:award_023' },
+  { path: 'help',       label: 'Help',             icon: 'award:award_024' },
+  { path: 'about',      label: 'About',            icon: 'monster:fatalis' },
 ]
 
 // Icon-only nav tab — the full label is a native title-attribute tooltip on hover, since 23 tabs
@@ -52,7 +55,7 @@ function NavIcon({ item, iconId, active }: { item: NavItem; iconId: string; acti
         textDecoration: 'none',
       }}
     >
-      <img src={`${BASE}/assets/Monsters/${iconId}.png`} alt={item.label} width={24} height={24}
+      <img src={resolveIconSrc(iconId)} alt={item.label} width={24} height={24}
            style={{ objectFit: 'contain', flexShrink: 0 }}
            onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
     </NavLink>

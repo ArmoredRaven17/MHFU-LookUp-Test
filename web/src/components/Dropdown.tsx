@@ -6,6 +6,7 @@ export interface DropdownOption {
   label: string
   swatch?: string   // solid colour chip
   icon?: string     // image src
+  group?: string    // optional section header — a header row is inserted whenever this changes
 }
 
 // Custom <select> replacement that renders each option's colour swatch or icon inline,
@@ -33,13 +34,13 @@ export default function Dropdown({ value, options, onChange, style }: {
   return (
     <div ref={ref} style={{ position: 'relative', display: 'inline-block', ...style }}>
       <button type="button" onClick={() => setOpen(o => !o)} style={{
-        display: 'flex', alignItems: 'center', gap: 8,
+        display: 'flex', alignItems: 'center', gap: 8, width: style?.width != null ? '100%' : undefined,
         background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4,
         color: 'var(--text)', padding: '4px 8px', fontSize: 13 * scale, cursor: 'pointer', textAlign: 'left',
         whiteSpace: 'nowrap',
       }}>
         <Swatch option={current} />
-        <span>{current?.label ?? value}</span>
+        <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', flex: style?.width != null ? 1 : undefined }}>{current?.label ?? value}</span>
         <span style={{ color: 'var(--muted)', fontSize: 11 * scale, flexShrink: 0 }}>{open ? '▴' : '▾'}</span>
       </button>
 
@@ -50,17 +51,25 @@ export default function Dropdown({ value, options, onChange, style }: {
           maxHeight: 280, overflowY: 'auto', background: 'var(--surface)', border: '1px solid var(--border)',
           borderRadius: 4, boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
         }}>
-          {options.map(o => (
-            <div key={o.value} onClick={() => { onChange(o.value); setOpen(false) }} style={{
-              display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', cursor: 'pointer', fontSize: 13 * scale,
-              whiteSpace: 'nowrap',
-              background: o.value === value ? 'var(--header-bg)' : 'transparent',
-              color: o.value === value ? 'var(--accent)' : 'var(--text)',
-            }}
-                 onMouseEnter={e => { if (o.value !== value) e.currentTarget.style.background = 'var(--row-alt)' }}
-                 onMouseLeave={e => { if (o.value !== value) e.currentTarget.style.background = 'transparent' }}>
-              <Swatch option={o} />
-              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{o.label}</span>
+          {options.map((o, i) => (
+            <div key={o.value}>
+              {o.group && o.group !== options[i - 1]?.group && (
+                <div style={{
+                  padding: i === 0 ? '5px 8px 3px' : '7px 8px 3px', marginTop: i === 0 ? 0 : 2,
+                  borderTop: i === 0 ? 'none' : '1px solid var(--border)',
+                  fontSize: 10 * scale, fontWeight: 700, color: 'var(--muted)',
+                  textTransform: 'uppercase', letterSpacing: '0.05em',
+                }}>{o.group}</div>
+              )}
+              <div onClick={() => { onChange(o.value); setOpen(false) }}
+                   className={o.value === value ? 'menu-row selected' : 'menu-row'} style={{
+                display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', cursor: 'pointer', fontSize: 13 * scale,
+                whiteSpace: 'nowrap',
+                color: o.value === value ? 'var(--accent)' : 'var(--text)',
+              }}>
+                <Swatch option={o} />
+                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{o.label}</span>
+              </div>
             </div>
           ))}
         </div>

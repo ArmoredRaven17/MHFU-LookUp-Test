@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { loadMonsters } from '../data/loaders'
-import type { Monster } from '../types'
+import { useEffect, useMemo, useState } from 'react'
+import { loadMonsters, loadItems, loadAwards } from '../data/loaders'
+import type { Monster, Item, Award } from '../types'
 import { BASE } from '../utils/assets'
 import { NAV } from '../components/Layout'
 import Dropdown from '../components/Dropdown'
@@ -11,12 +11,15 @@ import {
 } from '../theme/appearance'
 import { getTabIcons, setTabIcon, resetTabIcons } from '../theme/tabIcons'
 import { SCALE_PRESETS, getTextScale, setTextScale, resetTextScale, useTextScale } from '../theme/textScale'
+import { buildIconCatalog, describeIconValue, resolveIconSrc, type IconEntry } from '../theme/iconCatalog'
 
 const TABS = NAV
 
 export default function SettingsPage() {
   const scale = useTextScale()
   const [monsters, setMonsters] = useState<Monster[]>([])
+  const [items, setItems] = useState<Item[]>([])
+  const [awards, setAwards] = useState<Award[]>([])
   const [surface, setSurfaceState] = useState(getSurface())
   const [accent, setAccentState] = useState(getAccent())
   const [icon, setIconState] = useState(getIcon())
@@ -24,6 +27,12 @@ export default function SettingsPage() {
   const [tabIcons, setTabIconsState] = useState<Record<string, string>>(getTabIcons())
 
   useEffect(() => { loadMonsters().then(m => setMonsters([...m].sort((a, b) => a.name.localeCompare(b.name)))) }, [])
+  useEffect(() => { loadItems().then(setItems) }, [])
+  useEffect(() => { loadAwards().then(setAwards) }, [])
+
+  // EXPERIMENTAL — full icon catalog (monsters + weapon types + elements + locations + notes +
+  // decoration colours + awards + items), grouped by type, for the Tab Icons picker below.
+  const iconCatalog = useMemo(() => buildIconCatalog(monsters, items, awards), [monsters, items, awards])
 
   const chooseSurface = (key: string) => { setSurface(key); setSurfaceState(key) }
   const chooseAccent = (hex: string) => { setAccent(hex); setAccentState(hex) }
@@ -80,21 +89,68 @@ export default function SettingsPage() {
 
         {/* ── Tab Icons ── */}
         <SectionTitle style={{ marginTop: 28 }}>Tab Icons</SectionTitle>
-        <Hint>Pick a monster icon for each tab. Each monster can only be used once.</Hint>
+        <Hint>
+          Pick a category, then an icon within it, for each tab. Each icon can only be used once.
+          (Experimental — may be reverted.)
+        </Hint>
         <div style={{ marginTop: 8 }}>
           {TABS.map(t => {
             const current = effectiveTabIcon(t.path)
             const usedByOthers = new Set(TABS.filter(o => o.path !== t.path).map(o => effectiveTabIcon(o.path)))
-            const options = monsters.filter(m => m.id === current || !usedByOthers.has(m.id))
             return (
               <div key={t.path} style={{ display: 'grid', gridTemplateColumns: '150px 1fr', alignItems: 'center', gap: 8, padding: '3px 0' }}>
                 <span style={{ fontSize: 13 * scale, color: 'var(--text)' }}>{t.label}</span>
-                <Dropdown value={current} onChange={id => chooseTabIcon(t.path, id)} options={monsterOptions(options)} />
+                <TabIconPicker current={current} catalog={iconCatalog} usedElsewhere={usedByOthers}
+                  onChange={id => chooseTabIcon(t.path, id)} />
               </div>
             )
           })}
         </div>
       </div>
+    </div>
+  )
+}
+
+// EXPERIMENTAL — category-first icon picker: a category Dropdown narrows which group the second,
+// icon Dropdown offers, instead of one flat list spanning every category (too much scrolling with
+// ~450 options combined). Switching category auto-picks that category's first available icon.
+function TabIconPicker({ current, catalog, usedElsewhere, onChange }: {
+  current: string
+  catalog: IconEntry[]
+  usedElsewhere: Set<string>
+  onChange: (value: string) => void
+}) {
+  const scale = useTextScale()
+  const groups = useMemo(() => [...new Set(catalog.map(e => e.group))], [catalog])
+  const currentEntry = catalog.find(e => e.value === current)
+  // A saved default can reference a value the catalog no longer lists (e.g. an armor rarity tier
+  // trimmed down to just one representative icon) — describeIconValue() keeps it displaying with
+  // the right category/label instead of showing the raw `category:id` string.
+  const orphan = !currentEntry ? describeIconValue(current) : null
+  const currentGroup = currentEntry?.group ?? orphan?.group ?? groups[0]
+  const [category, setCategory] = useState(currentGroup)
+
+  useEffect(() => { setCategory(currentGroup) }, [currentGroup])
+
+  const iconsInCategory = catalog.filter(e => e.group === category && (e.value === current || !usedElsewhere.has(e.value)))
+    .map(e => ({ value: e.value, label: e.label, icon: e.src }))
+  if (orphan && orphan.group === category) {
+    iconsInCategory.unshift({ value: current, label: orphan.label, icon: resolveIconSrc(current) })
+  }
+
+  const chooseCategory = (newCategory: string) => {
+    if (newCategory === category) return
+    setCategory(newCategory)
+    const first = catalog.find(e => e.group === newCategory && !usedElsewhere.has(e.value))
+    if (first) onChange(first.value)
+  }
+
+  return (
+    <div style={{ display: 'flex', gap: 6 }}>
+      <Dropdown value={category} onChange={chooseCategory} style={{ width: 170 * scale, flexShrink: 0 }}
+        options={groups.map(g => ({ value: g, label: g }))} />
+      <Dropdown value={current} onChange={onChange} style={{ width: 220 * scale, flexShrink: 0 }}
+        options={iconsInCategory} />
     </div>
   )
 }
