@@ -236,7 +236,7 @@ function SkillDetail({ skill: s, pieces }: { skill: Skill; pieces: PieceEntry[] 
                 <tr key={i} className="tbl-row">
                   <td className="tbl-cell" style={{ padding: '2px 4px' }}>
                     <img src={slotIcon(p.slot, p.rarity)} alt={p.slot}
-                         width={20} height={20} style={{ objectFit: 'contain', display: 'block' }} />
+                         width={20 * scale} height={20 * scale} style={{ objectFit: 'contain', display: 'block' }} />
                   </td>
                   <td className="tbl-cell">{p.pieceName}</td>
                   <td className="tbl-cell" style={{

@@ -10,7 +10,7 @@ export default function AboutPage() {
 
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 6 }}>
-          <img src={`${BASE}/assets/Misc/about_icon.png`} alt="" width={52} height={52}
+          <img src={`${BASE}/assets/Misc/about_icon.png`} alt="" width={52 * scale} height={52 * scale}
                style={{ objectFit: 'contain', flexShrink: 0 }}
                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
           <h2 style={{ margin: 0, fontSize: 22 * scale, fontWeight: 700, color: 'var(--text)' }}>About</h2>

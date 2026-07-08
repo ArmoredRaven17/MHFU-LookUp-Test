@@ -211,9 +211,8 @@ function ExportMenu({ groups, getEntity }: { groups: Group[]; getEntity: ReturnT
             <div
               key={level}
               onClick={() => choose(level)}
+              className="menu-row"
               style={{ padding: '7px 12px', fontSize: 13 * scale, cursor: 'pointer', color: 'var(--text)', whiteSpace: 'nowrap' }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'var(--row-alt)' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
             >
               {label}
             </div>
@@ -247,7 +246,7 @@ function NoteCard({ note, fallbackIcon, onOpen, onSave, onDelete }: {
             background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0,
           }}
         >
-          <img src={src} alt="" width={28} height={28} style={{ objectFit: 'contain', flexShrink: 0 }} />
+          <img src={src} alt="" width={28 * scale} height={28 * scale} style={{ objectFit: 'contain', flexShrink: 0 }} />
           <span>
             <span style={{ display: 'block', fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{note.name}</span>
             <span style={{ display: 'block', fontSize: 11 * scale, color: 'var(--muted)' }}>{note.category}</span>

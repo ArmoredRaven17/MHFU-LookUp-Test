@@ -19,7 +19,7 @@ export default function MaterialList({ csv, vertical }: { csv: string; vertical?
       {mats.map((m, i) => (
         <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
           {m.icon && (
-            <img src={m.icon} alt="" width={18} height={18}
+            <img src={m.icon} alt="" width={18 * scale} height={18 * scale}
                  style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
                  onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
           )}

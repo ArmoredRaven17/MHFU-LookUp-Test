@@ -105,7 +105,7 @@ export default function PokkePage() {
               color: active ? 'var(--accent)' : 'var(--text)',
               cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
             }}>
-              {icon && <img src={icon} alt="" width={24} height={24}
+              {icon && <img src={icon} alt="" width={24 * scale} height={24 * scale}
                 style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                 onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
               <span>{a}</span>
@@ -144,7 +144,7 @@ export default function PokkePage() {
                 {g.items.map((it, i) => (
                   <div key={i} className="tbl-row" style={{ display: 'grid', gridTemplateColumns: GRID, alignItems: 'center', padding: '3px 0' }}>
                     {(() => { const ic = resolveIcon(it.item); return ic
-                      ? <img src={ic} alt="" width={24} height={24} style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
+                      ? <img src={ic} alt="" width={24 * scale} height={24 * scale} style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
                           onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                       : <span /> })()}
                     <span style={{ color: 'var(--text)', fontSize: 13 * scale }}>{it.item}</span>

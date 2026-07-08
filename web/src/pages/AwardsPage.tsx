@@ -49,7 +49,7 @@ export default function AwardsPage() {
                 <img
                   src={`${BASE}/assets/Awards/${a.icon}.png`}
                   alt=""
-                  width={20} height={20}
+                  width={20 * scale} height={20 * scale}
                   style={{ flexShrink: 0, objectFit: 'contain' }}
                   onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
                 />
@@ -84,7 +84,7 @@ function AwardDetail({ award: a }: { award: Award }) {
         <img
           src={`${BASE}/assets/Awards/${a.icon}.png`}
           alt={a.name}
-          width={48} height={48}
+          width={48 * scale} height={48 * scale}
           style={{ objectFit: 'contain', flexShrink: 0 }}
           onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
         />

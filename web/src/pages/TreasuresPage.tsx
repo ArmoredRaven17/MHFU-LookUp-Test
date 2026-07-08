@@ -66,7 +66,7 @@ export default function TreasuresPage() {
                     color: active ? 'var(--accent)' : 'var(--text)',
                     cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
                   }}>
-                    <img src={`${BASE}/assets/Items/${t.icon}.png`} alt="" width={24} height={24}
+                    <img src={`${BASE}/assets/Items/${t.icon}.png`} alt="" width={24 * scale} height={24 * scale}
                          style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                          onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                     {t.is_award ? <span style={{ color: AWARD_GOLD, fontSize: 13 * scale, flexShrink: 0 }} title="Guild Card award">★</span> : null}
@@ -97,7 +97,7 @@ function TreasureDetail({ treasure: t, monsters }: { treasure: Treasure; monster
   return (
     <div style={{ maxWidth: 560 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-        <img src={`${BASE}/assets/Items/${t.icon}.png`} alt={t.name} width={48} height={48}
+        <img src={`${BASE}/assets/Items/${t.icon}.png`} alt={t.name} width={48 * scale} height={48 * scale}
              style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <div style={{ flex: 1 }}>

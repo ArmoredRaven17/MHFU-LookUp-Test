@@ -295,7 +295,7 @@ function VariantView({ variant: v, rarity, female, showClassHeader, negativeSet 
           <tbody>
             {v.pieces.map(p => (
               <tr key={p.slot} className="tbl-row">
-                <td className="tbl-cell"><img src={armorIcon(p.slot, rarity)} alt="" width={22} height={22} style={{ objectFit: 'contain' }} onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} /></td>
+                <td className="tbl-cell"><img src={armorIcon(p.slot, rarity)} alt="" width={22 * scale} height={22 * scale} style={{ objectFit: 'contain' }} onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} /></td>
                 <td className="tbl-cell">{cap(p.slot)}</td>
                 <td className="tbl-cell">{pieceName(p, female)}</td>
                 <td className="tbl-cell" style={{ textAlign: 'right' }}>{defRange(p.defense, p.max_defense)}</td>

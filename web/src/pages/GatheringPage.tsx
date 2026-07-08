@@ -55,7 +55,7 @@ export default function GatheringPage() {
                 border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
               }}>
-                <img src={locationIconUrl(a.area)} alt="" width={20} height={20} style={{ objectFit: 'contain', flexShrink: 0 }}
+                <img src={locationIconUrl(a.area)} alt="" width={20 * scale} height={20 * scale} style={{ objectFit: 'contain', flexShrink: 0 }}
                      onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                 <span style={{ color: active ? 'var(--accent)' : locationColor(a.area) }}>{a.area}</span>
               </button>
@@ -173,7 +173,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
                 return (
                   <span key={j} style={{ display: 'grid', gridTemplateColumns: '200px 46px', alignItems: 'center' }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, minWidth: 0 }}>
-                      {mat?.icon && <img src={mat.icon} alt="" width={16} height={16}
+                      {mat?.icon && <img src={mat.icon} alt="" width={16 * scale} height={16 * scale}
                         style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
                       {mat?.path

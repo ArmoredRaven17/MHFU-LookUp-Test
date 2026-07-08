@@ -82,15 +82,15 @@ export default function ItemsPage() {
                     color: active ? 'var(--accent)' : 'var(--text)',
                     cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
                   }}>
-                    <img src={`${BASE}/assets/Items/${it.icon}.png`} alt="" width={26} height={26}
+                    <img src={`${BASE}/assets/Items/${it.icon}.png`} alt="" width={26 * scale} height={26 * scale}
                          style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                          onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                     <span style={{ flex: 1 }}>{it.name}</span>
                     {gatherable.has(normName(it.name)) && (
-                      <img src={GATHER_MARK} alt="" title="Gatherable" width={13} height={13} style={{ flexShrink: 0 }} />
+                      <img src={GATHER_MARK} alt="" title="Gatherable" width={13 * scale} height={13 * scale} style={{ flexShrink: 0 }} />
                     )}
                     {treasureHunt.has(normName(it.name)) && (
-                      <img src={GATHER_MARK} alt="" title="Treasure Hunt" width={13} height={13} style={{ flexShrink: 0, filter: TREASURE_FILTER }} />
+                      <img src={GATHER_MARK} alt="" title="Treasure Hunt" width={13 * scale} height={13 * scale} style={{ flexShrink: 0, filter: TREASURE_FILTER }} />
                     )}
                   </button>
                 )
@@ -121,14 +121,14 @@ function ItemDetail({ item: it, gather, monsters, treasure }: { item: Item; gath
   return (
     <div style={{ maxWidth: 640 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-        <img src={`${BASE}/assets/Items/${it.icon}.png`} alt={it.name} width={48} height={48}
+        <img src={`${BASE}/assets/Items/${it.icon}.png`} alt={it.name} width={48 * scale} height={48 * scale}
              style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{it.name}</h2>
-            {gather.length > 0 && <img src={GATHER_MARK} alt="" title="Gatherable" width={17} height={17} />}
-            {treasure && <img src={GATHER_MARK} alt="" title="Treasure Hunt" width={17} height={17} style={{ filter: TREASURE_FILTER }} />}
+            {gather.length > 0 && <img src={GATHER_MARK} alt="" title="Gatherable" width={17 * scale} height={17 * scale} />}
+            {treasure && <img src={GATHER_MARK} alt="" title="Treasure Hunt" width={17 * scale} height={17 * scale} style={{ filter: TREASURE_FILTER }} />}
           </div>
           <p style={{ margin: 0, color: 'var(--muted)', fontSize: 12 * scale }}>{it.category}</p>
         </div>

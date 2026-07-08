@@ -80,7 +80,7 @@ export default function DecorationsPage() {
                 color: active ? 'var(--accent)' : 'var(--text)',
                 cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
               }}>
-                <img src={decoIcon(d.color)} alt="" width={20} height={20}
+                <img src={decoIcon(d.color)} alt="" width={20 * scale} height={20 * scale}
                      style={{ objectFit: 'contain', flexShrink: 0 }}
                      onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                 <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -113,7 +113,7 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
   return (
     <div style={{ maxWidth: 600 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-        <img src={decoIcon(d.color)} alt="" width={32} height={32} style={{ objectFit: 'contain' }}
+        <img src={decoIcon(d.color)} alt="" width={32 * scale} height={32 * scale} style={{ objectFit: 'contain' }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{d.name}</h2>
         <BookmarkButton bookmark={{ type: 'decoration', id: d.id, name: d.name, path: `/decorations/${d.id}`, icon: decoIcon(d.color) }} />

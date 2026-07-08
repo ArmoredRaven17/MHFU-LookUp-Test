@@ -137,7 +137,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
                   }}>
                     <span style={{ display: 'flex', gap: 2, flexShrink: 0 }}>
                       {targetIcons(q).map((src, i) => (
-                        <img key={i} src={src} alt="" width={20} height={20}
+                        <img key={i} src={src} alt="" width={20 * scale} height={20 * scale}
                           style={{ objectFit: 'contain' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
                       ))}
                     </span>
@@ -182,7 +182,7 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
         <span style={{ display: 'flex', gap: 4 }}>
           {icons.map((src, i) => (
-            <img key={i} src={src} alt="" width={34} height={34}
+            <img key={i} src={src} alt="" width={34 * scale} height={34 * scale}
               style={{ objectFit: 'contain' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
           ))}
         </span>
@@ -207,7 +207,7 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
         )}
         <Field label="Location">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <img src={locationIconUrl(location)} alt="" width={20} height={20} style={{ objectFit: 'contain' }}
+            <img src={locationIconUrl(location)} alt="" width={20 * scale} height={20 * scale} style={{ objectFit: 'contain' }}
                  onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
             <span style={{ color: locationColor(location), fontWeight: 600 }}>{location}</span>
           </span>

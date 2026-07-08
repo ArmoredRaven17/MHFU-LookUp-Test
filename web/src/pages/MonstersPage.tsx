@@ -93,7 +93,7 @@ export default function MonstersPage() {
                     cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
                   }}
                 >
-                  <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt="" width={24} height={24}
+                  <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt="" width={24 * scale} height={24 * scale}
                        style={{ objectFit: 'contain', flexShrink: 0 }} />
                   {m.name}
                 </button>
@@ -124,7 +124,7 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
     <div style={{ maxWidth: 900 }}>
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-        <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt={m.name} width={48} height={48}
+        <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt={m.name} width={48 * scale} height={48 * scale}
              style={{ objectFit: 'contain' }} />
         <div>
           <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 22 * scale, fontWeight: 600 }}>{m.name}</h2>

@@ -28,7 +28,7 @@ function Cell({ name, icon }: { name: string; icon: string }) {
   if (!name) return <span />
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-      {icon && <img src={icon} alt="" width={24} height={24} style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
+      {icon && <img src={icon} alt="" width={24 * scale} height={24 * scale} style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
       <span style={{ color: 'var(--text)', fontSize: 13 * scale }}>{name}</span>
     </span>

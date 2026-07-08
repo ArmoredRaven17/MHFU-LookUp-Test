@@ -107,7 +107,7 @@ export default function TrenyaPage() {
               border: 'none', borderLeft: active ? '2px solid var(--accent)' : '2px solid transparent',
               cursor: 'pointer', textAlign: 'left', fontSize: 13 * scale,
             }}>
-              <img src={locationIconUrl(l)} alt="" width={20} height={20} style={{ objectFit: 'contain', flexShrink: 0 }}
+              <img src={locationIconUrl(l)} alt="" width={20 * scale} height={20 * scale} style={{ objectFit: 'contain', flexShrink: 0 }}
                    onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
               <span style={{ color: active ? 'var(--accent)' : locationColor(l) }}>{l}</span>
             </button>
@@ -150,7 +150,7 @@ export default function TrenyaPage() {
                   const icon = resolveIcon(it.item, it.category)
                   return (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 3 }}>
-                      {icon && <img src={icon} alt="" width={24} height={24}
+                      {icon && <img src={icon} alt="" width={24 * scale} height={24 * scale}
                         style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
                       <span style={{ color: 'var(--text)', fontSize: 13 * scale }}>{it.item}</span>

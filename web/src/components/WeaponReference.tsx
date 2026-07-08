@@ -193,7 +193,7 @@ function SongsSheet({ data }: { data: HhSongData | null }) {
                     {si > 0 && <span style={{ color: 'var(--muted)', fontSize: 11 * scale, margin: '0 2px' }}>or</span>}
                     {seq.map((n, i) => (
                       <img key={i} src={`${BASE}/assets/Notes/Note.${NOTE_COLOR[n] ?? 'white'}.png`}
-                           alt={n} title={n} width={16} height={16} style={{ objectFit: 'contain' }} />
+                           alt={n} title={n} width={16 * scale} height={16 * scale} style={{ objectFit: 'contain' }} />
                     ))}
                   </span>
                 ))}

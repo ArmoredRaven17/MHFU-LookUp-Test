@@ -91,7 +91,7 @@ function BookmarkRow({ bm, fallbackIcon, onOpen, onRemove }: {
           padding: '2px 0',
         }}
       >
-        <img src={src} alt="" width={32} height={32} style={{ objectFit: 'contain', flexShrink: 0 }} />
+        <img src={src} alt="" width={32 * scale} height={32 * scale} style={{ objectFit: 'contain', flexShrink: 0 }} />
         <span style={{ color: 'var(--text)', fontSize: 14 * scale }}>{bm.name}</span>
       </button>
       <button

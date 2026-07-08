@@ -79,8 +79,9 @@ export default function Dropdown({ value, options, onChange, style }: {
 }
 
 function Swatch({ option }: { option?: DropdownOption }) {
+  const scale = useTextScale()
   if (option?.icon) {
-    return <img src={option.icon} alt="" width={20} height={20} style={{ objectFit: 'contain', flexShrink: 0 }}
+    return <img src={option.icon} alt="" width={20 * scale} height={20 * scale} style={{ objectFit: 'contain', flexShrink: 0 }}
                 onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
   }
   if (option?.swatch) {

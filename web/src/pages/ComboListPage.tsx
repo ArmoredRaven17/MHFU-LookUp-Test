@@ -137,9 +137,10 @@ export default function ComboListPage() {
 }
 
 function ItemCell({ name, icon, bold }: { name: string; icon: string | null; bold?: boolean }) {
+  const scale = useTextScale()
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-      {icon && <img src={icon} alt="" width={22} height={22}
+      {icon && <img src={icon} alt="" width={22 * scale} height={22 * scale}
         style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
       <span style={{ color: 'var(--text)', fontWeight: bold ? 600 : 400 }}>{name}</span>
