@@ -162,8 +162,10 @@ export default function HelpPage() {
 
   return (
     <div style={{ flex: 1, overflowY: 'auto', padding: 24, background: 'transparent' }}>
-      <div style={{ maxWidth: 760 }}>
-        {/* Header */}
+        {/* Header, intro & section jump — centered as one column (margin: auto), not just
+            centered content inside a full-width row, so it lines up with the reading column
+            below instead of floating independently at wide viewports. */}
+        <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginBottom: 6 }}>
           <img src={`${BASE}/assets/Misc/help_cat_black.png`} alt="" height={44} style={{ objectFit: 'contain', flexShrink: 0 }}
                onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
@@ -185,7 +187,10 @@ export default function HelpPage() {
             {SECTION_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
         </div>
+        </div>
 
+        {/* Tab list + Tips — same centered column as the header above */}
+        <div style={{ maxWidth: 760, margin: '0 auto' }}>
         {/* The Tabs */}
         {tabs.length > 0 && (
           <>
