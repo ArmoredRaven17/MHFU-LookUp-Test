@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Every icon in the app sets explicit width/height props for exact, text-scale-aware sizing.
+   Tailwind's preflight (img, video { max-width: 100%; height: auto }) can silently shrink them
+   below that size in a cramped container (e.g. a table cell squeezed by its sibling columns) —
+   neutralize it so icons always render at their intended size. */
+img { max-width: none; }
+
 /* ── MHFU colour palette ───────────────────────────────────────────── */
 :root {
   --bg:         #18181d;

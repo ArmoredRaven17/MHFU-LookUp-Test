@@ -122,7 +122,7 @@ function ItemDetail({ item: it, gather, monsters, treasure }: { item: Item; gath
     <div style={{ maxWidth: 640 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
         <img src={`${BASE}/assets/Items/${it.icon}.png`} alt={it.name} width={48 * scale} height={48 * scale}
-             style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
+             style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>

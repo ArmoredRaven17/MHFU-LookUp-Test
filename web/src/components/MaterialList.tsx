@@ -20,7 +20,7 @@ export default function MaterialList({ csv, vertical }: { csv: string; vertical?
         <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
           {m.icon && (
             <img src={m.icon} alt="" width={18 * scale} height={18 * scale}
-                 style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
+                 style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                  onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
           )}
           {m.path

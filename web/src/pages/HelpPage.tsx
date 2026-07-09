@@ -165,10 +165,10 @@ export default function HelpPage() {
       <div style={{ maxWidth: 760 }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginBottom: 6 }}>
-          <img src={`${BASE}/assets/Misc/help_cat_black.png`} alt="" height={44} style={{ objectFit: 'contain' }}
+          <img src={`${BASE}/assets/Misc/help_cat_black.png`} alt="" height={44} style={{ objectFit: 'contain', flexShrink: 0 }}
                onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
           <h1 style={{ margin: 0, fontSize: 24 * scale, fontWeight: 700, color: 'var(--text)' }}>Help for MHFU Look Up</h1>
-          <img src={`${BASE}/assets/Misc/help_cat_tan.png`} alt="" height={44} style={{ objectFit: 'contain' }}
+          <img src={`${BASE}/assets/Misc/help_cat_tan.png`} alt="" height={44} style={{ objectFit: 'contain', flexShrink: 0 }}
                onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
         </div>
         <p style={{ margin: '0 auto 16px', maxWidth: 620, textAlign: 'center', fontSize: 14 * scale, color: 'var(--muted)', lineHeight: 1.5 }}>

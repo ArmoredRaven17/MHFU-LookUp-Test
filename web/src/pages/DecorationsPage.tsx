@@ -113,7 +113,7 @@ function DecoDetail({ deco: d }: { deco: Decoration }) {
   return (
     <div style={{ maxWidth: 600 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-        <img src={decoIcon(d.color)} alt="" width={32 * scale} height={32 * scale} style={{ objectFit: 'contain' }}
+        <img src={decoIcon(d.color)} alt="" width={32 * scale} height={32 * scale} style={{ objectFit: 'contain', flexShrink: 0 }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{d.name}</h2>
         <BookmarkButton bookmark={{ type: 'decoration', id: d.id, name: d.name, path: `/decorations/${d.id}`, icon: decoIcon(d.color) }} />

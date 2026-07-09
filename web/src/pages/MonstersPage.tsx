@@ -125,7 +125,7 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
         <img src={`${BASE}/assets/Monsters/${m.id}.png`} alt={m.name} width={48 * scale} height={48 * scale}
-             style={{ objectFit: 'contain' }} />
+             style={{ objectFit: 'contain', flexShrink: 0 }} />
         <div>
           <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 22 * scale, fontWeight: 600 }}>{m.name}</h2>
           <p style={{ margin: 0, color: 'var(--muted)', fontSize: 13 * scale }}>{m.type}</p>

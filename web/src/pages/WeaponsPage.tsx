@@ -641,7 +641,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
         <img src={typeIcon(w.type, doc.rarity)} alt="" width={44 * scale} height={44 * scale}
-             style={{ objectFit: 'contain' }} />
+             style={{ objectFit: 'contain', flexShrink: 0 }} />
         <div>
           <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{w.name}</h2>
           <p style={{ margin: 0, color: 'var(--muted)', fontSize: 12 * scale }}>{w.type}</p>
@@ -659,7 +659,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
                 <span style={{ display: 'inline-flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
                   {elements.map((e, i) => (
                     <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: e.color }}>
-                      {e.icon && <img src={e.icon} alt="" width={16 * scale} height={16 * scale} style={{ objectFit: 'contain' }} />}
+                      {e.icon && <img src={e.icon} alt="" width={16 * scale} height={16 * scale} style={{ objectFit: 'contain', flexShrink: 0 }} />}
                       {e.text}
                     </span>
                   ))}
@@ -701,7 +701,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
             <span style={{ color: 'var(--muted)', fontSize: 12 * scale, marginRight: 2 }}>Notes:</span>
             {doc.notes.map((n, i) => (
               <img key={i} src={`${BASE}/assets/Notes/Note.${NOTE_COLOR[n] ?? 'white'}.png`}
-                   alt={n} title={n} width={20 * scale} height={20 * scale} style={{ objectFit: 'contain' }} />
+                   alt={n} title={n} width={20 * scale} height={20 * scale} style={{ objectFit: 'contain', flexShrink: 0 }} />
             ))}
           </div>
         )}
@@ -733,7 +733,7 @@ function WeaponDetail({ weapon: w, allWeapons, hhSongs, onNavigate }: {
                   <span style={{ display: 'inline-flex', gap: 2 }}>
                     {seq.map((n, i) => (
                       <img key={i} src={`${BASE}/assets/Notes/Note.${NOTE_COLOR[n] ?? 'white'}.png`}
-                           alt={n} title={n} width={16 * scale} height={16 * scale} style={{ objectFit: 'contain' }} />
+                           alt={n} title={n} width={16 * scale} height={16 * scale} style={{ objectFit: 'contain', flexShrink: 0 }} />
                     ))}
                   </span>
                   <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: 13 * scale }}>{s.name}</span>

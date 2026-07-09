@@ -80,7 +80,7 @@ export default function GrannyPage() {
             return (
               <div key={i} style={{ display: 'grid', gridTemplateColumns: '28px 180px 80px', alignItems: 'center', marginBottom: 3 }}>
                 {icon
-                  ? <img src={icon} alt="" width={24 * scale} height={24 * scale} style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
+                  ? <img src={icon} alt="" width={24 * scale} height={24 * scale} style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                       onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
                   : <span />}
                 <span style={{ color: 'var(--text)', fontSize: 13 * scale, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', paddingRight: 8 }}>{it.item}</span>

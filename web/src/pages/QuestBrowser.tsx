@@ -138,7 +138,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
                     <span style={{ display: 'flex', gap: 2, flexShrink: 0 }}>
                       {targetIcons(q).map((src, i) => (
                         <img key={i} src={src} alt="" width={20 * scale} height={20 * scale}
-                          style={{ objectFit: 'contain' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
+                          style={{ objectFit: 'contain', flexShrink: 0 }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
                       ))}
                     </span>
                     <span style={{ flex: 1, lineHeight: 1.3 }}>{q.name}</span>
@@ -183,7 +183,7 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
         <span style={{ display: 'flex', gap: 4 }}>
           {icons.map((src, i) => (
             <img key={i} src={src} alt="" width={34 * scale} height={34 * scale}
-              style={{ objectFit: 'contain' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
+              style={{ objectFit: 'contain', flexShrink: 0 }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
           ))}
         </span>
         <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{q.name}</h2>
@@ -207,7 +207,7 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
         )}
         <Field label="Location">
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <img src={locationIconUrl(location)} alt="" width={20 * scale} height={20 * scale} style={{ objectFit: 'contain' }}
+            <img src={locationIconUrl(location)} alt="" width={20 * scale} height={20 * scale} style={{ objectFit: 'contain', flexShrink: 0 }}
                  onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
             <span style={{ color: locationColor(location), fontWeight: 600 }}>{location}</span>
           </span>

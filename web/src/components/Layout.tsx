@@ -92,7 +92,7 @@ export default function Layout() {
       }}>
         {/* App title */}
         <div style={{ padding: '0 12px', height: '100%', borderRight: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-          <img src={`${BASE}/assets/Monsters/${appIcon}.png`} alt="" width={26} height={26} style={{ objectFit: 'contain' }}
+          <img src={`${BASE}/assets/Monsters/${appIcon}.png`} alt="" width={26} height={26} style={{ objectFit: 'contain', flexShrink: 0 }}
                onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
           <span style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 * scale, whiteSpace: 'nowrap' }}>MHFU LookUp</span>
         </div>

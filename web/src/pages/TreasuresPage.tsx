@@ -98,7 +98,7 @@ function TreasureDetail({ treasure: t, monsters }: { treasure: Treasure; monster
     <div style={{ maxWidth: 560 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
         <img src={`${BASE}/assets/Items/${t.icon}.png`} alt={t.name} width={48 * scale} height={48 * scale}
-             style={{ objectFit: 'contain', imageRendering: 'pixelated' }}
+             style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
              onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>

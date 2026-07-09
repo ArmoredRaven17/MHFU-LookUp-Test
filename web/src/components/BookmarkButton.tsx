@@ -29,7 +29,7 @@ export default function BookmarkButton({ bookmark }: Props) {
         alt={active ? 'Bookmarked' : 'Not bookmarked'}
         width={24}
         height={24}
-        style={{ objectFit: 'contain' }}
+        style={{ objectFit: 'contain', flexShrink: 0 }}
       />
     </button>
   )
