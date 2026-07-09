@@ -3,6 +3,7 @@ import { loadKitchen } from '../data/loaders'
 import type { FoodRecipe, FoodIngredient, WhimSkill } from '../types'
 import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const WHIM_PAGE = 0
 
@@ -51,8 +52,7 @@ export default function KitchenPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Chef-level / Whim selector ── */}
-      <div style={{
-        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={240} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)', overflowY: 'auto',
       }}>
         {chefOptions.map(o => {
@@ -67,7 +67,7 @@ export default function KitchenPage() {
             }}>{o.label}</button>
           )
         })}
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Content ── */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>

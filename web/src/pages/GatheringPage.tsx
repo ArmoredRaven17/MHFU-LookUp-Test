@@ -7,6 +7,7 @@ import BookmarkButton from '../components/BookmarkButton'
 import { useMaterialResolver } from '../hooks/useMaterials'
 import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const RANK_DEFS: [keyof GatherNode & string, string][] = [
   ['low', 'Low Rank'], ['high', 'High Rank'], ['g_rank', 'G Rank'],
@@ -40,10 +41,8 @@ export default function GatheringPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Area list ── */}
-      <div style={{
-        width: 220 * scale + (scale > 1 ? 12 : 0), minWidth: 220 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={220} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {areas.map(a => {
@@ -62,7 +61,7 @@ export default function GatheringPage() {
             )
           })}
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail ── */}
       <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', background: 'transparent' }}>

@@ -8,6 +8,7 @@ import BookmarkButton from '../components/BookmarkButton'
 import NotesBox from '../components/NotesBox'
 import MaterialList from '../components/MaterialList'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const cleanMonster = (n: string) => n.replace(/[?!*]+\s*$/, '').trim()
 
@@ -100,10 +101,8 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── List panel ── */}
-      <div style={{
-        width: 280 * scale + (scale > 1 ? 12 : 0), minWidth: 280 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={280} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         <div style={{ padding: '8px', borderBottom: '1px solid var(--border)' }}>
           <select value={catSlug} onChange={e => { setCatSlug(e.target.value); navigate(routeBase) }} style={{
@@ -151,7 +150,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
             </div>
           ))}
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>

@@ -7,6 +7,7 @@ import BookmarkButton from '../components/BookmarkButton'
 import NotesBox from '../components/NotesBox'
 import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 // Hitzone heat map — cell background per value tier (matches desktop HitzoneBrush).
 function hzBg(v: number) {
@@ -64,12 +65,7 @@ export default function MonstersPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── List panel ── */}
-      <div style={{
-        width: 220 * scale + (scale > 1 ? 12 : 0), minWidth: 220 * scale + (scale > 1 ? 12 : 0),
-        background: 'var(--surface)',
-        borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
-      }}>
+      <CollapsiblePanel width={220} style={{ background: 'var(--surface)', borderRight: '1px solid var(--border)' }}>
         <SearchBox value={search} onChange={setSearch} placeholder="Search monsters…" />
         <div style={{ overflowY: 'auto', flex: 1 }}>
           {groups.map(g => (
@@ -104,7 +100,7 @@ export default function MonstersPage() {
             <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No monsters found.</p>
           )}
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>

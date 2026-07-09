@@ -3,6 +3,7 @@ import { loadAwards } from '../data/loaders'
 import type { Award } from '../types'
 import SearchBox from '../components/SearchBox'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
@@ -27,10 +28,8 @@ export default function AwardsPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── List panel ── */}
-      <div style={{
-        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={240} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         <SearchBox value={search} onChange={v => { setSearch(v); setSelected(null) }} placeholder="Search awards…" />
 
@@ -63,7 +62,7 @@ export default function AwardsPage() {
             <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No awards found.</p>
           )}
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>

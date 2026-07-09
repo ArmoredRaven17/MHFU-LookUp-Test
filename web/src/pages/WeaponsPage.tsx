@@ -11,6 +11,7 @@ import WeaponFilterModal from '../components/WeaponFilterModal'
 import Dropdown from '../components/Dropdown'
 import { defaultWeaponFilter, isWeaponFilterActive, matchesWeaponFilter } from '../utils/weaponFilter'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -361,11 +362,6 @@ export default function WeaponsPage() {
   const [hhSongs, setHhSongs] = useState<HhSongData | null>(null)
   const [type, setType] = useState('Great Sword')
 
-  // Fixed tree panel width — wide enough that every weapon type's deepest tree
-  // (longest names/nesting, e.g. Great Sword) shows in full without horizontal scrolling.
-  // Scales with text size so it stays wide enough as the tree's text grows.
-  const TREE_WIDTH = 460 * scale + (scale > 1 ? 12 : 0)
-
   useEffect(() => {
     loadWeapons().then(setWeapons)
     loadHhSongs().then(setHhSongs)
@@ -473,10 +469,8 @@ export default function WeaponsPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Left panel ── */}
-      <div style={{
-        width: TREE_WIDTH, minWidth: TREE_WIDTH,
+      <CollapsiblePanel width={460} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         {/* Weapon type dropdown */}
         <div style={{ padding: '6px', borderBottom: '1px solid var(--border)' }}>
@@ -525,7 +519,7 @@ export default function WeaponsPage() {
             )}
           </div>
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>

@@ -6,6 +6,7 @@ import { BASE } from '../utils/assets'
 import { locationIconUrl, locationColor } from '../utils/location'
 import BookmarkButton from '../components/BookmarkButton'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -94,8 +95,7 @@ export default function TrenyaPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Destinations ── */}
-      <div style={{
-        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={240} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)', overflowY: 'auto',
       }}>
         {locations.map(l => {
@@ -113,7 +113,7 @@ export default function TrenyaPage() {
             </button>
           )
         })}
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail ── */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>

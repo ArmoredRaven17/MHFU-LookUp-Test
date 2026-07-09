@@ -4,6 +4,7 @@ import { loadPokke, loadItems, loadTreasures, loadDecorations } from '../data/lo
 import type { PokkeItem, Item, Treasure, Decoration } from '../types'
 import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -90,8 +91,7 @@ export default function PokkePage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Farm areas ── */}
-      <div style={{
-        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={240} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)', overflowY: 'auto',
       }}>
         {areas.map(a => {
@@ -112,7 +112,7 @@ export default function PokkePage() {
             </button>
           )
         })}
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Obtainable items (all tiers stacked) ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: '12px 16px 16px', background: 'transparent' }}>

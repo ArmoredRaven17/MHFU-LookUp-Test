@@ -4,6 +4,7 @@ import type { VeggieItem, Item, Treasure } from '../types'
 import { BASE } from '../utils/assets'
 import SearchBox from '../components/SearchBox'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -71,10 +72,8 @@ export default function VeggiePage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── Search + zones ── */}
-      <div style={{
-        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={240} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         <SearchBox value={search} onChange={setSearch} placeholder="Search items…" />
         <div style={{ overflowY: 'auto', flex: 1 }}>
@@ -91,7 +90,7 @@ export default function VeggiePage() {
             )
           })}
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Trades ── */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'transparent' }}>

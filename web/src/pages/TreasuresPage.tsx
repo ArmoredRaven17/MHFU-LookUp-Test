@@ -8,6 +8,7 @@ import { BASE } from '../utils/assets'
 import { useItemSources, normName, type MonsterSource } from '../hooks/useItemSources'
 import { locationColor } from '../utils/location'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const AWARD_GOLD = '#E0B000'
 
@@ -42,10 +43,8 @@ export default function TreasuresPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── List panel ── */}
-      <div style={{
-        width: 260 * scale + (scale > 1 ? 12 : 0), minWidth: 260 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={260} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         <SearchBox value={search} onChange={setSearch} placeholder="Search treasures…" />
         <p style={{ margin: 0, padding: '0 10px 6px', fontSize: 11 * scale, fontStyle: 'italic', color: 'var(--muted)' }}>
@@ -78,7 +77,7 @@ export default function TreasuresPage() {
           ))}
           {groups.length === 0 && <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No treasures found.</p>}
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>

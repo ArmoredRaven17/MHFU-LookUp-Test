@@ -7,6 +7,7 @@ import BookmarkButton from '../components/BookmarkButton'
 import MaterialList from '../components/MaterialList'
 import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
+import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const signStr = (n: number) => (n > 0 ? `+${n}` : `${n}`)
 const signColor = (n: number) => (n > 0 ? 'var(--positive)' : n < 0 ? 'var(--negative)' : 'var(--muted)')
@@ -50,10 +51,8 @@ export default function DecorationsPage() {
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
       {/* ── List panel ── */}
-      <div style={{
-        width: 240 * scale + (scale > 1 ? 12 : 0), minWidth: 240 * scale + (scale > 1 ? 12 : 0),
+      <CollapsiblePanel width={240} style={{
         backgroundColor: 'var(--bg)', backgroundImage: `linear-gradient(rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.92)), url(${BASE}/assets/Textures/content_bg.png)`, backgroundRepeat: 'no-repeat, repeat', borderRight: '1px solid var(--border)',
-        display: 'flex', flexDirection: 'column', overflow: 'hidden',
       }}>
         <SearchBox value={search} onChange={setSearch} placeholder="Search decorations…" />
         <div style={{ padding: '0 8px 6px' }}>
@@ -93,7 +92,7 @@ export default function DecorationsPage() {
             <p style={{ color: 'var(--muted)', padding: 12, fontSize: 13 * scale }}>No decorations found.</p>
           )}
         </div>
-      </div>
+      </CollapsiblePanel>
 
       {/* ── Detail panel ── */}
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
