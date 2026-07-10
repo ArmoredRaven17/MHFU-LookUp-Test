@@ -44,7 +44,7 @@ export interface Monster {
 export interface Item {
   id: number; category: string; name: string; icon: string;
   rarity: string; capacity: string; value: string;
-  pokke_value: string; description: string;
+  pokke_value: string; description: string; point_exchange: string;
 }
 
 // ── Weapons ────────────────────────────────────────────────────────────

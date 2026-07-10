@@ -158,6 +158,7 @@ function ItemDetail({ item: it, gather, monsters, treasure, combos, resolveCombo
             ['Capacity', it.capacity || '—'],
             ['Value', it.value ? `${it.value}z` : '—'],
             ...(it.pokke_value ? [['Pokke Value', it.pokke_value]] : []),
+            ...(it.point_exchange ? [['Point Exchange', it.point_exchange]] : []),
             ...(it.description ? [['Description', it.description]] : []),
           ].map(([label, value]) => (
             <tr key={label} className="tbl-row">
@@ -222,7 +223,7 @@ function ItemDetail({ item: it, gather, monsters, treasure, combos, resolveCombo
             <tbody>
               {combos.map((c, i) => (
                 <tr key={i} className="tbl-row">
-                  <td className="tbl-cell"><ComboItemCell name={c.result} icon={comboIconUrl(c.result)} bold /></td>
+                  <td className="tbl-cell"><ComboItemCell name={c.result} icon={comboIconUrl(c.result)} bold badge={c.section === 'Alchemy only' ? <AlchemyBadge /> : undefined} /></td>
                   <td className="tbl-cell" style={{ color: 'var(--muted)', textAlign: 'center' }}>=</td>
                   <td className="tbl-cell"><ComboItemCell name={c.mat1} icon={comboIconUrl(c.mat1)} /></td>
                   <td className="tbl-cell" style={{ color: 'var(--muted)', textAlign: 'center' }}>{c.mat2 ? '+' : ''}</td>
@@ -239,7 +240,7 @@ function ItemDetail({ item: it, gather, monsters, treasure, combos, resolveCombo
   )
 }
 
-function ComboItemCell({ name, icon, bold }: { name: string; icon: string | null; bold?: boolean }) {
+function ComboItemCell({ name, icon, bold, badge }: { name: string; icon: string | null; bold?: boolean; badge?: React.ReactNode }) {
   const scale = useTextScale()
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
@@ -247,7 +248,18 @@ function ComboItemCell({ name, icon, bold }: { name: string; icon: string | null
         style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
         onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
       <span style={{ color: 'var(--text)', fontWeight: bold ? 600 : 400 }}>{name}</span>
+      {badge}
     </span>
+  )
+}
+
+function AlchemyBadge() {
+  const scale = useTextScale()
+  return (
+    <span title="Made in the Alchemy Pot" style={{
+      background: '#8a5fc7', color: '#fff', fontWeight: 700, borderRadius: 3, letterSpacing: '0.04em',
+      fontSize: 9 * scale, padding: '1px 5px', flexShrink: 0,
+    }}>ALCHEMY</span>
   )
 }
 

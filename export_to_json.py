@@ -47,7 +47,7 @@ save('hh_songs.json', {
 # ── Items ─────────────────────────────────────────────────────────────────────
 print('Exporting items…')
 rows = con.execute(
-    'SELECT id, category, name, icon, rarity, capacity, value, pokke_value, description '
+    'SELECT id, category, name, icon, rarity, capacity, value, pokke_value, description, point_exchange '
     'FROM items ORDER BY sort_order, name'
 ).fetchall()
 save('items.json', [dict(r) for r in rows])
