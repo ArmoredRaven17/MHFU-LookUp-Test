@@ -78,7 +78,7 @@ export default function GrannyPage() {
           {wares.map((it, i) => {
             const icon = resolveIcon(it.item)
             return (
-              <div key={i} style={{ display: 'grid', gridTemplateColumns: '28px 180px 80px', alignItems: 'center', marginBottom: 3 }}>
+              <div key={i} style={{ display: 'grid', gridTemplateColumns: `${28 * scale}px ${180 * scale}px ${80 * scale}px`, alignItems: 'center', marginBottom: 3 }}>
                 {icon
                   ? <img src={icon} alt="" width={24 * scale} height={24 * scale} style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
                       onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />

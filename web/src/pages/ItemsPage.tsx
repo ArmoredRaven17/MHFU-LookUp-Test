@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { loadItems } from '../data/loaders'
-import type { Item } from '../types'
+import { loadItems, loadTreasures } from '../data/loaders'
+import type { Item, Treasure, Combo } from '../types'
 import SearchBox from '../components/SearchBox'
 import { BASE } from '../utils/assets'
 import BookmarkButton from '../components/BookmarkButton'
 import { useItemSources, normName, type GatherSource, type MonsterSource } from '../hooks/useItemSources'
 import { useTextScale } from '../theme/textScale'
 import CollapsiblePanel from '../components/CollapsiblePanel'
+import { makeComboIconResolver, pctColor } from '../utils/comboIcons'
 
 // Item-master rows that are actually Treasure-Hunt items (shown in the Treasures tab instead).
 const TREASURE_ITEMS = new Set([
@@ -19,17 +20,22 @@ const TREASURE_ITEMS = new Set([
 
 const GATHER_MARK = `${BASE}/assets/Misc/gather_icon_green.png`
 const TREASURE_FILTER = 'hue-rotate(-48deg) saturate(1.7) brightness(1.15)'   // green marker → yellow (Treasure Hunt)
+// Web-only addition: no desktop equivalent flags an item as combinable — the desktop Items view has
+// no combo cross-reference at all, so this badge + the "Combinations" detail section are web-only.
+const COMBO_MARK = `${BASE}/assets/Items/MH4G-Book_Icon_Grey.png`
 
 export default function ItemsPage() {
   const scale = useTextScale()
   const { name } = useParams()
   const navigate = useNavigate()
   const [items, setItems] = useState<Item[]>([])
+  const [treasures, setTreasures] = useState<Treasure[]>([])
   const [search, setSearch] = useState('')
-  const { gathered, monsterSrc, gatherable, treasureHunt } = useItemSources()
+  const { gathered, monsterSrc, gatherable, treasureHunt, comboIndex } = useItemSources()
   const groupRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  const resolveComboIcon = useMemo(() => makeComboIconResolver(items, treasures), [items, treasures])
 
-  useEffect(() => { loadItems().then(setItems) }, [])
+  useEffect(() => { loadItems().then(setItems); loadTreasures().then(setTreasures) }, [])
 
   // Grouped by category (source order), hiding Cut Content + treasure-hunt items.
   const groups = useMemo(() => {
@@ -91,6 +97,9 @@ export default function ItemsPage() {
                     {treasureHunt.has(normName(it.name)) && (
                       <img src={GATHER_MARK} alt="" title="Treasure Hunt" width={13 * scale} height={13 * scale} style={{ flexShrink: 0, filter: TREASURE_FILTER }} />
                     )}
+                    {comboIndex.has(normName(it.name)) && (
+                      <img src={COMBO_MARK} alt="" title="Combinable" width={13 * scale} height={13 * scale} style={{ flexShrink: 0 }} />
+                    )}
                   </button>
                 )
               })}
@@ -107,16 +116,22 @@ export default function ItemsPage() {
           : <ItemDetail item={selected}
               gather={gathered.get(normName(selected.name)) ?? []}
               monsters={monsterSrc.get(normName(selected.name)) ?? []}
-              treasure={treasureHunt.has(normName(selected.name))} />
+              treasure={treasureHunt.has(normName(selected.name))}
+              combos={comboIndex.get(normName(selected.name)) ?? []}
+              resolveComboIcon={resolveComboIcon} />
         }
       </div>
     </div>
   )
 }
 
-function ItemDetail({ item: it, gather, monsters, treasure }: { item: Item; gather: GatherSource[]; monsters: MonsterSource[]; treasure: boolean }) {
+function ItemDetail({ item: it, gather, monsters, treasure, combos, resolveComboIcon }: {
+  item: Item; gather: GatherSource[]; monsters: MonsterSource[]; treasure: boolean
+  combos: Combo[]; resolveComboIcon: (name: string) => string
+}) {
   const scale = useTextScale()
   const navigate = useNavigate()
+  const comboIconUrl = (name: string) => { const ic = resolveComboIcon(name); return ic ? `${BASE}/assets/Items/${ic}.png` : null }
   return (
     <div style={{ maxWidth: 640 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
@@ -128,6 +143,7 @@ function ItemDetail({ item: it, gather, monsters, treasure }: { item: Item; gath
             <h2 style={{ margin: 0, color: 'var(--text)', fontSize: 20 * scale, fontWeight: 600 }}>{it.name}</h2>
             {gather.length > 0 && <img src={GATHER_MARK} alt="" title="Gatherable" width={17 * scale} height={17 * scale} />}
             {treasure && <img src={GATHER_MARK} alt="" title="Treasure Hunt" width={17 * scale} height={17 * scale} style={{ filter: TREASURE_FILTER }} />}
+            {combos.length > 0 && <img src={COMBO_MARK} alt="" title="Combinable" width={17 * scale} height={17 * scale} />}
           </div>
           <p style={{ margin: 0, color: 'var(--muted)', fontSize: 12 * scale }}>{it.category}</p>
         </div>
@@ -188,7 +204,50 @@ function ItemDetail({ item: it, gather, monsters, treasure }: { item: Item; gath
           </table>
         </Section>
       )}
+
+      {combos.length > 0 && (
+        <Section title="Combinations">
+          <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: 560 }}>
+            <thead>
+              <tr>
+                <th className="tbl-header" style={{ textAlign: 'left' }}>Product</th>
+                <th className="tbl-header" />
+                <th className="tbl-header" style={{ textAlign: 'left' }}>Item 1</th>
+                <th className="tbl-header" />
+                <th className="tbl-header" style={{ textAlign: 'left' }}>Item 2</th>
+                <th className="tbl-header" style={{ textAlign: 'right' }}>Success Chance</th>
+                <th className="tbl-header" style={{ textAlign: 'right' }}>Qty</th>
+              </tr>
+            </thead>
+            <tbody>
+              {combos.map((c, i) => (
+                <tr key={i} className="tbl-row">
+                  <td className="tbl-cell"><ComboItemCell name={c.result} icon={comboIconUrl(c.result)} bold /></td>
+                  <td className="tbl-cell" style={{ color: 'var(--muted)', textAlign: 'center' }}>=</td>
+                  <td className="tbl-cell"><ComboItemCell name={c.mat1} icon={comboIconUrl(c.mat1)} /></td>
+                  <td className="tbl-cell" style={{ color: 'var(--muted)', textAlign: 'center' }}>{c.mat2 ? '+' : ''}</td>
+                  <td className="tbl-cell">{c.mat2 && <ComboItemCell name={c.mat2} icon={comboIconUrl(c.mat2)} />}</td>
+                  <td className="tbl-cell" style={{ textAlign: 'right', color: pctColor(c.pct), fontWeight: 600 }}>{c.pct}</td>
+                  <td className="tbl-cell" style={{ textAlign: 'right', color: 'var(--muted)' }}>{c.qty}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Section>
+      )}
     </div>
+  )
+}
+
+function ComboItemCell({ name, icon, bold }: { name: string; icon: string | null; bold?: boolean }) {
+  const scale = useTextScale()
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+      {icon && <img src={icon} alt="" width={22 * scale} height={22 * scale}
+        style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
+        onError={e => { (e.target as HTMLImageElement).style.visibility = 'hidden' }} />}
+      <span style={{ color: 'var(--text)', fontWeight: bold ? 600 : 400 }}>{name}</span>
+    </span>
   )
 }
 

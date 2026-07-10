@@ -3,6 +3,7 @@ import { loadCombos, loadItems, loadTreasures } from '../data/loaders'
 import type { Combo, Item, Treasure } from '../types'
 import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
+import { makeComboIconResolver, pctColor } from '../utils/comboIcons'
 
 // Dropdown: [section value, friendly label]. 'All' shows every section.
 const SECTION_OPTIONS: [string, string][] = [
@@ -12,42 +13,6 @@ const SECTION_OPTIONS: [string, string][] = [
   ['Treasure Hunts only', 'Treasures'],
 ]
 const SECTION_ORDER = ['Combination List', 'Alchemy only', 'Treasure Hunts only']
-
-const normName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
-const stripLv = (s: string) => s.replace(/\s*Lv\d+$/, '')
-
-// Success-chance colour: high = green, mid = amber, low = red (clearer than a flat colour).
-function pctColor(pct: string) {
-  const n = parseInt(pct, 10)
-  if (isNaN(n)) return 'var(--muted)'
-  if (n >= 90) return 'var(--positive)'
-  if (n >= 70) return '#d9a441'
-  return 'var(--negative)'
-}
-
-// Resolve a combo item name to its icon basename (items ∪ treasures; exact, then normalised,
-// then ammo-Lv-stripped) — mirrors the desktop combo icon resolver.
-function makeResolver(items: Item[], treasures: Treasure[]) {
-  const exact = new Map<string, string>([
-    ['sm lao-shan claw', 'MH4G-Claw_Icon_Red'],
-    ['goldfelynjewelsword', 'MH4G-Knife_Icon_Yellow'], // matches the Paralyze Thr Knf / GldFlynJewelSwd icon
-  ])
-  const norm = new Map<string, string>()
-  const ammo = new Map<string, string>()
-  for (const { name, icon } of [...items, ...treasures] as { name: string; icon: string }[]) {
-    if (!icon) continue
-    const lk = name.toLowerCase()
-    if (!exact.has(lk)) exact.set(lk, icon)
-    const nk = normName(name)
-    if (!norm.has(nk)) norm.set(nk, icon)
-    const sl = stripLv(name)
-    if (sl !== name) { const ak = normName(sl); if (!ammo.has(ak)) ammo.set(ak, icon) }
-  }
-  return (name: string) => {
-    if (!name) return ''
-    return exact.get(name.toLowerCase()) ?? norm.get(normName(name)) ?? ammo.get(normName(stripLv(name))) ?? ''
-  }
-}
 
 export default function ComboListPage() {
   const [combos, setCombos] = useState<Combo[]>([])
@@ -63,7 +28,7 @@ export default function ComboListPage() {
     loadTreasures().then(setTreasures)
   }, [])
 
-  const resolve = useMemo(() => makeResolver(items, treasures), [items, treasures])
+  const resolve = useMemo(() => makeComboIconResolver(items, treasures), [items, treasures])
   const iconUrl = (name: string) => { const ic = resolve(name); return ic ? `${BASE}/assets/Items/${ic}.png` : null }
 
   // Filter by section + Result search, grouped by section in display order.

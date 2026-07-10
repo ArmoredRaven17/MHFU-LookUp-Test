@@ -193,7 +193,7 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
       </div>
 
       {/* Field grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '110px 1fr', rowGap: 4, columnGap: 10, fontSize: 13 * scale, marginBottom: 14 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: `${110 * scale}px 1fr`, rowGap: 4 * scale, columnGap: 10 * scale, fontSize: 13 * scale, marginBottom: 14 }}>
         <Field label="Objective">{q.objective}</Field>
         {training && q.danger && <Field label="Danger"><span style={{ color: 'var(--text)', fontWeight: 600 }}>{q.danger}</span></Field>}
         {q.environment && (

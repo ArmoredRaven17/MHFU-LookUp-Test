@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { loadGathering, loadMonsters } from '../data/loaders'
-import type { GatheringArea, GatherItem, Monster, RewardDrop } from '../types'
+import { loadGathering, loadMonsters, loadCombos } from '../data/loaders'
+import type { GatheringArea, GatherItem, Monster, RewardDrop, Combo } from '../types'
 
 export interface GatherSource { location: string; area: string; rank: string; rate: string }
 export interface MonsterSource { monster: string; monsterId: string; source: string; rank: string; rate: string }
@@ -116,22 +116,37 @@ function buildTreasureHunt(areas: GatheringArea[], monsters: Monster[]): Set<str
   return set
 }
 
-/** Reverse-lookup indices for where an item/treasure comes from (gathering + monster loot). */
+// Combo index: an item can appear as the product, mat1, or mat2 of a combo — index all three
+// roles back to the same combo row so either side's item page can list it.
+function buildCombinable(combos: Combo[]): Map<string, Combo[]> {
+  const tmp = new Map<string, Combo[]>()
+  const add = (name: string, c: Combo) => {
+    if (!name) return
+    const k = normName(name)
+    ;(tmp.get(k) ?? tmp.set(k, []).get(k)!).push(c)
+  }
+  for (const c of combos) { add(c.result, c); add(c.mat1, c); add(c.mat2, c) }
+  return tmp
+}
+
+/** Reverse-lookup indices for where an item/treasure comes from (gathering + monster loot + combos). */
 export function useItemSources() {
   const [gathered, setGathered] = useState<Map<string, GatherSource[]>>(new Map())
   const [gatherable, setGatherable] = useState<Set<string>>(new Set())
   const [monsterSrc, setMonsterSrc] = useState<Map<string, MonsterSource[]>>(new Map())
   const [treasureHunt, setTreasureHunt] = useState<Set<string>>(new Set())
+  const [comboIndex, setComboIndex] = useState<Map<string, Combo[]>>(new Map())
 
   useEffect(() => {
-    Promise.all([loadGathering(), loadMonsters()]).then(([areas, monsters]) => {
+    Promise.all([loadGathering(), loadMonsters(), loadCombos()]).then(([areas, monsters, combos]) => {
       const g = buildGathered(areas)
       setGathered(g.index)
       setGatherable(g.gatherable)
       setMonsterSrc(buildMonsterSources(monsters))
       setTreasureHunt(buildTreasureHunt(areas, monsters))
+      setComboIndex(buildCombinable(combos))
     })
   }, [])
 
-  return { gathered, monsterSrc, gatherable, treasureHunt }
+  return { gathered, monsterSrc, gatherable, treasureHunt, comboIndex }
 }

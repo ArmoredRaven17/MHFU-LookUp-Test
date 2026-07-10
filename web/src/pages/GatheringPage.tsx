@@ -127,7 +127,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
     return out
   }, [nodes, ranks, effRank, search]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const GRID = '110px 44px 72px 1fr'
+  const GRID = `${110 * scale}px ${44 * scale}px ${72 * scale}px 1fr`
 
   return (
     <>
@@ -170,7 +170,7 @@ function AreaDetail({ area }: { area: GatheringArea }) {
                 }
                 const mat = resolveMaterial(ln.name)[0]
                 return (
-                  <span key={j} style={{ display: 'grid', gridTemplateColumns: '200px 46px', alignItems: 'center' }}>
+                  <span key={j} style={{ display: 'grid', gridTemplateColumns: `${200 * scale}px ${46 * scale}px`, alignItems: 'center' }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, minWidth: 0 }}>
                       {mat?.icon && <img src={mat.icon} alt="" width={16 * scale} height={16 * scale}
                         style={{ objectFit: 'contain', flexShrink: 0, imageRendering: 'pixelated' }}
