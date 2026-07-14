@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { loadQuests, loadMonsters, loadItems } from '../data/loaders'
-import type { Quest, QuestCategory, Monster, Item, QuestLoadout } from '../types'
+import type { Quest, QuestCategory, QuestRank, Monster, MonsterQuestEntry, Item, QuestLoadout } from '../types'
 import { BASE } from '../utils/assets'
 import { locationIconUrl, locationColor } from '../utils/location'
 import BookmarkButton from '../components/BookmarkButton'
@@ -35,6 +35,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
   const scale = useTextScale()
   const [categories, setCategories] = useState<QuestCategory[]>([])
   const [monsterId, setMonsterId] = useState<Map<string, string>>(new Map())
+  const [monsterByName, setMonsterByName] = useState<Map<string, Monster>>(new Map())
   const [itemsByLen, setItemsByLen] = useState<{ name: string; icon: string }[]>([])
 
   const slugs = useMemo(() => categoryOrder.map(c => c[0]), [categoryOrder])
@@ -46,7 +47,10 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
       const mine = all.filter(c => slugs.includes(c.slug)).sort((a, b) => slugs.indexOf(a.slug) - slugs.indexOf(b.slug))
       setCategories(mine)
     })
-    loadMonsters().then((ms: Monster[]) => setMonsterId(new Map(ms.map(m => [m.name.toLowerCase(), m.id]))))
+    loadMonsters().then((ms: Monster[]) => {
+      setMonsterId(new Map(ms.map(m => [m.name.toLowerCase(), m.id])))
+      setMonsterByName(new Map(ms.map(m => [m.name.toLowerCase(), m])))
+    })
     loadItems().then((items: Item[]) => setItemsByLen(
       items.filter(i => i.icon).map(i => ({ name: i.name, icon: i.icon })).sort((a, b) => b.name.length - a.name.length)
     ))
@@ -92,11 +96,12 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
   }, [parsed?.slug]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const cat = useMemo(() => categories.find(c => c.slug === catSlug), [categories, catSlug])
-  const selected = useMemo(() => {
+  const selectedWithRank = useMemo(() => {
     if (!parsed || !cat) return null
-    for (const r of cat.ranks) { const q = r.quests.find(x => x.name === parsed.name); if (q) return q }
+    for (const r of cat.ranks) { const q = r.quests.find(x => x.name === parsed.name); if (q) return { quest: q, rank: r } }
     return null
   }, [parsed, cat])
+  const selected = selectedWithRank?.quest ?? null
 
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
@@ -156,8 +161,8 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
       <div style={{ flex: 1, overflowY: 'auto', padding: 16, background: 'transparent' }}>
         {!selected
           ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 * scale }}>Select a quest.</p>
-          : <QuestDetail quest={selected} slug={catSlug} icons={targetIcons(selected)} training={training}
-                         path={questPath(catSlug, selected.name)} />
+          : <QuestDetail quest={selected} slug={catSlug} rank={selectedWithRank?.rank} icons={targetIcons(selected)} training={training}
+                         path={questPath(catSlug, selected.name)} monsterByName={monsterByName} />
         }
       </div>
     </div>
@@ -166,11 +171,23 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
 
 // ── Detail ────────────────────────────────────────────────────────────────────
 
-function QuestDetail({ quest: q, slug, icons, training, path }: {
-  quest: Quest; slug: string; icons: string[]; training: boolean; path: string
+// Find a monster's stat entry for this quest, disambiguating repeated quest names by level (e.g. Nekoht 9★ vs G2★).
+function findQuestEntry(mon: Monster, questName: string, expectedLevel: string): MonsterQuestEntry | undefined {
+  const es = (mon.quests?.entries ?? []).filter(e => e.quest === questName)
+  if (es.length <= 1) return es[0]
+  return es.find(e => e.level === expectedLevel) ?? es[0]
+}
+
+function QuestDetail({ quest: q, slug, rank, icons, training, path, monsterByName }: {
+  quest: Quest; slug: string; rank?: QuestRank; icons: string[]; training: boolean; path: string
+  monsterByName: Map<string, Monster>
 }) {
   const scale = useTextScale()
+  const navigate = useNavigate()
   const { location, timeOfDay } = splitArea(q.area)
+  // Expected entry level for this quest: "G2★" for G-rank categories, else "9★".
+  const isG = slug.endsWith('g_rank') || /G★/.test(rank?.label ?? '')
+  const expectedLevel = rank ? `${isG ? 'G' : ''}${rank.stars}★` : ''
   const bmIcon = icons[0]
   const desc = q.description && q.description !== ':' ? q.description : null
   const id = questId(slug, q.name)
@@ -219,7 +236,38 @@ function QuestDetail({ quest: q, slug, icons, training, path }: {
 
       {q.monsters.length > 0 && (
         <Section title="Monsters">
-          <p style={{ margin: 0, fontSize: 13 * scale, color: 'var(--text)' }}>{q.monsters.join(', ')}</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {q.monsters.map((raw, i) => {
+              const name = cleanMonster(raw)
+              const mon = monsterByName.get(name.toLowerCase())
+              const entry = mon ? findQuestEntry(mon, q.name, expectedLevel) : undefined
+              const rage = mon?.quests?.rage
+              return (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', fontSize: 13 * scale }}>
+                  {mon && (
+                    <img src={`${BASE}/assets/Monsters/${mon.id}.png`} alt="" width={22 * scale} height={22 * scale}
+                         style={{ objectFit: 'contain', flexShrink: 0 }} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
+                  )}
+                  {mon
+                    ? <button onClick={() => navigate(`/monsters/${mon.id}`)} style={{
+                        background: 'none', border: 'none', padding: 0, cursor: 'pointer',
+                        color: 'var(--accent)', textDecoration: 'underline', fontWeight: 600, fontSize: 13 * scale,
+                      }}>{name}</button>
+                    : <span style={{ color: 'var(--text)' }}>{name}</span>}
+                  {entry && (
+                    <span style={{ color: 'var(--muted)' }}>
+                      <b style={{ color: 'var(--text)' }}>HP</b> {entry.hp}
+                      {'  ·  '}<b style={{ color: 'var(--text)' }}>Atk</b> {entry.atk}
+                      {'  ·  '}<b style={{ color: 'var(--text)' }}>Def</b> {entry.def}
+                      {'  ·  '}<b style={{ color: 'var(--text)' }}>Size</b>{' '}
+                      {entry.size_min === entry.size_max ? `${entry.size_min}%` : `${entry.size_min}–${entry.size_max}%`}
+                      {rage && <>{'  ·  '}<span style={{ color: 'var(--text)' }}>Enraged</span> ×{rage.atk} atk / ×{rage.def} def</>}
+                    </span>
+                  )}
+                </div>
+              )
+            })}
+          </div>
         </Section>
       )}
 

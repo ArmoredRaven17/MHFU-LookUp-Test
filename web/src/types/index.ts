@@ -15,8 +15,22 @@ export interface AilmentTolerance {
 }
 // A tool/trap the monster reacts to mid-fight (item + effect + notes).
 export interface MonsterItem { item: string; effect?: string; duration?: number; notes?: string }
-// The monster's quest metadata; `notes` holds the read-only "Monster Facts" lore.
-export interface MonsterQuests { notes?: string; [key: string]: unknown }
+// A single quest appearance's ROM-verified combat stats for this monster.
+export interface MonsterQuestEntry {
+  rank: string; level: string; quest: string;
+  size_min: number; size_max: number;
+  hp: number; atk: number; def: number;
+}
+// Enrage-mode multipliers (ROM-sourced, per monster).
+export interface MonsterRage { atk: number; def: number }
+// The monster's quest metadata; `notes` holds the read-only "Monster Facts" lore,
+// `entries` the per-quest HP/atk/def/size, `rage` the enrage multipliers.
+export interface MonsterQuests {
+  notes?: string
+  entries?: MonsterQuestEntry[]
+  rage?: MonsterRage
+  [key: string]: unknown
+}
 
 // Reward drop: item name + percentage (from the ROM loot tables)
 export interface RewardDrop { item: string; pct: number; }

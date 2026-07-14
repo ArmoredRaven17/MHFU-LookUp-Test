@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { loadMonsters, loadMonsterOrder } from '../data/loaders'
-import type { Monster, Hitzone, RewardDrop } from '../types'
+import { loadMonsters, loadMonsterOrder, loadQuests } from '../data/loaders'
+import type { Monster, Hitzone, RewardDrop, MonsterQuestEntry, QuestCategory } from '../types'
 import SearchBox from '../components/SearchBox'
 import BookmarkButton from '../components/BookmarkButton'
 import NotesBox from '../components/NotesBox'
@@ -17,17 +17,50 @@ function hzBg(v: number) {
   return '#383838'                // dark grey — resistant
 }
 
+// Quest categories that have a browsable detail page, mapped to their route base.
+// Main quest lines → /quests, Training School → /training. Event/Challenge/Treasure
+// quests aren't in the quest browser at all, so they stay plain text.
+const QUEST_ROUTE_BY_SLUG: Record<string, string> = {
+  village_low_rank_elder: '/quests', guild_low_rank: '/quests', village_high_rank_nekoht: '/quests',
+  guild_high_rank: '/quests', guild_g_rank: '/quests',
+  training_basic: '/training', training_weapon_mastery: '/training', training_battle: '/training',
+  training_special: '/training', training_g_lv: '/training', training_group: '/training',
+}
+// Build a quest-name → deep-link path map from the loaded quest categories.
+// Main categories iterate first (in quests.json), so they win over training on any name clash.
+const TREASURE_QUEST_NAMES = [
+  'Treasure in the Mountains!', 'Treasure in the Jungle!', 'Treasure in the Desert!', 'Treasure in the Swamp!',
+  'Treasure in the Hills!', 'Treasure in the Lava!', 'Treasure in the Grt Forest!',
+]
+function buildQuestLinks(cats: QuestCategory[]): Map<string, string> {
+  const m = new Map<string, string>()
+  for (const c of cats) {
+    const base = QUEST_ROUTE_BY_SLUG[c.slug]
+    if (!base) continue
+    for (const rk of c.ranks) for (const q of rk.quests) {
+      if (!m.has(q.name)) m.set(q.name, `${base}/${encodeURIComponent(`${c.slug}::${q.name}`)}`)
+    }
+  }
+  // Treasure Hunt quests live on the Treasures tab (Quests mode), not the quest browser.
+  for (const name of TREASURE_QUEST_NAMES) {
+    if (!m.has(name)) m.set(name, `/treasures/${encodeURIComponent(`q:${name}`)}`)
+  }
+  return m
+}
+
 export default function MonstersPage() {
   const scale = useTextScale()
   const { id } = useParams()
   const navigate = useNavigate()
   const [monsters, setMonsters] = useState<Monster[]>([])
   const [order, setOrder] = useState<Record<string, string[]>>({})
+  const [questLinks, setQuestLinks] = useState<Map<string, string>>(new Map())
   const [search, setSearch] = useState('')
 
   useEffect(() => {
     loadMonsters().then(setMonsters)
     loadMonsterOrder().then(setOrder)
+    loadQuests().then(cats => setQuestLinks(buildQuestLinks(cats)))
   }, [])
 
   const byId = useMemo(() => new Map(monsters.map(m => [m.id, m])), [monsters])
@@ -107,14 +140,14 @@ export default function MonstersPage() {
         {!selected ? (
           <p className="text-muted" style={{ marginTop: 16 }}>Select a monster from the list.</p>
         ) : (
-          <MonsterDetail monster={selected} />
+          <MonsterDetail monster={selected} questLinks={questLinks} />
         )}
       </div>
     </div>
   )
 }
 
-function MonsterDetail({ monster: m }: { monster: Monster }) {
+function MonsterDetail({ monster: m, questLinks }: { monster: Monster; questLinks: Map<string, string> }) {
   const scale = useTextScale()
   return (
     <div style={{ maxWidth: 900 }}>
@@ -128,6 +161,9 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
         </div>
         <BookmarkButton bookmark={{ type: 'monster', id: m.id, name: m.name, path: `/monsters/${m.id}`, icon: `${BASE}/assets/Monsters/${m.id}.png` }} />
       </div>
+
+      {/* Quest Stats — ROM-verified per-quest HP/atk/def/size + enrage multipliers */}
+      <QuestStats quests={m.quests} questLinks={questLinks} />
 
       {/* Hitzones */}
       {m.hitzones && m.hitzones.length > 0 && (
@@ -246,6 +282,68 @@ function MonsterDetail({ monster: m }: { monster: Monster }) {
         <NotesBox target={{ type: 'monster', id: m.id, name: m.name, category: m.type, path: `/monsters/${m.id}`, icon: `${BASE}/assets/Monsters/${m.id}.png` }} />
       </Section>
     </div>
+  )
+}
+
+// ── Quest Stats (ROM-verified per-quest HP/atk/def/size + enrage multipliers) ──
+
+function sizeStr(e: MonsterQuestEntry): string {
+  return e.size_min === e.size_max ? `${e.size_min}%` : `${e.size_min}–${e.size_max}%`
+}
+
+function QuestStats({ quests, questLinks }: { quests?: Monster['quests']; questLinks: Map<string, string> }) {
+  const scale = useTextScale()
+  const navigate = useNavigate()
+  const entries = quests?.entries ?? []
+  const rage = quests?.rage
+  if (entries.length === 0 && !rage) return null
+
+  return (
+    <Section title="Quest Stats">
+      {rage && (
+        <p style={{ margin: '0 0 8px', fontSize: 12 * scale, color: 'var(--muted)' }}>
+          <span style={{ color: 'var(--text)', fontWeight: 600 }}>Enraged:</span>{' '}
+          Attack ×{rage.atk} · Defense ×{rage.def}
+        </p>
+      )}
+      {entries.length > 0 && (
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ borderCollapse: 'collapse', minWidth: 520 }}>
+            <thead>
+              <tr>
+                {['Rank', 'Stars', 'Quest', 'HP', 'Atk', 'Def', 'Size'].map(h => (
+                  <th key={h} className="tbl-header"
+                      style={{ textAlign: h === 'HP' || h === 'Atk' || h === 'Def' ? 'right' : 'left' }}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {entries.map((e, i) => {
+                const link = questLinks.get(e.quest)
+                return (
+                  <tr key={i} className="tbl-row">
+                    <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{e.rank}</td>
+                    <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{e.level}</td>
+                    <td className="tbl-cell">
+                      {link
+                        ? <button onClick={() => navigate(link)} style={{
+                            background: 'none', border: 'none', padding: 0, cursor: 'pointer',
+                            color: 'var(--accent)', textDecoration: 'underline', fontSize: 12 * scale, textAlign: 'left',
+                          }}>{e.quest}</button>
+                        : <span style={{ color: 'var(--text)' }}>{e.quest}</span>}
+                    </td>
+                    <td className="tbl-cell" style={{ textAlign: 'right' }}>{e.hp}</td>
+                    <td className="tbl-cell" style={{ textAlign: 'right' }}>{e.atk}</td>
+                    <td className="tbl-cell" style={{ textAlign: 'right' }}>{e.def}</td>
+                    <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{sizeStr(e)}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </Section>
   )
 }
 
