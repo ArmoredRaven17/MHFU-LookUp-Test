@@ -8,6 +8,7 @@ import NotesBox from '../components/NotesBox'
 import { BASE } from '../utils/assets'
 import { useTextScale } from '../theme/textScale'
 import CollapsiblePanel from '../components/CollapsiblePanel'
+import { useRankTermStyle, formatRankTerm } from '../theme/rankTerms'
 
 // Hitzone heat map — cell background per value tier (matches desktop HitzoneBrush).
 function hzBg(v: number) {
@@ -293,6 +294,7 @@ function sizeStr(e: MonsterQuestEntry): string {
 
 function QuestStats({ quests, questLinks }: { quests?: Monster['quests']; questLinks: Map<string, string> }) {
   const scale = useTextScale()
+  const rankStyle = useRankTermStyle()
   const navigate = useNavigate()
   const entries = quests?.entries ?? []
   const rage = quests?.rage
@@ -322,7 +324,7 @@ function QuestStats({ quests, questLinks }: { quests?: Monster['quests']; questL
                 const link = questLinks.get(e.quest)
                 return (
                   <tr key={i} className="tbl-row">
-                    <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{e.rank}</td>
+                    <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{formatRankTerm(e.rank, rankStyle)}</td>
                     <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{e.level}</td>
                     <td className="tbl-cell">
                       {link
@@ -362,11 +364,13 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 // ── Reward loot (side-by-side tier columns) ──────────────────────────────────
 
-// Tier keys and labels, in the order the desktop app shows them.
+// Tier keys and labels, in the order the desktop app shows them. Labels are short canonical rank
+// terms — rendered through formatRankTerm() in LootSection so they follow the Settings > Rank
+// Terminology choice.
 const TIER_ORDER: [string, string][] = [
   ['guild_low_12',      'Guild 1★~2★'],
-  ['elder_guild_low',   'Elder/Guild Low'],
-  ['nekoht_guild_high', 'Nekoht/Guild High'],
+  ['elder_guild_low',   'Elder/Low'],
+  ['nekoht_guild_high', 'Nekoht/High'],
   ['g_rank',            'G Rank'],
   ['special',           'Special'],
   ['treasure_hunt',     'Treasure Hunt'],
@@ -399,6 +403,7 @@ function buildParts(section: unknown, kind: 'list' | 'object'): LootPartData[] {
 
 function LootSection({ header, parts }: { header: string; parts: LootPartData[] }) {
   const scale = useTextScale()
+  const rankStyle = useRankTermStyle()
   if (parts.length === 0) return null
   return (
     <Section title={header}>
@@ -415,7 +420,7 @@ function LootSection({ header, parts }: { header: string; parts: LootPartData[] 
           <div style={{ display: 'flex', gap: 16, overflowX: 'auto', paddingBottom: 4 }}>
             {p.tiers.map((t, j) => (
               <div key={j} style={{ minWidth: 168 * scale }}>
-                <p style={{ margin: '0 0 2px', fontSize: 11 * scale, color: 'var(--text)' }}>{t.label}</p>
+                <p style={{ margin: '0 0 2px', fontSize: 11 * scale, color: 'var(--text)' }}>{formatRankTerm(t.label, rankStyle)}</p>
                 <table style={{ borderCollapse: 'collapse', width: '100%' }}>
                   <tbody>
                     {t.rows.map((r, k) => (

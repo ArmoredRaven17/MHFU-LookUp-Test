@@ -2,6 +2,7 @@ import type { NoteRecord } from '../hooks/useNotes'
 import type {
   Monster, Hitzone, RewardDrop, Weapon, WeaponDoc, ArmorSet, ArmorPiece, Quest,
 } from '../types'
+import { formatRankTerm } from '../theme/rankTerms'
 
 export type ExportLevel = 'detailed' | 'simple' | 'notes'
 
@@ -17,8 +18,8 @@ const HITZONE_COLS: [keyof Hitzone, string][] = [
 ]
 
 const TIER_ORDER: [string, string][] = [
-  ['guild_low_12', 'Guild 1★~2★'], ['elder_guild_low', 'Elder/Guild Low'],
-  ['nekoht_guild_high', 'Nekoht/Guild High'], ['g_rank', 'G Rank'],
+  ['guild_low_12', 'Guild 1★~2★'], ['elder_guild_low', 'Elder/Low'],
+  ['nekoht_guild_high', 'Nekoht/High'], ['g_rank', 'G Rank'],
   ['special', 'Special'], ['treasure_hunt', 'Treasure Hunt'],
 ]
 
@@ -39,7 +40,7 @@ function formatLootSection(header: string, section: unknown, kind: 'list' | 'obj
     const condition = part.condition as string | undefined
     if (condition) lines.push(`  Condition: ${condition}`)
     for (const t of tiers) {
-      lines.push(`  ${t.label}:`)
+      lines.push(`  ${formatRankTerm(t.label)}:`)
       for (const r of t.rows) lines.push(`    ${r.item} — ${r.pct}%`)
     }
   }

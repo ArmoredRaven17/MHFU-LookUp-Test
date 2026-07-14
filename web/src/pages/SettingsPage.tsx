@@ -12,6 +12,10 @@ import {
 import { getTabIcons, setTabIcon, resetTabIcons } from '../theme/tabIcons'
 import { SCALE_PRESETS, getTextScale, setTextScale, resetTextScale, useTextScale } from '../theme/textScale'
 import { buildIconCatalog, describeIconValue, resolveIconSrc, type IconEntry } from '../theme/iconCatalog'
+import {
+  RANK_TERM_STYLES, getRankTermStyle, setRankTermStyle, resetRankTermStyle,
+  type RankTermStyle,
+} from '../theme/rankTerms'
 
 const TABS = NAV
 
@@ -32,6 +36,7 @@ export default function SettingsPage() {
   const [icon, setIconState] = useState(getIcon())
   const [textScale, setTextScaleState] = useState(getTextScale())
   const [tabIcons, setTabIconsState] = useState<Record<string, string>>(getTabIcons())
+  const [rankTermStyle, setRankTermStyleState] = useState<RankTermStyle>(getRankTermStyle())
 
   useEffect(() => { loadMonsters().then(m => setMonsters([...m].sort((a, b) => a.name.localeCompare(b.name)))) }, [])
   useEffect(() => { loadItems().then(setItems) }, [])
@@ -48,10 +53,11 @@ export default function SettingsPage() {
   const chooseTabIcon = (tag: string, id: string) => {
     setTabIcon(tag, id); setTabIconsState(getTabIcons())
   }
+  const chooseRankTermStyle = (value: string) => { setRankTermStyle(value as RankTermStyle); setRankTermStyleState(value as RankTermStyle) }
   const restore = () => {
-    resetAppearance(); resetTabIcons(); resetTextScale()
+    resetAppearance(); resetTabIcons(); resetTextScale(); resetRankTermStyle()
     setSurfaceState(getSurface()); setAccentState(getAccent()); setIconState(getIcon()); setTabIconsState({})
-    setTextScaleState(getTextScale())
+    setTextScaleState(getTextScale()); setRankTermStyleState(getRankTermStyle())
   }
 
   const effectiveTabIcon = (tag: string) => tabIcons[tag] ?? TABS.find(t => t.path === tag)!.icon
@@ -93,6 +99,16 @@ export default function SettingsPage() {
           <Dropdown value={accentSelectValue} onChange={chooseAccent} options={accentOptions} />
         </div>
         <Hint>Colour and accent apply immediately and are remembered on this device.</Hint>
+
+        {/* ── Rank Terminology ── */}
+        <SectionTitle style={{ marginTop: 28 }}>Rank Terminology</SectionTitle>
+        <Label>Quest &amp; reward rank names</Label>
+        <Dropdown value={rankTermStyle} onChange={chooseRankTermStyle}
+          options={RANK_TERM_STYLES.map(s => ({ value: s.value, label: s.label }))} />
+        <Hint>
+          Changes how Low/High Rank Village &amp; Guild tiers are labelled across Quests, Monsters, and Items —
+          e.g. "Elder" vs "Low Rank Village", "Nekoht" vs "High Rank Village". (Web-only setting — no desktop equivalent.)
+        </Hint>
 
         {/* ── Tab Icons ── */}
         <SectionTitle style={{ marginTop: 28 }}>Tab Icons</SectionTitle>

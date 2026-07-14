@@ -9,6 +9,7 @@ import { useItemSources, normName, type GatherSource, type MonsterSource } from 
 import { useTextScale } from '../theme/textScale'
 import CollapsiblePanel from '../components/CollapsiblePanel'
 import { makeComboIconResolver, pctColor } from '../utils/comboIcons'
+import { useRankTermStyle, formatRankTerm } from '../theme/rankTerms'
 
 // Item-master rows that are actually Treasure-Hunt items (shown in the Treasures tab instead).
 const TREASURE_ITEMS = new Set([
@@ -130,6 +131,7 @@ function ItemDetail({ item: it, gather, monsters, treasure, combos, resolveCombo
   combos: Combo[]; resolveComboIcon: (name: string) => string
 }) {
   const scale = useTextScale()
+  const rankStyle = useRankTermStyle()
   const navigate = useNavigate()
   const comboIconUrl = (name: string) => { const ic = resolveComboIcon(name); return ic ? `${BASE}/assets/Items/${ic}.png` : null }
   return (
@@ -197,7 +199,7 @@ function ItemDetail({ item: it, gather, monsters, treasure, combos, resolveCombo
                     )}
                   </td>
                   <td className="tbl-cell">{m.source}</td>
-                  <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{m.rank}</td>
+                  <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{formatRankTerm(m.rank, rankStyle)}</td>
                   <td className="tbl-cell" style={{ textAlign: 'right' }}>{m.rate}</td>
                 </tr>
               ))}

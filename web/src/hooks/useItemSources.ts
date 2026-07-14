@@ -48,9 +48,11 @@ function buildGathered(areas: GatheringArea[]): { index: Map<string, GatherSourc
 }
 
 // ── Monster-source index (reverse of the monster loot tables) ────────────────
+// Labels are short canonical rank terms — rendered through formatRankTerm() at the consuming
+// component so they follow the Settings > Rank Terminology choice.
 const TIERS: [string, string][] = [
-  ['guild_low_12', 'Guild 1★~2★'], ['elder_guild_low', 'Elder/Guild Low'],
-  ['nekoht_guild_high', 'Nekoht/Guild High'], ['g_rank', 'G Rank'],
+  ['guild_low_12', 'Guild 1★~2★'], ['elder_guild_low', 'Elder/Low'],
+  ['nekoht_guild_high', 'Nekoht/High'], ['g_rank', 'G Rank'],
   ['special', 'Special'], ['treasure_hunt', 'Treasure Hunt'],
 ]
 const methodOrder = (m: string) => (m === 'Carve' ? 0 : m === 'Shiny' ? 1 : m === 'Capture' ? 2 : m === 'Break' ? 3 : 4)
