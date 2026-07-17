@@ -3,7 +3,7 @@ import type {
   Decoration, QuestCategory, GatheringArea, Combo,
   KitchenData, TrenyaItem, PokkeItem, GrannyItem, VeggieItem,
   ComradeSection, ComradeWeapon, ComradeSkill, ComradeTemperament,
-  Award, Treasure,
+  Award, Treasure, RewardDrop,
 } from '../types'
 
 const cache = new Map<string, unknown>()
@@ -27,6 +27,8 @@ export const loadArmorSets   = () => load<ArmorSet[]>('armor_sets.json')
 export const loadSkills      = () => load<Skill[]>('armor_skills.json')
 export const loadDecorations = () => load<Decoration[]>('decorations.json')
 export const loadQuests      = () => load<QuestCategory[]>('quests.json')
+// ROM-extracted quest reward tables (f0076): per quest name, Reward A (parts) / Reward B (bonus) with %.
+export const loadQuestRewards = () => load<Record<string, { a?: RewardDrop[]; b?: RewardDrop[] }>>('quest_rewards.json')
 export const loadGathering   = () => load<GatheringArea[]>('gathering.json')
 export const loadCombos      = () => load<Combo[]>('combos.json')
 export const loadTreasures   = () => load<Treasure[]>('treasures.json')

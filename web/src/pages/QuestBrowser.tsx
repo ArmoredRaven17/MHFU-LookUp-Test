@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { loadQuests, loadMonsters, loadItems } from '../data/loaders'
-import type { Quest, QuestCategory, QuestRank, Monster, MonsterQuestEntry, Item, QuestLoadout } from '../types'
+import { loadQuests, loadMonsters, loadItems, loadQuestRewards } from '../data/loaders'
+import type { Quest, QuestCategory, QuestRank, Monster, MonsterQuestEntry, Item, QuestLoadout, RewardDrop } from '../types'
 import { BASE } from '../utils/assets'
 import { locationIconUrl, locationColor } from '../utils/location'
 import BookmarkButton from '../components/BookmarkButton'
@@ -11,6 +11,14 @@ import { useTextScale } from '../theme/textScale'
 import CollapsiblePanel from '../components/CollapsiblePanel'
 
 const cleanMonster = (n: string) => n.replace(/[?!*]+\s*$/, '').trim()
+
+// Quest text is kept exactly as it appears in the ROM (e.g. some quests' monster lists say "Ash
+// Lao-Shan Lung" for Ashen Lao-Shan Lung) — the raw text is never altered, only used to resolve
+// which monster to link/icon. Mirrors desktop's QuestViewModel.NameAliases / MaterialIndex.MonsterAliases.
+const MONSTER_NAME_ALIASES: Record<string, string> = {
+  'ash lao-shan lung': 'ashen lao-shan lung',
+}
+const resolveMonsterName = (cleanedLower: string) => MONSTER_NAME_ALIASES[cleanedLower] ?? cleanedLower
 
 // "Great Forest (Day)" → { location, timeOfDay }.
 function splitArea(area: string) {
@@ -37,6 +45,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
   const [monsterId, setMonsterId] = useState<Map<string, string>>(new Map())
   const [monsterByName, setMonsterByName] = useState<Map<string, Monster>>(new Map())
   const [itemsByLen, setItemsByLen] = useState<{ name: string; icon: string }[]>([])
+  const [questRewards, setQuestRewards] = useState<Record<string, { a?: RewardDrop[]; b?: RewardDrop[] }>>({})
 
   const slugs = useMemo(() => categoryOrder.map(c => c[0]), [categoryOrder])
   const defaultSlug = slugs[0]
@@ -54,10 +63,11 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
     loadItems().then((items: Item[]) => setItemsByLen(
       items.filter(i => i.icon).map(i => ({ name: i.name, icon: i.icon })).sort((a, b) => b.name.length - a.name.length)
     ))
+    loadQuestRewards().then(setQuestRewards)
   }, [slugs]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const monIcon = (name: string) => {
-    const mid = monsterId.get(cleanMonster(name).toLowerCase())
+    const mid = monsterId.get(resolveMonsterName(cleanMonster(name).toLowerCase()))
     return mid ? `${BASE}/assets/Monsters/${mid}.png` : null
   }
 
@@ -162,7 +172,7 @@ export default function QuestBrowser({ routeBase, categoryOrder, training }: {
         {!selected
           ? <p style={{ color: 'var(--muted)', marginTop: 16, fontSize: 13 * scale }}>Select a quest.</p>
           : <QuestDetail quest={selected} slug={catSlug} rank={selectedWithRank?.rank} icons={targetIcons(selected)} training={training}
-                         path={questPath(catSlug, selected.name)} monsterByName={monsterByName} />
+                         path={questPath(catSlug, selected.name)} monsterByName={monsterByName} romRewards={questRewards[selected.name]} />
         }
       </div>
     </div>
@@ -178,9 +188,10 @@ function findQuestEntry(mon: Monster, questName: string, expectedLevel: string):
   return es.find(e => e.level === expectedLevel) ?? es[0]
 }
 
-function QuestDetail({ quest: q, slug, rank, icons, training, path, monsterByName }: {
+function QuestDetail({ quest: q, slug, rank, icons, training, path, monsterByName, romRewards }: {
   quest: Quest; slug: string; rank?: QuestRank; icons: string[]; training: boolean; path: string
   monsterByName: Map<string, Monster>
+  romRewards?: { a?: RewardDrop[]; b?: RewardDrop[] }
 }) {
   const scale = useTextScale()
   const navigate = useNavigate()
@@ -239,7 +250,7 @@ function QuestDetail({ quest: q, slug, rank, icons, training, path, monsterByNam
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             {q.monsters.map((raw, i) => {
               const name = cleanMonster(raw)
-              const mon = monsterByName.get(name.toLowerCase())
+              const mon = monsterByName.get(resolveMonsterName(name.toLowerCase()))
               const entry = mon ? findQuestEntry(mon, q.name, expectedLevel) : undefined
               const rage = mon?.quests?.rage
               return (
@@ -289,6 +300,15 @@ function QuestDetail({ quest: q, slug, rank, icons, training, path, monsterByNam
       {q.rewards.length > 0 && (
         <Section title="Rewards">
           <MaterialList csv={q.rewards.join(', ')} vertical />
+        </Section>
+      )}
+
+      {romRewards && ((romRewards.a && romRewards.a.length > 0) || (romRewards.b && romRewards.b.length > 0)) && (
+        <Section title="Reward Rates">
+          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+            {romRewards.a && romRewards.a.length > 0 && <RewardRateTable label="Reward A" rows={romRewards.a} />}
+            {romRewards.b && romRewards.b.length > 0 && <RewardRateTable label="Reward B (Bonus)" rows={romRewards.b} />}
+          </div>
         </Section>
       )}
 
@@ -355,6 +375,26 @@ function LoadoutCard({ loadout: lo }: { loadout: QuestLoadout }) {
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+// ROM-extracted quest reward table (Reward A parts / Reward B bonus) with drop %.
+function RewardRateTable({ label, rows }: { label: string; rows: RewardDrop[] }) {
+  const scale = useTextScale()
+  return (
+    <div style={{ minWidth: 200 * scale }}>
+      <p style={{ margin: '0 0 3px', fontSize: 12 * scale, color: 'var(--text)', fontWeight: 600 }}>{label}</p>
+      <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i}>
+              <td style={{ fontSize: 12 * scale, color: 'var(--text)', padding: '1px 10px 1px 0' }}>{r.item}</td>
+              <td style={{ fontSize: 12 * scale, color: 'var(--muted)', textAlign: 'right', padding: '1px 0' }}>{r.pct}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
 function QuestBadge({ label, bg, big }: { label: string; bg: string; big?: boolean }) {
   const scale = useTextScale()
