@@ -27,26 +27,81 @@ const QUEST_ROUTE_BY_SLUG: Record<string, string> = {
   training_basic: '/training', training_weapon_mastery: '/training', training_battle: '/training',
   training_special: '/training', training_g_lv: '/training', training_group: '/training',
 }
-// Build a quest-name → deep-link path map from the loaded quest categories.
-// Main categories iterate first (in quests.json), so they win over training on any name clash.
 const TREASURE_QUEST_NAMES = [
   'Treasure in the Mountains!', 'Treasure in the Jungle!', 'Treasure in the Desert!', 'Treasure in the Swamp!',
   'Treasure in the Hills!', 'Treasure in the Lava!', 'Treasure in the Grt Forest!',
 ]
-function buildQuestLinks(cats: QuestCategory[]): Map<string, string> {
-  const m = new Map<string, string>()
-  for (const c of cats) {
-    const base = QUEST_ROUTE_BY_SLUG[c.slug]
-    if (!base) continue
-    for (const rk of c.ranks) for (const q of rk.quests) {
-      if (!m.has(q.name)) m.set(q.name, `${base}/${encodeURIComponent(`${c.slug}::${q.name}`)}`)
+// A monster's Quest Stats name and the quest catalog's name are two independently-sourced ROM
+// strings that occasionally spell/abbreviate/punctuate the same quest differently — a dropped
+// word ("Snd" for "Sand"), an abbreviation ("D." for "Daimyo"), a typo ("Rackless" for
+// "Reckless"), a missing "!", or even a variant unique to one specific rank tier ("Emperor of
+// Flame" everywhere except Guild Low Rank's "Emperor of Flames"). Neither side is ever edited —
+// this only widens the set of names tried when resolving a link, in order.
+const QUEST_NAME_ALIASES: Record<string, string[]> = {
+  'Sandstorm Summoner': ['Sndstorm Summoner'],
+  'Plum D.Hermitaur Training': ['Plum Daimyo Hermitaur Training'],
+  'Emperor of Flame': ['Emperor of Flames'],
+  'Reckless Bulldrome Hunter': ['Rackless Bulldrome Hunter'],
+  "The Empress' Blazing Throne": ["The Empress's Blazing Throne"],
+  'A Sun with Fangs': ['The Sun with Fangs'],
+  'Slay the Great Kut-Ku': ['Slay the Great Kut-Ku!'],
+}
+
+// A monster's quest-stats `rank` → the exact category slug(s) it can come from. Elder/Nekoht/
+// Low/High/G each map 1:1 to a single main category; School spans all 6 Training categories (no
+// quest name repeats across those, so a plain name search there is unambiguous). Event/Challenge
+// quests aren't in the quest browser at all — left unmapped, so they render as plain text.
+const RANK_TO_SLUGS: Record<string, string[]> = {
+  Elder: ['village_low_rank_elder'],
+  Nekoht: ['village_high_rank_nekoht'],
+  Low: ['guild_low_rank'],
+  High: ['guild_high_rank'],
+  G: ['guild_g_rank'],
+  School: ['training_basic', 'training_weapon_mastery', 'training_battle', 'training_special', 'training_g_lv', 'training_group'],
+}
+
+// "9★" → 9, "G2★" → 2 (the leading G is redundant once the category is already picked via RANK_TO_SLUGS).
+function parseStars(level: string): number | null {
+  const m = level.match(/^(?:G)?(\d+)★$/)
+  return m ? Number(m[1]) : null
+}
+
+// Quest names are reused constantly — 88 names span multiple categories, and a dozen more repeat
+// within a single category at different star tiers (e.g. "Absolute Power" is a Guild G, Guild Low,
+// AND Village Low quest). A name-only lookup would always resolve to whichever one happens to load
+// first, which is very often the wrong quest. Resolve using the monster's own (rank, level) to pick
+// the exact instance; only fall back to a star-agnostic search if that comes up empty.
+function resolveQuestLink(entry: MonsterQuestEntry, categories: QuestCategory[]): string | undefined {
+  if (!entry.quest) return undefined
+  const candidates = [entry.quest, ...(QUEST_NAME_ALIASES[entry.quest] ?? [])]
+
+  if (entry.rank === 'Treasure') {
+    const hit = candidates.find(n => TREASURE_QUEST_NAMES.includes(n))
+    if (hit) return `/treasures/${encodeURIComponent(`q:${hit}`)}`
+  }
+
+  const slugs = RANK_TO_SLUGS[entry.rank]
+  if (!slugs) return undefined   // Event / Challenge / unrecognised — no browsable quest page
+
+  const stars = parseStars(entry.level)
+  const cats = slugs.map(s => categories.find(c => c.slug === s)).filter((c): c is QuestCategory => !!c)
+
+  const findIn = (enforceStars: boolean) => {
+    for (const cat of cats) {
+      const base = QUEST_ROUTE_BY_SLUG[cat.slug]
+      const isTraining = cat.slug.startsWith('training')
+      for (const rank of cat.ranks) {
+        if (enforceStars && !isTraining && stars !== null && rank.stars !== stars) continue
+        for (const cand of candidates) {
+          const q = rank.quests.find(q => q.name === cand)
+          if (q) return `${base}/${encodeURIComponent(`${cat.slug}::${q.name}`)}`
+        }
+      }
     }
+    return undefined
   }
-  // Treasure Hunt quests live on the Treasures tab (Quests mode), not the quest browser.
-  for (const name of TREASURE_QUEST_NAMES) {
-    if (!m.has(name)) m.set(name, `/treasures/${encodeURIComponent(`q:${name}`)}`)
-  }
-  return m
+
+  return findIn(true) ?? findIn(false)
 }
 
 export default function MonstersPage() {
@@ -55,13 +110,13 @@ export default function MonstersPage() {
   const navigate = useNavigate()
   const [monsters, setMonsters] = useState<Monster[]>([])
   const [order, setOrder] = useState<Record<string, string[]>>({})
-  const [questLinks, setQuestLinks] = useState<Map<string, string>>(new Map())
+  const [questCategories, setQuestCategories] = useState<QuestCategory[]>([])
   const [search, setSearch] = useState('')
 
   useEffect(() => {
     loadMonsters().then(setMonsters)
     loadMonsterOrder().then(setOrder)
-    loadQuests().then(cats => setQuestLinks(buildQuestLinks(cats)))
+    loadQuests().then(setQuestCategories)
   }, [])
 
   const byId = useMemo(() => new Map(monsters.map(m => [m.id, m])), [monsters])
@@ -141,14 +196,14 @@ export default function MonstersPage() {
         {!selected ? (
           <p className="text-muted" style={{ marginTop: 16 }}>Select a monster from the list.</p>
         ) : (
-          <MonsterDetail monster={selected} questLinks={questLinks} />
+          <MonsterDetail monster={selected} questCategories={questCategories} />
         )}
       </div>
     </div>
   )
 }
 
-function MonsterDetail({ monster: m, questLinks }: { monster: Monster; questLinks: Map<string, string> }) {
+function MonsterDetail({ monster: m, questCategories }: { monster: Monster; questCategories: QuestCategory[] }) {
   const scale = useTextScale()
   return (
     <div style={{ maxWidth: 900 }}>
@@ -164,7 +219,7 @@ function MonsterDetail({ monster: m, questLinks }: { monster: Monster; questLink
       </div>
 
       {/* Quest Stats — ROM-verified per-quest HP/atk/def/size + enrage multipliers */}
-      <QuestStats quests={m.quests} questLinks={questLinks} />
+      <QuestStats quests={m.quests} questCategories={questCategories} />
 
       {/* Hitzones */}
       {m.hitzones && m.hitzones.length > 0 && (
@@ -292,7 +347,7 @@ function sizeStr(e: MonsterQuestEntry): string {
   return e.size_min === e.size_max ? `${e.size_min}%` : `${e.size_min}–${e.size_max}%`
 }
 
-function QuestStats({ quests, questLinks }: { quests?: Monster['quests']; questLinks: Map<string, string> }) {
+function QuestStats({ quests, questCategories }: { quests?: Monster['quests']; questCategories: QuestCategory[] }) {
   const scale = useTextScale()
   const rankStyle = useRankTermStyle()
   const navigate = useNavigate()
@@ -321,7 +376,7 @@ function QuestStats({ quests, questLinks }: { quests?: Monster['quests']; questL
             </thead>
             <tbody>
               {entries.map((e, i) => {
-                const link = questLinks.get(e.quest)
+                const link = resolveQuestLink(e, questCategories)
                 return (
                   <tr key={i} className="tbl-row">
                     <td className="tbl-cell" style={{ color: 'var(--muted)' }}>{formatRankTerm(e.rank, rankStyle)}</td>
