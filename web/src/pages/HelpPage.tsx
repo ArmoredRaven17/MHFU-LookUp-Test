@@ -174,8 +174,8 @@ export default function HelpPage() {
                onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />
         </div>
         <p style={{ margin: '0 auto 16px', maxWidth: 620, textAlign: 'center', fontSize: 14 * scale, color: 'var(--muted)', lineHeight: 1.5 }}>
-          MHFU LookUp is a reference for Monster Hunter Freedom Unite (MHP2G). Pick a tab on the left — many
-          have a search box at the top. Here's what each tab covers.
+          MHFU LookUp is a reference for Monster Hunter Freedom Unite. This page's content should help explain
+          each tab, use the drop down to select a specific tab to filter the info displayed below.
         </p>
 
         {/* Section jump — pick a specific tab's help instead of scrolling through all of them */}
