@@ -8,6 +8,7 @@ import NotesBox from '../components/NotesBox'
 import MaterialList from '../components/MaterialList'
 import WeaponReference from '../components/WeaponReference'
 import WeaponFilterModal from '../components/WeaponFilterModal'
+import BowCompareModal from '../components/BowCompareModal'
 import Dropdown from '../components/Dropdown'
 import { defaultWeaponFilter, isWeaponFilterActive, matchesWeaponFilter } from '../utils/weaponFilter'
 import { useTextScale } from '../theme/textScale'
@@ -381,6 +382,7 @@ export default function WeaponsPage() {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState(defaultWeaponFilter())
   const [filterOpen, setFilterOpen] = useState(false)
+  const [compareOpen, setCompareOpen] = useState(false)
   const filterActive = isWeaponFilterActive(filter)
   const flatMode = search.trim().length > 0 || filterActive
 
@@ -478,9 +480,16 @@ export default function WeaponsPage() {
                     options={TYPE_ORDER.map(t => ({ value: t, label: t, icon: typeIcon(t) }))} />
         </div>
 
-        {/* Name search */}
+        {/* Name search — typing "compare" while Weapon Type = Bow opens the Compare Bows Easter egg */}
         <div style={{ padding: '6px', borderBottom: '1px solid var(--border)' }}>
-          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search weapons…" style={{
+          <input value={search} onChange={e => {
+            if (type === 'Bow' && e.target.value.trim().toLowerCase() === 'compare') {
+              setSearch('')
+              setCompareOpen(true)
+              return
+            }
+            setSearch(e.target.value)
+          }} placeholder="Search weapons…" style={{
             width: '100%', boxSizing: 'border-box', background: 'var(--bg)', border: '1px solid var(--border)',
             borderRadius: 4, color: 'var(--text)', padding: '4px 8px', fontSize: 12 * scale,
           }} />
@@ -533,6 +542,12 @@ export default function WeaponsPage() {
         <WeaponFilterModal type={type} current={filter}
           onApply={f => { setFilter(f); setFilterOpen(false) }}
           onClose={() => setFilterOpen(false)} />
+      )}
+
+      {compareOpen && (
+        <BowCompareModal bows={weapons.filter(w => w.type === 'Bow')}
+          preselectId={selected?.type === 'Bow' ? selected.id : undefined}
+          onClose={() => setCompareOpen(false)} />
       )}
     </div>
   )
