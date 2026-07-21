@@ -13,6 +13,7 @@ import Dropdown from '../components/Dropdown'
 import { defaultWeaponFilter, isWeaponFilterActive, matchesWeaponFilter } from '../utils/weaponFilter'
 import { useTextScale } from '../theme/textScale'
 import CollapsiblePanel from '../components/CollapsiblePanel'
+import { useMadeWeapons } from '../hooks/useMadeWeapons'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -563,6 +564,7 @@ function TreeNode({ node, selectedId, collapsed, onToggle, onNavigate }: {
   onNavigate: (weaponId: string) => void
 }) {
   const scale = useTextScale()
+  const { isMade, toggle: toggleMade } = useMadeWeapons()
   const hasChildren = node.children.length > 0
   const isCollapsed = collapsed.has(node.key)
   const active = !!node.weapon && node.weapon.id === selectedId
@@ -607,6 +609,12 @@ function TreeNode({ node, selectedId, collapsed, onToggle, onNavigate }: {
         <span style={{ whiteSpace: 'nowrap', color: active ? 'var(--accent)' : 'var(--text)', ...nameStyle }}>
           {node.name}
         </span>
+        {node.weapon && (
+          <input type="checkbox" checked={isMade(node.weapon.id)} title="Made / Upgraded"
+            onClick={e => e.stopPropagation()}
+            onChange={() => toggleMade(node.weapon!.id)}
+            style={{ marginLeft: 4, flexShrink: 0, cursor: 'pointer' }} />
+        )}
       </div>
       {hasChildren && !isCollapsed && node.children.map(c => (
         <TreeNode key={c.key} node={c} selectedId={selectedId} collapsed={collapsed} onToggle={onToggle} onNavigate={onNavigate} />
